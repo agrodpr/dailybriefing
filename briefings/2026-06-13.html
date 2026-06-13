@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 13, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F;
+  --surface:#13131A;
+  --surface-2:#1C1C26;
+  --text:#EDEAE2;
+  --text-muted:#8B8A84;
+  --cyan:#00B4D8;
+  --orange:#E8823A;
+  --red:#F87171;
+  --purple:#A78BFA;
+  --pink:#F472B6;
+  --green:#4ADE80;
+  --blue:#60A5FA;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:64px 24px 32px;
+}
+
+.masthead{
+  text-align:center;
+}
+
+.masthead h1{
+  font-family:'Fraunces',serif;
+  font-size:80px;
+  font-weight:600;
+  letter-spacing:-2px;
+  color:var(--text);
+}
+
+.tagline{
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  color:var(--text-muted);
+  margin-top:16px;
+}
+
+hr{
+  border:none;
+  border-top:1px solid var(--surface-2);
+  max-width:860px;
+  margin:40px auto;
+}
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:24px;
+  background:var(--surface);
+  padding:12px 32px;
+  border-radius:40px;
+  max-width:fit-content;
+  margin:0 auto 48px;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--text-muted);
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:inline-block;
+}
+
+.editors-note{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:24px;
+  line-height:1.5;
+  max-width:700px;
+  text-align:center;
+  color:var(--text);
+  margin:48px auto;
+}
+
+.stories{
+  max-width:860px;
+  margin:0 auto;
+}
+
+.card{
+  background:var(--surface);
+  border-left:3px solid var(--accent);
+  padding:28px 32px;
+  border-radius:8px;
+  margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+
+.card:hover{
+  filter:brightness(1.3);
+}
+
+.chip-row{
+  display:flex;
+  gap:8px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  display:inline-block;
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-weight:600;
+  padding:4px 12px;
+  border-radius:40px;
+  background:var(--accent);
+  color:var(--bg);
+}
+
+.chip.radar{
+  background:var(--orange);
+  color:var(--bg);
+}
+
+.headline{
+  font-family:'Fraunces',serif;
+  font-size:32px;
+  font-weight:600;
+  line-height:1.25;
+  color:var(--text);
+  margin-bottom:12px;
+}
+
+.meta{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  color:var(--text-muted);
+  margin-bottom:16px;
+}
+
+.meta a{
+  color:var(--text-muted);
+  text-decoration:none;
+  border-bottom:1px solid var(--surface-2);
+}
+
+.meta a:hover{
+  color:var(--text);
+}
+
+.summary{
+  font-family:'Inter',sans-serif;
+  font-size:17px;
+  line-height:1.7;
+  color:var(--text);
+}
+
+.skip-section{
+  max-width:860px;
+  margin:48px auto 0;
+}
+
+.skip-title{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--text-muted);
+  margin-bottom:16px;
+}
+
+.skip-list{
+  list-style:none;
+}
+
+.skip-list li{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:var(--text-muted);
+  line-height:1.8;
+}
+
+footer{
+  max-width:860px;
+  margin:0 auto;
+  text-align:center;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  color:var(--text-muted);
+  padding-top:48px;
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Saturday, June 13, 2026</div>
+</div>
+
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<div class="editors-note">
+  The day's biggest story is geopolitical, not technical: a US government directive forced Anthropic to pull Claude Fable 5 and Mythos 5 worldwide, rippling through the AWS and Azure listings that went live for both models just days earlier. On the infrastructure side, AWS and Azure are racing to rebuild the network and compute layer for agentic workloads, with new datacenter topologies, Graviton5 silicon, and Cobalt 200 VMs. Meanwhile attackers aren't waiting on the news cycle &mdash; an actively exploited Oracle PeopleSoft zero-day, a CISA emergency patch order for Ivanti, and a healthcare breach at Novo Nordisk all demand attention today.
+</div>
+
+<div class="stories">
+
+  <!-- HN 1 -->
+  <div class="card" style="--accent:var(--cyan)">
+    <div class="chip-row">
+      <span class="chip">Hacker News</span>
+    </div>
+    <div class="headline">Statement on US government directive to suspend access to Fable 5 and Mythos 5</div>
+    <div class="meta">2,643 pts · 1,921 comments &nbsp;·&nbsp; <a href="https://news.ycombinator.com/item?id=48511072">→ Read more</a></div>
+    <div class="summary">Anthropic confirms it received a US government directive ordering it to block foreign-national access to Claude Fable 5 and Mythos 5, and has suspended both models worldwide while it complies. The company says it disputes the government's rationale, calling the cited jailbreak narrow and noting the underlying capability is already available elsewhere. The move has triggered a scramble across AWS Bedrock and Microsoft Foundry, where both models had only just gone live.</div>
+  </div>
+
+  <!-- HN 2 -->
+  <div class="card" style="--accent:var(--cyan)">
+    <div class="chip-row">
+      <span class="chip">Hacker News</span>
+    </div>
+    <div class="headline">Open source AI must win</div>
+    <div class="meta">1,165 pts · 368 comments &nbsp;·&nbsp; <a href="https://news.ycombinator.com/item?id=48511908">→ Read more</a></div>
+    <div class="summary">A widely-discussed essay argues that open-weight AI models are essential to avoid concentrating power over frontier AI in a handful of labs and governments. The piece landed the same week a government directive forced Anthropic to pull two flagship models, fueling debate over who ultimately controls access to frontier capability. It's become one of the most-commented HN threads of the year.</div>
+  </div>
+
+  <!-- HN 3 -->
+  <div class="card" style="--accent:var(--cyan)">
+    <div class="chip-row">
+      <span class="chip">Hacker News</span>
+    </div>
+    <div class="headline">CRISPR tech selectively shreds cancer cells, including "undruggable" cancers</div>
+    <div class="meta">866 pts · 196 comments &nbsp;·&nbsp; <a href="https://news.ycombinator.com/item?id=48505231">→ Read more</a></div>
+    <div class="summary">Researchers at the Innovative Genomics Institute describe a CRISPR-based technique that selectively destroys cancer cells while leaving healthy tissue intact, including tumor types previously considered undruggable. The approach exploits genetic differences unique to cancer cells to trigger targeted self-destruction. Early results point toward therapies for cancers that have resisted conventional drug design.</div>
+  </div>
+
+  <!-- BC 1 -->
+  <div class="card" style="--accent:var(--orange)">
+    <div class="chip-row">
+      <span class="chip">BleepingComputer</span>
+      <span class="chip radar">⚡ On Your Radar</span>
+    </div>
+    <div class="headline">Oracle mitigates PeopleSoft zero-day exploited in data theft attacks</div>
+    <div class="meta">June 11 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/oracle-mitigates-peoplesoft-zero-day-exploited-in-data-theft-attacks/">→ Read more</a></div>
+    <div class="summary">Oracle has issued mitigations for CVE-2026-35273, a critical unauthenticated remote code execution flaw in PeopleSoft Suite that's being actively exploited. The ShinyHunters group has used the zero-day to steal data, with a disproportionate impact on US higher-education institutions. Organizations running PeopleSoft should apply Oracle's mitigation immediately given confirmed active exploitation.</div>
+  </div>
+
+  <!-- BC 2 -->
+  <div class="card" style="--accent:var(--orange)">
+    <div class="chip-row">
+      <span class="chip">BleepingComputer</span>
+      <span class="chip radar">⚡ On Your Radar</span>
+    </div>
+    <div class="headline">CISA orders feds to patch actively exploited Ivanti flaw by Sunday</div>
+    <div class="meta">June 12 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/cisa-gives-feds-3-days-to-patch-ivanti-flaw-exploited-in-attacks/">→ Read more</a></div>
+    <div class="summary">CISA issued Binding Operational Directive 26-04, giving federal agencies just three days to patch a max-severity Ivanti Sentry flaw that's already being exploited. Attackers reportedly moved within 24 hours of disclosure, suggesting vulnerable Ivanti deployments were pre-mapped ahead of time. The compressed timeline signals CISA's new posture toward AI-accelerated exploit development.</div>
+  </div>
+
+  <!-- BC 3 -->
+  <div class="card" style="--accent:var(--orange)">
+    <div class="chip-row">
+      <span class="chip">BleepingComputer</span>
+      <span class="chip radar">⚡ On Your Radar</span>
+    </div>
+    <div class="headline">Pharma giant Novo Nordisk discloses breach of clinical trials data</div>
+    <div class="meta">June 12 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/pharmaceutical-giant-novo-nordisk-discloses-security-breach/">→ Read more</a></div>
+    <div class="summary">Novo Nordisk, the world's largest insulin producer, disclosed a breach affecting patient data from some of its clinical trials. The exposed records were reportedly pseudonymized, but the incident still touches sensitive health research data tied to an active drug pipeline. The disclosure lands the same week the UK approved the company's Wegovy pill.</div>
+  </div>
+
+  <!-- BC 4 -->
+  <div class="card" style="--accent:var(--orange)">
+    <div class="chip-row">
+      <span class="chip">BleepingComputer</span>
+    </div>
+    <div class="headline">Over 400 Arch Linux packages compromised to push rootkit, infostealer</div>
+    <div class="meta">June 12 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/over-400-arch-linux-packages-compromised-to-push-rootkit-infostealer/">→ Read more</a></div>
+    <div class="summary">More than 400 packages in the Arch User Repository were found distributing a Linux rootkit bundled with infostealer malware targeting credentials and access tokens. The compromise highlights the ongoing risk of community-maintained package repositories as a supply-chain vector. Users who installed AUR packages recently should audit for the rootkit and rotate any exposed credentials.</div>
+  </div>
+
+  <!-- REG 1 -->
+  <div class="card" style="--accent:var(--red)">
+    <div class="chip-row">
+      <span class="chip">The Register</span>
+    </div>
+    <div class="headline">AWS rolls the dice for faster, more efficient networking</div>
+    <div class="meta">June 13 &nbsp;·&nbsp; <a href="https://www.theregister.com/networks/2026/06/13/aws-rolls-the-dice-for-faster-more-efficient-networking/5253248">→ Read more</a></div>
+    <div class="summary">AWS has built a new datacenter networking topology called Resilient Network Graphs, based on random graph theory rather than traditional hierarchical designs. The architecture is up to a third faster and up to 40% more energy-efficient than AWS's existing hierarchical networks. AWS VP Matt Rehder says the random-graph approach removes the bottlenecks created by hierarchical "chain of command" routing.</div>
+  </div>
+
+  <!-- REG 2 -->
+  <div class="card" style="--accent:var(--red)">
+    <div class="chip-row">
+      <span class="chip">The Register</span>
+      <span class="chip radar">⚡ On Your Radar</span>
+    </div>
+    <div class="headline">NHS patients can't opt out of Palantir's data platform – but their hospital can</div>
+    <div class="meta">June 13 &nbsp;·&nbsp; <a href="https://www.theregister.com/databases/2026/06/13/nhs-patients-cant-opt-out-of-palantirs-data-platform-but-their-hospital-can/5254766">→ Read more</a></div>
+    <div class="summary">UK health minister Preet Kaur Gill confirmed that patients cannot opt out of having their data processed by the Palantir-built NHS Federated Data Platform, though individual NHS trusts can decline to use it. The National Data Opt-Out doesn't cover the FDP because its uses fall outside the defined "secondary use" categories like research and planning. Parliament is set to revisit the FDP's procurement contract in February 2027.</div>
+  </div>
+
+  <!-- REG 3 -->
+  <div class="card" style="--accent:var(--red)">
+    <div class="chip-row">
+      <span class="chip">The Register</span>
+    </div>
+    <div class="headline">KPMG's AI report becomes an accidental demo of AI hallucinations</div>
+    <div class="meta">June 12 &nbsp;·&nbsp; <a href="https://www.theregister.com/ai-and-ml/2026/06/12/kpmgs-ai-report-turns-into-a-demo-of-ai-hallucinations/5255029">→ Read more</a></div>
+    <div class="summary">A forensic review by GPTZero found that only 5 of 45 citations in KPMG's 2025 report on agentic AI actually matched their cited sources, with the rest mangled, misleading, or fabricated. The incident echoes last year's episode where Deloitte refunded the Australian government over AI-generated errors in a consulting report. It's a fresh data point for enterprises weighing how much to trust AI-assisted research from Big Four firms.</div>
+  </div>
+
+  <!-- DR 1 -->
+  <div class="card" style="--accent:var(--purple)">
+    <div class="chip-row">
+      <span class="chip">Dark Reading</span>
+    </div>
+    <div class="headline">Blame AI: Patch Tuesday Hits Record 206 CVEs</div>
+    <div class="meta">June 9 &nbsp;·&nbsp; <a href="https://www.darkreading.com/vulnerabilities-threats/blame-ai-patch-tuesday-record-206-cves">→ Read more</a></div>
+    <div class="summary">This month's Patch Tuesday set a record with 206 CVEs disclosed in a single cycle, and Dark Reading attributes part of the surge to AI-accelerated vulnerability discovery. The report warns that patch volumes this size could become the norm rather than the exception. Security teams should expect prioritization and triage workloads to keep climbing as AI tooling finds bugs faster than teams can remediate them.</div>
+  </div>
+
+  <!-- DR 2 -->
+  <div class="card" style="--accent:var(--purple)">
+    <div class="chip-row">
+      <span class="chip">Dark Reading</span>
+      <span class="chip radar">⚡ On Your Radar</span>
+    </div>
+    <div class="headline">Nightmare-Eclipse Drops Yet Another Microsoft Exploit, RoguePlanet</div>
+    <div class="meta">June 10 &nbsp;·&nbsp; <a href="https://www.darkreading.com/vulnerabilities-threats/nightmare-eclipse-microsoft-exploit-rogueplanet">→ Read more</a></div>
+    <div class="summary">A researcher operating as "Nightmare-Eclipse" has published a new proof-of-concept exploit, RoguePlanet, targeting a Windows Defender bug that allows full system takeover. It's the latest in an ongoing string of releases from the same researcher, who appears to be in a running feud with Microsoft. With a working PoC now public, defenders should prioritize patching affected Defender components before broader weaponization.</div>
+  </div>
+
+  <!-- DR 3 -->
+  <div class="card" style="--accent:var(--purple)">
+    <div class="chip-row">
+      <span class="chip">Dark Reading</span>
+    </div>
+    <div class="headline">Segmentation Works for OT If Operators Are Paying Attention</div>
+    <div class="meta">June 11 &nbsp;·&nbsp; <a href="https://www.darkreading.com/cybersecurity-operations/segmentation-works-for-ot-if-operators-are-paying-attention">→ Read more</a></div>
+    <div class="summary">Network segmentation remains one of the most effective defenses for operational technology environments, but even a well-designed strategy degrades without constant oversight. The piece frames OT security as an ongoing operational practice rather than a one-time architecture decision. Organizations running industrial control systems should audit whether segmentation rules are still enforced as originally designed.</div>
+  </div>
+
+  <!-- ENG 1 -->
+  <div class="card" style="--accent:var(--pink)">
+    <div class="chip-row">
+      <span class="chip">Engadget</span>
+    </div>
+    <div class="headline">OpenAI is facing investigation from a group of state attorneys general</div>
+    <div class="meta">June 13 &nbsp;·&nbsp; <a href="https://www.engadget.com/2193666/openai-investigation-state-attorneys-general/">→ Read more</a></div>
+    <div class="summary">A coalition of US state attorneys general is requesting documents from OpenAI about its corporate activities, adding to the regulatory pressure facing major AI labs. The inquiry lands the same week a separate US government directive forced Anthropic to suspend two of its models. Together, the two stories point to intensifying government scrutiny of how frontier AI companies operate and who can access their models.</div>
+  </div>
+
+  <!-- ENG 2 -->
+  <div class="card" style="--accent:var(--pink)">
+    <div class="chip-row">
+      <span class="chip">Engadget</span>
+    </div>
+    <div class="headline">Facebook and Instagram appear to be down</div>
+    <div class="meta">June 12 &nbsp;·&nbsp; <a href="https://www.engadget.com/2193006/facebook-and-instagram-appear-to-down/">→ Read more</a></div>
+    <div class="summary">Facebook, Instagram, and WhatsApp went down for a large number of users, with reports spanning multiple regions. Meta had not published a cause or incident report at time of writing. It's the latest in a string of high-profile outages at major platforms this year, renewing questions about cascading failures in centralized social infrastructure.</div>
+  </div>
+
+  <!-- AWS 1 -->
+  <div class="card" style="--accent:var(--green)">
+    <div class="chip-row">
+      <span class="chip">AWS</span>
+    </div>
+    <div class="headline">Now available: Amazon EC2 M9g and M9gd instances powered by AWS Graviton5</div>
+    <div class="meta">June 10 &nbsp;·&nbsp; <a href="https://aws.amazon.com/blogs/aws/now-available-amazon-ec2-m9g-and-m9gd-instances-powered-by-new-aws-graviton5-processors/">→ Read more</a></div>
+    <div class="summary">AWS launched EC2 M9g and M9gd instances built on its new Graviton5 processors, which the company calls its most powerful and energy-efficient chip yet. Graviton5 delivers up to 25% better compute performance than Graviton4-based instances. For workloads already running on Graviton4, this is a straightforward upgrade path for both performance and energy-efficiency gains.</div>
+  </div>
+
+  <!-- AWS 2 -->
+  <div class="card" style="--accent:var(--green)">
+    <div class="chip-row">
+      <span class="chip">AWS</span>
+    </div>
+    <div class="headline">Improve your application resilience with Amazon Cognito multi-Region replication</div>
+    <div class="meta">June 3 &nbsp;·&nbsp; <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/">→ Read more</a></div>
+    <div class="summary">Amazon Cognito now supports multi-Region replication, automatically syncing user data, credentials, and pool configurations to a secondary AWS Region. This enables uninterrupted authentication during regional failovers without forcing password resets, and adds support for customer-managed KMS keys for encryption control. For teams running identity infrastructure on Cognito, this closes a major gap in disaster-recovery planning.</div>
+  </div>
+
+  <!-- AWS 3 -->
+  <div class="card" style="--accent:var(--green)">
+    <div class="chip-row">
+      <span class="chip">AWS</span>
+    </div>
+    <div class="headline">Introducing the next generation of AWS Resilience Hub for generative AI-based SRE resilience</div>
+    <div class="meta">May 28 &nbsp;·&nbsp; <a href="https://aws.amazon.com/blogs/aws/introducing-the-next-generation-of-aws-resilience-hub-for-generative-ai-based-sre-resilience-journey/">→ Read more</a></div>
+    <div class="summary">AWS overhauled Resilience Hub with a new application model, automated dependency discovery, and generative-AI-powered failure mode analysis. The update adds modular resilience policies and organization-wide reporting for assessing resilience posture at scale. It's part of AWS's broader push to bring generative AI into operational tooling, not just application development.</div>
+  </div>
+
+  <!-- AZ 1 -->
+  <div class="card" style="--accent:var(--blue)">
+    <div class="chip-row">
+      <span class="chip">Azure</span>
+    </div>
+    <div class="headline">New Azure Cobalt 200 VMs deliver 50% performance improvement for agentic AI workloads</div>
+    <div class="meta">June 2 &nbsp;·&nbsp; <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/">→ Read more</a></div>
+    <div class="summary">Microsoft opened an early-access preview for Azure Cobalt 200, its next-generation Arm-based VMs, claiming a 50% performance improvement over the prior generation. The instances are tuned for Linux-based agentic AI workloads. It's Microsoft's answer to AWS's Graviton line, continuing the industry-wide shift toward custom Arm silicon for cloud compute.</div>
+  </div>
+
+  <!-- AZ 2 -->
+  <div class="card" style="--accent:var(--blue)">
+    <div class="chip-row">
+      <span class="chip">Azure</span>
+    </div>
+    <div class="headline">Powering multi-cluster workloads with cross-cluster networking for Azure Kubernetes Fleet Manager</div>
+    <div class="meta">May 22 &nbsp;·&nbsp; <a href="https://azure.microsoft.com/en-us/blog/powering-multi-cluster-workloads-with-seamless-cross-cluster-networking-for-azure-kubernetes-fleet-manager/">→ Read more</a></div>
+    <div class="summary">Azure Kubernetes Fleet Manager now supports Cilium-based cross-cluster networking, giving teams a managed, high-performance network spanning an entire fleet of AKS clusters. This removes a common pain point in multi-cluster Kubernetes deployments, where cross-cluster service communication has typically required custom networking setups. It's a meaningful simplification for organizations running Kubernetes at scale across regions.</div>
+  </div>
+
+</div>
+
+<div class="skip-section">
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>· [Engadget] Anthropic blocks all customers' access to Fable 5 and Mythos 5 — (duplicate of lead story)</li>
+    <li>· [The Register] Novo Nordisk reports cyberattack as UK gives Wegovy pill nod — (duplicate, covered above)</li>
+    <li>· [Azure] Claude Fable 5 available today in Microsoft Foundry — (duplicate AI model news)</li>
+    <li>· [The Register] Elon Musk is now worth more than $1,000,000,000,000 — (celebrity wealth, no tech angle)</li>
+    <li>· [Engadget] DJI and Insta360 are in a patent battle over vlogging cameras — (consumer gadget patent dispute)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing · Generated 09:31 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure
+</footer>
+
+</body>
+</html>
