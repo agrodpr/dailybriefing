@@ -1,0 +1,24 @@
+{
+  "title": "Morning Briefing",
+  "updated": "2026-06-14T12:18:45Z",
+  "briefings": [
+    {
+      "date": "2026-06-14",
+      "file": "briefings/2026-06-14.html",
+      "weekday": "Sunday",
+      "label": "June 14, 2026",
+      "stories": 20,
+      "flagged": 3,
+      "note": "Anthropic's overnight lockdown of Fable 5 and Mythos 5 for foreign nationals — reportedly nudged along by Amazon's CEO in talks with US officials — is the story everyone's chewing on, from Hacker News to BleepingComputer to Engadget. On the security side, attackers wasted no time: a CVSS-10 Ivanti Sentry flaw was mass-exploited within 24 hours of disclosure, while ShinyHunters rode an Oracle PeopleSoft zero-day into a wave of higher-ed breaches. The quieter throughline is infrastructure — AWS and Azure both pushed new silicon (Graviton5, Cobalt 200) and resilience features (Cognito multi-Region, Resilience Hub, AKS Fleet networking) as the AI-workload arms race rolls on."
+    },
+    {
+      "date": "2026-06-13",
+      "file": "briefings/2026-06-13.html",
+      "weekday": "Saturday",
+      "label": "June 13, 2026",
+      "stories": 20,
+      "flagged": 5,
+      "note": "The day's biggest story is geopolitical, not technical: a US government directive forced Anthropic to pull Claude Fable 5 and Mythos 5 worldwide, rippling through the AWS and Azure listings that went live for both models just days earlier. On the infrastructure side, AWS and Azure are racing to rebuild the network and compute layer for agentic workloads, with new datacenter topologies, Graviton5 silicon, and Cobalt 200 VMs. Meanwhile attackers aren't waiting on the news cycle — an actively exploited Oracle PeopleSoft zero-day, a CISA emergency patch order for Ivanti, and a healthcare breach at Novo Nordisk all demand attention today."
+    }
+  ]
+}
