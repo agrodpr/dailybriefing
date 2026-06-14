@@ -15,11 +15,16 @@
   --text-muted:#8B8A84;
   --cyan:#00B4D8;
   --orange:#E8823A;
+  --red:#F87171;
+  --purple:#A78BFA;
+  --pink:#F472B6;
+  --green:#4ADE80;
+  --blue:#60A5FA;
+  --teal:#2DD4BF;
   --accent:var(--cyan);
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
-
 html,body{height:100%;}
 
 body{
@@ -33,7 +38,7 @@ body{
 
 /* ───────── SIDEBAR ───────── */
 .sidebar{
-  width:340px;
+  width:400px;
   flex-shrink:0;
   background:var(--surface);
   border-right:1px solid var(--surface-2);
@@ -42,24 +47,20 @@ body{
   height:100%;
   transition:margin-left 0.25s ease;
 }
-
-.sidebar.collapsed{
-  margin-left:-340px;
-}
+.sidebar.collapsed{ margin-left:-400px; }
 
 .brand{
-  padding:28px 24px 20px;
+  padding:26px 26px 20px;
   border-bottom:1px solid var(--surface-2);
+  flex-shrink:0;
 }
-
 .brand h1{
   font-family:'Fraunces',serif;
-  font-size:26px;
+  font-size:28px;
   font-weight:600;
   letter-spacing:-1px;
-  line-height:1.1;
+  line-height:1.05;
 }
-
 .brand .sub{
   font-size:10px;
   text-transform:uppercase;
@@ -68,23 +69,66 @@ body{
   margin-top:8px;
 }
 
-.archive-label{
-  padding:18px 24px 8px;
+.scroll{
+  flex:1;
+  overflow-y:auto;
+  min-height:0;
+}
+.scroll::-webkit-scrollbar{width:8px;}
+.scroll::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:8px;}
+
+.sec-label{
+  padding:20px 26px 10px;
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:2px;
   color:var(--text-muted);
 }
 
-.timeline{
-  flex:1;
-  overflow-y:auto;
-  padding:0 14px 24px;
+/* ── Sources nav ── */
+.sources{ padding:0 14px; }
+.source{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  text-align:left;
+  background:transparent;
+  border:none;
+  border-radius:9px;
+  padding:10px 14px;
+  margin-bottom:2px;
+  cursor:pointer;
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  transition:background 0.15s ease;
 }
+.source:hover{ background:var(--surface-2); }
+.source .s-dot{
+  width:11px;height:11px;border-radius:50%;
+  flex-shrink:0;
+  background:var(--sc, var(--text-muted));
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--sc, var(--text-muted)) 18%, transparent);
+}
+.source .s-name{ flex:1; }
+.source .s-count{
+  font-size:11px;
+  color:var(--text-muted);
+  background:var(--bg);
+  border-radius:20px;
+  padding:2px 9px;
+  min-width:26px;
+  text-align:center;
+}
+.source.empty{
+  opacity:0.34;
+  cursor:default;
+}
+.source.empty:hover{ background:transparent; }
 
-.timeline::-webkit-scrollbar{width:8px;}
-.timeline::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:8px;}
-
+/* ── Archive timeline ── */
+.timeline{ padding:0 14px 8px; }
 .entry{
   position:relative;
   display:block;
@@ -100,12 +144,8 @@ body{
   font-family:'Inter',sans-serif;
   transition:background 0.15s ease;
 }
-
-.entry:hover{background:var(--surface-2);}
-
-.entry.active{background:var(--surface-2);}
-
-/* timeline dot + connector */
+.entry:hover{ background:var(--surface-2); }
+.entry.active{ background:var(--surface-2); }
 .entry::before{
   content:"";
   position:absolute;
@@ -129,165 +169,103 @@ body{
   height:calc(100% - 12px);
   background:var(--surface-2);
 }
-.entry:last-child::after{display:none;}
-
-.entry .e-date{
-  font-size:15px;
-  font-weight:600;
-}
+.entry:last-child::after{ display:none; }
+.entry .e-date{ font-size:15px; font-weight:600; }
 .entry .e-day{
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  color:var(--text-muted);
-  margin-top:2px;
+  font-size:11px; text-transform:uppercase; letter-spacing:1.5px;
+  color:var(--text-muted); margin-top:2px;
 }
 .entry .e-meta{
-  font-size:11px;
-  color:var(--text-muted);
-  margin-top:8px;
-  display:flex;
-  gap:10px;
-  align-items:center;
+  font-size:11px; color:var(--text-muted); margin-top:8px;
+  display:flex; gap:10px; align-items:center;
 }
 .entry .badge{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  background:var(--bg);
-  border-radius:20px;
-  padding:2px 8px;
+  display:inline-flex; align-items:center; gap:4px;
+  background:var(--bg); border-radius:20px; padding:2px 8px;
 }
-.entry .badge.flag{
-  color:var(--orange);
-}
+.entry .badge.flag{ color:var(--orange); }
 .entry .today-tag{
   display:inline-block;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  color:var(--bg);
-  background:var(--accent);
-  border-radius:20px;
-  padding:2px 7px;
-  margin-left:8px;
-  vertical-align:middle;
+  font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  color:var(--bg); background:var(--accent);
+  border-radius:20px; padding:2px 7px; margin-left:8px; vertical-align:middle;
 }
+
+/* ── Back to top (pinned bottom) ── */
+.sidebar-foot{
+  flex-shrink:0;
+  padding:14px 18px 18px;
+  border-top:1px solid var(--surface-2);
+}
+.toptop{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width:100%;
+  background:var(--surface-2);
+  border:none; border-radius:10px;
+  padding:13px;
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:12px; font-weight:600;
+  text-transform:uppercase; letter-spacing:1.5px;
+  cursor:pointer;
+  transition:background 0.15s ease;
+}
+.toptop:hover{ background:#262633; }
 
 /* ───────── MAIN ───────── */
-.main{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  min-width:0;
-}
-
+.main{ flex:1; display:flex; flex-direction:column; min-width:0; }
 .topbar{
-  display:flex;
-  align-items:center;
-  gap:14px;
+  display:flex; align-items:center; gap:14px;
   padding:14px 22px;
   background:var(--surface);
   border-bottom:1px solid var(--surface-2);
 }
-
 .iconbtn{
-  background:var(--surface-2);
-  border:none;
-  color:var(--text);
-  width:38px; height:38px;
-  border-radius:9px;
-  cursor:pointer;
-  font-size:17px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background:var(--surface-2); border:none; color:var(--text);
+  width:38px; height:38px; border-radius:9px;
+  cursor:pointer; font-size:17px;
+  display:flex; align-items:center; justify-content:center;
   transition:background 0.15s ease, opacity 0.15s ease;
 }
-.iconbtn:hover{background:#262633;}
-.iconbtn:disabled{opacity:0.3;cursor:default;}
-
-.now-showing{
-  flex:1;
-  min-width:0;
-}
-.now-showing .ns-title{
-  font-family:'Fraunces',serif;
-  font-size:19px;
-  font-weight:600;
-}
+.iconbtn:hover{ background:#262633; }
+.iconbtn:disabled{ opacity:0.3; cursor:default; }
+.now-showing{ flex:1; min-width:0; }
+.now-showing .ns-title{ font-family:'Fraunces',serif; font-size:19px; font-weight:600; }
 .now-showing .ns-sub{
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  color:var(--text-muted);
-  margin-top:2px;
+  font-size:11px; text-transform:uppercase; letter-spacing:2px;
+  color:var(--text-muted); margin-top:2px;
 }
-
 .openbtn{
-  text-decoration:none;
-  color:var(--text-muted);
-  font-size:12px;
-  border:1px solid var(--surface-2);
-  border-radius:8px;
-  padding:9px 14px;
-  transition:color 0.15s ease, border-color 0.15s ease;
-  white-space:nowrap;
+  text-decoration:none; color:var(--text-muted); font-size:12px;
+  border:1px solid var(--surface-2); border-radius:8px; padding:9px 14px;
+  transition:color 0.15s ease, border-color 0.15s ease; white-space:nowrap;
 }
-.openbtn:hover{color:var(--text);border-color:var(--text-muted);}
+.openbtn:hover{ color:var(--text); border-color:var(--text-muted); }
 
-.viewer{
-  flex:1;
-  position:relative;
-  background:var(--bg);
-}
-.viewer iframe{
-  width:100%;
-  height:100%;
-  border:none;
-  display:block;
-}
+.viewer{ flex:1; position:relative; background:var(--bg); }
+.viewer iframe{ width:100%; height:100%; border:none; display:block; }
 
-/* loading / empty states */
 .state{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  color:var(--text-muted);
-  font-size:14px;
-  text-align:center;
-  padding:24px;
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:14px; color:var(--text-muted); font-size:14px; text-align:center; padding:24px;
 }
-.state.hidden{display:none;}
+.state.hidden{ display:none; }
 .spinner{
   width:34px;height:34px;
-  border:3px solid var(--surface-2);
-  border-top-color:var(--accent);
-  border-radius:50%;
-  animation:spin 0.8s linear infinite;
+  border:3px solid var(--surface-2); border-top-color:var(--accent);
+  border-radius:50%; animation:spin 0.8s linear infinite;
 }
-@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes spin{ to{ transform:rotate(360deg); } }
 
-/* mobile */
 .scrim{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.5);
-  opacity:0;pointer-events:none;
-  transition:opacity 0.2s ease;
-  z-index:5;
+  position:fixed; inset:0; background:rgba(0,0,0,0.5);
+  opacity:0; pointer-events:none; transition:opacity 0.2s ease; z-index:5;
 }
-@media (max-width:760px){
-  .sidebar{
-    position:fixed;z-index:10;left:0;top:0;
-    box-shadow:0 0 40px rgba(0,0,0,0.6);
-  }
-  .sidebar:not(.collapsed) ~ .scrim{opacity:1;pointer-events:auto;}
-  .now-showing .ns-title{font-size:16px;}
+@media (max-width:820px){
+  .sidebar{ position:fixed; z-index:10; left:0; top:0; box-shadow:0 0 40px rgba(0,0,0,0.6); }
+  .sidebar:not(.collapsed) ~ .scrim{ opacity:1; pointer-events:auto; }
+  .now-showing .ns-title{ font-size:16px; }
 }
 </style>
 </head>
@@ -298,15 +276,25 @@ body{
     <h1>Morning<br>Briefing</h1>
     <div class="sub">Daily Intelligence Reader</div>
   </div>
-  <div class="archive-label">Archive</div>
-  <div class="timeline" id="timeline"></div>
+
+  <div class="scroll">
+    <div class="sec-label">Jump to Source</div>
+    <div class="sources" id="sources"></div>
+
+    <div class="sec-label">Archive</div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+
+  <div class="sidebar-foot">
+    <button class="toptop" id="topBtn">↑ Back to top</button>
+  </div>
 </aside>
 
 <div class="scrim" id="scrim"></div>
 
 <div class="main">
   <div class="topbar">
-    <button class="iconbtn" id="toggleBtn" title="Toggle archive (a)">☰</button>
+    <button class="iconbtn" id="toggleBtn" title="Toggle sidebar (a)">☰</button>
     <button class="iconbtn" id="prevBtn" title="Older (←)">‹</button>
     <button class="iconbtn" id="nextBtn" title="Newer (→)">›</button>
     <div class="now-showing">
@@ -330,6 +318,26 @@ body{
 
 <script>
 const MANIFEST_URL = "briefings/index.json";
+
+/* Canonical source roster (order shown in the sidebar) */
+const SOURCES = [
+  {key:"hn",       name:"Hacker News",      color:"var(--cyan)"},
+  {key:"bc",       name:"BleepingComputer", color:"var(--orange)"},
+  {key:"reg",      name:"The Register",     color:"var(--red)"},
+  {key:"dr",       name:"Dark Reading",     color:"var(--purple)"},
+  {key:"fortinet", name:"Fortinet",         color:"var(--teal)"},
+  {key:"eng",      name:"Engadget",         color:"var(--pink)"},
+  {key:"aws",      name:"AWS",              color:"var(--green)"},
+  {key:"azure",    name:"Azure",            color:"var(--blue)"},
+];
+/* chip-text → key, for briefings that don't use src-* classes */
+const LABEL_TO_KEY = {
+  "hacker news":"hn", "bleepingcomputer":"bc", "bleeping computer":"bc",
+  "the register":"reg", "register":"reg", "dark reading":"dr",
+  "fortinet":"fortinet", "fortiguard":"fortinet",
+  "engadget":"eng", "aws":"aws", "azure":"azure",
+};
+
 let briefings = [];   // newest-first
 let current = -1;
 
@@ -337,9 +345,71 @@ const $ = id => document.getElementById(id);
 
 function todayISO(){
   const d = new Date();
-  return d.getFullYear() + "-" +
-    String(d.getMonth()+1).padStart(2,"0") + "-" +
-    String(d.getDate()).padStart(2,"0");
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+
+/* Identify a card's source: prefer src-* class, fall back to first non-radar chip text */
+function cardSourceKey(card){
+  for(const c of card.classList){
+    if(c.startsWith("src-")) return c.slice(4);
+  }
+  const chip = card.querySelector(".chip:not(.radar)");
+  if(chip){
+    const key = LABEL_TO_KEY[chip.textContent.trim().toLowerCase()];
+    if(key) return key;
+  }
+  return null;
+}
+
+/* After the iframe loads: hide its inline legend, then build the source nav */
+function onFrameReady(){
+  $("loadState").classList.add("hidden");
+  let doc = null;
+  try { doc = $("viewer").contentDocument; } catch(e){ /* cross-origin */ }
+  buildSources(doc);
+}
+
+function buildSources(doc){
+  const wrap = $("sources");
+  wrap.innerHTML = "";
+
+  // Move sources "out of" the briefing: hide the in-page legend bar.
+  const firstCardByKey = {};
+  const counts = {};
+  if(doc){
+    const legend = doc.querySelector(".legend");
+    if(legend) legend.style.display = "none";
+
+    doc.querySelectorAll(".card").forEach(card => {
+      const key = cardSourceKey(card);
+      if(!key) return;
+      counts[key] = (counts[key]||0) + 1;
+      if(!firstCardByKey[key]) firstCardByKey[key] = card;
+    });
+  }
+
+  SOURCES.forEach(src => {
+    const n = counts[src.key] || 0;
+    const btn = document.createElement("button");
+    btn.className = "source" + (n ? "" : " empty");
+    btn.style.setProperty("--sc", src.color);
+    btn.innerHTML =
+      `<span class="s-dot"></span>` +
+      `<span class="s-name">${src.name}</span>` +
+      `<span class="s-count">${n || "–"}</span>`;
+    if(n && doc){
+      btn.addEventListener("click", () => {
+        const el = firstCardByKey[src.key];
+        if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+        if(window.innerWidth <= 820) closeSidebar();
+      });
+    }
+    wrap.appendChild(btn);
+  });
+}
+
+function scrollFrameTop(){
+  try { $("viewer").contentWindow.scrollTo({top:0, behavior:"smooth"}); } catch(e){}
 }
 
 function show(idx){
@@ -347,31 +417,24 @@ function show(idx){
   current = idx;
   const b = briefings[idx];
 
-  // viewer
   $("loadState").classList.remove("hidden");
   $("errState").classList.add("hidden");
+  $("sources").innerHTML = "";
   const frame = $("viewer");
-  frame.onload = () => $("loadState").classList.add("hidden");
+  frame.onload = onFrameReady;
   frame.src = b.file;
 
-  // topbar
   $("nsTitle").textContent = b.label;
-  $("nsSub").textContent = b.weekday + " · " + b.stories + " stories · " +
-    b.flagged + " flagged";
+  $("nsSub").textContent = b.weekday + " · " + b.stories + " stories · " + b.flagged + " flagged";
   $("openBtn").href = b.file;
 
-  // nav buttons (newest-first: idx 0 = newest)
-  $("nextBtn").disabled = idx <= 0;            // newer
-  $("prevBtn").disabled = idx >= briefings.length - 1; // older
+  $("nextBtn").disabled = idx <= 0;
+  $("prevBtn").disabled = idx >= briefings.length - 1;
 
-  // active entry
-  document.querySelectorAll(".entry").forEach((el,i) =>
-    el.classList.toggle("active", i === idx));
-
-  // url hash for deep-linking / refresh persistence
+  document.querySelectorAll(".entry").forEach((el,i) => el.classList.toggle("active", i === idx));
   history.replaceState(null, "", "#" + b.date);
 
-  if(window.innerWidth <= 760) closeSidebar();
+  if(window.innerWidth <= 820) closeSidebar();
 }
 
 function buildTimeline(){
@@ -399,10 +462,8 @@ function pickInitial(){
   const hash = location.hash.replace("#","");
   let idx = briefings.findIndex(b => b.date === hash);
   if(idx >= 0) return idx;
-  // default to today if present
   idx = briefings.findIndex(b => b.date === todayISO());
   if(idx >= 0) return idx;
-  // otherwise newest (index 0, since sorted newest-first)
   return 0;
 }
 
@@ -414,8 +475,7 @@ async function init(){
     const res = await fetch(MANIFEST_URL, {cache:"no-cache"});
     if(!res.ok) throw new Error("manifest " + res.status);
     const data = await res.json();
-    briefings = (data.briefings || []).slice()
-      .sort((a,b) => b.date.localeCompare(a.date)); // newest first
+    briefings = (data.briefings || []).slice().sort((a,b) => b.date.localeCompare(a.date));
     if(!briefings.length) throw new Error("empty");
     buildTimeline();
     show(pickInitial());
@@ -428,21 +488,19 @@ async function init(){
   }
 }
 
-// controls
 $("toggleBtn").addEventListener("click", toggleSidebar);
 $("scrim").addEventListener("click", closeSidebar);
-$("prevBtn").addEventListener("click", () => show(current + 1)); // older
-$("nextBtn").addEventListener("click", () => show(current - 1)); // newer
+$("prevBtn").addEventListener("click", () => show(current + 1));
+$("nextBtn").addEventListener("click", () => show(current - 1));
+$("topBtn").addEventListener("click", scrollFrameTop);
 document.addEventListener("keydown", e => {
   if(e.target.tagName === "INPUT") return;
-  if(e.key === "ArrowLeft")  show(current + 1);  // older
-  if(e.key === "ArrowRight") show(current - 1);  // newer
+  if(e.key === "ArrowLeft")  show(current + 1);
+  if(e.key === "ArrowRight") show(current - 1);
   if(e.key.toLowerCase() === "a") toggleSidebar();
 });
 
-// start collapsed on mobile
-if(window.innerWidth <= 760) closeSidebar();
-
+if(window.innerWidth <= 820) closeSidebar();
 init();
 </script>
 </body>
