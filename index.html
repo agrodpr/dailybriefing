@@ -127,69 +127,80 @@ body{
 }
 .source.empty:hover{ background:transparent; }
 
-/* ── Archive timeline ── */
-.timeline{ padding:0 14px 8px; }
-.entry{
-  position:relative;
-  display:block;
-  width:100%;
-  text-align:left;
-  background:transparent;
-  border:none;
-  border-radius:10px;
-  padding:14px 16px 14px 30px;
-  margin-bottom:4px;
-  cursor:pointer;
-  color:var(--text);
-  font-family:'Inter',sans-serif;
+/* ── Archive calendar ── */
+.cal{ padding:0 20px 8px; }
+.cal-head{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:12px;
+}
+.cal-title{
+  font-family:'Fraunces',serif;
+  font-size:17px; font-weight:600;
+}
+.cal-nav{
+  background:var(--surface-2); border:none; color:var(--text);
+  width:30px; height:30px; border-radius:8px;
+  cursor:pointer; font-size:15px;
+  display:flex; align-items:center; justify-content:center;
   transition:background 0.15s ease;
 }
-.entry:hover{ background:var(--surface-2); }
-.entry.active{ background:var(--surface-2); }
-.entry::before{
-  content:"";
-  position:absolute;
-  left:13px; top:20px;
-  width:9px; height:9px;
-  border-radius:50%;
-  background:var(--surface-2);
-  border:2px solid var(--text-muted);
-  transition:all 0.15s ease;
+.cal-nav:hover{ background:#262633; }
+.cal-grid{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:4px;
 }
-.entry.active::before{
+.cal-dow{ margin-bottom:6px; }
+.cal-dow span{
+  text-align:center;
+  font-size:10px; font-weight:600; letter-spacing:0.5px;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  padding:2px 0;
+}
+.day{
+  position:relative;
+  aspect-ratio:1/1;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:9px;
+  font-size:13px;
+  color:var(--text-muted);
+  background:transparent;
+  border:none;
+  font-family:'Inter',sans-serif;
+}
+.day.blank{ visibility:hidden; }
+.day.muted{ opacity:0.28; }
+.day.has{
+  color:var(--text);
+  font-weight:600;
+  background:var(--surface-2);
+  cursor:pointer;
+  transition:background 0.15s ease, transform 0.1s ease;
+}
+.day.has:hover{ background:#2a2a38; }
+.day.active{
   background:var(--accent);
-  border-color:var(--accent);
-  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);
+  color:var(--bg);
 }
-.entry::after{
-  content:"";
+.day.today{ box-shadow:inset 0 0 0 1.5px var(--text-muted); }
+.day.today.active{ box-shadow:inset 0 0 0 1.5px var(--accent); }
+.day .cdot{
   position:absolute;
-  left:17px; top:29px;
-  width:1px;
-  height:calc(100% - 12px);
-  background:var(--surface-2);
+  bottom:4px; left:50%; transform:translateX(-50%);
+  width:4px; height:4px; border-radius:50%;
+  background:var(--accent);
 }
-.entry:last-child::after{ display:none; }
-.entry .e-date{ font-size:15px; font-weight:600; }
-.entry .e-day{
-  font-size:11px; text-transform:uppercase; letter-spacing:1.5px;
-  color:var(--text-muted); margin-top:2px;
+.day.flag .cdot{ background:var(--orange); }
+.day.active .cdot{ background:var(--bg); }
+.cal-hint{
+  margin-top:14px;
+  font-size:11px; line-height:1.5;
+  color:var(--text-muted);
+  display:flex; flex-direction:column; gap:5px;
 }
-.entry .e-meta{
-  font-size:11px; color:var(--text-muted); margin-top:8px;
-  display:flex; gap:10px; align-items:center;
-}
-.entry .badge{
-  display:inline-flex; align-items:center; gap:4px;
-  background:var(--bg); border-radius:20px; padding:2px 8px;
-}
-.entry .badge.flag{ color:var(--orange); }
-.entry .today-tag{
-  display:inline-block;
-  font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
-  color:var(--bg); background:var(--accent);
-  border-radius:20px; padding:2px 7px; margin-left:8px; vertical-align:middle;
-}
+.cal-hint .row{ display:flex; align-items:center; gap:7px; }
+.cal-hint .swatch{ width:9px;height:9px;border-radius:50%;flex-shrink:0; }
 
 /* ── Back to top (pinned bottom) ── */
 .sidebar-foot{
@@ -282,7 +293,21 @@ body{
     <div class="sources" id="sources"></div>
 
     <div class="sec-label">Archive</div>
-    <div class="timeline" id="timeline"></div>
+    <div class="cal" id="cal">
+      <div class="cal-head">
+        <button class="cal-nav" id="calPrev" title="Previous month">‹</button>
+        <div class="cal-title" id="calTitle"></div>
+        <button class="cal-nav" id="calNext" title="Next month">›</button>
+      </div>
+      <div class="cal-grid cal-dow">
+        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+      </div>
+      <div class="cal-grid" id="calDays"></div>
+      <div class="cal-hint">
+        <div class="row"><span class="swatch" style="background:var(--accent)"></span>Briefing available · click to read</div>
+        <div class="row"><span class="swatch" style="background:var(--orange)"></span>Has flagged stories</div>
+      </div>
+    </div>
   </div>
 
   <div class="sidebar-foot">
@@ -431,31 +456,61 @@ function show(idx){
   $("nextBtn").disabled = idx <= 0;
   $("prevBtn").disabled = idx >= briefings.length - 1;
 
-  document.querySelectorAll(".entry").forEach((el,i) => el.classList.toggle("active", i === idx));
+  // sync calendar to the selected briefing's month
+  calYear = +b.date.slice(0,4);
+  calMonth = +b.date.slice(5,7) - 1;
+  renderCalendar();
   history.replaceState(null, "", "#" + b.date);
 
   if(window.innerWidth <= 820) closeSidebar();
 }
 
-function buildTimeline(){
-  const tl = $("timeline");
+const MONTHS = ["January","February","March","April","May","June",
+  "July","August","September","October","November","December"];
+const byDate = {};   // "YYYY-MM-DD" -> index into briefings
+let calYear, calMonth;
+
+function pad(n){ return String(n).padStart(2,"0"); }
+
+function renderCalendar(){
+  $("calTitle").textContent = MONTHS[calMonth] + " " + calYear;
+  const grid = $("calDays");
+  grid.innerHTML = "";
   const today = todayISO();
-  tl.innerHTML = "";
-  briefings.forEach((b,i) => {
-    const btn = document.createElement("button");
-    btn.className = "entry";
-    const isToday = b.date === today;
-    btn.innerHTML =
-      `<div class="e-date">${b.label.replace(", "+b.date.slice(0,4),"")}` +
-        (isToday ? `<span class="today-tag">Today</span>` : ``) + `</div>` +
-      `<div class="e-day">${b.weekday}</div>` +
-      `<div class="e-meta">` +
-        `<span class="badge">📰 ${b.stories}</span>` +
-        (b.flagged ? `<span class="badge flag">⚡ ${b.flagged}</span>` : ``) +
-      `</div>`;
-    btn.addEventListener("click", () => show(i));
-    tl.appendChild(btn);
-  });
+  const selDate = (current >= 0) ? briefings[current].date : null;
+
+  const firstDow = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+  for(let i = 0; i < firstDow; i++){
+    const b = document.createElement("div");
+    b.className = "day blank";
+    grid.appendChild(b);
+  }
+  for(let d = 1; d <= daysInMonth; d++){
+    const dateStr = calYear + "-" + pad(calMonth + 1) + "-" + pad(d);
+    const idx = byDate[dateStr];
+    const has = idx !== undefined;
+    const cell = document.createElement(has ? "button" : "div");
+    cell.className = "day " + (has ? "has" : "muted");
+    if(has && briefings[idx].flagged) cell.classList.add("flag");
+    if(dateStr === today) cell.classList.add("today");
+    if(dateStr === selDate) cell.classList.add("active");
+    cell.innerHTML = d + (has ? `<span class="cdot"></span>` : ``);
+    if(has){
+      const b = briefings[idx];
+      cell.title = `${b.weekday} · ${b.stories} stories · ${b.flagged} flagged`;
+      cell.addEventListener("click", () => show(idx));
+    }
+    grid.appendChild(cell);
+  }
+}
+
+function calShift(delta){
+  calMonth += delta;
+  if(calMonth < 0){ calMonth = 11; calYear--; }
+  else if(calMonth > 11){ calMonth = 0; calYear++; }
+  renderCalendar();
 }
 
 function pickInitial(){
@@ -477,7 +532,7 @@ async function init(){
     const data = await res.json();
     briefings = (data.briefings || []).slice().sort((a,b) => b.date.localeCompare(a.date));
     if(!briefings.length) throw new Error("empty");
-    buildTimeline();
+    briefings.forEach((b,i) => { byDate[b.date] = i; });
     show(pickInitial());
   }catch(err){
     $("loadState").classList.add("hidden");
@@ -493,6 +548,8 @@ $("scrim").addEventListener("click", closeSidebar);
 $("prevBtn").addEventListener("click", () => show(current + 1));
 $("nextBtn").addEventListener("click", () => show(current - 1));
 $("topBtn").addEventListener("click", scrollFrameTop);
+$("calPrev").addEventListener("click", () => calShift(-1));
+$("calNext").addEventListener("click", () => calShift(1));
 document.addEventListener("keydown", e => {
   if(e.target.tagName === "INPUT") return;
   if(e.key === "ArrowLeft")  show(current + 1);
