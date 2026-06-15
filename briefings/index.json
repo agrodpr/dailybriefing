@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-06-14T12:18:45Z",
+  "updated": "2026-06-15T12:56:00Z",
   "briefings": [
+    {
+      "date": "2026-06-15",
+      "file": "briefings/2026-06-15.html",
+      "weekday": "Monday",
+      "label": "June 15, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Today's dominant theme is active exploitation outpacing patch cycles: a max-severity Ivanti Sentry flaw is already weaponized under a three-day CISA directive, ShinyHunters is exploiting an Oracle E-Business Suite zero-day against US universities, and a new Exchange \"Ghost-Sender\" spoofing flaw is being abused in the wild. AWS and Azure both pushed major infrastructure refreshes — Graviton5 EC2 instances, Cognito's no-reset multi-Region failover, and Azure's Cobalt 200 Arm VMs — even as a data center fire keeps Google Cloud's India region running slow a week later. On the supply-chain front, a self-propagating worm re-infected dozens of Microsoft repos and 400+ Arch Linux AUR packages shipped rootkits, alongside fresh healthcare data exposures at Novo Nordisk and the NHS."
+    },
     {
       "date": "2026-06-14",
       "file": "briefings/2026-06-14.html",
