@@ -121,11 +121,20 @@ body{
   min-width:26px;
   text-align:center;
 }
-.source.empty{
-  opacity:0.34;
-  cursor:default;
+.source-more{
+  padding:10px 16px 4px;
+  font-size:11px;
+  line-height:1.6;
+  color:var(--text-muted);
 }
-.source.empty:hover{ background:transparent; }
+.source-more .sm-label{
+  display:block;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-bottom:3px;
+  opacity:0.7;
+}
 
 /* ── Archive calendar ── */
 .cal{ padding:0 20px 8px; }
@@ -343,25 +352,43 @@ body{
 
 <script>
 const MANIFEST_URL = "briefings/index.json";
+const SOURCES_URL  = "briefings/sources.json";
 
-/* Canonical source roster (order shown in the sidebar) */
-const SOURCES = [
-  {key:"hn",       name:"Hacker News",      color:"var(--cyan)"},
-  {key:"bc",       name:"BleepingComputer", color:"var(--orange)"},
-  {key:"reg",      name:"The Register",     color:"var(--red)"},
-  {key:"dr",       name:"Dark Reading",     color:"var(--purple)"},
-  {key:"fortinet", name:"Fortinet",         color:"var(--teal)"},
-  {key:"eng",      name:"Engadget",         color:"var(--pink)"},
-  {key:"aws",      name:"AWS",              color:"var(--green)"},
-  {key:"azure",    name:"Azure",            color:"var(--blue)"},
+/* Source roster + colors are loaded from sources.json (single source of truth).
+   This is the fallback if that file can't be fetched. */
+let SOURCES = [
+  {key:"hn",       name:"Hacker News",      color:"#00B4D8"},
+  {key:"bc",       name:"BleepingComputer", color:"#E8823A"},
+  {key:"reg",      name:"The Register",     color:"#F87171"},
+  {key:"dr",       name:"Dark Reading",     color:"#A78BFA"},
+  {key:"fortinet", name:"Fortinet",         color:"#2DD4BF"},
+  {key:"eng",      name:"Engadget",         color:"#F472B6"},
+  {key:"aws",      name:"AWS",              color:"#4ADE80"},
+  {key:"azure",    name:"Azure",            color:"#60A5FA"},
 ];
-/* chip-text → key, for briefings that don't use src-* classes */
-const LABEL_TO_KEY = {
-  "hacker news":"hn", "bleepingcomputer":"bc", "bleeping computer":"bc",
-  "the register":"reg", "register":"reg", "dark reading":"dr",
-  "fortinet":"fortinet", "fortiguard":"fortinet",
-  "engadget":"eng", "aws":"aws", "azure":"azure",
-};
+let LABEL_TO_KEY = {};
+
+function rebuildLabelMap(){
+  LABEL_TO_KEY = {};
+  SOURCES.forEach(s => {
+    LABEL_TO_KEY[s.name.toLowerCase()] = s.key;
+    (s.aliases || []).forEach(a => { LABEL_TO_KEY[String(a).toLowerCase()] = s.key; });
+  });
+}
+
+async function loadSources(){
+  try{
+    const res = await fetch(SOURCES_URL, {cache:"no-cache"});
+    if(!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    if(Array.isArray(data.sources) && data.sources.length){
+      SOURCES = data.sources.map(s => ({
+        key:s.key, name:s.name, color:s.color || "var(--text-muted)", aliases:s.aliases || []
+      }));
+    }
+  }catch(e){ /* keep fallback roster */ }
+  rebuildLabelMap();
+}
 
 let briefings = [];   // newest-first
 let current = -1;
@@ -413,24 +440,34 @@ function buildSources(doc){
     });
   }
 
-  SOURCES.forEach(src => {
-    const n = counts[src.key] || 0;
+  // Present sources first (in roster order); absent ones collapse below.
+  const present = SOURCES.filter(s => (counts[s.key]||0) > 0);
+  const absent  = SOURCES.filter(s => (counts[s.key]||0) === 0);
+
+  present.forEach(src => {
+    const n = counts[src.key];
     const btn = document.createElement("button");
-    btn.className = "source" + (n ? "" : " empty");
+    btn.className = "source";
     btn.style.setProperty("--sc", src.color);
     btn.innerHTML =
       `<span class="s-dot"></span>` +
       `<span class="s-name">${src.name}</span>` +
-      `<span class="s-count">${n || "–"}</span>`;
-    if(n && doc){
-      btn.addEventListener("click", () => {
-        const el = firstCardByKey[src.key];
-        if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
-        if(window.innerWidth <= 820) closeSidebar();
-      });
-    }
+      `<span class="s-count">${n}</span>`;
+    btn.addEventListener("click", () => {
+      const el = firstCardByKey[src.key];
+      if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+      if(window.innerWidth <= 820) closeSidebar();
+    });
     wrap.appendChild(btn);
   });
+
+  if(absent.length){
+    const more = document.createElement("div");
+    more.className = "source-more";
+    more.innerHTML = `<span class="sm-label">Also monitoring</span> ` +
+      absent.map(s => s.name).join(" · ");
+    wrap.appendChild(more);
+  }
 }
 
 function scrollFrameTop(){
@@ -526,6 +563,7 @@ function closeSidebar(){ $("sidebar").classList.add("collapsed"); }
 function toggleSidebar(){ $("sidebar").classList.toggle("collapsed"); }
 
 async function init(){
+  await loadSources();
   try{
     const res = await fetch(MANIFEST_URL, {cache:"no-cache"});
     if(!res.ok) throw new Error("manifest " + res.status);
