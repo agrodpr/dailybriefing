@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 15, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  padding: 64px 24px;
+}
+
+.masthead { text-align: center; }
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 80px;
+  letter-spacing: -2px;
+  color: var(--text);
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  margin: 40px auto;
+  max-width: 860px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: 860px;
+  margin: 0 auto 40px auto;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-hn { background: var(--cyan); }
+.dot-bc { background: var(--orange); }
+.dot-reg { background: var(--red); }
+.dot-dr { background: var(--purple); }
+.dot-eng { background: var(--pink); }
+.dot-aws { background: var(--green); }
+.dot-az { background: var(--blue); }
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.stories {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+.card:hover::before {
+  filter: brightness(1.3);
+}
+
+.card--hn  { --accent: var(--cyan); }
+.card--bc  { --accent: var(--orange); }
+.card--reg { --accent: var(--red); }
+.card--dr  { --accent: var(--purple); }
+.card--eng { --accent: var(--pink); }
+.card--aws { --accent: var(--green); }
+.card--az  { --accent: var(--blue); }
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.radar-chip {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  color: var(--bg);
+  background: var(--orange);
+}
+
+.headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.meta a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.meta a:hover {
+  color: var(--text);
+}
+
+.summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.skip-section {
+  max-width: 860px;
+  margin: 56px auto 0 auto;
+}
+
+.skip-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skip-list {
+  list-style: none;
+}
+
+.skip-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Monday, June 15, 2026</div>
+</div>
+
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="legend-dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="legend-dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="legend-dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="legend-dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="legend-dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="legend-dot dot-az"></span>Azure</div>
+</div>
+
+<div class="editors-note">
+  Today's dominant theme is active exploitation outpacing patch cycles &mdash; a max-severity Ivanti Sentry flaw is already weaponized under a three-day CISA directive, ShinyHunters is mining an Oracle zero-day across US universities, and a new Exchange spoofing bug is being abused in the wild. On the cloud side, AWS and Azure both pushed major infrastructure refreshes &mdash; Graviton5 EC2 instances, Cognito's no-reset multi-Region failover, and Azure's Cobalt 200 Arm VMs &mdash; even as a data center fire keeps Google Cloud's India region running slow a week later. Watch the supply chain: a self-propagating worm re-infected dozens of Microsoft repos and 400+ Arch Linux AUR packages shipped rootkits, alongside fresh healthcare data exposures at Novo Nordisk and the NHS.
+</div>
+
+<div class="stories">
+
+  <!-- HN 1 -->
+  <div class="card card--hn">
+    <div class="tags">
+      <span class="chip">Hacker News</span>
+    </div>
+    <div class="headline">Curl will not accept vulnerability reports during July 2026</div>
+    <div class="meta">446 pts · 176 comments · <a href="https://news.ycombinator.com/item?id=48537165">HN discussion</a> · <a href="https://daniel.haxx.se/blog/2026/06/15/curl-summer-of-bliss/">&rarr; Read more</a></div>
+    <div class="summary">The curl project will stop accepting and triaging new vulnerability reports for all of July 2026, calling it a "summer of bliss" after months of high-volume security report handling. The HackerOne intake form closes July 1 and reopens August 3; only customers with paid support contracts are exempt. For a library embedded in nearly every OS and device on earth, a month-long pause on public CVE triage is a notable signal about maintainer strain in critical open-source infrastructure.</div>
+  </div>
+
+  <!-- HN 2 -->
+  <div class="card card--hn">
+    <div class="tags">
+      <span class="chip">Hacker News</span>
+    </div>
+    <div class="headline">Windows 11 users are tired of MS account requirements creeping into everything</div>
+    <div class="meta">381 pts · 253 comments · <a href="https://news.ycombinator.com/item?id=48533101">HN discussion</a> · <a href="https://www.windowscentral.com/microsoft/windows-11/windows-11-users-are-tired-of-microsoft-account-requirements-and-workarounds">&rarr; Read more</a></div>
+    <div class="summary">Windows 11 users are pushing back as Microsoft keeps tightening requirements to sign in with a Microsoft account, with local-account workarounds getting patched out release after release. The thread reflects growing frustration among IT admins managing fleets where local accounts are still the operational norm. For sysadmins, it's another reminder to re-validate imaging and provisioning workflows against the latest Windows 11 builds before a forced rollout breaks them.</div>
+  </div>
+
+  <!-- HN 3 -->
+  <div class="card card--hn">
+    <div class="tags">
+      <span class="chip">Hacker News</span>
+    </div>
+    <div class="headline">The only scalable delete in Postgres is DROP TABLE</div>
+    <div class="meta">172 pts · 63 comments · <a href="https://news.ycombinator.com/item?id=48492822">HN discussion</a> · <a href="https://planetscale.com/blog/the-only-scalable-delete">&rarr; Read more</a></div>
+    <div class="summary">Large DELETE operations in Postgres don't scale: they leave behind dead tuples that bloat tables, add replication overhead, and never reclaim disk space until a vacuum runs. The fix is structural &mdash; use date-based partitioning so bulk cleanup becomes an instant DROP TABLE or TRUNCATE instead of a row-by-row DELETE, since both operations remove files at the OS level independent of data size. It's a useful operational checklist for anyone running retention jobs against large Postgres tables.</div>
+  </div>
+
+  <!-- BC 1 -->
+  <div class="card card--bc">
+    <div class="tags">
+      <span class="chip">BleepingComputer</span>
+      <span class="radar-chip">&#9889; On Your Radar</span>
+    </div>
+    <div class="headline">CISA orders feds to patch actively exploited Ivanti flaw by Sunday</div>
+    <div class="meta">June 12 · <a href="https://www.bleepingcomputer.com/news/security/cisa-gives-feds-3-days-to-patch-ivanti-flaw-exploited-in-attacks/">&rarr; Read more</a></div>
+    <div class="summary">CISA issued Binding Operational Directive 26-04, giving federal agencies just three days to patch a max-severity, actively exploited flaw in Ivanti Sentry. The flaw is already being used in real-world attacks &mdash; Dark Reading separately reports it was weaponized within 24 hours of disclosure, suggesting attackers had pre-mapped vulnerable Ivanti deployments. Any organization running Ivanti Sentry should treat this as a today problem, not a patch-cycle problem.</div>
+  </div>
+
+  <!-- BC 2 -->
+  <div class="card card--bc">
+    <div class="tags">
+      <span class="chip">BleepingComputer</span>
+      <span class="radar-chip">&#9889; On Your Radar</span>
+    </div>
+    <div class="headline">Pharma giant Novo Nordisk discloses breach of clinical trials data</div>
+    <div class="meta">June 12 · <a href="https://www.bleepingcomputer.com/news/security/pharmaceutical-giant-novo-nordisk-discloses-security-breach/">&rarr; Read more</a></div>
+    <div class="summary">Novo Nordisk, the world's largest insulin manufacturer, disclosed a data breach exposing patient information tied to some of its clinical trials. Details on the entry point and full scope remain limited, but exposure of clinical trial subject data triggers immediate notification obligations under HIPAA-equivalent and GDPR rules across the jurisdictions where the trials ran. Healthcare and pharma orgs handling trial data should expect renewed scrutiny on third-party vendor access as the investigation continues.</div>
+  </div>
+
+  <!-- BC 3 -->
+  <div class="card card--bc">
+    <div class="tags">
+      <span class="chip">BleepingComputer</span>
+    </div>
+    <div class="headline">FBI disrupts massive AI-powered phishing service using a million URLs</div>
+    <div class="meta">June 14 · <a href="https://www.bleepingcomputer.com/news/security/fbi-disrupts-massive-ai-powered-phishing-service-using-a-million-urls/">&rarr; Read more</a></div>
+    <div class="summary">The FBI, working with Google and Black Lotus Labs, dismantled "Outsider Enterprise," a Chinese phishing-as-a-service operation that used AI-generated content across roughly a million phishing URLs to harvest credit card numbers and passwords. The scale shows how AI tooling has industrialized phishing-kit production, letting one operation spin up and rotate enormous numbers of lookalike domains. Expect takedown follow-ups and indicator lists to filter into threat-intel feeds over the coming days.</div>
+  </div>
+
+  <!-- BC 4 -->
+  <div class="card card--bc">
+    <div class="tags">
+      <span class="chip">BleepingComputer</span>
+    </div>
+    <div class="headline">Over 400 Arch Linux packages compromised to push rootkit, infostealer</div>
+    <div class="meta">June 12 · <a href="https://www.bleepingcomputer.com/news/security/over-400-arch-linux-packages-compromised-to-push-rootkit-infostealer/">&rarr; Read more</a></div>
+    <div class="summary">More than 400 packages in the Arch User Repository were found shipping a Linux rootkit and infostealer designed to harvest credentials and access tokens. AUR packages are community-maintained and unsigned by default, making this exactly the kind of supply-chain vector that's hard to detect until it's already on a developer's machine. Anyone running Arch-based dev or CI images should audit installed AUR packages against the disclosed indicator set immediately.</div>
+  </div>
+
+  <!-- REG 1 -->
+  <div class="card card--reg">
+    <div class="tags">
+      <span class="chip">The Register</span>
+    </div>
+    <div class="headline">Fire burns Google Cloud India's network, which remains slow a week later</div>
+    <div class="meta">June 14 · <a href="https://www.theregister.com/off-prem/2026/06/14/fire-burns-google-cloud-indias-network-which-remains-slow-a-week-later/5255246">&rarr; Read more</a></div>
+    <div class="summary">A fire damaged network infrastructure supporting Google Cloud's India region, and customers are still seeing degraded latency and throughput a full week after the incident. The slow recovery shows how physical data center failures can produce long-tail performance issues well after the immediate hazard is cleared. Workloads pinned to Google Cloud's India region should have failover or multi-region plans validated now rather than after the next outage.</div>
+  </div>
+
+  <!-- REG 2 -->
+  <div class="card card--reg">
+    <div class="tags">
+      <span class="chip">The Register</span>
+    </div>
+    <div class="headline">AWS rolls the dice for faster, more efficient networking</div>
+    <div class="meta">June 13 · <a href="https://www.theregister.com/networks/2026/06/13/aws-rolls-the-dice-for-faster-more-efficient-networking/5253248">&rarr; Read more</a></div>
+    <div class="summary">AWS is overhauling its data center network topology, moving to a flatter fabric designed to cut hop counts and improve efficiency across its backbone. The redesign targets lower latency and reduced power draw as AI workloads push east-west traffic volumes far beyond what traditional spine-leaf designs were built for. For customers, the payoff should eventually show up as lower inter-AZ latency and better price-performance on network-heavy instance types.</div>
+  </div>
+
+  <!-- REG 3 -->
+  <div class="card card--reg">
+    <div class="tags">
+      <span class="chip">The Register</span>
+      <span class="radar-chip">&#9889; On Your Radar</span>
+    </div>
+    <div class="headline">NHS patients can't opt out of Palantir's data platform &mdash; but their hospital can</div>
+    <div class="meta">June 13 · <a href="https://www.theregister.com/databases/2026/06/13/nhs-patients-cant-opt-out-of-palantirs-data-platform-but-their-hospital-can/5254766">&rarr; Read more</a></div>
+    <div class="summary">NHS England confirmed individual patients have no mechanism to opt their records out of the Palantir-built Federated Data Platform, though individual NHS trusts can decline to participate and procure their own alternative. A minister told Parliament that trusts can go it alone ahead of the FDP contract's February 2027 renewal. The arrangement leaves patient-level privacy decisions entirely in the hands of institutions rather than the patients whose data is involved.</div>
+  </div>
+
+  <!-- DR 1 -->
+  <div class="card card--dr">
+    <div class="tags">
+      <span class="chip">Dark Reading</span>
+      <span class="radar-chip">&#9889; On Your Radar</span>
+    </div>
+    <div class="headline">ShinyHunters Uses Oracle Zero-Day to Rampage Higher Ed</div>
+    <div class="meta">June 12 · <a href="https://www.darkreading.com/vulnerabilities-threats/shinyhunters-oracle-zero-day-higher-ed">&rarr; Read more</a></div>
+    <div class="summary">The ShinyHunters extortion group exploited a zero-day in Oracle's E-Business Suite ERP software to steal large volumes of data from American universities. Higher-ed institutions were hit disproportionately hard because of how widely the ERP suite is deployed across student records and financial systems. Oracle EBS customers, especially in education, should check for indicators of compromise even after patching, since exploitation began before the flaw was disclosed.</div>
+  </div>
+
+  <!-- DR 2 -->
+  <div class="card card--dr">
+    <div class="tags">
+      <span class="chip">Dark Reading</span>
+      <span class="radar-chip">&#9889; On Your Radar</span>
+    </div>
+    <div class="headline">Microsoft Exchange Flaw Lets Attackers Spoof Any Email Address</div>
+    <div class="meta">June 9 · <a href="https://www.darkreading.com/vulnerabilities-threats/exchange-flaw-attackers-spoof-email-address">&rarr; Read more</a></div>
+    <div class="summary">A flaw researchers are calling "Ghost-Sender" lets attackers spoof email from any address on a misconfigured Exchange server, and evidence shows it's already being actively exploited in the wild. The root cause is a widespread misconfiguration rather than a single patchable bug, meaning many organizations are exposed without realizing it. Exchange admins should audit connector and transport configurations now rather than wait for a vendor patch.</div>
+  </div>
+
+  <!-- DR 3 -->
+  <div class="card card--dr">
+    <div class="tags">
+      <span class="chip">Dark Reading</span>
+    </div>
+    <div class="headline">Miasma Supply Chain Worm Burrows Into 73 Microsoft Repositories</div>
+    <div class="meta">June 9 · <a href="https://www.darkreading.com/application-security/miasma-supply-chain-worm-73-microsoft-repositories">&rarr; Read more</a></div>
+    <div class="summary">A self-propagating supply-chain worm dubbed "Miasma" has spread into 73 Microsoft GitHub repositories, originating from a developer account compromised in an earlier Miasma campaign against Microsoft last month. The worm's ability to re-infect Microsoft's repos after an earlier cleanup suggests the original compromise wasn't fully remediated. Teams consuming Microsoft open-source packages should pin dependency versions and watch for unexpected commits from automation accounts.</div>
+  </div>
+
+  <!-- ENG 1 -->
+  <div class="card card--eng">
+    <div class="tags">
+      <span class="chip">Engadget</span>
+    </div>
+    <div class="headline">Trump threatens 100 percent tariff on France's wine industry over its tech tax</div>
+    <div class="meta">June 15 · <a href="https://www.engadget.com/2194031/trump-threatens-to-smash-french-wine-industry-over-tech-tax/">&rarr; Read more</a></div>
+    <div class="summary">Ahead of the G7 summit, the Trump administration is threatening a 100% tariff on French wine in retaliation for France's digital services tax targeting US tech companies. It's the latest escalation in a long-running fight over how European digital taxes apply to American cloud and platform revenue. Multinational tech firms operating in the EU should watch for knock-on compliance and pricing changes if the tax dispute reignites.</div>
+  </div>
+
+  <!-- ENG 2 -->
+  <div class="card card--eng">
+    <div class="tags">
+      <span class="chip">Engadget</span>
+    </div>
+    <div class="headline">NASA's X-59 reaches speed and altitude milestones ahead of first quiet supersonic flights</div>
+    <div class="meta">June 14 · <a href="https://www.engadget.com/2193925/nasa-x-59-reaches-speed-and-altitude-milestones-ahead-of-first-quiet-supersonic-flights/">&rarr; Read more</a></div>
+    <div class="summary">NASA's X-59 quiet supersonic demonstrator hit new speed and altitude milestones in testing, moving it closer to its first flights over populated areas without a traditional sonic boom. The aircraft is meant to validate "sonic thump" technology that could eventually unlock supersonic travel over land. It's a reminder that hard aerospace engineering problems are still being chipped away at, even in a software-dominated news cycle.</div>
+  </div>
+
+  <!-- AWS 1 -->
+  <div class="card card--aws">
+    <div class="tags">
+      <span class="chip">AWS</span>
+    </div>
+    <div class="headline">Now available: Amazon EC2 M9g and M9gd instances powered by new AWS Graviton5 processors</div>
+    <div class="meta">June 10 · <a href="https://aws.amazon.com/blogs/aws/now-available-amazon-ec2-m9g-and-m9gd-instances-powered-by-new-aws-graviton5-processors/">&rarr; Read more</a></div>
+    <div class="summary">AWS launched EC2 M9g and M9gd instances powered by its new Graviton5 Arm processors, claiming up to 25% better compute performance than Graviton4 at improved energy efficiency. For workloads already running on Graviton4, this is a straightforward upgrade path with no architecture changes required. Cost-conscious teams should benchmark M9g against current M-family instances &mdash; Graviton's price-performance edge tends to compound at fleet scale.</div>
+  </div>
+
+  <!-- AWS 2 -->
+  <div class="card card--aws">
+    <div class="tags">
+      <span class="chip">AWS</span>
+    </div>
+    <div class="headline">Improve your application resilience with Amazon Cognito multi-Region replication</div>
+    <div class="meta">June 3 · <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/">&rarr; Read more</a></div>
+    <div class="summary">Amazon Cognito now supports multi-Region replication, automatically syncing user pools, credentials, and configuration to a secondary AWS Region so authentication keeps working through a regional failover. Crucially, failover doesn't force a password reset for users &mdash; historically the most disruptive part of identity-layer disaster recovery. The update also adds support for customer-managed KMS keys, giving security teams more control over how replicated credential data is encrypted.</div>
+  </div>
+
+  <!-- AWS 3 -->
+  <div class="card card--aws">
+    <div class="tags">
+      <span class="chip">AWS</span>
+    </div>
+    <div class="headline">Introducing the next generation of AWS Resilience Hub for generative AI-based SRE resilience journey</div>
+    <div class="meta">May 28 · <a href="https://aws.amazon.com/blogs/aws/introducing-the-next-generation-of-aws-resilience-hub-for-generative-ai-based-sre-resilience-journey/">&rarr; Read more</a></div>
+    <div class="summary">AWS rebuilt Resilience Hub with a new application model, automated dependency discovery, generative-AI-powered failure mode analysis, and organization-wide resilience reporting. The generative AI layer is meant to surface failure modes teams wouldn't think to test for manually, then map them against existing resilience policies. For SRE teams managing many accounts, the org-wide reporting view is the more immediately useful piece &mdash; it turns resilience posture into something auditable from a single place.</div>
+  </div>
+
+  <!-- AZ 1 -->
+  <div class="card card--az">
+    <div class="tags">
+      <span class="chip">Azure</span>
+      <span class="radar-chip">&#9889; On Your Radar</span>
+    </div>
+    <div class="headline">New Azure Cobalt 200 VMs deliver 50% performance improvement, fully optimized for modern agentic AI workloads</div>
+    <div class="meta">June 2 · <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/">&rarr; Read more</a></div>
+    <div class="summary">Microsoft opened early access to Azure Cobalt 200, its next-generation Arm-based virtual machines, claiming a 50% performance improvement over the prior Cobalt generation for Linux-based agentic AI workloads. The jump is large enough to shift cost calculus for teams currently running inference or agent-orchestration workloads on x86 VMs. Early access means limited availability and likely region restrictions &mdash; worth requesting access now if an Arm migration is on the roadmap.</div>
+  </div>
+
+  <!-- AZ 2 -->
+  <div class="card card--az">
+    <div class="tags">
+      <span class="chip">Azure</span>
+    </div>
+    <div class="headline">Powering multi-cluster workloads with seamless cross-cluster networking for Azure Kubernetes Fleet Manager</div>
+    <div class="meta">May 22 · <a href="https://azure.microsoft.com/en-us/blog/powering-multi-cluster-workloads-with-seamless-cross-cluster-networking-for-azure-kubernetes-fleet-manager/">&rarr; Read more</a></div>
+    <div class="summary">Azure Kubernetes Fleet Manager now offers Cilium-based cross-cluster networking, letting workloads communicate across an entire fleet of AKS clusters as if they were on one flat network. This removes a major pain point in multi-cluster architectures, where cross-cluster service discovery and routing previously required custom mesh tooling or manual peering. Teams running AKS across multiple regions or environments for isolation should evaluate whether Fleet Manager networking can replace existing cross-cluster mesh setups.</div>
+  </div>
+
+</div>
+
+<div class="skip-section">
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>&middot; [Hacker News] Firewood Splitting Simulator &mdash; (no security or cloud relevance)</li>
+    <li>&middot; [Engadget] UK will ban social media for under-16s &mdash; (duplicate, better covered by Register)</li>
+    <li>&middot; [Engadget] Rare sticker-sealed Super Mario Bros. sold for $3M &mdash; (collectible, zero tech depth)</li>
+    <li>&middot; [The Register] Munch Museum Windows display screams &mdash; (offbeat, no news value)</li>
+    <li>&middot; [Engadget] Kindle Unlimited pricing guide &mdash; (consumer pricing roundup, no depth)</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:09 AST &middot;
+  Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+  Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+</div>
+
+</body>
+</html>
