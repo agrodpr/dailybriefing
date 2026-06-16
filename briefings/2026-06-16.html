@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morning Briefing — Tuesday, June 16, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --bg:         #0B0B0F;
+      --surface:    #13131A;
+      --surface-2:  #1C1C26;
+      --text:       #EDEAE2;
+      --text-muted: #8B8A84;
+      --cyan:       #00B4D8;
+      --orange:     #E8823A;
+      --red:        #F87171;
+      --purple:     #A78BFA;
+      --pink:       #F472B6;
+      --green:      #4ADE80;
+      --blue:       #60A5FA;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      padding: 56px 24px;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead { text-align: center; margin-bottom: 40px; }
+
+    .masthead h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .masthead .tagline {
+      font-size: 15px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .masthead hr {
+      border: none;
+      border-top: 1px solid var(--surface-2);
+      margin: 32px auto;
+      max-width: 860px;
+    }
+
+    /* ── LEGEND ── */
+    .legend-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      padding: 0 24px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      background: var(--surface);
+      padding: 12px 32px;
+      border-radius: 40px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── EDITOR'S NOTE ── */
+    .editors-note {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 24px);
+      max-width: 700px;
+      margin: 48px auto;
+      text-align: center;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* ── CARDS ── */
+    .stories { max-width: 860px; margin: 0 auto; }
+
+    .card {
+      background: var(--surface);
+      border-left: 3px solid var(--cyan);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      transition: filter 0.15s ease;
+    }
+
+    .card:hover { filter: brightness(1.07); }
+
+    .card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+
+    .badge-radar {
+      background: rgba(232,130,58,0.15);
+      color: var(--orange);
+      border: 1px solid rgba(232,130,58,0.35) !important;
+    }
+
+    .card-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .card-meta a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .card-meta a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .card-summary {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* ── WORTH SKIPPING ── */
+    .skip-section {
+      max-width: 860px;
+      margin: 48px auto 0;
+      padding-top: 32px;
+      border-top: 1px solid var(--surface-2);
+    }
+
+    .skip-section h3 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .skip-list {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 2.2;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding-top: 48px;
+      font-size: 11px;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <p class="tagline">Your daily intelligence feed &middot; Tuesday, June 16, 2026</p>
+    <hr>
+  </header>
+
+  <div class="legend-wrap">
+    <nav class="legend" aria-label="Source legend">
+      <div class="legend-item"><span class="dot" style="background:#00B4D8"></span><span>HACKER NEWS</span></div>
+      <div class="legend-item"><span class="dot" style="background:#E8823A"></span><span>BLEEPINGCOMPUTER</span></div>
+      <div class="legend-item"><span class="dot" style="background:#F87171"></span><span>THE REGISTER</span></div>
+      <div class="legend-item"><span class="dot" style="background:#A78BFA"></span><span>DARK READING</span></div>
+      <div class="legend-item"><span class="dot" style="background:#F472B6"></span><span>ENGADGET</span></div>
+      <div class="legend-item"><span class="dot" style="background:#4ADE80"></span><span>AWS BLOG</span></div>
+      <div class="legend-item"><span class="dot" style="background:#60A5FA"></span><span>AZURE BLOG</span></div>
+    </nav>
+  </div>
+
+  <section class="editors-note">
+    Security is the dominant story today, with 4 items covering active exploits, vulnerabilities, and threat actor campaigns across enterprise infrastructure. The intersection of cloud and security is particularly active — watch for IAM misconfigurations and supply-chain risks that could affect your stack directly. 4 stories have been flagged on your radar — review those first before the rest of the briefing.
+  </section>
+
+  <main class="stories">
+    
+    <article class="card" style="border-left-color:#00B4D8">
+      <div class="card-badges">
+        <span class="badge" style="background:#00B4D820;color:#00B4D8;border:1px solid #00B4D850">HACKER NEWS</span>
+      </div>
+      <h2 class="card-title">A backdoor in a LinkedIn job offer</h2>
+      <div class="card-meta">1230 pts &nbsp;·&nbsp; 223 comments &nbsp;·&nbsp; <a href="https://roman.pt/posts/linkedin-backdoor/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary"><em>No summary available.</em></p>
+    </article>
+
+    <article class="card" style="border-left-color:#00B4D8">
+      <div class="card-badges">
+        <span class="badge" style="background:#00B4D820;color:#00B4D8;border:1px solid #00B4D850">HACKER NEWS</span>
+      </div>
+      <h2 class="card-title">Iroh 1.0</h2>
+      <div class="card-meta">1213 pts &nbsp;·&nbsp; 368 comments &nbsp;·&nbsp; <a href="https://www.iroh.computer/blog/v1" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary"><em>No summary available.</em></p>
+    </article>
+
+    <article class="card" style="border-left-color:#00B4D8">
+      <div class="card-badges">
+        <span class="badge" style="background:#00B4D820;color:#00B4D8;border:1px solid #00B4D850">HACKER NEWS</span>
+      </div>
+      <h2 class="card-title">Ask HN: Has anyone replaced Claude/GPT with a local model for daily coding?</h2>
+      <div class="card-meta">1035 pts &nbsp;·&nbsp; 455 comments &nbsp;·&nbsp; <a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">Has anyone here fully swapped Claude&amp;#x2F;GPT for a local model as their main coding tool, not just for side experiments? If so, please share your setup and performance (e.g tok&amp;#x2F;s)</p>
+    </article>
+
+    <article class="card" style="border-left-color:#E8823A">
+      <div class="card-badges">
+        <span class="badge" style="background:#E8823A20;color:#E8823A;border:1px solid #E8823A50">BLEEPINGCOMPUTER</span><span class="badge badge-radar">⚡ ON YOUR RADAR</span>
+      </div>
+      <h2 class="card-title">CISA warns of another cPanel plugin flaw exploited in attacks</h2>
+      <div class="card-meta">Jun 16 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-another-actively-exploited-cpanel-plugin-flaw/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has given U.S. government agencies three days to secure their servers against an actively exploited vulnerability (CVE-2026-54420) in the LiteSpeed cPanel user-end plugin. [...]</p>
+    </article>
+
+    <article class="card" style="border-left-color:#E8823A">
+      <div class="card-badges">
+        <span class="badge" style="background:#E8823A20;color:#E8823A;border:1px solid #E8823A50">BLEEPINGCOMPUTER</span><span class="badge badge-radar">⚡ ON YOUR RADAR</span>
+      </div>
+      <h2 class="card-title">Ransomware gang abuses Microsoft Teams relays to hide malicious traffic</h2>
+      <div class="card-meta">Jun 16 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/ransomware-gang-abuses-microsoft-teams-relays-to-hide-malicious-traffic/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">DragonForce ransomware used a custom malware named &#39;Backdoor.Turn&#39; to hide command-and-control traffic inside Microsoft Teams relay infrastructure. [...]</p>
+    </article>
+
+    <article class="card" style="border-left-color:#E8823A">
+      <div class="card-badges">
+        <span class="badge" style="background:#E8823A20;color:#E8823A;border:1px solid #E8823A50">BLEEPINGCOMPUTER</span><span class="badge badge-radar">⚡ ON YOUR RADAR</span>
+      </div>
+      <h2 class="card-title">Critical Fortinet FortiSandbox flaws now exploited in attacks</h2>
+      <div class="card-meta">Jun 16 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/critical-fortinet-fortisandbox-flaws-now-exploited-in-attacks/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">Attackers are now exploiting several critical vulnerabilities in Fortinet&#39;s FortiSandbox cyber threat detection platform, according to threat intelligence company Defused. [...]</p>
+    </article>
+
+    <article class="card" style="border-left-color:#E8823A">
+      <div class="card-badges">
+        <span class="badge" style="background:#E8823A20;color:#E8823A;border:1px solid #E8823A50">BLEEPINGCOMPUTER</span><span class="badge badge-radar">⚡ ON YOUR RADAR</span>
+      </div>
+      <h2 class="card-title">Cisco fixes SD-WAN vManage flaw exploited in zero-day attacks</h2>
+      <div class="card-meta">Jun 15 &nbsp;·&nbsp; <a href="https://www.bleepingcomputer.com/news/security/cisco-fixes-sd-wan-vmanage-flaw-exploited-in-zero-day-attacks/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">Cisco has released security updates to address a vulnerability in the Catalyst SD-WAN Manager, tracked as CVE-2026-20262, that was exploited in attacks to escalate to root privileges. [...]</p>
+    </article>
+
+    <article class="card" style="border-left-color:#F472B6">
+      <div class="card-badges">
+        <span class="badge" style="background:#F472B620;color:#F472B6;border:1px solid #F472B650">ENGADGET</span>
+      </div>
+      <h2 class="card-title">Meta&#39;s Threads app now has half a billion monthly users</h2>
+      <div class="card-meta">Jun 16 &nbsp;·&nbsp; <a href="https://www.engadget.com/2194963/threads-hit-half-billion-monthly-users/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">Almost three years in, Meta&#39;s X competitor is still growing.</p>
+    </article>
+
+    <article class="card" style="border-left-color:#F472B6">
+      <div class="card-badges">
+        <span class="badge" style="background:#F472B620;color:#F472B6;border:1px solid #F472B650">ENGADGET</span>
+      </div>
+      <h2 class="card-title">Justice Department backs xAI in NAACP lawsuit over data center pollution</h2>
+      <div class="card-meta">Jun 16 &nbsp;·&nbsp; <a href="https://www.engadget.com/2195032/doj-backs-xai-naacp-data-center-pollution-lawsuit/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">xAI has some powerful friends, and they&#39;re asking the court to dismiss NAACP&#39;s lawsuit.</p>
+    </article>
+
+    <article class="card" style="border-left-color:#4ADE80">
+      <div class="card-badges">
+        <span class="badge" style="background:#4ADE8020;color:#4ADE80;border:1px solid #4ADE8050">AWS BLOG</span>
+      </div>
+      <h2 class="card-title">AWS WAF adds AI traffic monetization capability to help content owners charge AI bots for content access</h2>
+      <div class="card-meta">Jun 15 &nbsp;·&nbsp; <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">AWS WAF launches AI traffic monetization, a new Bot Control capability that enables content providers and publishers price, meter, and collect payment from AI bots and agents accessing their content and APIs. AWS WAF now lets you set a price for that access, accept payment through third-party providers, and grant scoped access directly…</p>
+    </article>
+
+    <article class="card" style="border-left-color:#4ADE80">
+      <div class="card-badges">
+        <span class="badge" style="background:#4ADE8020;color:#4ADE80;border:1px solid #4ADE8050">AWS BLOG</span>
+      </div>
+      <h2 class="card-title">AWS Weekly Roundup: AWS FinOps Agent in preview, Gemma 4 on Bedrock, Kiro Pro Max, and more (June 15, 2026)</h2>
+      <div class="card-meta">Jun 15 &nbsp;·&nbsp; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-finops-agent-in-preview-gemma-4-on-bedrock-kiro-pro-max-and-more-june-15-2026/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">This week, New York City is hosting AWS Summit, bringing together builders, customers, and AWS teams for a full day of announcements, demos, and technical sessions at the Javits Center. I wrote blog posts for some of the Summit launches, so I am excited to see them go live this week. I just won’t be […]</p>
+    </article>
+
+    <article class="card" style="border-left-color:#4ADE80">
+      <div class="card-badges">
+        <span class="badge" style="background:#4ADE8020;color:#4ADE80;border:1px solid #4ADE8050">AWS BLOG</span>
+      </div>
+      <h2 class="card-title">Now available: Amazon EC2 M9g and M9gd instances powered by new AWS Graviton5 processors</h2>
+      <div class="card-meta">Jun 10 &nbsp;·&nbsp; <a href="https://aws.amazon.com/blogs/aws/now-available-amazon-ec2-m9g-and-m9gd-instances-powered-by-new-aws-graviton5-processors/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">AWS launches Amazon EC2 M9g and M9gd instances, powered by AWS Graviton5 processors. AWS Graviton5 is most powerful, and most energy eﬃcient processor AWS has ever built, and oﬀers up to 25% better compute performance compared to Graviton4-based instances.</p>
+    </article>
+
+    <article class="card" style="border-left-color:#60A5FA">
+      <div class="card-badges">
+        <span class="badge" style="background:#60A5FA20;color:#60A5FA;border:1px solid #60A5FA50">AZURE BLOG</span>
+      </div>
+      <h2 class="card-title">3 things leaders need to know from Microsoft Build 2026</h2>
+      <div class="card-meta">Jun 11 &nbsp;·&nbsp; <a href="https://azure.microsoft.com/en-us/blog/3-things-leaders-need-to-know-from-microsoft-build-2026/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">At Microsoft Build 2026, AI moved from experimentation to execution—shifting from isolated tools to connected systems grounded in business data. Organizations that win will embed AI across workflows, scale it effectively, and translate it into measurable outcomes like faster growth, lower costs, and better customer experiences. The post…</p>
+    </article>
+
+    <article class="card" style="border-left-color:#60A5FA">
+      <div class="card-badges">
+        <span class="badge" style="background:#60A5FA20;color:#60A5FA;border:1px solid #60A5FA50">AZURE BLOG</span>
+      </div>
+      <h2 class="card-title">Claude Fable 5 available today in Microsoft Foundry: Powering the next era of autonomous agents</h2>
+      <div class="card-meta">Jun 9 &nbsp;·&nbsp; <a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/" target="_blank" rel="noopener noreferrer">→ Read more</a></div>
+      <p class="card-summary">Claude Fable 5, Anthropic’s latest Frontier model, available today in Microsoft Foundry, powering agents in GitHub Copilot and Foundry Agent Service. The post Claude Fable 5 available today in Microsoft Foundry: Powering the next era of autonomous agents appeared first on Microsoft Azure Blog .</p>
+    </article>
+  </main>
+
+  <section class="skip-section" aria-label="Skipped stories">
+    <h3>Worth Skipping Today</h3>
+    <ul class="skip-list">
+      <li>· <strong>[Hacker News]</strong> — TinyWind: A pixel pirate sailing game with real wind physics (380k+ k… — <em>(over quota)</em></li>
+      <li>· <strong>[Hacker News]</strong> — Hetzner Price Adjustment — <em>(over quota)</em></li>
+      <li>· <strong>[Hacker News]</strong> — Banned Book Library in a Wi-Fi Smart Light Bulb — <em>(over quota)</em></li>
+      <li>· <strong>[Hacker News]</strong> — Fox to buy Roku — <em>(over quota)</em></li>
+      <li>· <strong>[Hacker News]</strong> — John Carmack on Fabrice Bellard — <em>(over quota)</em></li>
+    </ul>
+  </section>
+
+  <footer>
+    Morning Briefing &middot; Generated 07:08 AST &middot;
+    Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+    Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+  </footer>
+
+</body>
+</html>
