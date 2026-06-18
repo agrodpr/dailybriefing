@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 18, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 32px;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 80px;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin: 0;
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: fit-content;
+  margin: 0 auto 48px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot.hn { background: var(--cyan); }
+.dot.bc { background: var(--orange); }
+.dot.reg { background: var(--red); }
+.dot.dr { background: var(--purple); }
+.dot.eng { background: var(--pink); }
+.dot.aws { background: var(--green); }
+.dot.az { background: var(--blue); }
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.stories {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+.card:hover::before {
+  filter: brightness(1.3);
+}
+
+.card.hn { --accent: var(--cyan); }
+.card.bc { --accent: var(--orange); }
+.card.reg { --accent: var(--red); }
+.card.dr { --accent: var(--purple); }
+.card.eng { --accent: var(--pink); }
+.card.aws { --accent: var(--green); }
+.card.az { --accent: var(--blue); }
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 40px;
+  color: var(--bg);
+}
+
+.chip.hn { background: var(--cyan); }
+.chip.bc { background: var(--orange); }
+.chip.reg { background: var(--red); }
+.chip.dr { background: var(--purple); }
+.chip.eng { background: var(--pink); }
+.chip.aws { background: var(--green); }
+.chip.az { background: var(--blue); }
+
+.flag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 40px;
+  background: var(--orange);
+  color: var(--bg);
+}
+
+.headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: var(--text);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.meta a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.meta a:hover {
+  color: var(--text);
+}
+
+.summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skip-section {
+  max-width: 860px;
+  margin: 56px auto 0;
+}
+
+.skip-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skip-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Thursday, June 18, 2026</div>
+</div>
+
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot az"></span>Azure</div>
+</div>
+
+<div class="editors-note">
+  Fortinet and Cisco vulnerabilities own the morning &mdash; a CVSS 10.0 Cisco SD-WAN flaw is being actively exploited while a separate FortiBleed leak exposes 75,000 VPN credentials, and CISA just gave federal agencies until Friday to patch a max-severity Joomla plugin bug. AWS and Azure both doubled down on agentic AI infrastructure (Security Agent, Cobalt 200 VMs) even as Tesco scrambles to exit VMware ahead of Broadcom's licensing squeeze. Healthcare stays in the crosshairs: INC ransomware is explicitly hunting hospitals for fast extortion payouts.
+</div>
+
+<div class="stories">
+
+  <div class="card hn">
+    <div class="card-top">
+      <span class="chip hn">Hacker News</span>
+    </div>
+    <h2 class="headline">Lore &ndash; Open Source Version Control System Designed for Scalability</h2>
+    <div class="meta">1,156 pts &middot; 613 comments &middot; <a href="https://lore.org/" target="_blank" rel="noopener">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48571081" target="_blank" rel="noopener">HN Discussion</a></div>
+    <p class="summary">Epic Games open-sourced Lore, a version control system built to handle massive binary assets and large teams in ways Git struggles with. It uses content-addressed storage, chunked files, and on-demand hydration so engineers pull only the data they need instead of cloning an entire repo. The 600+ comment thread splits between excitement over a real Perforce/Git alternative and skepticism about adopting yet another VCS.</p>
+  </div>
+
+  <div class="card hn">
+    <div class="card-top">
+      <span class="chip hn">Hacker News</span>
+    </div>
+    <h2 class="headline">Midjourney Medical</h2>
+    <div class="meta">799 pts &middot; 549 comments &middot; <a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48579650" target="_blank" rel="noopener">HN Discussion</a></div>
+    <p class="summary">Midjourney's first hardware product is a full-body ultrasonic scanner using phased-array transducers that produces high-resolution scans in under a minute, pitched as a cheaper MRI alternative. The company wants units placed in wellness spas for routine screening, but physicians in the thread warn that scanning healthy, asymptomatic people drives false positives, needless anxiety, and invasive follow-ups. It's a clean example of an AI company expanding into regulated medical territory without the clinical guardrails that normally come with it.</p>
+  </div>
+
+  <div class="card hn">
+    <div class="card-top">
+      <span class="chip hn">Hacker News</span>
+    </div>
+    <h2 class="headline">Volkswagen Started Blocking GrapheneOS Users</h2>
+    <div class="meta">698 pts &middot; 416 comments &middot; <a href="https://discuss.grapheneos.org/d/35949-volkswagen-app?page=3" target="_blank" rel="noopener">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48571526" target="_blank" rel="noopener">HN Discussion</a></div>
+    <p class="summary">Volkswagen's companion app now requires Google Play Protect attestation, which locks GrapheneOS and other de-Googled Android builds out of controlling their own vehicles. VW frames it as a security and liability measure for the app's remote vehicle-control APIs, but commenters argue it's compliance theater that hands Google an ecosystem chokehold over who gets to unlock their car. It's a fresh data point in the fight over hardware attestation becoming a de facto requirement for basic app functionality.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="card-top">
+      <span class="chip bc">BleepingComputer</span>
+      <span class="flag">&#9889; ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">FortiBleed Leak Exposes Fortinet VPN Credentials for 73,000 Devices</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/fortibleed-leak-exposes-fortinet-vpn-credentials-for-73-000-devices/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">A leak dubbed "FortiBleed" exposed roughly 73,000-75,000 FortiGate VPN credentials tied to major organizations including Chevron, Samsung, and AT&amp;T. Fortinet says the credentials came from previously exported configs and brute-forced logins rather than a new vulnerability, but the scale still leaves thousands of VPN gateways open to unauthorized access. Rotate passwords, enforce MFA, and audit VPN logs now &mdash; Hudson Rock has a free lookup tool to check exposure.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="card-top">
+      <span class="chip bc">BleepingComputer</span>
+      <span class="flag">&#9889; ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">CISA Orders Feds to Patch Max-Severity Joomla Plugin Flaw by Friday</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-max-severity-joomla-plugin-flaw-by-friday/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">CVE-2026-48907 is a maximum-severity flaw in the Joomla Content Editor "Widget Factory" plugin that lets unauthenticated attackers upload and execute PHP by creating new editor profiles. CISA added it to its Known Exploited Vulnerabilities list and is ordering federal patching under Binding Operational Directive 26-04, since exploit code is public and attacks are already automated. If you run JCE anywhere, patch now &mdash; this one doesn't need a foothold, just a vulnerable install.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="card-top">
+      <span class="chip bc">BleepingComputer</span>
+      <span class="flag">&#9889; ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">Microsoft Working on Defender Patch for RoguePlanet Zero-Day</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-working-on-defender-patch-for-rogueplanet-zero-day/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">RoguePlanet (CVE-2026-50656) is a privilege-escalation race condition in Microsoft Defender that lets a local attacker spawn a SYSTEM-level command prompt on fully patched Windows 10 and 11 machines. It was publicly disclosed a week before Microsoft confirmed it's working on a fix, leaving a window where the technique is known but no official patch exists. Treat unusual Defender-related privilege escalation alerts as high priority until Microsoft ships a fix.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="card-top">
+      <span class="chip bc">BleepingComputer</span>
+    </div>
+    <h2 class="headline">Kodak Confirms Data Breach Claimed by ShinyHunters Extortion Gang</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/kodak-confirms-data-breach-claimed-by-shinyhunters-extortion-gang/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Kodak confirmed attackers stole more than 2.2 million records of customer PII and internal corporate data, with the ShinyHunters extortion gang claiming credit. ShinyHunters is the same group behind the Salesforce, Snowflake, and Oracle PeopleSoft customer-data extortion sprees that have racked up billions of stolen records this year. Kodak hasn't said whether it's paying; affected customers should watch for phishing and identity-theft attempts tied to the leak.</p>
+  </div>
+
+  <div class="card reg">
+    <div class="card-top">
+      <span class="chip reg">The Register</span>
+      <span class="flag">&#9889; ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">Cisco Adds Another SD-WAN Box to Max-Severity Bug Advisory</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.theregister.com/security/2026/06/17/cisco-adds-another-sd-wan-box-to-max-severity-bug-advisory/5257621" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">CVE-2026-20127 (CVSS 10.0) is an improper-authentication flaw across Cisco Catalyst SD-WAN products, now expanded to include the Validator component, letting attackers gain admin rights, reach NETCONF, and reconfigure the entire SD-WAN fabric. Cisco confirms threat group UAT-8616 is actively exploiting it in the wild, with potential for persistent root access on compromised boxes. If you run Catalyst SD-WAN Validator, this is a drop-everything patch.</p>
+  </div>
+
+  <div class="card reg">
+    <div class="card-top">
+      <span class="chip reg">The Register</span>
+    </div>
+    <h2 class="headline">Cyberattack Sees Crops Kept in the Ground</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.theregister.com/cyber-crime/2026/06/17/cyberattack-sees-crops-kept-in-the-ground/5256321" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Australia's second-largest sugar producer, Mackay Sugar, shut down two of its three mills after a cyberattack hit during peak cane-crushing season, claimed by ransomware group The Gentlemen (the company only confirms a "cybersecurity incident"). Cane has to be processed within 48 hours of harvest or it loses sugar content and value, so the forced delay hits farmers' yields directly. Ransomware's blast radius keeps extending past IT into physical supply chains with hard biological deadlines.</p>
+  </div>
+
+  <div class="card reg">
+    <div class="card-top">
+      <span class="chip reg">The Register</span>
+      <span class="flag">&#9889; ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">Tesco Is Sprinting to Quit VMware and Broadcom Despite Rapid Migration Risks</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.theregister.com/virtualization/2026/06/17/tesco-is-sprinting-to-quit-vmware-and-broadcom-despite-rapid-migration-risks/5256133" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Tesco is racing to exit VMware after Broadcom allegedly demanded 175-350% price increases on renewal and refused to extend support for its perpetual licenses. The supermarket runs inventory ordering and payroll on these systems, and its replacement platform isn't yet compatible with existing backup tooling like Veeam and Zerto &mdash; a rushed migration with real outage risk. The underlying licensing dispute heads to UK High Court in November 2027, but Tesco isn't waiting for a verdict.</p>
+  </div>
+
+  <div class="card dr">
+    <div class="card-top">
+      <span class="chip dr">Dark Reading</span>
+    </div>
+    <h2 class="headline">Copilot 'SearchLeak' Attack Allows 1-Click Data Theft</h2>
+    <div class="meta">June 15 &middot; <a href="https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">SearchLeak is a three-stage prompt-injection attack against Microsoft Copilot that could exfiltrate sensitive data with a single click, using hidden URLs and chained variables to smuggle out information without obvious user interaction. Microsoft has already patched it, but researchers frame it as part of a growing class of AI prompt-injection bugs exploiting how agents process untrusted content. Anyone running Copilot or similar assistants over internal data should expect more of these and audit what the agent can read and send.</p>
+  </div>
+
+  <div class="card dr">
+    <div class="card-top">
+      <span class="chip dr">Dark Reading</span>
+    </div>
+    <h2 class="headline">SprySOCKS Windows Variant Abuses Kernel Drivers to Evade Detection</h2>
+    <div class="meta">June 16 &middot; <a href="https://www.darkreading.com/threat-intelligence/sprysocks-windows-variant-kernel-drivers" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">FishMonger, a China-nexus threat group, ported its Linux SprySOCKS backdoor to Windows using an undocumented variant that abuses kernel drivers to dodge endpoint detection. The campaign has hit government targets in Honduras, Taiwan, Thailand, and Pakistan, signaling a deliberate expansion beyond its original Linux-only footprint. Kernel-driver abuse for EDR evasion is a recurring theme in nation-state tooling &mdash; worth a hunt for unsigned or unusual drivers on sensitive Windows hosts.</p>
+  </div>
+
+  <div class="card dr">
+    <div class="card-top">
+      <span class="chip dr">Dark Reading</span>
+      <span class="flag">&#9889; ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">INC Ransomware Thrives by Mastering the Basics</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/inc-ransomware-thrives-by-mastering-the-basics" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">The INC ransomware group isn't winning with novel exploits &mdash; it's winning by picking targets where disruption creates instant pressure to pay, especially healthcare providers who can't afford downtime. Researchers note the group sticks to fundamentals: phishing for initial access, fast lateral movement, and double-extortion threats rather than zero-days. For healthcare IT teams, it's a reminder that basic hygiene &mdash; MFA, segmentation, isolated backups &mdash; still closes the path this group relies on most.</p>
+  </div>
+
+  <div class="card eng">
+    <div class="card-top">
+      <span class="chip eng">Engadget</span>
+    </div>
+    <h2 class="headline">Tim Cook Says Apple Price Increases Are 'Unavoidable' Due to Memory Crunch</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.engadget.com/2196902/tim-cook-says-apple-price-increases-are-unavoidable-due-to-memory-crunch/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Tim Cook confirmed Apple will raise prices because of the ongoing global memory shortage driving up RAM and storage costs industry-wide. The crunch &mdash; already blamed for surging PC and smartphone prices elsewhere &mdash; is now hitting one of the few vendors that had absorbed cost increases without passing them to consumers. Expect the same pressure to show up in enterprise hardware refresh budgets, not just consumer device pricing.</p>
+  </div>
+
+  <div class="card eng">
+    <div class="card-top">
+      <span class="chip eng">Engadget</span>
+    </div>
+    <h2 class="headline">Anthropic's Design Assistant Now Works Better With Its Coding Agent</h2>
+    <div class="meta">June 17 &middot; <a href="https://www.engadget.com/2196329/anthropics-design-assistant-now-works-better-with-its-coding-agent/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Anthropic updated its design assistant to integrate more tightly with its coding agent, letting design output feed directly into a development workflow instead of living in a separate tool. It's a small but telling move toward AI tools converging into a single agentic pipeline rather than a chain of disconnected point tools. For teams already using Claude Code, the tighter handoff likely shaves real time off the design-to-implementation loop.</p>
+  </div>
+
+  <div class="card aws">
+    <div class="card-top">
+      <span class="chip aws">AWS</span>
+    </div>
+    <h2 class="headline">AWS Security Agent Adds Threat Modeling, Kiro Power and Claude Code Plugin</h2>
+    <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">AWS Security Agent now does STRIDE-based threat modeling plus full repo and PR scanning with remediation across major Git platforms, and ships IDE integrations via Kiro, a Claude Code plugin, and MCP. The pitch is catching vulnerabilities on every pull request and validating fixes in simulated environments before they reach production. It's AWS pushing security review further left into the dev workflow rather than leaving it as a pre-release gate.</p>
+  </div>
+
+  <div class="card aws">
+    <div class="card-top">
+      <span class="chip aws">AWS</span>
+    </div>
+    <h2 class="headline">AWS WAF Adds AI Traffic Monetization Capability</h2>
+    <div class="meta">June 15 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">AWS WAF's Bot Control now lets content owners set a price for AI bots and agents crawling their content or APIs, turning bot management from pure block-or-allow into a metering and billing layer. It's a direct response to publishers losing traffic and revenue to AI scrapers that ignore robots.txt and licensing terms. Worth watching whether other CDN/WAF vendors follow with their own pay-per-crawl primitives.</p>
+  </div>
+
+  <div class="card aws">
+    <div class="card-top">
+      <span class="chip aws">AWS</span>
+    </div>
+    <h2 class="headline">Amazon S3 Annotations: Attach Rich, Queryable Context Directly to Your Objects</h2>
+    <div class="meta">June 16 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-s3-annotations-attach-rich-queryable-context-directly-to-your-objects/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">S3 now lets you attach up to 1GB of mutable, queryable metadata annotations directly to objects, aimed at AI agents and automated workflows that need to understand bucket contents without a separate metadata index. It's a meaningful change for anyone running agentic pipelines over unstructured S3 data &mdash; discovery and context no longer require a side database. Cost and access-pattern implications for buckets with millions of objects are still worth testing before rolling this out broadly.</p>
+  </div>
+
+  <div class="card az">
+    <div class="card-top">
+      <span class="chip az">Azure</span>
+    </div>
+    <h2 class="headline">New Azure Cobalt 200 VMs Deliver 50% Performance Improvement</h2>
+    <div class="meta">June 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Azure's early-access Cobalt 200 Arm-based VMs promise a 50% performance bump over the prior generation, aimed specifically at Linux-based agentic AI workloads. It continues the cloud-wide shift toward custom Arm silicon &mdash; alongside AWS Graviton and Google Axion &mdash; for better price-performance on inference and agent workloads. Cost-conscious teams running Linux compute at scale should plan a benchmark once it's broadly available.</p>
+  </div>
+
+  <div class="card az">
+    <div class="card-top">
+      <span class="chip az">Azure</span>
+    </div>
+    <h2 class="headline">Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+    <div class="meta">June 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+    <p class="summary">Microsoft published guidance on planning large-scale Azure Storage migrations, stressing that moving terabytes or petabytes safely is less about copying bytes and more about protecting business continuity, performance, and cost during cutover. It's aimed at teams who've delayed storage modernization because of the operational risk of getting a migration wrong. Useful reading before any large data-platform move, regardless of which cloud you're migrating to or from.</p>
+  </div>
+
+</div>
+
+<div class="skip-section">
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>&middot; [BleepingComputer] &mdash; Leak confirms OpenAI is testing ChatGPT for Science &mdash; (no security or infra angle)</li>
+    <li>&middot; [Engadget] &mdash; Lego unveils its first working pinball machine &mdash; (toy, zero technical depth)</li>
+    <li>&middot; [The Register] &mdash; Smartphone market to shrink 15 percent &mdash; (consumer market news only)</li>
+    <li>&middot; [Engadget] &mdash; SanDisk's 8TB PS5 SSD costs more than PS5 Pro &mdash; (consumer gadget pricing)</li>
+    <li>&middot; [Engadget] &mdash; Rockstar offers free GTA 5 upgrades &mdash; (gaming, no tech relevance)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:08 AST &middot;
+  Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+  Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+</footer>
+
+</body>
+</html>
