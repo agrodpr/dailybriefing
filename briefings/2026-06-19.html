@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 19, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 40px;
+}
+
+.masthead { text-align: center; }
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 80px;
+  letter-spacing: -2px;
+  margin: 0;
+  color: var(--text);
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  width: fit-content;
+  margin: 0 auto 48px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+}
+
+.cards {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  background: var(--surface);
+  padding: 28px 32px;
+  padding-left: 29px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  border-radius: 8px 0 0 8px;
+}
+
+.card:hover::before {
+  filter: brightness(1.3);
+}
+
+.card-hn::before  { background: var(--cyan); }
+.card-bc::before  { background: var(--orange); }
+.card-reg::before { background: var(--red); }
+.card-dr::before  { background: var(--purple); }
+.card-eng::before { background: var(--pink); }
+.card-aws::before { background: var(--green); }
+.card-az::before  { background: var(--blue); }
+
+.chip-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+
+.chip {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #0B0B0F;
+}
+
+.chip-hn  { background: var(--cyan); }
+.chip-bc  { background: var(--orange); }
+.chip-reg { background: var(--red); }
+.chip-dr  { background: var(--purple); }
+.chip-eng { background: var(--pink); }
+.chip-aws { background: var(--green); }
+.chip-az  { background: var(--blue); }
+.chip-radar { background: var(--orange); }
+
+.card h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.meta a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skip-section {
+  max-width: 860px;
+  margin: 64px auto 0;
+}
+
+.skip-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+.footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <div class="tagline">Your daily intelligence feed · Friday, June 19, 2026</div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="legend">
+      <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+      <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+      <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+      <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+      <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+      <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+      <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+  </div>
+
+  <p class="editors-note">A cluster of actively exploited flaws — Splunk’s unauthenticated PostgreSQL sidecar RCE, FortiBleed’s 74,000 leaked VPN credentials, and a max-severity Cisco SD-WAN authentication bug — has CISA pushing emergency patch windows across federal networks this week. On the cloud side, AWS and Azure are both betting on agentic tooling and resilience: AWS shipped a Security Agent with built-in threat modeling and Cognito multi-region failover, while Azure pushed Cobalt 200 VMs and storage-migration guidance. Watch the FortiBleed and Ivanti/Oracle exploit chains closely — both are being weaponized within hours of disclosure.</p>
+
+  <div class="cards">
+      <article class="card card-hn">
+        <div class="chip-row">
+          <span class="chip chip-hn">Hacker News</span>
+          
+        </div>
+        <h2>I Found 10,000 GitHub Repositories Distributing Trojan Malware</h2>
+        <div class="meta">810 pts · 211 comments · <a href="https://news.ycombinator.com/item?id=48583928" target="_blank" rel="noopener">💬 HN Discussion</a> · <a href="https://orchidfiles.com/github-repositories-distributing-malware/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A researcher uncovered roughly 10,000 malicious GitHub repos that clone themselves to climb search rankings, then repeatedly delete and re-push commits linking to trojanized zip archives. Some have sat undetected for over a year, exposing a blind spot in GitHub's abuse-detection pipeline despite an obvious, repeatable pattern.</p>
+      </article>
+      <article class="card card-hn">
+        <div class="chip-row">
+          <span class="chip chip-hn">Hacker News</span>
+          
+        </div>
+        <h2>.gitignore Isn't the Only Way to Ignore Files in Git</h2>
+        <div class="meta">430 pts · 133 comments · <a href="https://news.ycombinator.com/item?id=48583356" target="_blank" rel="noopener">💬 HN Discussion</a> · <a href="https://nelson.cloud/.gitignore-isnt-the-only-way-to-ignore-files-in-git/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">The post walks through git's lesser-known ignore mechanisms — per-repo exclude files, the global excludesfile config, and the assume-unchanged/skip-worktree flags — for cases where a shared .gitignore isn't appropriate. Useful for admins managing local-only config across a shared repo without touching tracked ignore rules.</p>
+      </article>
+      <article class="card card-hn">
+        <div class="chip-row">
+          <span class="chip chip-hn">Hacker News</span>
+          
+        </div>
+        <h2>CS 6120: Advanced Compilers: The Self-Guided Online Course (2020)</h2>
+        <div class="meta">378 pts · 51 comments · <a href="https://news.ycombinator.com/item?id=48583606" target="_blank" rel="noopener">💬 HN Discussion</a> · <a href="https://www.cs.cornell.edu/courses/cs6120/2025fa/self-guided/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Cornell's self-guided advanced compilers course is publicly available, covering SSA, dataflow analysis, and modern optimization techniques with hands-on assignments. It remains a go-to for engineers wanting a rigorous, no-classroom path into compiler internals.</p>
+      </article>
+      <article class="card card-bc">
+        <div class="chip-row">
+          <span class="chip chip-bc">BleepingComputer</span>
+          <span class="chip chip-radar">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2>CISA: Splunk Enterprise Flaw Actively Exploited, Patch by Sunday</h2>
+        <div class="meta">Jun 19 · <a href="https://www.bleepingcomputer.com/news/security/cisa-splunk-enterprise-flaw-actively-exploited-patch-by-sunday/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">CISA is giving federal agencies until Sunday to patch CVE-2026-20253, a pre-auth remote code execution flaw in Splunk Enterprise's PostgreSQL sidecar service that lacks authentication controls entirely. Attackers are already exploiting it in the wild, letting any network-reachable user trigger arbitrary file operations without credentials.</p>
+      </article>
+      <article class="card card-bc">
+        <div class="chip-row">
+          <span class="chip chip-bc">BleepingComputer</span>
+          <span class="chip chip-radar">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2>CISA Warns Fortinet Users to Secure Devices After FortiBleed Leak</h2>
+        <div class="meta">Jun 19 · <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-fortinet-users-to-secure-devices-after-fortibleed-leak/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">The “FortiBleed” leak exposed roughly 74,000 Fortinet firewall and VPN credentials — usernames, emails, and plaintext passwords — spanning organizations in 194 countries. CISA is telling admins to kill all active VPN/admin sessions, force a full credential reset, and move to phishing-resistant MFA immediately.</p>
+      </article>
+      <article class="card card-bc">
+        <div class="chip-row">
+          <span class="chip chip-bc">BleepingComputer</span>
+          
+        </div>
+        <h2>Nintendo Confirms Data Stolen in WebMD Subsidiary Cyberattack</h2>
+        <div class="meta">Jun 18 · <a href="https://www.bleepingcomputer.com/news/security/nintendo-confirms-data-stolen-in-webmd-subsidiary-cyberattack/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Nintendo of America confirmed attackers stole internal survey data from TinyPulse, an employee-engagement platform owned by a WebMD subsidiary, though Nintendo's own systems weren't touched. It's an employee-data exposure rather than a patient-records breach, but it shows how far third-party SaaS compromises can reach into unrelated companies.</p>
+      </article>
+      <article class="card card-bc">
+        <div class="chip-row">
+          <span class="chip chip-bc">BleepingComputer</span>
+          
+        </div>
+        <h2>F5 Issues Out-of-Band Patches for Critical NGINX Vulnerabilities</h2>
+        <div class="meta">Jun 18 · <a href="https://www.bleepingcomputer.com/news/security/f5-issues-out-of-band-patches-for-critical-nginx-vulnerabilities/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">F5 shipped emergency, out-of-band fixes for multiple NGINX vulnerabilities, including two critical-severity bugs that allow remote code execution on vulnerable web servers. Given NGINX's footprint as a reverse proxy and load balancer, unpatched instances are a high-value target.</p>
+      </article>
+      <article class="card card-reg">
+        <div class="chip-row">
+          <span class="chip chip-reg">The Register</span>
+          
+        </div>
+        <h2>Major US Carrier Stored Credit Card Info in the Clear, Employee Learned on First Day</h2>
+        <div class="meta">Jun 18 · <a href="https://www.theregister.com/security/2026/06/18/major-us-carrier-stored-credit-card-info-in-the-clear-employee-learned-on-first-day/5257932" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A new database administrator at a major US telco discovered the production customer table stored full 16-digit credit card numbers, SSNs, and billing data completely unencrypted — a holdover from the early 2000s. Once flagged, management pulled the exposed fields and forced developers to fetch billing data through proper upstream systems instead of the raw table.</p>
+      </article>
+      <article class="card card-reg">
+        <div class="chip-row">
+          <span class="chip chip-reg">The Register</span>
+          <span class="chip chip-radar">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2>Cisco Adds Another SD-WAN Box to Max-Severity Bug Advisory</h2>
+        <div class="meta">Jun 17 · <a href="https://www.theregister.com/security/2026/06/17/cisco-adds-another-sd-wan-box-to-max-severity-bug-advisory/5257621" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Cisco expanded its advisory for CVE-2026-20127, a maximum-severity improper-authentication flaw, to include the Catalyst SD-WAN Validator (formerly vBond). Exploitation grants admin rights and NETCONF access to reconfigure the SD-WAN fabric — and it's reportedly already being used by sophisticated actors for persistent access across Western networks.</p>
+      </article>
+      <article class="card card-reg">
+        <div class="chip-row">
+          <span class="chip chip-reg">The Register</span>
+          
+        </div>
+        <h2>Cyberattack Sees Crops Kept in the Ground</h2>
+        <div class="meta">Jun 17 · <a href="https://www.theregister.com/cyber-crime/2026/06/17/cyberattack-sees-crops-kept-in-the-ground/5256321" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Ransomware group “The Gentlemen” hit Mackay Sugar, Australia's second-largest sugar producer, forcing two of three mills offline during peak crushing season. Because cane must be processed within 48 hours of harvest, growers were told to leave crops in the ground — a direct hit to farmer income from an OT-adjacent attack on industrial scheduling.</p>
+      </article>
+      <article class="card card-dr">
+        <div class="chip-row">
+          <span class="chip chip-dr">Dark Reading</span>
+          <span class="chip chip-radar">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2>ShinyHunters Uses Oracle Zero-Day to Rampage Higher Ed</h2>
+        <div class="meta">Jun 12 · <a href="https://www.darkreading.com/vulnerabilities-threats/shinyhunters-oracle-zero-day-higher-ed" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A zero-day in Oracle's ERP software disproportionately hit American universities, and the ShinyHunters group has been exploiting it to exfiltrate large volumes of student and institutional data. Higher-ed's reliance on Oracle's enterprise stack made it an outsized target for a single unpatched flaw.</p>
+      </article>
+      <article class="card card-dr">
+        <div class="chip-row">
+          <span class="chip chip-dr">Dark Reading</span>
+          <span class="chip chip-radar">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2>Max-Severity Ivanti Flaw Exploited 24 Hours After Disclosure</h2>
+        <div class="meta">Jun 11 · <a href="https://www.darkreading.com/vulnerabilities-threats/max-severity-ivanti-sentry-flaw-exploited-24-hours" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Attackers weaponized a max-severity flaw in Ivanti Sentry within 24 hours of public disclosure, with evidence suggesting they'd already mapped victim asset landscapes ahead of time. The speed of exploitation is a reminder that disclosure-to-patch windows for edge and MDM software are shrinking toward zero.</p>
+      </article>
+      <article class="card card-dr">
+        <div class="chip-row">
+          <span class="chip chip-dr">Dark Reading</span>
+          <span class="chip chip-radar">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2>HTTP/2 Bomb Attacks Put Telcos, Healthcare Orgs at Risk</h2>
+        <div class="meta">Jun 15 · <a href="https://www.darkreading.com/vulnerabilities-threats/http-2-bomb-attacks-telcos-healthcare" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A new denial-of-service technique abuses two HTTP/2 bandwidth-saving features to create massive amplification attacks, with telcos and healthcare organizations flagged as high-risk targets. Hospital systems already running thin on infrastructure headroom are particularly exposed to this kind of protocol-level flood.</p>
+      </article>
+      <article class="card card-eng">
+        <div class="chip-row">
+          <span class="chip chip-eng">Engadget</span>
+          
+        </div>
+        <h2>At Least One UK Government Department Is Reportedly Done With X</h2>
+        <div class="meta">Jun 19 · <a href="https://www.engadget.com/2197975/uk-attorney-general-office-reportedly-quits-x/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">UK Attorney General Richard Hermer told staff his office is quitting X (formerly Twitter), according to The Guardian and The Observer. It's a small but notable data point in the broader government drift away from Musk-owned platforms for official communications.</p>
+      </article>
+      <article class="card card-eng">
+        <div class="chip-row">
+          <span class="chip chip-eng">Engadget</span>
+          
+        </div>
+        <h2>Waymo Recalls Over 3,800 Robotaxis That Might Drive Onto Closed Freeways</h2>
+        <div class="meta">Jun 18 · <a href="https://www.engadget.com/2197051/waymo-recalls-3800-robotaxis-that-might-drive-onto-closed-freeways/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Waymo is recalling more than 3,800 self-driving vehicles over a software issue that could let them enter closed freeway construction zones at speed. It's a reminder that autonomous-vehicle software defects carry physical-safety stakes that conventional software bugs don't.</p>
+      </article>
+      <article class="card card-aws">
+        <div class="chip-row">
+          <span class="chip chip-aws">AWS Blog</span>
+          
+        </div>
+        <h2>AWS Security Agent Adds Threat Modeling, Kiro Power, and Claude Code Plugin</h2>
+        <div class="meta">Jun 17 · <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">AWS Security Agent now does STRIDE-based threat modeling plus full repo and PR scanning with remediation across major Git platforms, wired into IDEs via Kiro, the Claude Code plugin, and MCP. It's aimed at letting developers run security reviews and fix issues without leaving their existing workflow.</p>
+      </article>
+      <article class="card card-aws">
+        <div class="chip-row">
+          <span class="chip chip-aws">AWS Blog</span>
+          
+        </div>
+        <h2>Improve Your Application Resilience With Amazon Cognito Multi-Region Replication</h2>
+        <div class="meta">Jun 3 · <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Cognito now replicates user data, credentials, and pool configuration to a secondary AWS region automatically, enabling uninterrupted authentication through regional failovers without forcing password resets. It also adds support for customer-managed KMS keys, giving teams more control over encryption during the failover path.</p>
+      </article>
+      <article class="card card-aws">
+        <div class="chip-row">
+          <span class="chip chip-aws">AWS Blog</span>
+          
+        </div>
+        <h2>Amazon ECS Introduces New High-Resolution Metrics for Faster Service Auto Scaling</h2>
+        <div class="meta">Jun 18 · <a href="https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">ECS service auto scaling gets high-resolution metrics that sharpen predictive, scheduled, and target-tracking scaling policies for bursty or recurring traffic. Faster metric resolution means scaling decisions react to real demand changes instead of lagging behind them.</p>
+      </article>
+      <article class="card card-az">
+        <div class="chip-row">
+          <span class="chip chip-az">Azure Blog</span>
+          
+        </div>
+        <h2>Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+        <div class="meta">Jun 16 · <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Microsoft's guidance frames enterprise storage migrations as a business-continuity problem, not just a data-copy job — covering performance, cost, and team confidence when moving petabyte-scale workloads. It's aimed squarely at shops still planning a path off legacy storage platforms.</p>
+      </article>
+      <article class="card card-az">
+        <div class="chip-row">
+          <span class="chip chip-az">Azure Blog</span>
+          
+        </div>
+        <h2>New Azure Cobalt 200 VMs Deliver 50% Performance Improvement</h2>
+        <div class="meta">Jun 2 · <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Azure's Cobalt 200 Arm-based VMs are in early-access preview, claiming a 50% performance bump and built specifically for Linux-based agentic AI workloads. It's Microsoft's answer to AWS Graviton in the price/performance race for AI-adjacent compute.</p>
+      </article>
+  </div>
+
+  <div class="skip-section">
+    <div class="skip-title">Worth Skipping Today</div>
+    <ul class="skip-list">
+        <li>· [The Register] — Midjourney pivots from AI image generation to body scanning medical spa — (bizarre PR stunt, no real news)</li>
+        <li>· [Engadget] — GTA 6 pre-orders open on June 25 — (consumer gaming, zero tech depth)</li>
+        <li>· [The Register] — Rockstar Games faces full hearing over alleged union busting — (labor dispute, no infra angle)</li>
+        <li>· [Dark Reading] — AI Slop Will Kill Cybersecurity Storytelling If We Let It — (opinion piece, no news value)</li>
+        <li>· [Engadget] — Old iPods are making a comeback thanks to Gen Z — (nostalgia gadget piece, no depth)</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Morning Briefing · Generated 07:08 AST ·<br>
+    Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure
+  </div>
+
+</body>
+</html>
