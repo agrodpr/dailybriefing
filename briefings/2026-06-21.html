@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 21, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0B0B0F;
+    --surface: #13131A;
+    --surface-2: #1C1C26;
+    --text: #EDEAE2;
+    --text-muted: #8B8A84;
+    --cyan: #00B4D8;
+    --orange: #E8823A;
+    --red: #F87171;
+    --purple: #A78BFA;
+    --pink: #F472B6;
+    --green: #4ADE80;
+    --blue: #60A5FA;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 64px 24px 96px;
+  }
+
+  .masthead {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .masthead h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin: 0;
+    color: var(--text);
+  }
+
+  .tagline {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--surface-2);
+    max-width: 860px;
+    margin: 40px auto;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background: var(--surface);
+    padding: 12px 32px;
+    border-radius: 40px;
+    max-width: 860px;
+    margin: 0 auto 48px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .editors-note {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 48px auto;
+    text-align: center;
+    color: var(--text);
+  }
+
+  .stories {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    transition: filter 0.15s ease;
+  }
+
+  .card:hover {
+    filter: brightness(1.3);
+  }
+
+  .chips {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 40px;
+    color: #0B0B0F;
+  }
+
+  .chip.flag {
+    background: var(--orange);
+    color: #0B0B0F;
+  }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 12px;
+    line-height: 1.25;
+  }
+
+  .headline a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .headline a:hover {
+    text-decoration: underline;
+  }
+
+  .meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .meta a {
+    color: var(--text-muted);
+  }
+
+  .summary {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .skip-section {
+    max-width: 860px;
+    margin: 56px auto 0;
+  }
+
+  .skip-section h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .skip-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skip-section li {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding-top: 48px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <div class="tagline">Your daily intelligence feed · Sunday, June 21, 2026</div>
+  </div>
+
+  <hr>
+
+  <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+        <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+        <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+        <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+        <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+        <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+        <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+  </div>
+
+  <p class="editors-note">Active exploitation is the throughline today — Splunk, FortiBleed, an Oracle ERP zero-day, and an Ivanti flaw weaponized within 24 hours all demand attention before patches catch up. The cloud angle is shifting toward agent identity and governance: Cloudflare's temporary AI-agent accounts, AWS's Security Agent, and Amazon's own internal debate over human-in-the-loop oversight all point the same direction. Watch the CISA Sunday deadline for Splunk and the FortiBleed credential leak closely — both are live, exploitable, and squarely in enterprise infrastructure.</p>
+
+  <div class="stories">
+      <article class="card" style="--accent: var(--cyan)">
+        <div class="chips">
+          <span class="chip" style="background:var(--cyan)">Hacker News</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://github.com/mysk-research/loupe" target="_blank" rel="noopener">Loupe – an iOS app that raises awareness about what native apps can see</a></h2>
+        <div class="meta">310 pts · 118 comments · <a href="https://news.ycombinator.com/item?id=48608645" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Loupe is an open-source iOS app that surfaces exactly which device permissions and background capabilities — camera, microphone, contacts, network access — your installed native apps actually hold. It's a transparency tool built in response to growing concern over how much passive surveillance is baked into everyday apps. The HN thread is largely developers comparing notes on which mainstream apps request far more access than their function requires.</p>
+      </article>
+      <article class="card" style="--accent: var(--cyan)">
+        <div class="chips">
+          <span class="chip" style="background:var(--cyan)">Hacker News</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://blog.cloudflare.com/temporary-accounts/" target="_blank" rel="noopener">Temporary Cloudflare accounts for AI agents</a></h2>
+        <div class="meta">214 pts · 113 comments · <a href="https://news.ycombinator.com/item?id=48608394" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Cloudflare is rolling out scoped, short-lived accounts so AI agents can provision infrastructure without holding standing credentials tied to a human owner. The design narrows the blast radius if an agent is compromised or goes rogue, since access expires automatically rather than persisting like a normal API token. It's a notable early pattern for agent identity management as more cloud providers wrestle with non-human actors holding real infrastructure permissions.</p>
+      </article>
+      <article class="card" style="--accent: var(--cyan)">
+        <div class="chips">
+          <span class="chip" style="background:var(--cyan)">Hacker News</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.phoronix.com/news/Linux-7.2-Drops-strncpy" target="_blank" rel="noopener">Linux eliminates the strncpy API after six years of work, 360 patches</a></h2>
+        <div class="meta">213 pts · 198 comments · <a href="https://news.ycombinator.com/item?id=48612943" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">The Linux kernel has finally finished purging strncpy(), a notoriously misuse-prone C string function long linked to buffer overflows and memory-safety bugs, after a six-year, 360-patch effort. The function doesn't guarantee null-termination and has been a recurring source of CVEs across decades of C codebases. Its removal from the kernel closes off a whole class of latent bugs that static analysis alone never fully caught.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange)">
+        <div class="chips">
+          <span class="chip" style="background:var(--orange)">BleepingComputer</span>
+          <span class="chip flag">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline"><a href="https://www.bleepingcomputer.com/news/security/cisa-splunk-enterprise-flaw-actively-exploited-patch-by-sunday/" target="_blank" rel="noopener">CISA: Splunk Enterprise flaw actively exploited, patch by Sunday</a></h2>
+        <div class="meta">Jun 19 · <a href="https://www.bleepingcomputer.com/news/security/cisa-splunk-enterprise-flaw-actively-exploited-patch-by-sunday/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">CISA has ordered U.S. federal agencies to patch a critical Splunk Enterprise vulnerability by Sunday after confirming it's being actively exploited in the wild. Splunk's widespread use as a SIEM and log-aggregation backbone makes this especially dangerous — a compromised Splunk instance can expose the very security telemetry organizations rely on to detect intrusions. Expect this to land on CISA's Known Exploited Vulnerabilities list if it hasn't already.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange)">
+        <div class="chips">
+          <span class="chip" style="background:var(--orange)">BleepingComputer</span>
+          <span class="chip flag">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline"><a href="https://www.bleepingcomputer.com/news/security/cisa-warns-fortinet-users-to-secure-devices-after-fortibleed-leak/" target="_blank" rel="noopener">CISA warns Fortinet users to secure devices after FortiBleed leak</a></h2>
+        <div class="meta">Jun 19 · <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-fortinet-users-to-secure-devices-after-fortibleed-leak/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Nearly 74,000 Fortinet firewall and VPN credentials were exposed in a leak dubbed &quot;FortiBleed,&quot; prompting CISA to urge immediate password rotation and device hardening. Compromised firewall and VPN credentials are a direct path to internal networks, and Fortinet appliances remain one of the most targeted edge devices by ransomware crews. Anyone running Fortinet gear should assume affected credentials are already circulating among attackers.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange)">
+        <div class="chips">
+          <span class="chip" style="background:var(--orange)">BleepingComputer</span>
+          <span class="chip flag">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline"><a href="https://www.bleepingcomputer.com/news/security/nintendo-confirms-data-stolen-in-webmd-subsidiary-cyberattack/" target="_blank" rel="noopener">Nintendo confirms data stolen in WebMD subsidiary cyberattack</a></h2>
+        <div class="meta">Jun 18 · <a href="https://www.bleepingcomputer.com/news/security/nintendo-confirms-data-stolen-in-webmd-subsidiary-cyberattack/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Nintendo of America confirmed that threat actors stole internal employee survey data from TinyPulse, a third-party engagement-survey service owned by a WebMD subsidiary, though Nintendo's own systems weren't breached. The incident is a clean example of third-party risk: the victim organization never controlled the compromised infrastructure, yet still owns the fallout. It also underscores how vendor consolidation in the healthcare-adjacent SaaS space concentrates breach exposure across unrelated client companies.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange)">
+        <div class="chips">
+          <span class="chip" style="background:var(--orange)">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/" target="_blank" rel="noopener">Microsoft links Mastra AI supply chain attack to North Korean hackers</a></h2>
+        <div class="meta">Jun 20 · <a href="https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Microsoft attributed a supply chain attack against the Mastra AI framework — which compromised more than 140 npm packages — to North Korea's Sapphire Sleet group, also tracked as BlueNoroff. The scale (140+ packages) shows nation-state actors are now treating AI-agent tooling supply chains the same way they've long targeted general npm and PyPI ecosystems. Any team that pulled Mastra dependencies in the affected window should audit for injected payloads.</p>
+      </article>
+      <article class="card" style="--accent: var(--red)">
+        <div class="chips">
+          <span class="chip" style="background:var(--red)">The Register</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.theregister.com/security/2026/06/19/researchers-drop-checkm8-style-bootrom-exploit-for-a12-and-a13-iphones/5258639" target="_blank" rel="noopener">Researchers drop checkm8-style BootROM exploit for A12 and A13 iPhones</a></h2>
+        <div class="meta">Jun 19 · <a href="https://www.theregister.com/security/2026/06/19/researchers-drop-checkm8-style-bootrom-exploit-for-a12-and-a13-iphones/5258639" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Security researchers released a checkm8-style unpatchable BootROM exploit affecting Apple's A12 and A13 chips, the same SecureROM-level bug class that powered years of jailbreaks on older iPhones. Because it lives in the boot ROM, Apple can't fix it with a software update — only a hardware revision removes the exposure. It's mostly a forensics and jailbreak tool rather than a remote attack vector, but it gives device-acquisition labs persistent low-level access to affected hardware.</p>
+      </article>
+      <article class="card" style="--accent: var(--red)">
+        <div class="chips">
+          <span class="chip" style="background:var(--red)">The Register</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.theregister.com/security/2026/06/18/google-told-researcher-nice-catch-then-denied-bug-bounty-for-flaw-it-still-hasnt-fixed/5258076" target="_blank" rel="noopener">Google told researcher 'Nice catch!' Then denied bug bounty for flaw it still hasn't fixed</a></h2>
+        <div class="meta">Jun 18 · <a href="https://www.theregister.com/security/2026/06/18/google-told-researcher-nice-catch-then-denied-bug-bounty-for-flaw-it-still-hasnt-fixed/5258076" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A researcher who reported a confirmed Google vulnerability was praised internally, then denied a bug bounty payout under a &quot;working as intended&quot; ruling — and the flaw remains unpatched. It's a familiar friction point in vulnerability disclosure programs: triage teams validate the technical finding but the payout decision runs through a separate, less transparent process. Cases like this erode researcher trust in bounty programs precisely when companies need more eyes finding bugs, not fewer.</p>
+      </article>
+      <article class="card" style="--accent: var(--red)">
+        <div class="chips">
+          <span class="chip" style="background:var(--red)">The Register</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.theregister.com/security/2026/06/20/why-amazon-hates-human-in-the-loop-ai-governance/5258639" target="_blank" rel="noopener">Why Amazon hates 'human-in-the-loop' AI governance</a></h2>
+        <div class="meta">Jun 20 · <a href="https://www.theregister.com/security/2026/06/20/why-amazon-hates-human-in-the-loop-ai-governance/5258639" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">AWS Security VP Eric Brandwine argues that &quot;human-in-the-loop&quot; shouldn't be treated as the default safety net for AI agent governance, since humans are just as non-deterministic and error-prone as the models they're meant to supervise. He points to decades of normalization-of-deviance research — humans quietly drift from procedure until something breaks — as a reason to design agentic systems with better automated guardrails instead of relying on a person to catch every mistake. It's a notable shift in how a major cloud security org is framing AI oversight internally.</p>
+      </article>
+      <article class="card" style="--accent: var(--purple)">
+        <div class="chips">
+          <span class="chip" style="background:var(--purple)">Dark Reading</span>
+          <span class="chip flag">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline"><a href="https://www.darkreading.com/vulnerabilities-threats/shinyhunters-oracle-zero-day-higher-ed" target="_blank" rel="noopener">ShinyHunters Uses Oracle Zero-Day to Rampage Higher Ed</a></h2>
+        <div class="meta">Jun 12 · <a href="https://www.darkreading.com/vulnerabilities-threats/shinyhunters-oracle-zero-day-higher-ed" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">The ShinyHunters extortion group is exploiting an unpatched zero-day in Oracle's ERP software that disproportionately hits American universities, which lean heavily on Oracle for student records and financial systems. The group has been mass-harvesting data from affected institutions before Oracle has shipped a fix, putting the zero-day squarely in active-exploitation territory. Higher-ed IT teams running Oracle ERP should be hunting for indicators now rather than waiting on a patch timeline.</p>
+      </article>
+      <article class="card" style="--accent: var(--purple)">
+        <div class="chips">
+          <span class="chip" style="background:var(--purple)">Dark Reading</span>
+          <span class="chip flag">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline"><a href="https://www.darkreading.com/vulnerabilities-threats/max-severity-ivanti-sentry-flaw-exploited-24-hours" target="_blank" rel="noopener">Max-Severity Ivanti Flaw Exploited 24 Hours After Disclosure</a></h2>
+        <div class="meta">Jun 11 · <a href="https://www.darkreading.com/vulnerabilities-threats/max-severity-ivanti-sentry-flaw-exploited-24-hours" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A max-severity flaw in Ivanti Sentry went from disclosure to active exploitation in under 24 hours, with evidence suggesting attackers had already mapped target environments before the advisory dropped. That turnaround leaves almost no patch window for defenders relying on standard change-management cycles. Ivanti's edge products have been a repeat target this year, making this the kind of flaw worth tracking toward a CISA KEV addition.</p>
+      </article>
+      <article class="card" style="--accent: var(--purple)">
+        <div class="chips">
+          <span class="chip" style="background:var(--purple)">Dark Reading</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft" target="_blank" rel="noopener">Copilot 'SearchLeak' Attack Allows 1-Click Data Theft</a></h2>
+        <div class="meta">Jun 15 · <a href="https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Researchers disclosed &quot;SearchLeak,&quot; a three-stage attack chain against Microsoft Copilot that let a single click trigger data exfiltration via hidden URLs and prompt-injection variables; Microsoft has since patched it. It's part of a growing pattern of AI-assistant-specific attack classes that don't map cleanly to traditional web app vulnerabilities, since the attack surface is the model's interpretation of content, not just the app's code. Expect more similarly named attack classes as researchers catalog this new bug category across Copilot, Gemini, and similar assistants.</p>
+      </article>
+      <article class="card" style="--accent: var(--pink)">
+        <div class="chips">
+          <span class="chip" style="background:var(--pink)">Engadget</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.engadget.com/2197988/amazon-investigates-engineers-spoke-out-against-ai-data-center/" target="_blank" rel="noopener">Amazon is investigating three employees who spoke out against building more AI data centers</a></h2>
+        <div class="meta">Jun 19 · <a href="https://www.engadget.com/2197988/amazon-investigates-engineers-spoke-out-against-ai-data-center/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Three Amazon engineers say the company is investigating them and implicitly threatening their jobs after they testified at Seattle city hearings against building more AI data centers in the region. The dispute spotlights the growing friction between hyperscalers' data center expansion plans and local communities worried about power, water, and land use. It's also a window into how AI infrastructure buildout is becoming an internal political flashpoint, not just an external PR one.</p>
+      </article>
+      <article class="card" style="--accent: var(--pink)">
+        <div class="chips">
+          <span class="chip" style="background:var(--pink)">Engadget</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://www.engadget.com/2198117/norway-imposes-broad-restrictions-on-ai-for-elementary-school-kids/" target="_blank" rel="noopener">Norway imposes broad restrictions on AI for elementary school kids</a></h2>
+        <div class="meta">Jun 19 · <a href="https://www.engadget.com/2198117/norway-imposes-broad-restrictions-on-ai-for-elementary-school-kids/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Norway is moving to ban young elementary-school children from using AI tools in classrooms, citing concerns about cognitive development and data privacy for minors. It joins a small but growing list of countries drawing hard lines on AI access by age rather than just by use case. For ed-tech vendors, it's an early signal that age-gating AI features may become a compliance requirement, not just a design choice.</p>
+      </article>
+      <article class="card" style="--accent: var(--green)">
+        <div class="chips">
+          <span class="chip" style="background:var(--green)">AWS</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</a></h2>
+        <div class="meta">Jun 17 · <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">AWS Security Agent now performs STRIDE-based threat modeling and full repo/PR code scanning with remediation across major Git platforms, plus IDE integrations through Kiro, a Claude Code plugin, and MCP. The pitch is letting developers run security reviews and fix findings without leaving their editor, shifting security review further left into the commit workflow. It's AWS's clearest move yet toward agent-driven AppSec as a standing service rather than a periodic scan.</p>
+      </article>
+      <article class="card" style="--accent: var(--green)">
+        <div class="chips">
+          <span class="chip" style="background:var(--green)">AWS</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/" target="_blank" rel="noopener">AWS WAF adds AI traffic monetization capability to help content owners charge AI bots for content access</a></h2>
+        <div class="meta">Jun 15 · <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">AWS WAF's new Bot Control capability lets publishers price, meter, and collect payment from AI bots and agents scraping their content or APIs, with access granted at the edge once payment clears. It effectively turns a security control plane into a billing control plane — using bot-detection infrastructure that already exists to enforce a paywall rather than just block traffic. It's a notable signal that the AI-scraping economic fight is moving from lawsuits into infrastructure-level enforcement.</p>
+      </article>
+      <article class="card" style="--accent: var(--green)">
+        <div class="chips">
+          <span class="chip" style="background:var(--green)">AWS</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/" target="_blank" rel="noopener">Amazon ECS introduces new high-resolution metrics for faster service auto scaling</a></h2>
+        <div class="meta">Jun 18 · <a href="https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">ECS service auto scaling now supports high-resolution metrics, letting predictive, scheduled, and target-tracking scaling policies react to real-time load far faster than the previous standard-resolution metric intervals allowed. For spiky or bursty workloads, that tighter feedback loop means fewer over-provisioned tasks sitting idle and fewer scaling lags during sudden traffic jumps. It's a direct cost and reliability lever for teams running containerized services at scale on ECS.</p>
+      </article>
+      <article class="card" style="--accent: var(--blue)">
+        <div class="chips">
+          <span class="chip" style="background:var(--blue)">Azure</span>
+          <span class="chip flag">⚡ ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline"><a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">New Azure Cobalt 200 VMs deliver 50% performance improvement, fully optimized for modern agentic AI workloads</a></h2>
+        <div class="meta">Jun 2 · <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Microsoft opened early access for Azure Cobalt 200, its next-gen Arm-based virtual machines, claiming a 50% performance jump for Linux-based agentic AI workloads over the prior Cobalt generation. The VM line is squarely aimed at the compute-hungry orchestration layers behind AI agents rather than raw model inference, which typically runs on GPU/accelerator instances instead. It's Microsoft's clearest bet yet that Arm-based general compute, not just GPUs, will be a bottleneck for agentic workloads at scale.</p>
+      </article>
+      <article class="card" style="--accent: var(--blue)">
+        <div class="chips">
+          <span class="chip" style="background:var(--blue)">Azure</span>
+          
+        </div>
+        <h2 class="headline"><a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank" rel="noopener">Modernize your data with Azure Storage: Plan and migrate with confidence</a></h2>
+        <div class="meta">Jun 16 · <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Microsoft published a migration playbook for moving petabyte-scale storage workloads onto Azure Storage without disrupting business continuity, performance, or cost predictability. The guidance leans heavily on staged migration patterns and validation checkpoints rather than lift-and-shift cutover, reflecting how unforgiving large storage migrations are when something goes wrong mid-transfer. It's a useful reference for any team scoping a multi-terabyte move rather than a product announcement in itself.</p>
+      </article>
+  </div>
+
+  <div class="skip-section">
+    <h3>Worth Skipping Today</h3>
+    <ul>
+        <li>· [Engadget] — Claude Guillemot, Ubisoft co-founder, dies in plane crash — (obituary, not tech news)</li>
+        <li>· [Hacker News] — SMPTE Makes Its Standards Freely Accessible — (niche, low security relevance)</li>
+        <li>· [The Register] — EU won't force publishers to revive dead games — (gaming/legal, no infra angle)</li>
+        <li>· [BleepingComputer] — NY man charged after AI-generated nudes harassment — (tabloid crime story)</li>
+        <li>· [Dark Reading] — Security Community Slams US Ban on Exporting Mythos, Fable — (opinion piece, no news value)</li>
+    </ul>
+  </div>
+
+  <footer>
+    Morning Briefing · Generated 07:06 AST ·
+    Sources: HN · BleepingComputer · The Register ·
+    Dark Reading · Engadget · AWS · Azure
+  </footer>
+
+</body>
+</html>
