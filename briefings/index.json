@@ -1,7 +1,61 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-06-15T12:56:00Z",
+  "updated": "2026-06-22T11:08:50Z",
   "briefings": [
+    {
+      "date": "2026-06-22",
+      "file": "briefings/2026-06-22.html",
+      "weekday": "Monday",
+      "label": "June 22, 2026",
+      "stories": 20,
+      "flagged": 7,
+      "note": "Two CISA-tracked exploits — Splunk Enterprise and FortiBleed — are forcing emergency patching this week, while ransomware and SaaS-token breaches keep chaining through Salesforce integrations and dev pipelines. AWS and Azure are racing to harden their agentic-AI stacks with new security agents and Arm compute, even as Broadcom's VMware licensing fight spills into the courts. Watch the Fortinet and Splunk advisories closely — both are active in the wild, not theoretical."
+    },
+    {
+      "date": "2026-06-21",
+      "file": "briefings/2026-06-21.html",
+      "weekday": "Sunday",
+      "label": "June 21, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Active exploitation is the throughline today — Splunk, FortiBleed, an Oracle ERP zero-day, and an Ivanti flaw weaponized within 24 hours all demand attention before patches catch up. The cloud angle is shifting toward agent identity and governance: Cloudflare's temporary AI-agent accounts, AWS's Security Agent, and Amazon's own internal debate over human-in-the-loop oversight all point the same direction. Watch the CISA Sunday deadline for Splunk and the FortiBleed credential leak closely — both are live, exploitable, and squarely in enterprise infrastructure."
+    },
+    {
+      "date": "2026-06-20",
+      "file": "briefings/2026-06-20.html",
+      "weekday": "Saturday",
+      "label": "June 20, 2026",
+      "stories": 20,
+      "flagged": 5,
+      "note": "Identity is today's attack surface: leaked OAuth tokens and a single GitHub access token opened the door to breaches at Klue's Salesforce customers and pharma giant Novo Nordisk, while CISA pushed emergency patches for actively exploited Fortinet and Splunk flaws. AWS and Azure keep racing to ship agentic AI tooling — security agents, DevOps agents, custom Arm silicon — even as Europe's own internet registry retreats from a cloud-first strategy over geopolitical risk. Watch healthcare closely: INC ransomware is explicitly hunting hospitals for leverage, and Novo Nordisk's clinical-trial data is already leaking."
+    },
+    {
+      "date": "2026-06-19",
+      "file": "briefings/2026-06-19.html",
+      "weekday": "Friday",
+      "label": "June 19, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "A cluster of actively exploited flaws — Splunk's unauthenticated PostgreSQL sidecar RCE, FortiBleed's 74,000 leaked VPN credentials, and a max-severity Cisco SD-WAN authentication bug — has CISA pushing emergency patch windows across federal networks this week. On the cloud side, AWS and Azure are both betting on agentic tooling and resilience: AWS shipped a Security Agent with built-in threat modeling and Cognito multi-region failover, while Azure pushed Cobalt 200 VMs and storage-migration guidance. Watch the FortiBleed and Ivanti/Oracle exploit chains closely — both are being weaponized within hours of disclosure."
+    },
+    {
+      "date": "2026-06-18",
+      "file": "briefings/2026-06-18.html",
+      "weekday": "Thursday",
+      "label": "June 18, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Fortinet and Cisco vulnerabilities own the morning — a CVSS 10.0 Cisco SD-WAN flaw is being actively exploited while a separate FortiBleed leak exposes 75,000 VPN credentials, and CISA just gave federal agencies until Friday to patch a max-severity Joomla plugin bug. AWS and Azure both doubled down on agentic AI infrastructure (Security Agent, Cobalt 200 VMs) even as Tesco scrambles to exit VMware ahead of Broadcom's licensing squeeze. Healthcare stays in the crosshairs: INC ransomware is explicitly hunting hospitals for fast extortion payouts."
+    },
+    {
+      "date": "2026-06-16",
+      "file": "briefings/2026-06-16.html",
+      "weekday": "Tuesday",
+      "label": "June 16, 2026",
+      "stories": 20,
+      "flagged": 7,
+      "note": "Security is the dominant story today, with 6 items covering active exploits, vulnerabilities, and threat actor campaigns across enterprise infrastructure. The intersection of cloud and security is particularly active — watch for IAM misconfigurations and supply-chain risks that could affect your stack directly. 7 stories have been flagged on your radar — review those first before the rest of the briefing."
+    },
     {
       "date": "2026-06-15",
       "file": "briefings/2026-06-15.html",
