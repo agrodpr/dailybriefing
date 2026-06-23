@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · Tuesday, June 23, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 32px;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin: 0;
+  color: var(--text);
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-cyan { background: var(--cyan); }
+.dot-orange { background: var(--orange); }
+.dot-red { background: var(--red); }
+.dot-purple { background: var(--purple); }
+.dot-pink { background: var(--pink); }
+.dot-green { background: var(--green); }
+.dot-blue { background: var(--blue); }
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.stories {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--text);
+}
+
+.card:hover { border-left-color: var(--text); filter: brightness(1.3); }
+
+.card-cyan { border-left-color: var(--cyan); }
+.card-orange { border-left-color: var(--orange); }
+.card-red { border-left-color: var(--red); }
+.card-purple { border-left-color: var(--purple); }
+.card-pink { border-left-color: var(--pink); }
+.card-green { border-left-color: var(--green); }
+.card-blue { border-left-color: var(--blue); }
+
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-weight: 600;
+  color: #0B0B0F;
+}
+
+.chip-cyan { background: var(--cyan); }
+.chip-orange { background: var(--orange); }
+.chip-red { background: var(--red); }
+.chip-purple { background: var(--purple); }
+.chip-pink { background: var(--pink); }
+.chip-green { background: var(--green); }
+.chip-blue { background: var(--blue); }
+.chip-flag { background: var(--orange); color: #0B0B0F; }
+
+.headline {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.meta-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--surface-2);
+}
+
+.meta-link:hover { color: var(--text); }
+
+.summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skip-section {
+  max-width: 860px;
+  margin: 56px auto 0;
+}
+
+.skip-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <div class="tagline">Your daily intelligence feed · Tuesday, June 23, 2026</div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="legend">
+    <div class="legend-item"><span class="dot dot-cyan"></span>Hacker News</div>
+    <div class="legend-item"><span class="dot dot-orange"></span>BleepingComputer</div>
+    <div class="legend-item"><span class="dot dot-red"></span>The Register</div>
+    <div class="legend-item"><span class="dot dot-purple"></span>Dark Reading</div>
+    <div class="legend-item"><span class="dot dot-pink"></span>Engadget</div>
+    <div class="legend-item"><span class="dot dot-green"></span>AWS</div>
+    <div class="legend-item"><span class="dot dot-blue"></span>Azure</div>
+  </div>
+
+  <p class="editors-note">Today's dominant theme is identity and access under pressure — from a 30,000-device Fortinet credential heist to a leaked GitHub token exposing Novo Nordisk's dev pipeline. The cloud angle is isolation: AWS Lambda MicroVMs and Azure's Cobalt 200 VMs both push harder boundaries around untrusted and agentic workloads. Watch the Fortinet campaign and AWS Security Agent's IDE-native scanning — both signal where defenders are racing to catch up.</p>
+
+  <div class="stories">
+
+      <article class="card card-cyan">
+        <div class="card-tags">
+          <span class="chip chip-cyan">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">GLM-5.2 – How to Run Locally</h2>
+        <div class="meta"><a class="meta-link" href="https://news.ycombinator.com/item?id=48636377" target="_blank" rel="noopener">415 pts · 183 comments</a> · <a class="meta-link" href="https://unsloth.ai/docs/models/glm-5.2" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Z.ai's GLM-5.2 is a 744B-parameter open model (40B active, 1M context) that Unsloth claims rivals Claude Opus, GPT-5.5, and Gemini 3.1 Pro. Their Dynamic GGUF quantization shrinks it by 86% down to a 1-bit version that still holds ~76% top-1 accuracy, with hardware needs ranging from 223GB RAM for the smallest build up to 810GB for full 8-bit precision.</p>
+      </article>
+
+      <article class="card card-cyan">
+        <div class="card-tags">
+          <span class="chip chip-cyan">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">In Praise of Memcached</h2>
+        <div class="meta"><a class="meta-link" href="https://news.ycombinator.com/item?id=48638886" target="_blank" rel="noopener">171 pts · 64 comments</a> · <a class="meta-link" href="https://jchri.st/blog/in-praise-of-memcached/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">The author argues memcached beats Redis for caching infrastructure because it fails gracefully — client libraries simply ignore dropped connections instead of cascading errors. No built-in persistence and simple client-side hashing for clustering make it a clean fit for stateless, horizontally-scheduled workloads, trading features for operational simplicity.</p>
+      </article>
+
+      <article class="card card-cyan">
+        <div class="card-tags">
+          <span class="chip chip-cyan">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">OpenAI Daybreak – GPT-5.5-Cyber</h2>
+        <div class="meta"><a class="meta-link" href="https://news.ycombinator.com/item?id=48639063" target="_blank" rel="noopener">113 pts · 62 comments</a> · <a class="meta-link" href="https://openai.com/index/daybreak-securing-the-world/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">OpenAI shipped the full release of GPT-5.5-Cyber, its strongest model yet for finding and patching software vulnerabilities at scale, scoring 85.6% on CyberGym and 39.5% on ExploitGym (up from 81.8% and 25.95% for base GPT-5.5). The launch bundles "Patch the Planet," a fund with Trail of Bits, HackerOne, and 30+ open-source projects aimed at closing the gap between finding bugs and actually fixing them.</p>
+      </article>
+
+      <article class="card card-orange">
+        <div class="card-tags">
+          <span class="chip chip-orange">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">FFmpeg Fixes PixelSmash Flaw in Widely Used Video Decoder</h2>
+        <div class="meta">June 22 · <a class="meta-link" href="https://www.bleepingcomputer.com/news/security/ffmpeg-fixes-pixelsmash-flaw-in-widely-used-video-decoder/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">PixelSmash (CVE-2026-8461, CVSS 8.8) is a heap out-of-bounds write in FFmpeg's MagicYUV decoder, triggered by a malicious AVI, MKV, or MOV file. Researchers achieved full remote code execution against Jellyfin 10.11.9 via its automatic library-scan pipeline, and the bug also causes denial-of-service in Kodi, Emby, Nextcloud, and OBS Studio. FFmpeg patched it in version 8.1.2.</p>
+      </article>
+
+      <article class="card card-orange">
+        <div class="card-tags">
+          <span class="chip chip-orange">BleepingComputer</span>
+          <span class="chip chip-flag">⚡ On Your Radar</span>
+        </div>
+        <h2 class="headline">AryStinger Botnet Infected Thousands of D-Link Routers Worldwide</h2>
+        <div class="meta">June 21 · <a class="meta-link" href="https://www.bleepingcomputer.com/news/security/arystinger-botnet-infected-thousands-of-d-link-routers-worldwide/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A previously undocumented botnet dubbed AryStinger has compromised more than 4,000 outdated D-Link routers, turning them into proxies for malicious traffic. The campaign targets end-of-life devices that no longer receive firmware patches, a reminder that unsupported edge hardware remains an active exploitation vector at scale.</p>
+      </article>
+
+      <article class="card card-orange">
+        <div class="card-tags">
+          <span class="chip chip-orange">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">New Prinz Eugen Ransomware Prioritizes Recent Files for Encryption</h2>
+        <div class="meta">June 20 · <a class="meta-link" href="https://www.bleepingcomputer.com/news/security/new-prinz-eugen-ransomware-prioritizes-recent-files-for-encryption/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">The Prinz Eugen ransomware operation triages a victim's most recently modified files for encryption first, maximizing damage to active work before backups can react. Unusually, it skips dropping a ransom note entirely, leaving victims to discover the extortion demand through other channels.</p>
+      </article>
+
+      <article class="card card-orange">
+        <div class="card-tags">
+          <span class="chip chip-orange">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">Microsoft Fixes AutoGen Studio Flaw That Enabled Code Execution</h2>
+        <div class="meta">June 22 · <a class="meta-link" href="https://www.bleepingcomputer.com/news/security/microsoft-fixes-autogen-studio-flaw-that-enabled-code-execution/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A vulnerability chain dubbed "AutoJack" in Microsoft's AutoGen Studio let attackers manipulate AI agents into executing arbitrary commands simply by getting them to visit a malicious webpage. Microsoft has shipped a fix, but the bug underscores how prompt-driven agent tooling opens new RCE paths that don't look like traditional vulnerabilities.</p>
+      </article>
+
+      <article class="card card-red">
+        <div class="card-tags">
+          <span class="chip chip-red">The Register</span>
+          <span class="chip chip-flag">⚡ On Your Radar</span>
+        </div>
+        <h2 class="headline">Health Board Apologizes for Phishing Staff With Bogus Vacation Day</h2>
+        <div class="meta">June 22 · <a class="meta-link" href="https://www.theregister.com/security/2026/06/22/canadian-health-board-sorry-after-tasteless-phishing-test/5259320" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A Canadian health board's IT team ran a phishing simulation that dangled a fake extra vacation day to already-stretched medical staff, drawing backlash over the tone-deaf framing. The bigger issue: healthcare workers remain among the most-targeted phishing demographics, and a clumsy internal test risks eroding the trust needed for real reporting.</p>
+      </article>
+
+      <article class="card card-red">
+        <div class="card-tags">
+          <span class="chip chip-red">The Register</span>
+          
+        </div>
+        <h2 class="headline">Five Eyes Spooks Warn AI Means Infosec Incidents Can Become "Major Operational and Financial Crises"</h2>
+        <div class="meta">June 23 · <a class="meta-link" href="https://www.theregister.com/security/2026/06/23/five-eyes-spooks-warn-ai-means-infosec-incidents-can-become-major-operational-and-financial-crises/5259916" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Five Eyes intelligence agencies issued a joint warning that AI adoption is raising the blast radius of routine security incidents, pushing them from IT problems into board-level financial crises. The guidance puts the onus on executives, not just security teams, to own cyber risk as AI gets embedded deeper into operations.</p>
+      </article>
+
+      <article class="card card-red">
+        <div class="card-tags">
+          <span class="chip chip-red">The Register</span>
+          
+        </div>
+        <h2 class="headline">Canadian Utility Fesses Up to Data Breach, But Key Details Remain Off-Grid</h2>
+        <div class="meta">June 22 · <a class="meta-link" href="https://www.theregister.com/security/2026/06/22/canadian-utility-fesses-up-to-data-breach-but-key-details-remain-off-grid/5259309" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">London Hydro, an Ontario electric utility, disclosed that customer names, addresses, and account details may have been exposed in a breach — but has shared almost nothing about how the intrusion happened or its scope. Critical-infrastructure operators disclosing breaches with minimal technical detail remains a recurring pattern worth tracking.</p>
+      </article>
+
+      <article class="card card-purple">
+        <div class="card-tags">
+          <span class="chip chip-purple">Dark Reading</span>
+          <span class="chip chip-flag">⚡ On Your Radar</span>
+        </div>
+        <h2 class="headline">Sweeping Credential-Harvesting Heist Compromises 30K+ Fortinet Devices</h2>
+        <div class="meta">June 17 · <a class="meta-link" href="https://www.darkreading.com/cyberattacks-data-breaches/sweeping-credential-harvesting-heist-compromises-30k-fortinet-devices" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A coordinated campaign spanning more than 200 countries has harvested working credentials from over 30,000 compromised Fortinet network devices across multiple business sectors. The scale and geographic spread suggest an active, ongoing exploitation effort against unpatched or misconfigured FortiGate appliances — organizations running Fortinet gear should audit for indicators of compromise now.</p>
+      </article>
+
+      <article class="card card-purple">
+        <div class="card-tags">
+          <span class="chip chip-purple">Dark Reading</span>
+          
+        </div>
+        <h2 class="headline">Salesforce Data Thefts Continue via Klue App Compromise</h2>
+        <div class="meta">June 18 · <a class="meta-link" href="https://www.darkreading.com/cyberattacks-data-breaches/salesforce-data-thefts-klue-app-compromise" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Klue's Battlecards app is the third integrated Salesforce tool compromised in an ongoing wave of OAuth-token abuse against connected third-party apps, with security vendor Huntress among the confirmed victims. The pattern shows attackers systematically working through the Salesforce app ecosystem rather than targeting Salesforce itself.</p>
+      </article>
+
+      <article class="card card-purple">
+        <div class="card-tags">
+          <span class="chip chip-purple">Dark Reading</span>
+          <span class="chip chip-flag">⚡ On Your Radar</span>
+        </div>
+        <h2 class="headline">Novo Nordisk Breach Highlights Software Development Pipeline Risk</h2>
+        <div class="meta">June 18 · <a class="meta-link" href="https://www.darkreading.com/cyber-risk/novo-nordisk-breach-exposes-dev-pipeline-risk" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">A leaked GitHub token at pharmaceutical giant Novo Nordisk exposed critical gaps in development-environment security, illustrating how organizations still treat secrets management as a tooling afterthought rather than an identity problem. For a healthcare-adjacent company, a dev-pipeline secret leak is a direct line to sensitive downstream systems.</p>
+      </article>
+
+      <article class="card card-pink">
+        <div class="card-tags">
+          <span class="chip chip-pink">Engadget</span>
+          
+        </div>
+        <h2 class="headline">Meta Is "Pausing" Employee Tracking Program After It Let the Whole Company See Sensitive Data</h2>
+        <div class="meta">June 22 · <a class="meta-link" href="https://www.engadget.com/2199458/meta-is-pausing-employee-tracking-program-after-it-let-the-whole-company-see-sensitive-data/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Meta paused an internal employee-monitoring tool tied to its AI training efforts after a permissions failure let staff company-wide view data that was meant to be restricted. It's a textbook access-control misconfiguration — the kind of internal-tooling mistake that keeps showing up regardless of company size.</p>
+      </article>
+
+      <article class="card card-pink">
+        <div class="card-tags">
+          <span class="chip chip-pink">Engadget</span>
+          
+        </div>
+        <h2 class="headline">The Oversight Board Says Meta Needs to Do More to Protect Regular People From Sexualized Deepfakes</h2>
+        <div class="meta">June 23 · <a class="meta-link" href="https://www.engadget.com/2198368/oversight-board-meta-regular-people-needs-more-protection-from-sexualized-deepfakes/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Meta's Oversight Board issued recommendations to make it easier for ordinary, non-public people to report sexualized AI deepfakes made of them, flagging that current tools are tuned for celebrities and public figures. It's a compliance signal worth watching as platforms face growing pressure to handle synthetic-media abuse at scale.</p>
+      </article>
+
+      <article class="card card-green">
+        <div class="card-tags">
+          <span class="chip chip-green">AWS Blog</span>
+          <span class="chip chip-flag">⚡ On Your Radar</span>
+        </div>
+        <h2 class="headline">Run Isolated Sandboxes With Full Lifecycle Control: AWS Lambda Introduces MicroVMs</h2>
+        <div class="meta">June 22 · <a class="meta-link" href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">AWS Lambda now offers MicroVMs — VM-level isolated sandboxes with no shared kernel or resources between sessions, rapid launch/resume, and state preservation for up to 8 hours, with no infrastructure to manage. It's a meaningful step up in isolation strength for untrusted or multi-tenant workloads compared to standard Lambda execution environments.</p>
+      </article>
+
+      <article class="card card-green">
+        <div class="card-tags">
+          <span class="chip chip-green">AWS Blog</span>
+          
+        </div>
+        <h2 class="headline">AWS Security Agent Adds Threat Modeling, Kiro Power and Claude Code Plugin, and More</h2>
+        <div class="meta">June 17 · <a class="meta-link" href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">AWS Security Agent now does STRIDE-based threat modeling plus full repo and PR scanning with remediation across major Git platforms, reachable via Kiro power, a Claude Code plugin, and MCP. The goal is letting developers run security reviews and fix issues without leaving their IDE — folding AppSec further into the dev workflow.</p>
+      </article>
+
+      <article class="card card-green">
+        <div class="card-tags">
+          <span class="chip chip-green">AWS Blog</span>
+          
+        </div>
+        <h2 class="headline">Improve Your Application Resilience With Amazon Cognito Multi-Region Replication</h2>
+        <div class="meta">June 3 · <a class="meta-link" href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Amazon Cognito now automatically syncs user data, credentials, and pool configurations to a secondary AWS Region, keeping authentication alive through regional failovers without forcing password resets. It also adds support for customer-managed KMS keys, giving teams direct control over encryption for replicated identity data.</p>
+      </article>
+
+      <article class="card card-blue">
+        <div class="card-tags">
+          <span class="chip chip-blue">Azure Blog</span>
+          <span class="chip chip-flag">⚡ On Your Radar</span>
+        </div>
+        <h2 class="headline">New Azure Cobalt 200 VMs Deliver 50% Performance Improvement, Fully Optimized for Modern Agentic AI Workloads</h2>
+        <div class="meta">June 2 · <a class="meta-link" href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Microsoft opened early-access preview for Cobalt 200, its next-gen Arm-based VM family, claiming a 50% performance jump for Linux-based agentic AI workloads. As agentic workloads push more compute to the edge of what cloud VM SKUs are designed for, expect Azure and AWS to keep trading Arm-silicon performance claims.</p>
+      </article>
+
+      <article class="card card-blue">
+        <div class="card-tags">
+          <span class="chip chip-blue">Azure Blog</span>
+          
+        </div>
+        <h2 class="headline">Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+        <div class="meta">June 16 · <a class="meta-link" href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p class="summary">Microsoft lays out a framework for enterprise storage migrations that treats them as business-continuity projects, not just data copies — covering performance, cost, and team confidence when terabytes or petabytes sit underneath critical applications. Useful reading for any team about to move a large estate onto Azure Storage.</p>
+      </article>
+  </div>
+
+  <div class="skip-section">
+    <div class="skip-title">Worth Skipping Today</div>
+    <ul class="skip-list">
+      <li>· [Hacker News] — Steam Machine Launches Today — (Consumer gadget, no technical depth)</li>
+      <li>· [Engadget] — Valve's Steam Machine Starts at $1,049... — (Duplicate of HN coverage)</li>
+      <li>· [BleepingComputer] — JaredFromSubway MEV Bot Hacked in $15M Crypto Theft — (Crypto/Web3 story)</li>
+      <li>· [The Register] — OpenAI: Yoo-hoo, Look Over Here, We Do That Security Stuff Too! — (Duplicate of Daybreak coverage)</li>
+      <li>· [The Register] — Blast From the Past as GIMP 0.54 Is Revived in Flatpak Form — (Nostalgia piece, no news value)</li>
+    </ul>
+  </div>
+
+  <footer>
+    Morning Briefing · Generated 07:10 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure
+  </footer>
+
+</body>
+</html>
