@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-06-22T11:08:50Z",
+  "updated": "2026-06-23T11:11:53Z",
   "briefings": [
+    {
+      "date": "2026-06-23",
+      "file": "briefings/2026-06-23.html",
+      "weekday": "Tuesday",
+      "label": "June 23, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Today's dominant theme is identity and access under pressure — from a 30,000-device Fortinet credential heist to a leaked GitHub token exposing Novo Nordisk's dev pipeline. The cloud angle is isolation: AWS Lambda MicroVMs and Azure's Cobalt 200 VMs both push harder boundaries around untrusted and agentic workloads. Watch the Fortinet campaign and AWS Security Agent's IDE-native scanning — both signal where defenders are racing to catch up."
+    },
     {
       "date": "2026-06-22",
       "file": "briefings/2026-06-22.html",
