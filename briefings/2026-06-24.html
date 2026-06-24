@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 24, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 32px;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin: 0;
+  color: var(--text);
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 32px auto;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: fit-content;
+  margin: 0 auto 48px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 400;
+  max-width: 700px;
+  margin: 48px auto;
+  text-align: center;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.stories {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--source-color);
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  filter: none;
+}
+
+.card:hover {
+  border-left-color: var(--source-color);
+  -webkit-filter: brightness(1.3);
+  filter: brightness(1.3);
+}
+
+.chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #0B0B0F;
+  background: var(--source-color);
+}
+
+.chip.radar {
+  background: var(--orange);
+  color: #0B0B0F;
+}
+
+.headline {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meta a {
+  color: var(--source-color);
+  text-decoration: none;
+}
+
+.meta a:hover {
+  text-decoration: underline;
+}
+
+.summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skipping {
+  max-width: 860px;
+  margin: 56px auto 0;
+}
+
+.skipping-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skipping ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skipping li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Wednesday, June 24, 2026</div>
+</div>
+
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background: var(--cyan);"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background: var(--orange);"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background: var(--red);"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background: var(--purple);"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background: var(--pink);"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background: var(--green);"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background: var(--blue);"></span>Azure</div>
+</div>
+
+<div class="editors-note">
+  Fortinet's FortiGate firewalls and Cisco's Unified Communications Manager are both being actively exploited right now, and a single compromised Klue integration keeps cascading into new Salesforce-linked breaches at LastPass and others. Supply chain is the theme of the week — Dark Reading's "Cordyceps" PR-poisoning bug hit five major open-source projects, while AWS doubled down on isolation with Lambda MicroVMs and Azure pitched fully autonomous "agentic" cloud operations. Patch your FortiGate and Cisco UCM boxes today; everything else can wait for coffee.
+</div>
+
+<div class="stories">
+
+  <!-- HN 1 -->
+  <div class="card" style="--source-color: var(--cyan);">
+    <div class="chips">
+      <span class="chip">Hacker News</span>
+    </div>
+    <h2 class="headline">Fired by Google for Creating the Google Workspace CLI</h2>
+    <div class="meta">
+      <span>554 pts · 322 comments</span>
+      <a href="https://twitter.com/JPoehnelt/status/2069482265953087602" target="_blank">→ Read more</a>
+      <a href="https://news.ycombinator.com/item?id=48649011" target="_blank">💬 Discuss on HN</a>
+    </div>
+    <p class="summary">A Google engineer says he was terminated shortly after building and open-sourcing a CLI for Google Workspace administration that many IT admins had quietly started relying on for bulk user and Drive management. The dismissal has stirred debate on Hacker News over corporate ownership of side projects built with internal product knowledge. No official statement from Google has surfaced explaining the termination.</p>
+  </div>
+
+  <!-- HN 2 -->
+  <div class="card" style="--source-color: var(--cyan);">
+    <div class="chips">
+      <span class="chip">Hacker News</span>
+    </div>
+    <h2 class="headline">Vulnerability Reports Are Not Special Anymore</h2>
+    <div class="meta">
+      <span>292 pts · 158 comments</span>
+      <a href="https://words.filippo.io/vuln-reports/" target="_blank">→ Read more</a>
+      <a href="https://news.ycombinator.com/item?id=48653216" target="_blank">💬 Discuss on HN</a>
+    </div>
+    <p class="summary">Security researcher Filippo Valsorda argues that vulnerability disclosure has become so routine it rarely moves the needle anymore — what counts now is patch velocity and tooling, not the discovery itself. The piece reframes responsible disclosure as table stakes rather than a notable event, a shift that's changing how security teams prioritize triage queues. It's sparked heavy debate among practitioners over whether bug bounty incentives need to catch up.</p>
+  </div>
+
+  <!-- HN 3 -->
+  <div class="card" style="--source-color: var(--cyan);">
+    <div class="chips">
+      <span class="chip">Hacker News</span>
+    </div>
+    <h2 class="headline">We're Making Bunny DNS Free</h2>
+    <div class="meta">
+      <span>157 pts · 46 comments</span>
+      <a href="https://bunny.net/blog/were-making-bunny-dns-free/" target="_blank">→ Read more</a>
+      <a href="https://news.ycombinator.com/item?id=48657030" target="_blank">💬 Discuss on HN</a>
+    </div>
+    <p class="summary">CDN provider Bunny.net is dropping pricing entirely on its authoritative DNS service, betting that free, fast DNS draws developers into its broader paid CDN and storage stack. The move undercuts Cloudflare and Route 53 on a commodity but latency-critical layer of internet infrastructure. For ops teams it's a low-risk swap worth benchmarking against current DNS latency.</p>
+  </div>
+
+  <!-- BC 1 -->
+  <div class="card" style="--source-color: var(--orange);">
+    <div class="chips">
+      <span class="chip">BleepingComputer</span>
+      <span class="chip radar">⚡ ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">Cisco Unified CM Flaw CVE-2026-20230 Now Exploited in Attacks</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">A high-severity SSRF vulnerability, CVE-2026-20230, in Cisco Unified Communications Manager Session Management Edition is being actively exploited in the wild. Attackers are using the flaw to pivot into internal networks through exposed UC infrastructure, and Cisco has pushed an advisory urging immediate patching. Organizations running UCM SME should treat this as a priority patch given confirmed in-the-wild exploitation.</p>
+  </div>
+
+  <!-- BC 2 -->
+  <div class="card" style="--source-color: var(--orange);">
+    <div class="chips">
+      <span class="chip">BleepingComputer</span>
+      <span class="chip radar">⚡ ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">Healthtech Firm Xsolis Suffers Data Breach Impacting 1.4 Million People</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Healthcare technology vendor Xsolis disclosed that a phishing attack gave intruders access to its network, compromising sensitive data on roughly 1.4 million patients. The breach underscores how third-party health IT vendors remain a soft target for attackers chasing PHI at scale. Affected covered entities will need to evaluate their HIPAA breach-notification obligations tied to Xsolis's exposure.</p>
+  </div>
+
+  <!-- BC 3 -->
+  <div class="card" style="--source-color: var(--orange);">
+    <div class="chips">
+      <span class="chip">BleepingComputer</span>
+    </div>
+    <h2 class="headline">LastPass Confirms Data Breach in Klue Supply Chain Attack</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.bleepingcomputer.com/news/security/lastpass-confirms-data-breach-in-klue-supply-chain-attack/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">LastPass confirmed attackers accessed customer data after stealing OAuth tokens from Klue, a sales-enablement tool integrated with its Salesforce instance, extending the fallout from this month's broader Klue supply-chain compromise. The incident shows how one compromised SaaS integration can cascade into breaches at otherwise well-defended companies. LastPass says password vaults were unaffected, but customer contact and account data was exposed.</p>
+  </div>
+
+  <!-- BC 4 -->
+  <div class="card" style="--source-color: var(--orange);">
+    <div class="chips">
+      <span class="chip">BleepingComputer</span>
+      <span class="chip radar">⚡ ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">FortiBleed Campaign Used Custom FortiGate Sniffer to Steal Credentials</h2>
+    <div class="meta">
+      <span>Jun 22</span>
+      <a href="https://www.bleepingcomputer.com/news/security/fortibleed-campaign-used-custom-fortigate-sniffer-to-steal-credentials/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Security firm SOCRadar says the large-scale "FortiBleed" campaign has planted a custom sniffer on compromised FortiGate firewalls to harvest authentication secrets directly from device memory. The credential-harvesting operation has reportedly touched hundreds of thousands of internet-facing Fortinet appliances. Admins who haven't rotated credentials and certificates on exposed FortiGate boxes since the initial disclosures should do so now.</p>
+  </div>
+
+  <!-- REG 1 -->
+  <div class="card" style="--source-color: var(--red);">
+    <div class="chips">
+      <span class="chip">The Register</span>
+    </div>
+    <h2 class="headline">KDDI Exposes 14.2 Million Managed Email Credentials</h2>
+    <div class="meta">
+      <span>Jun 24</span>
+      <a href="https://www.theregister.com/cyber-crime/2026/06/24/you-have-got-to-be-kddi-ng-japanese-telco-exposes-142-million-managed-email-credentials/5260555" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Japanese telecom giant KDDI exposed 14.2 million managed email credentials tied to five affiliated ISPs, in what looks like a significant cloud-hosted email misconfiguration rather than a targeted hack. Affected users and partner ISPs are now waiting on KDDI to detail remediation and whether the credentials were already abused. The scale puts it among the larger telecom-adjacent credential exposures of the year.</p>
+  </div>
+
+  <!-- REG 2 -->
+  <div class="card" style="--source-color: var(--red);">
+    <div class="chips">
+      <span class="chip">The Register</span>
+    </div>
+    <h2 class="headline">Mythos Discovers 'Squidbleed,' a Memory Leak Undetected Since the Clinton Era</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.theregister.com/security/2026/06/23/mythos-discovers-squidbleed-a-memory-leak-thats-gone-undetected-since-clinton-era/5260367" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Researchers at Mythos disclosed "Squidbleed," a memory-disclosure bug in legacy networking code that has gone unnoticed for roughly three decades, alongside other ancient protocol quirks turning up in NetWare, FTP, and HTTP stacks. It's a reminder that decades-old code paths still embedded in modern infrastructure can carry forgotten memory-safety bugs. The flaw is being treated as a historical curiosity more than an active threat, but legacy-stack auditors are taking note.</p>
+  </div>
+
+  <!-- REG 3 -->
+  <div class="card" style="--source-color: var(--red);">
+    <div class="chips">
+      <span class="chip">The Register</span>
+    </div>
+    <h2 class="headline">OpenAI Codex Bombards SSDs With Needless Write Operations, Costing Millions</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.theregister.com/ai-and-ml/2026/06/23/openai-codex-bombards-ssds-with-needless-write-operations-costing-millions/5260402" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">A clumsy logging implementation in OpenAI's Codex coding agent has reportedly been hammering SSDs with unnecessary write operations, inflating storage costs for teams running it at scale. The Register estimates the wasted writes could be costing affected organizations millions in cumulative storage wear and cloud I/O charges. It's a cautionary tale for anyone bolting agentic coding tools onto production infrastructure without auditing their I/O footprint.</p>
+  </div>
+
+  <!-- DR 1 -->
+  <div class="card" style="--source-color: var(--purple);">
+    <div class="chips">
+      <span class="chip">Dark Reading</span>
+      <span class="chip radar">⚡ ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">'Cordyceps': Mushrooming Malicious Pull Requests Threaten Developer Workflows</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.darkreading.com/application-security/cordyceps-malicious-pull-requests-developer-workflows" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">A CI/CD supply-chain weakness dubbed "Cordyceps" is letting malicious pull requests slip into major open-source projects, with confirmed exposure across Microsoft's Azure Sentinel, Google's AI Agent Development Kit, Apache Doris, Cloudflare's Workers SDK, and the Python Software Foundation's Black formatter. The technique abuses automated PR-review and merge workflows to smuggle in code maintainers don't fully vet. Given the breadth of affected projects, teams consuming any of these dependencies should check recent commit history for tampering.</p>
+  </div>
+
+  <!-- DR 2 -->
+  <div class="card" style="--source-color: var(--purple);">
+    <div class="chips">
+      <span class="chip">Dark Reading</span>
+    </div>
+    <h2 class="headline">DifyTap Bugs Let Attackers 'Wiretap' AI Chat Histories</h2>
+    <div class="meta">
+      <span>Jun 22</span>
+      <a href="https://www.darkreading.com/application-security/difytap-bugs-wiretap-ai-chat-histories" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Four vulnerabilities collectively dubbed "DifyTap" let attackers silently access and exfiltrate chat histories from Dify, a popular platform for building and managing AI applications. The bugs effectively let an attacker wiretap conversations that may contain sensitive prompts, credentials, or business data passed to LLMs. Dify deployments that haven't patched should assume any chat data processed during the exposure window is compromised.</p>
+  </div>
+
+  <!-- DR 3 -->
+  <div class="card" style="--source-color: var(--purple);">
+    <div class="chips">
+      <span class="chip">Dark Reading</span>
+    </div>
+    <h2 class="headline">Novo Nordisk Breach Highlights Software Development Pipeline Risk</h2>
+    <div class="meta">
+      <span>Jun 18</span>
+      <a href="https://www.darkreading.com/cyber-risk/novo-nordisk-breach-exposes-dev-pipeline-risk" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">A leaked GitHub token at Novo Nordisk exposed parts of its software development pipeline, illustrating a recurring 2026 theme: secrets management is still treated as a tooling checkbox rather than an identity problem. The exposure didn't require a sophisticated exploit, just a credential sitting somewhere it shouldn't have been. It's pushing more security teams toward short-lived, identity-bound tokens instead of long-lived static secrets.</p>
+  </div>
+
+  <!-- ENG 1 -->
+  <div class="card" style="--source-color: var(--pink);">
+    <div class="chips">
+      <span class="chip">Engadget</span>
+    </div>
+    <h2 class="headline">Meta Is 'Pausing' Employee Tracking Program After Internal Data Leak</h2>
+    <div class="meta">
+      <span>Jun 22</span>
+      <a href="https://www.engadget.com/2199458/meta-is-pausing-employee-tracking-program-after-it-let-the-whole-company-see-sensitive-data/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Meta has paused an internal employee-tracking program tied to its AI training efforts after a security lapse let employees across the company see colleagues' sensitive activity data. The incident adds to scrutiny of Meta's internal data-handling practices at a moment when its AI ambitions are already drawing criticism. It's unclear when, or if, the program will resume after a security review.</p>
+  </div>
+
+  <!-- ENG 2 -->
+  <div class="card" style="--source-color: var(--pink);">
+    <div class="chips">
+      <span class="chip">Engadget</span>
+    </div>
+    <h2 class="headline">OpenAI's New Daybreak Initiative Will Help Open-Source Projects Fend Off Bugs</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://www.engadget.com/2199569/openai-new-daybreak-initiative-open-source-projects-bugs/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">OpenAI's new "Daybreak" cybersecurity initiative, including a "Patch the Planet" program, will give open-source maintainers free tooling and support to find and fix bugs before attackers do. It's a bet that funding security work upstream in dependencies is cheaper than cleaning up downstream incidents. The program targets the chronically under-resourced open-source security work that recent supply-chain incidents keep exposing as a weak point.</p>
+  </div>
+
+  <!-- AWS 1 -->
+  <div class="card" style="--source-color: var(--green);">
+    <div class="chips">
+      <span class="chip">AWS</span>
+      <span class="chip radar">⚡ ON YOUR RADAR</span>
+    </div>
+    <h2 class="headline">AWS Lambda Introduces MicroVMs for Isolated Sandboxes</h2>
+    <div class="meta">
+      <span>Jun 22</span>
+      <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">AWS Lambda now offers MicroVMs, a new serverless compute primitive that gives each execution a fully isolated, VM-level sandbox with no shared kernel or resources between sessions. It's aimed at running untrusted code, AI agents, and long-running tasks of up to eight hours that need stronger isolation than a typical Lambda function provides. For security teams, it closes the gap between Lambda's lightweight model and the isolation guarantees of a full EC2 instance.</p>
+  </div>
+
+  <!-- AWS 2 -->
+  <div class="card" style="--source-color: var(--green);">
+    <div class="chips">
+      <span class="chip">AWS</span>
+    </div>
+    <h2 class="headline">AWS Security Agent Adds Threat Modeling, Kiro Power, and a Claude Code Plugin</h2>
+    <div class="meta">
+      <span>Jun 17</span>
+      <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">AWS Security Agent now adds STRIDE-based threat modeling along with full repository and pull-request scanning and remediation across major Git platforms, plus IDE integration through Kiro and a Claude Code plugin. The update pushes AWS further into automated, agentic application security review rather than point-in-time scans. It's a direct play to embed security feedback into developer workflows instead of bolting it on after the fact.</p>
+  </div>
+
+  <!-- AWS 3 -->
+  <div class="card" style="--source-color: var(--green);">
+    <div class="chips">
+      <span class="chip">AWS</span>
+    </div>
+    <h2 class="headline">Improve Your Application Resilience With Amazon Cognito Multi-Region Replication</h2>
+    <div class="meta">
+      <span>Jun 03</span>
+      <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Amazon Cognito now supports multi-Region replication, automatically syncing user pools, credentials, and configuration to a secondary AWS Region to keep authentication available during a regional outage. For enterprises running customer-facing apps on Cognito, this closes a long-standing single-Region availability risk. It's a meaningful resilience upgrade for any architecture where an identity outage means a full application outage.</p>
+  </div>
+
+  <!-- AZURE 1 -->
+  <div class="card" style="--source-color: var(--blue);">
+    <div class="chips">
+      <span class="chip">Azure</span>
+    </div>
+    <h2 class="headline">From Insight to Action: The Next Phase of Agentic Cloud Operations</h2>
+    <div class="meta">
+      <span>Jun 23</span>
+      <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Microsoft's latest Azure post pitches "agentic cloud operations," where AI agents move beyond surfacing alerts to autonomously acting on them — remediating issues, adjusting configurations, and executing the next step in an incident response chain. It's part of a broader push to position Azure as the platform where AI doesn't just monitor infrastructure but operates it. The framing raises real questions about audit trails and guardrails once agents start taking action on production systems, not just flagging it.</p>
+  </div>
+
+  <!-- AZURE 2 -->
+  <div class="card" style="--source-color: var(--blue);">
+    <div class="chips">
+      <span class="chip">Azure</span>
+    </div>
+    <h2 class="headline">Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+    <div class="meta">
+      <span>Jun 16</span>
+      <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank">→ Read more</a>
+    </div>
+    <p class="summary">Azure's new migration guidance focuses on protecting business continuity, performance, and cost when moving terabytes-to-petabytes of enterprise data, not just the mechanics of copying bytes. It lays out a framework for assessing workload dependencies before cutover rather than after something breaks. Useful reading for any ops team staring down a legacy-storage-to-cloud migration this year.</p>
+  </div>
+
+</div>
+
+<div class="skipping">
+  <div class="skipping-title">Worth Skipping Today</div>
+  <ul>
+    <li>· [Engadget] — Ray-Ban Meta Optics review — (consumer gadget review)</li>
+    <li>· [Engadget] — MSI Claw 8 EX AI+ review — (consumer gadget review)</li>
+    <li>· [Hacker News] — Jerry's Map — (no technical or security relevance)</li>
+    <li>· [BleepingComputer] — JaredFromSubway MEV bot hacked in $15M crypto theft — (crypto story, deprioritized)</li>
+    <li>· [The Register] — Ordering a trip back to 2009, with a side of nostalgia — (nostalgia, no news value)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing · Generated 07:07 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure
+</footer>
+
+</body>
+</html>
