@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Morning Briefing · June 25, 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F;
+  --surface:#13131A;
+  --surface-2:#1C1C26;
+  --text:#EDEAE2;
+  --text-muted:#8B8A84;
+  --cyan:#00B4D8;
+  --orange:#E8823A;
+  --red:#F87171;
+  --purple:#A78BFA;
+  --pink:#F472B6;
+  --green:#4ADE80;
+  --blue:#60A5FA;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:64px 24px 32px;
+}
+
+.masthead{
+  font-family:'Fraunces',serif;
+  font-size:80px;
+  text-align:center;
+  letter-spacing:-2px;
+  color:var(--text);
+  margin:0;
+  font-weight:600;
+}
+
+.tagline{
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  color:var(--text-muted);
+  text-align:center;
+  margin:16px 0 32px;
+}
+
+hr.rule{
+  border:none;
+  border-top:1px solid var(--surface-2);
+  max-width:860px;
+  margin:0 auto 40px;
+}
+
+.legend{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:24px;
+  background:var(--surface);
+  padding:12px 32px;
+  border-radius:40px;
+  max-width:fit-content;
+  margin:0 auto 40px;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--text-muted);
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:inline-block;
+}
+
+.editors-note{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:24px;
+  line-height:1.5;
+  max-width:700px;
+  text-align:center;
+  color:var(--text);
+  margin:48px auto;
+}
+
+.stories{
+  max-width:860px;
+  margin:0 auto;
+}
+
+.card{
+  background:var(--surface);
+  border-left:3px solid var(--source-color);
+  padding:28px 32px;
+  border-radius:8px;
+  margin-bottom:16px;
+}
+
+.card:hover{
+  border-left-color:var(--source-color);
+  filter:brightness(1.3);
+}
+
+.chips{
+  display:flex;
+  gap:8px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:700;
+  padding:4px 12px;
+  border-radius:20px;
+  color:#0B0B0F;
+  background:var(--source-color);
+}
+
+.chip.radar{
+  background:var(--orange);
+  color:#0B0B0F;
+}
+
+.headline{
+  font-family:'Fraunces',serif;
+  font-size:32px;
+  line-height:1.25;
+  color:var(--text);
+  margin:0 0 12px;
+  font-weight:600;
+}
+
+.meta{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  color:var(--text-muted);
+  margin-bottom:16px;
+}
+
+.meta a{
+  color:var(--text-muted);
+  text-decoration:underline;
+}
+
+.meta a:hover{
+  color:var(--text);
+}
+
+.summary{
+  font-family:'Inter',sans-serif;
+  font-size:17px;
+  line-height:1.7;
+  color:var(--text);
+  margin:0;
+}
+
+.skipping{
+  max-width:860px;
+  margin:56px auto 0;
+}
+
+.skipping-title{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--text-muted);
+  margin-bottom:16px;
+}
+
+.skip-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.skip-list li{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:var(--text-muted);
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+footer{
+  text-align:center;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  color:var(--text-muted);
+  padding-top:48px;
+  max-width:860px;
+  margin:0 auto;
+}
+</style>
+</head>
+<body>
+
+<h1 class="masthead">MORNING BRIEFING</h1>
+<p class="tagline">Your daily intelligence feed &middot; Thursday, June 25, 2026</p>
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">OpenAI and Broadcom's custom silicon launch is dominating the chatter, but the bigger story today is how many live exploits hit at once &mdash; two actively-exploited Cisco CVEs, a CISA warning on Ubiquiti, and a 430,000-firewall FortiBleed credential heist. The cloud angle is virtualization and identity: AWS shipped VM-isolated Lambda sandboxes and Cognito multi-Region failover, while Azure pushed its own Arm-based VM line for agentic workloads. Keep an eye on Alibaba &mdash; it's the common thread in both an IP-theft accusation from Anthropic and a blacklist lawsuit against the US government.</p>
+
+<div class="stories">
+
+  <!-- HN 1 -->
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="headline">OpenAI unveils its first custom chip, built by Broadcom</h2>
+    <div class="meta"><a href="https://news.ycombinator.com/item?id=48663324">713 pts &middot; 402 comments</a> &middot; <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/">&rarr; Read more</a></div>
+    <p class="summary">OpenAI unveiled "Jalapeño," its first custom AI accelerator co-designed with Broadcom, aimed at cutting inference costs and reducing dependence on Nvidia GPUs. The chip is built for OpenAI's own data centers rather than external sale, marking the next phase of the AI infrastructure arms race. Commenters are split on whether this meaningfully dents Nvidia's pricing power or just diversifies OpenAI's supply chain.</p>
+  </div>
+
+  <!-- HN 2 -->
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="headline">Anthropic says Alibaba illicitly extracted Claude AI model capabilities</h2>
+    <div class="meta"><a href="https://news.ycombinator.com/item?id=48664814">448 pts &middot; 781 comments</a> &middot; <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/">&rarr; Read more</a></div>
+    <p class="summary">Anthropic told Reuters that Alibaba illicitly extracted capabilities from Claude models, the latest flashpoint in the AI industry's escalating IP disputes. The claim adds to rising friction between US AI labs and Chinese competitors over model distillation and training provenance. No legal action has been confirmed yet, but the accusation landed hard &mdash; 781 comments and climbing.</p>
+  </div>
+
+  <!-- HN 3 -->
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="headline">RubyLLM: A Ruby framework for all major AI providers</h2>
+    <div class="meta"><a href="https://news.ycombinator.com/item?id=48660711">392 pts &middot; 68 comments</a> &middot; <a href="https://rubyllm.com/">&rarr; Read more</a></div>
+    <p class="summary">RubyLLM is a new open-source Ruby framework offering one interface across OpenAI, Anthropic, Gemini, and other major LLM providers. It targets Rails shops that want provider-agnostic AI integration without vendor lock-in or juggling multiple SDKs. The project picked up rapid traction on HN for filling a real gap in Ruby's comparatively thin AI tooling ecosystem.</p>
+  </div>
+
+  <!-- BC 1 -->
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Mandiant reveals how Cisco SD-WAN zero-day attacks gained root access</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/mandiant-reveals-how-cisco-sd-wan-zero-day-attacks-gained-root-access/">&rarr; Read more</a></div>
+    <p class="summary">Mandiant detailed how attackers exploited CVE-2026-20245 in Cisco Catalyst SD-WAN to plant unauthorized root accounts on compromised devices, with exploitation reportedly beginning two months before Cisco's disclosure. The flaw bypasses authentication entirely once an attacker reaches the management plane. Any org running Catalyst SD-WAN should treat this as already-exploited, not theoretical.</p>
+  </div>
+
+  <!-- BC 2 -->
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">CISA warns of max severity Ubiquiti flaws exploited in attacks</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-max-severity-ubiquiti-flaws-exploited-in-attacks/">&rarr; Read more</a></div>
+    <p class="summary">CISA is warning that maximum-severity flaws in Ubiquiti UniFi OS and Lantronix serial-to-Ethernet gear are under active exploitation. Both vulnerabilities allow remote compromise of network and device management infrastructure common in SMB and branch-office deployments. Expect a CISA KEV catalog addition and a tight patch window.</p>
+  </div>
+
+  <!-- BC 3 -->
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Cisco Unified CM flaw CVE-2026-20230 now exploited in attacks</h2>
+    <div class="meta">June 23 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/">&rarr; Read more</a></div>
+    <p class="summary">A high-severity SSRF vulnerability in Cisco Unified Communications Manager, tracked as CVE-2026-20230, is now being actively exploited in the wild. The flaw lets attackers pivot from the call-management plane into internal network segments normally isolated from voice infrastructure. Cisco shops running UCM/SME should prioritize this patch alongside the SD-WAN fix above &mdash; two live Cisco exploits in one week.</p>
+  </div>
+
+  <!-- BC 4 -->
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Healthtech firm Xolis suffers data breach impacting 1.4 million people</h2>
+    <div class="meta">June 23 &middot; <a href="https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/">&rarr; Read more</a></div>
+    <p class="summary">Healthtech firm Xsolis disclosed a phishing-initiated breach exposing sensitive records for roughly 1.4 million patients. The incident shows how one compromised credential at a healthcare data vendor can cascade into a HIPAA-reportable event at this scale. Expect notification letters, regulatory scrutiny, and likely class-action filings to follow.</p>
+  </div>
+
+  <!-- REG 1 -->
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="headline">Nation-state actors cracked critical Australian infrastructure to &lsquo;cripple it at a time of their choosing&rsquo;</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.theregister.com/security/2026/06/25/nation-state-actors-cracked-critical-australian-infrastructure-to-cripple-it-at-a-time-of-their-choosing/5261877">&rarr; Read more</a></div>
+    <p class="summary">Australian intelligence officials revealed that nation-state hackers breached critical infrastructure systems and left access in place, apparently to enable disruption at a moment of their choosing rather than for immediate effect. In one case, Australian spies called foreign counterparts directly to warn off an operation before it triggered. It's a textbook pre-positioning campaign &mdash; the kind security teams are told to hunt for and rarely catch before disclosure.</p>
+  </div>
+
+  <!-- REG 2 -->
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="headline">Microsoft uses AI to link two malware operations in racketeering suit</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.theregister.com/security/2026/06/24/microsoft-uses-ai-to-link-two-malware-operations-in-racketeering-suit/5261656">&rarr; Read more</a></div>
+    <p class="summary">Microsoft used AI-assisted analysis to tie together infrastructure behind the StealC and Amadey malware families, helping take down more than 200 command-and-control servers. The work fed into a racketeering lawsuit rather than just a takedown notice &mdash; a more aggressive legal posture against malware-as-a-service operators. It's a preview of how AI-assisted attribution may reshape botnet disruption.</p>
+  </div>
+
+  <!-- REG 3 -->
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="headline">UK school's network left wide open for invasion, student found</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.theregister.com/security/2026/06/25/uk-schools-network-left-wide-open-for-invasion-student-found/5261567">&rarr; Read more</a></div>
+    <p class="summary">A UK student discovered their school's network was wide open to compromise &mdash; the admin password was sitting in plain text in an Active Directory description field. It's a reminder that basic AD hygiene failures remain endemic in under-resourced IT environments like schools. No malicious exploitation has been reported, but the exposure window had apparently existed for some time before anyone noticed.</p>
+  </div>
+
+  <!-- DR 1 -->
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="--source-color:var(--purple)">Dark Reading</span></div>
+    <h2 class="headline">Europe Evolves Into Ransomware's Favorite Region</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.darkreading.com/cybersecurity-analytics/europe-evolves-ransomware-favorite-region">&rarr; Read more</a></div>
+    <p class="summary">After a lull in global ransomware activity, gangs are now concentrating attacks on EU organizations and their supply chains. Researchers point to softer cross-border enforcement coordination and a deep pool of underprotected mid-market targets. It's a geographic shift security teams with European operations should fold into their threat models now.</p>
+  </div>
+
+  <!-- DR 2 -->
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="--source-color:var(--purple)">Dark Reading</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">FortiBleed Attackers Turn Firewalls Into Credential Stealers as Heists Persist</h2>
+    <div class="meta">June 23 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/fortibleed-attackers-firewalls-credentials-stealers">&rarr; Read more</a></div>
+    <p class="summary">Attackers built a Golang-based sniffer to harvest credentials from roughly 430,000 internet-facing FortiGate firewalls, pulling in an estimated 110 million stolen credentials so far. The "FortiBleed" campaign turns edge firewalls themselves into the credential-theft tool rather than just the entry point. If you run FortiGate at the perimeter, assume compromise and rotate credentials rather than waiting on an official advisory.</p>
+  </div>
+
+  <!-- DR 3 -->
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="--source-color:var(--purple)">Dark Reading</span></div>
+    <h2 class="headline">Apple's macOS Gap Lets Users Disable Security Tools</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.darkreading.com/application-security/apple-macos-security-gap-users-disable-security-tools">&rarr; Read more</a></div>
+    <p class="summary">A gap in macOS lets local users disable security and integrated browser protection tools without administrator privileges or a kernel exploit. That's a strikingly low bar for an endpoint-security bypass on a platform many enterprises still treat as inherently safer than Windows. Expect MDM and EDR vendors to ship workarounds before Apple patches the underlying gap.</p>
+  </div>
+
+  <!-- ENG 1 -->
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="headline">US government reportedly urging Meta to share its AI models</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.engadget.com/2200490/us-government-reportedly-urging-meta-to-share-its-ai-models/">&rarr; Read more</a></div>
+    <p class="summary">The US government is reportedly pressing Meta to share its AI models for government review, citing growing security and safety concerns. It's an unusual ask for a company whose Llama models are already open-weight, which suggests the request targets frontier or unreleased variants. The framing reads more like export-control oversight than a typical AI-safety review.</p>
+  </div>
+
+  <!-- ENG 2 -->
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="headline">Alibaba sues the US government for adding it to list of firms linked to Chinese military</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.engadget.com/2200406/alibaba-sues-us-government-chinese-military-blacklist/">&rarr; Read more</a></div>
+    <p class="summary">Alibaba is suing the US government over its addition to a list of companies linked to the Chinese military, a designation with real investment and procurement consequences. The suit lands the same week Anthropic separately accused Alibaba of illicitly extracting Claude's capabilities, making Alibaba the common thread in two unrelated US-China tech fights at once. Expect the blacklist case to take months to resolve through the courts.</p>
+  </div>
+
+  <!-- AWS 1 -->
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+    <div class="meta">June 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+    <p class="summary">AWS Lambda now offers MicroVMs &mdash; a serverless compute primitive with VM-level isolation, no shared kernel between sessions, rapid launch/resume, and state preservation for up to 8 hours. It's built for untrusted code execution and AI agent sandboxing where container-level isolation falls short. No new infrastructure to manage, but it's a meaningfully different security boundary than standard Lambda.</p>
+  </div>
+
+  <!-- AWS 2 -->
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="headline">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+    <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+    <p class="summary">AWS Security Agent now performs STRIDE-based threat modeling plus full repo and PR scanning with remediation across major Git platforms. New IDE integrations &mdash; Kiro power, a Claude Code plugin, and MCP support &mdash; let developers run security reviews without leaving their editor. It folds threat modeling into the same workflow as code review instead of a separate compliance gate.</p>
+  </div>
+
+  <!-- AWS 3 -->
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Improve your application resilience with Amazon Cognito multi-Region replication</h2>
+    <div class="meta">June 3 &middot; <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/">&rarr; Read more</a></div>
+    <p class="summary">Amazon Cognito now automatically replicates user pools, credentials, and configuration to a secondary Region, so authentication keeps working through a regional failover without forcing password resets. It also adds customer-managed KMS key support for tighter encryption control over identity data. For anyone who's run an outage postmortem ending in "Cognito was the single point of failure," this closes that gap.</p>
+  </div>
+
+  <!-- AZURE 1 -->
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">New Azure Cobalt 200 VMs deliver 50% performance improvement, fully optimized for modern agentic AI workloads</h2>
+    <div class="meta">June 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/">&rarr; Read more</a></div>
+    <p class="summary">Microsoft opened early access to Azure Cobalt 200, its next-gen Arm-based VM family, claiming a 50% performance jump over the prior generation for Linux workloads. The VMs are explicitly tuned for agentic AI inference rather than general-purpose compute. It's Microsoft's clearest signal yet that custom silicon, not just GPU procurement, is now central to its cloud roadmap.</p>
+  </div>
+
+  <!-- AZURE 2 -->
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="headline">Modernize your data with Azure Storage: Plan and migrate with confidence</h2>
+    <div class="meta">June 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">&rarr; Read more</a></div>
+    <p class="summary">Microsoft published planning guidance for enterprise Azure Storage migrations, focused on protecting business continuity and performance when terabytes-to-petabytes of data are on the line. The guide leans heavily on cost management and minimizing downtime during cutover rather than just describing migration tooling. Worth a read if a storage modernization project is anywhere on your roadmap this year.</p>
+  </div>
+
+</div>
+
+<div class="skipping">
+  <p class="skipping-title">Worth Skipping Today</p>
+  <ul class="skip-list">
+    <li>&middot; [Hacker News] &mdash; Half-Life 2 in a Browser &mdash; (gaming demo, no infra angle)</li>
+    <li>&middot; [Engadget] &mdash; The Grand Theft Auto 6 physical edition is overpriced DRM in a box &mdash; (gaming opinion piece)</li>
+    <li>&middot; [Engadget] &mdash; Lumysi hid an activity tracker in a bracelet &mdash; (consumer gadget fluff)</li>
+    <li>&middot; [The Register] &mdash; Salyut 5 at 50: the Soviet space station &mdash; (history piece, no news value)</li>
+    <li>&middot; [AWS] &mdash; AWS Weekly Roundup: NY Summit recap &mdash; (digest, not standalone news)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:08 AST &middot;
+  Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+  Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+</footer>
+
+</body>
+</html>
