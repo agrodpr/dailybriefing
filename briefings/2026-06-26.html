@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · June 26, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 32px;
+}
+
+.masthead{
+  text-align: center;
+}
+
+.masthead h1{
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin: 0;
+  color: var(--text);
+}
+
+.tagline{
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr.rule{
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+.legend{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+.legend-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editors-note{
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 48px auto;
+  text-align: center;
+  color: var(--text);
+}
+
+.feed{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card{
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--c);
+  transition: border-left-color 0.15s ease;
+}
+
+.card:hover{
+  border-left-color: var(--cb);
+}
+
+.card.hn{ --c: var(--cyan); --cb: #33c3e0; }
+.card.bc{ --c: var(--orange); --cb: #ee9c63; }
+.card.reg{ --c: var(--red); --cb: #fa9a9a; }
+.card.dr{ --c: var(--purple); --cb: #bba8fb; }
+.card.eng{ --c: var(--pink); --cb: #f693c2; }
+.card.aws{ --c: var(--green); --cb: #74e8a3; }
+.card.azure{ --c: var(--blue); --cb: #87b9fa; }
+
+.chips{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.chip{
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #0B0B0F;
+}
+
+.chip.hn{ background: var(--cyan); }
+.chip.bc{ background: var(--orange); }
+.chip.reg{ background: var(--red); }
+.chip.dr{ background: var(--purple); }
+.chip.eng{ background: var(--pink); }
+.chip.aws{ background: var(--green); }
+.chip.azure{ background: var(--blue); }
+
+.chip.flag{
+  background: var(--orange);
+  color: #0B0B0F;
+}
+
+.headline{
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.meta{
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.meta a{
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.summary{
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skipping{
+  max-width: 860px;
+  margin: 56px auto 0;
+}
+
+.skipping h2{
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.skipping ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skipping li{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+footer{
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding-top: 48px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Friday, June 26, 2026</div>
+</div>
+
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">Cisco's networking stack is having a brutal week &mdash; SD-WAN, CUCM, and a second zero-day are all under active exploitation at once, while the FortiBleed firewall-credential campaign keeps growing past 430,000 devices. On the cloud side, AWS and Azure both leaned into resilience and embedded security tooling rather than flashy launches, with Cognito's multi-Region failover and AWS Security Agent's threat modeling standing out. Watch the Cisco patch cycle and the Australian critical-infrastructure prepositioning story closely &mdash; both show attackers moving faster than defenders' patch windows.</p>
+
+<div class="feed">
+
+  <div class="card hn">
+    <div class="chips"><span class="chip hn">Hacker News</span></div>
+    <h2 class="headline">An entire Herculaneum scroll has been read for the first time</h2>
+    <div class="meta">1326 pts &middot; 280 comments &middot; <a href="https://scrollprize.org/firstscroll">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48675179">HN discussion</a></div>
+    <p class="summary">AI-assisted virtual-unwrapping techniques have for the first time fully read an entire Herculaneum scroll charred in the Vesuvius eruption, recovering continuous text from an artifact long thought unreadable. The breakthrough builds on the Vesuvius Challenge's computer-vision pipeline, which images and "unrolls" carbonized papyrus without ever physically opening it. It's a striking proof point for applying ML imaging to extreme data-recovery problems well outside typical IT.</p>
+  </div>
+
+  <div class="card hn">
+    <div class="chips"><span class="chip hn">Hacker News</span></div>
+    <h2 class="headline">The 'papers, please' era of the internet will decimate your privacy</h2>
+    <div class="meta">742 pts &middot; 350 comments &middot; <a href="https://expression.fire.org/p/the-papers-please-era-of-the-internet">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48679608">HN discussion</a></div>
+    <p class="summary">A widely discussed essay argues that age-verification and ID-upload mandates spreading across the web are quietly building mass identity-collection infrastructure with no real privacy safeguards behind it. The piece warns that "show your papers" requirements normalize centralized stores of government ID data that become high-value breach targets in their own right. For compliance and privacy teams, it's a reminder that regulatory mandates can create new attack surface even while aiming to protect users.</p>
+  </div>
+
+  <div class="card hn">
+    <div class="chips"><span class="chip hn">Hacker News</span></div>
+    <h2 class="headline">Apple raises prices of MacBooks, iPads</h2>
+    <div class="meta">736 pts &middot; 1055 comments &middot; <a href="https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48672732">HN discussion</a></div>
+    <p class="summary">Apple has raised prices across its MacBook and iPad lineups, citing the ongoing "RAMpocalypse" as DRAM and NAND prices surge on AI-datacenter demand. The increases show how AI infrastructure buildout is now spilling directly into consumer hardware costs. Expect the same component pressure to hit enterprise hardware-refresh budgets next.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="chips"><span class="chip bc">BleepingComputer</span><span class="chip flag">&#9889; On Your Radar</span></div>
+    <h2 class="headline">CISA warns of max severity Ubiquiti flaws exploited in attacks</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-max-severity-ubiquiti-flaws-exploited-in-attacks/">&rarr; Read more</a></div>
+    <p class="summary">CISA is warning that hackers are actively exploiting maximum-severity flaws in Ubiquiti UniFi OS and Lantronix serial-to-ethernet servers, both common in networking and OT environments. The bugs let remote attackers take over affected devices outright, and CISA's alert signals these are prime candidates for the next KEV catalog update. Any org running UniFi gear or Lantronix serial gateways should patch now and check for compromise indicators.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="chips"><span class="chip bc">BleepingComputer</span><span class="chip flag">&#9889; On Your Radar</span></div>
+    <h2 class="headline">Mandiant reveals how Cisco SD-WAN zero-day attacks gained root access</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/mandiant-reveals-how-cisco-sd-wan-zero-day-attacks-gained-root-access/">&rarr; Read more</a></div>
+    <p class="summary">Mandiant detailed how attackers exploited CVE-2026-20245, a Cisco Catalyst SD-WAN zero-day, to plant rogue root accounts on targeted devices before a patch existed. The technique gave intruders persistent administrative control over SD-WAN infrastructure that's typically trusted as a network backbone. It's the second major disclosure this week tying root-level Cisco compromise to live exploitation.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="chips"><span class="chip bc">BleepingComputer</span></div>
+    <h2 class="headline">Amadey, StealC malware operations disrupted in Operation Endgame action</h2>
+    <div class="meta">June 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/amadey-stealc-malware-operations-disrupted-in-operation-endgame-action/">&rarr; Read more</a></div>
+    <p class="summary">Microsoft, Europol, and international law enforcement partners dismantled infrastructure behind the Amadey and StealC malware-as-a-service operations as part of the latest Operation Endgame sweep. Both tools have been key initial-access enablers for ransomware crews, so the takedown should disrupt a real slice of the cybercrime supply chain. Microsoft says it used AI-assisted analysis to map the connections between the two operations.</p>
+  </div>
+
+  <div class="card bc">
+    <div class="chips"><span class="chip bc">BleepingComputer</span></div>
+    <h2 class="headline">New macOS malware embeds fake errors to confuse AI analysis tools</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.bleepingcomputer.com/news/security/new-macos-malware-embeds-fake-errors-to-confuse-ai-analysis-tools/">&rarr; Read more</a></div>
+    <p class="summary">A newly discovered macOS malware family dubbed "Gaslight" hides prompt-injection strings and fabricated debug output inside its binary specifically to throw off AI-assisted malware analysis tools. It's an early, concrete example of attackers adapting tradecraft to target the LLMs now embedded in security tooling. Analysts should treat any AI-generated verdict on this sample with extra skepticism until it's manually verified.</p>
+  </div>
+
+  <div class="card reg">
+    <div class="chips"><span class="chip reg">The Register</span><span class="chip flag">&#9889; On Your Radar</span></div>
+    <h2 class="headline">Nation-state actors cracked critical Australian infrastructure to &lsquo;cripple it at a time of their choosing&rsquo;</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.theregister.com/security/2026/06/25/nation-state-actors-cracked-critical-australian-infrastructure-to-cripple-it-at-a-time-of-their-choosing/5261877">&rarr; Read more</a></div>
+    <p class="summary">Australian intelligence officials disclosed that nation-state hackers breached critical infrastructure systems and positioned themselves to disable it on demand, before the operation was disrupted ahead of activation. Officials say they tipped off foreign counterparts once they confirmed the intrusion had failed. It's a stark reminder that prepositioning attacks on critical infrastructure are an active, ongoing threat, not a theoretical one.</p>
+  </div>
+
+  <div class="card reg">
+    <div class="chips"><span class="chip reg">The Register</span><span class="chip flag">&#9889; On Your Radar</span></div>
+    <h2 class="headline">The hits keep on coming for Cisco vulnerabilities</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.theregister.com/security/2026/06/24/the-hits-keep-on-coming-for-cisco-vulnerabilities/5261797">&rarr; Read more</a></div>
+    <p class="summary">A separate Cisco flaw, CVE-2026-20230, is now under active exploitation, and new analysis shows an earlier SD-WAN zero-day was exploited even more severely than first reported. Combined with this week's other Cisco disclosures, it paints a picture of sustained, multi-front attacks against Cisco's networking stack. Teams running Cisco SD-WAN or related gear should treat this as a priority patch-and-hunt cycle.</p>
+  </div>
+
+  <div class="card reg">
+    <div class="chips"><span class="chip reg">The Register</span></div>
+    <h2 class="headline">Self-destructing Mistic backdoor linked to access broker selling corporate footholds to ransomware gangs</h2>
+    <div class="meta">June 26 &middot; <a href="https://www.theregister.com/security/2026/06/25/self-destructing-mistic-backdoor-linked-to-access-broker-selling-corporate-footholds-to-ransomware-gangs/5262579">&rarr; Read more</a></div>
+    <p class="summary">Researchers tied a newly identified, self-destructing backdoor called "Mistic" to an access broker that resells initial network footholds to ransomware affiliates. The malware has shown up in intrusions against insurance, education, IT, and professional-services targets &mdash; sectors with rich data but thinner security budgets. It's a useful look at how the access-broker layer of the ransomware economy keeps evolving to stay under the radar.</p>
+  </div>
+
+  <div class="card dr">
+    <div class="chips"><span class="chip dr">Dark Reading</span><span class="chip flag">&#9889; On Your Radar</span></div>
+    <h2 class="headline">In Less Than 24 Hours, Attackers Weaponize Cisco CUCM Flaw</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/less-than-24-hours-attackers-weaponize-cisco-cucm-flaw">&rarr; Read more</a></div>
+    <p class="summary">Attackers turned a Cisco Unified Communications Manager flaw into a working exploit in under 24 hours of disclosure, chaining an SSRF bug to escalate privileges all the way to root. The speed underscores how little patch-window margin defenders now have once a Cisco advisory drops. Any org running Unified CM or Unified CM SME should treat this as an emergency patch, not a routine one.</p>
+  </div>
+
+  <div class="card dr">
+    <div class="chips"><span class="chip dr">Dark Reading</span><span class="chip flag">&#9889; On Your Radar</span></div>
+    <h2 class="headline">FortiBleed Attackers Turn Firewalls Into Credential Stealers as Heists Persist</h2>
+    <div class="meta">June 23 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/fortibleed-attackers-firewalls-credentials-stealers">&rarr; Read more</a></div>
+    <p class="summary">The FortiBleed campaign has weaponized a Golang-based credential sniffer against roughly 430,000 internet-facing FortiGate firewalls, harvesting an estimated 110 million credentials so far. The scale makes it one of the largest active firewall-credential-theft campaigns tracked this year. Organizations running FortiGate appliances should assume compromise if they haven't already patched and rotated credentials.</p>
+  </div>
+
+  <div class="card dr">
+    <div class="chips"><span class="chip dr">Dark Reading</span></div>
+    <h2 class="headline">Russian APT 'Gamaredon' Upgrades Its Arsenal, Requiring New Defenses</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.darkreading.com/threat-intelligence/russia-apt-gamaredon-arsenal-defense">&rarr; Read more</a></div>
+    <p class="summary">The FSB-linked Gamaredon group has upgraded its malware loaders and improved how it hides command-and-control infrastructure, making its long-running espionage campaigns harder to detect. Defenders who built detections around the group's older tooling will need to revisit those signatures. It's a reminder that even "known" APT groups keep iterating fast enough to outpace static defenses.</p>
+  </div>
+
+  <div class="card eng">
+    <div class="chips"><span class="chip eng">Engadget</span></div>
+    <h2 class="headline">Russia allegedly used a forensics platform to hack an activist's phone, despite having its access cut off</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.engadget.com/2201736/russia-allegedly-used-a-forensics-platform-to-hack-an-activist-s-phone-despite-having-its-access-cut-off/">&rarr; Read more</a></div>
+    <p class="summary">Cellebrite says its phone-forensics hardware was used to break into an activist's device in Russia even though the company had revoked the unit's access under sanctions. The case raises hard questions about how surveillance and forensics tools keep operating long after vendors try to cut off sanctioned users. It's a pointed example of how export controls on security tooling can be circumvented in practice.</p>
+  </div>
+
+  <div class="card eng">
+    <div class="chips"><span class="chip eng">Engadget</span></div>
+    <h2 class="headline">OpenAI will initially only release ChatGPT 5.6 to government-approved customers</h2>
+    <div class="meta">June 25 &middot; <a href="https://www.engadget.com/2202129/openai-will-initially-only-release-chatgpt-5-6-to-government-approved-customers/">&rarr; Read more</a></div>
+    <p class="summary">OpenAI says the initial rollout of ChatGPT 5.6 will be limited to customers who've cleared a government-approval process, a shift from its earlier voluntary-review posture. The move signals AI vendors are building compliance gating directly into model release strategy rather than treating it as an afterthought. Enterprises evaluating frontier models should expect more access tiers gated by regulatory status going forward.</p>
+  </div>
+
+  <div class="card aws">
+    <div class="chips"><span class="chip aws">AWS</span></div>
+    <h2 class="headline">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+    <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+    <p class="summary">AWS Security Agent now runs STRIDE-based threat modeling plus full repo and PR scanning with remediation across major Git platforms, wired into IDEs via Kiro, the Claude Code plugin, and MCP. It folds security review directly into the dev workflow instead of treating it as a separate, after-the-fact gate. Teams already using Claude Code or Kiro get this threat-modeling layer with no new tool to stand up.</p>
+  </div>
+
+  <div class="card aws">
+    <div class="chips"><span class="chip aws">AWS</span></div>
+    <h2 class="headline">Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+    <div class="meta">June 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+    <p class="summary">AWS Lambda now offers MicroVMs, a serverless compute primitive that gives each session a VM-level isolated sandbox with no shared kernel or resources between runs. Rapid launch/resume and up to eight hours of state preservation make it a fit for running untrusted or AI-agent-generated code safely at scale. It's a meaningful hardening option for anyone currently running agent or multi-tenant workloads on shared Lambda execution environments.</p>
+  </div>
+
+  <div class="card aws">
+    <div class="chips"><span class="chip aws">AWS</span></div>
+    <h2 class="headline">Improve your application resilience with Amazon Cognito multi-Region replication</h2>
+    <div class="meta">June 3 &middot; <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/">&rarr; Read more</a></div>
+    <p class="summary">Cognito now automatically replicates user data, credentials, and pool configuration to a secondary AWS Region, keeping authentication available through regional failovers without forcing password resets. It also adds support for customer-managed KMS keys, giving security teams more control over how identity data gets encrypted. This closes a long-standing resilience gap for teams that have been treating Cognito as a single-region dependency.</p>
+  </div>
+
+  <div class="card azure">
+    <div class="chips"><span class="chip azure">Azure</span></div>
+    <h2 class="headline">From insight to action: The next phase of agentic cloud operations</h2>
+    <div class="meta">June 23 &middot; <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">&rarr; Read more</a></div>
+    <p class="summary">Microsoft is pushing Azure's monitoring and operations tooling toward autonomous agents that act on detected issues in real time instead of just surfacing alerts for humans to triage. The shift mirrors a broader trend of cloud providers embedding agentic remediation directly into ops platforms. Ops teams should watch how much autonomy these agents get by default, since automated action on production infrastructure carries its own blast-radius risk.</p>
+  </div>
+
+  <div class="card azure">
+    <div class="chips"><span class="chip azure">Azure</span></div>
+    <h2 class="headline">Modernize your data with Azure Storage: Plan and migrate with confidence</h2>
+    <div class="meta">June 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">&rarr; Read more</a></div>
+    <p class="summary">Microsoft lays out a practical framework for planning large-scale Azure Storage migrations, covering business continuity, performance, and cost alongside the technical mechanics of moving terabyte- or petabyte-scale datasets. It's aimed at teams who treat storage migration as a checkbox rather than the high-stakes operation it actually is. Useful baseline reading before committing to any large data-platform move.</p>
+  </div>
+
+</div>
+
+<div class="skipping">
+  <h2>Worth Skipping Today</h2>
+  <ul>
+    <li>&middot; [The Register] BOFH: Amnesty means never having to say you're sorry &mdash; (satire column, no news value)</li>
+    <li>&middot; [Engadget] Sony A7R VI review &mdash; (consumer camera review)</li>
+    <li>&middot; [BleepingComputer] Webinar: Why account takeovers remain one of the hardest threats to stop &mdash; (sponsored webinar promo)</li>
+    <li>&middot; [The Register] ZTE showcases full-stack AI capabilities at MWC Shanghai 2026 &mdash; (partner content, no news)</li>
+    <li>&middot; [Hacker News] Apple to skip high-end M6 Mac chips in favor of AI-focused M7 line &mdash; (consumer hardware speculation)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:07 AST &middot;
+  Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+  Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+</footer>
+
+</body>
+</html>
