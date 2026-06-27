@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Morning Briefing · Saturday, June 27, 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 0;
+}
+
+.masthead{
+  text-align: center;
+}
+
+.masthead h1{
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin: 0;
+  color: var(--text);
+}
+
+.tagline{
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin: 16px 0 40px;
+}
+
+hr.rule{
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.legend{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: 860px;
+  margin: 0 auto 48px;
+  width: fit-content;
+}
+
+.legend-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editors-note{
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 400;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.stories{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card{
+  position: relative;
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.card::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 8px 0 0 8px;
+  background: var(--source-color);
+}
+
+.card:hover::before{
+  filter: brightness(1.3);
+}
+
+.chips{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.chip{
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #0B0B0F;
+  background: var(--source-color);
+}
+
+.chip.radar{
+  background: var(--orange);
+  color: #0B0B0F;
+}
+
+.headline{
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.meta{
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.meta a{
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 10px;
+  border-bottom: 1px solid var(--text-muted);
+}
+
+.meta a:hover{
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.summary{
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skipping{
+  max-width: 860px;
+  margin: 56px auto 0;
+}
+
+.skipping-title{
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skip-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skip-list li{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+footer{
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 48px 0 64px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* source color classes */
+.src-hn{ --source-color: var(--cyan); }
+.src-bc{ --source-color: var(--orange); }
+.src-reg{ --source-color: var(--red); }
+.src-dr{ --source-color: var(--purple); }
+.src-eng{ --source-color: var(--pink); }
+.src-aws{ --source-color: var(--green); }
+.src-azure{ --source-color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Saturday, June 27, 2026</div>
+</div>
+
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">Washington is now gatekeeping which organizations get access to OpenAI's GPT&#8209;5.6 and Anthropic's Mythos models, treating frontier AI like export&#8209;controlled technology. On the cloud side, AWS and Azure both pushed deeper into agentic security and ops tooling &mdash; AWS shipped a Security Agent and Lambda MicroVMs while Azure leaned into autonomous cloud operations. The story to actually watch is exploitation speed: Cisco's CUCM flaw went from disclosure to active attack in under 24 hours, and CISA is forcing federal agencies to patch it by Sunday.</p>
+
+<div class="stories">
+
+  <div class="card src-hn">
+    <div class="chips"><span class="chip">Hacker News</span></div>
+    <h2 class="headline">U.S. government will decide who gets to use GPT-5.6</h2>
+    <div class="meta">1,049 pts &middot; 1,101 comments <a href="https://news.ycombinator.com/item?id=48690101">&rarr; Read more</a></div>
+    <p class="summary">The U.S. government will vet which organizations get access to OpenAI's newest model, GPT-5.6, before wider release. The arrangement effectively turns frontier AI distribution into an export-control-style approval process. It signals Washington is treating leading-edge AI capability as a national security asset, not just a commercial product.</p>
+  </div>
+
+  <div class="card src-hn">
+    <div class="chips"><span class="chip">Hacker News</span></div>
+    <h2 class="headline">Previewing GPT-5.6 Sol: a next-generation model</h2>
+    <div class="meta">1,022 pts &middot; 642 comments <a href="https://news.ycombinator.com/item?id=48689028">&rarr; Read more</a></div>
+    <p class="summary">OpenAI previewed GPT-5.6 Sol, its next-generation model, ahead of a staged rollout that starts with government-approved customers. Early access is limited to a small group of trusted partners rather than the general public. The phased release pattern mirrors how OpenAI is now treating its most capable models as controlled technology.</p>
+  </div>
+
+  <div class="card src-hn">
+    <div class="chips"><span class="chip">Hacker News</span></div>
+    <h2 class="headline">U.S. allows Anthropic to release Mythos AI to 'trusted' US organizations</h2>
+    <div class="meta">454 pts &middot; 541 comments <a href="https://news.ycombinator.com/item?id=48692995">&rarr; Read more</a></div>
+    <p class="summary">The U.S. government granted Anthropic permission to redeploy its Mythos cybersecurity-focused AI model to a vetted set of American organizations. The approval places Mythos under the same kind of distribution controls now applied to OpenAI's GPT-5.6. Mythos is positioned specifically for cybersecurity use cases, tying the approval directly to national security concerns.</p>
+  </div>
+
+  <div class="card src-bc">
+    <div class="chips"><span class="chip">BleepingComputer</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">CISA sets urgent deadline to fix Cisco flaw exploited in attacks</h2>
+    <div class="meta">June 26 <a href="https://www.bleepingcomputer.com/news/security/cisa-sets-urgent-deadline-to-fix-cisco-flaw-exploited-in-attacks/">&rarr; Read more</a></div>
+    <p class="summary">CISA gave federal agencies until Sunday to patch an actively exploited vulnerability in Cisco Unified Communications Manager Server. The flaw is already being used in real-world attacks, prompting an emergency window instead of the usual 21-day remediation cycle. Any organization running CUCM should treat this as a today problem, not a backlog item.</p>
+  </div>
+
+  <div class="card src-bc">
+    <div class="chips"><span class="chip">BleepingComputer</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">FBI: Russian hackers now target Signal backup recovery keys</h2>
+    <div class="meta">June 26 <a href="https://www.bleepingcomputer.com/news/security/fbi-russian-hackers-now-target-signal-backup-recovery-keys/">&rarr; Read more</a></div>
+    <p class="summary">The FBI and CISA warned that a Russian intelligence-linked phishing campaign has evolved to steal Signal Backup Recovery Keys, not just login credentials. Stealing the recovery key hands attackers a victim's entire historical message archive, not just future traffic. Signal users who back up to the cloud should check who can reach that backup.</p>
+  </div>
+
+  <div class="card src-bc">
+    <div class="chips"><span class="chip">BleepingComputer</span></div>
+    <h2 class="headline">Cybersecurity firms targeted by fraudulent OpenAI organization invites</h2>
+    <div class="meta">June 26 <a href="https://www.bleepingcomputer.com/news/security/cybersecurity-firms-targeted-by-fraudulent-openai-organization-invites/">&rarr; Read more</a></div>
+    <p class="summary">Threat actors are spinning up fake OpenAI tenants that impersonate legitimate companies and inviting employees to join them. Once inside, victims risk exposing sensitive company data through chats and shared projects in the fraudulent workspace. Security teams should treat unsolicited OpenAI org invites with the same suspicion as a phishing email.</p>
+  </div>
+
+  <div class="card src-bc">
+    <div class="chips"><span class="chip">BleepingComputer</span></div>
+    <h2 class="headline">New macOS malware embeds fake errors to confuse AI analysis tools</h2>
+    <div class="meta">June 25 <a href="https://www.bleepingcomputer.com/news/security/new-macos-malware-embeds-fake-errors-to-confuse-ai-analysis-tools/">&rarr; Read more</a></div>
+    <p class="summary">A newly found macOS malware family dubbed "Gaslight" hides prompt-injection strings and fabricated debugging data inside its executable specifically to throw off AI-assisted malware analysis. It's a direct attempt to exploit the trust some automated triage tools place in an LLM's read of suspicious code. Analysts leaning on AI summarization for malware triage should expect adversaries to keep targeting that layer.</p>
+  </div>
+
+  <div class="card src-reg">
+    <div class="chips"><span class="chip">The Register</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Amazon Q flaw let booby-trapped Git repos execute code, swipe cloud creds</h2>
+    <div class="meta">June 26 <a href="https://www.theregister.com/cyber-crime/2026/06/26/amazon-q-flaw-let-booby-trapped-git-repos-execute-code-swipe-cloud-creds/5263202">&rarr; Read more</a></div>
+    <p class="summary">Researchers found that Amazon Q and similar AI coding assistants will execute commands embedded in a project's configuration files, letting a booby-trapped Git repo run arbitrary code the moment it's opened. In practice, cloning an untrusted repo can leak a developer's cloud credentials with no other interaction needed. It's a reminder that AI coding agents inherit the same trust-boundary problems as any tool that auto-executes project config.</p>
+  </div>
+
+  <div class="card src-reg">
+    <div class="chips"><span class="chip">The Register</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">Miasma campaign poisons 20-plus npm packages, hunts for developer secrets</h2>
+    <div class="meta">June 26 <a href="https://www.theregister.com/security/2026/06/26/miasma-campaign-poisons-20-plus-npm-packages-hunts-for-developer-secrets/5262886">&rarr; Read more</a></div>
+    <p class="summary">Microsoft is tracking an active campaign called Miasma that has poisoned more than 20 npm packages, including ones tied to the Leo Platform and RStreams projects. The malicious code harvests developer credentials and is being used to pivot toward compromising additional maintainers. It's an ongoing supply-chain attack, so pinning a version isn't enough &mdash; affected packages need to be purged and credentials rotated.</p>
+  </div>
+
+  <div class="card src-reg">
+    <div class="chips"><span class="chip">The Register</span></div>
+    <h2 class="headline">It's looking like a hot, messy summer for security teams as AI finds countless previously hidden vulns</h2>
+    <div class="meta">June 27 <a href="https://www.theregister.com/security/2026/06/27/its-looking-like-a-hot-messy-summer-for-security-teams-as-ai-finds-countless-previously-hidden-vulns/5260478">&rarr; Read more</a></div>
+    <p class="summary">AI-assisted code and binary analysis is surfacing a wave of previously undiscovered vulnerabilities across widely used software, faster than security teams can triage them. The volume increase is straining patch-management pipelines built around a slower, manual discovery cadence. Expect disclosure and patching workloads to keep climbing as more vendors point AI tools at their own codebases.</p>
+  </div>
+
+  <div class="card src-dr">
+    <div class="chips"><span class="chip">Dark Reading</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">In Less Than 24 Hours, Attackers Weaponize Cisco CUCM Flaw</h2>
+    <div class="meta">June 25 <a href="https://www.darkreading.com/cyberattacks-data-breaches/less-than-24-hours-attackers-weaponize-cisco-cucm-flaw">&rarr; Read more</a></div>
+    <p class="summary">Attackers turned a newly disclosed Cisco Unified Communications Manager flaw into a working exploit in under 24 hours. The bug enables server-side request forgery and escalates privileges to root on Unified CM and Unified CM SME deployments. That turnaround leaves almost no patch window &mdash; it's the same CUCM issue CISA is now forcing federal agencies to fix by Sunday.</p>
+  </div>
+
+  <div class="card src-dr">
+    <div class="chips"><span class="chip">Dark Reading</span><span class="chip radar">&#9889; ON YOUR RADAR</span></div>
+    <h2 class="headline">FortiBleed Attackers Turn Firewalls Into Credential Stealers as Heists Persist</h2>
+    <div class="meta">June 23 <a href="https://www.darkreading.com/cyberattacks-data-breaches/fortibleed-attackers-firewalls-credentials-stealers">&rarr; Read more</a></div>
+    <p class="summary">The FortiBleed campaign has compromised roughly 430,000 internet-facing FortiGate firewalls using a custom Golang-based credential sniffer. Attackers have already harvested an estimated 110 million credentials, and the heists are still ongoing. Any unpatched FortiGate appliance exposed to the internet should be treated as already compromised.</p>
+  </div>
+
+  <div class="card src-dr">
+    <div class="chips"><span class="chip">Dark Reading</span></div>
+    <h2 class="headline">Scope of Salesforce Attacks Expands as Icarus Leaks Data</h2>
+    <div class="meta">June 23 <a href="https://www.darkreading.com/cyberattacks-data-breaches/scope-salesforce-attacks-expands-icarus-leaks-data">&rarr; Read more</a></div>
+    <p class="summary">More victims are surfacing after attackers breached application vendor Klue and stole its OAuth tokens to pull customer data straight out of Salesforce. Because the access came through a trusted third-party integration's tokens rather than a direct Salesforce flaw, affected orgs may not have noticed the exposure yet. It's the latest entry in a string of OAuth-token-based SaaS supply-chain breaches hitting Salesforce customers this year.</p>
+  </div>
+
+  <div class="card src-eng">
+    <div class="chips"><span class="chip">Engadget</span></div>
+    <h2 class="headline">Apple is reportedly looking to buy chips from a US-blacklisted Chinese company</h2>
+    <div class="meta">June 27 <a href="https://www.engadget.com/2203121/apple-looking-buy-chips-blacklisted-chinese-company/">&rarr; Read more</a></div>
+    <p class="summary">Apple is reportedly seeking a Trump administration waiver to buy chips from a company with ties to the Chinese military that's currently on the U.S. entity list. The request highlights how dependent even the largest tech supply chains remain on restricted Chinese manufacturing capacity. Any approval would set a notable precedent for how strictly the blacklist gets enforced against major U.S. buyers.</p>
+  </div>
+
+  <div class="card src-eng">
+    <div class="chips"><span class="chip">Engadget</span></div>
+    <h2 class="headline">Samsung will start charging for SmartThings API access</h2>
+    <div class="meta">June 26 <a href="https://www.engadget.com/2202497/samsung-will-start-charging-for-smartthings-api-access/">&rarr; Read more</a></div>
+    <p class="summary">Samsung is moving SmartThings from a free developer API to a paid access model. The change will hit smart-home integrators and hobbyist developers who currently build on the platform at no cost. It's part of a broader industry pattern of platform owners monetizing API access once their developer ecosystems mature.</p>
+  </div>
+
+  <div class="card src-aws">
+    <div class="chips"><span class="chip">AWS</span></div>
+    <h2 class="headline">Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+    <div class="meta">June 22 <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+    <p class="summary">AWS Lambda now offers MicroVMs, a serverless compute primitive that gives each session a fully isolated VM-level sandbox with no shared kernel or resources. Sessions can preserve state for up to 8 hours and resume rapidly, with AWS managing all the underlying infrastructure. It's aimed at workloads &mdash; like running untrusted code or AI agent sandboxes &mdash; that need stronger isolation than a standard Lambda function provides.</p>
+  </div>
+
+  <div class="card src-aws">
+    <div class="chips"><span class="chip">AWS</span></div>
+    <h2 class="headline">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+    <div class="meta">June 17 <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+    <p class="summary">AWS Security Agent now performs STRIDE-based threat modeling and full repo/PR scanning with remediation across major Git platforms. New IDE integrations &mdash; Kiro power, a Claude Code plugin, and MCP support &mdash; let developers run security reviews and fix flagged issues without leaving their editor. It pushes AWS further into embedding security review directly into the development loop rather than as a separate gate.</p>
+  </div>
+
+  <div class="card src-aws">
+    <div class="chips"><span class="chip">AWS</span></div>
+    <h2 class="headline">AWS WAF adds AI traffic monetization capability to help content owners charge AI bots for content access</h2>
+    <div class="meta">June 15 <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/">&rarr; Read more</a></div>
+    <p class="summary">AWS WAF's Bot Control now lets publishers set a price for AI bots and agents that crawl their content or hit their APIs, with payment collected through third-party providers and access granted at the edge. It turns what used to be a pure block/allow decision into a billable transaction. The move formalizes AI crawler traffic as a cost publishers can recoup, not just a nuisance to filter.</p>
+  </div>
+
+  <div class="card src-azure">
+    <div class="chips"><span class="chip">Azure</span></div>
+    <h2 class="headline">From insight to action: The next phase of agentic cloud operations</h2>
+    <div class="meta">June 23 <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">&rarr; Read more</a></div>
+    <p class="summary">Microsoft is pushing Azure's cloud operations tooling toward autonomous action, with agents moving from surfacing insights to executing the next step in incident response themselves. The framing puts Azure in direct competition with AWS's own security and DevOps agents for the same "AI handles the operational toil" pitch. Teams adopting this will need to define how much autonomous remediation they're actually comfortable granting.</p>
+  </div>
+
+  <div class="card src-azure">
+    <div class="chips"><span class="chip">Azure</span></div>
+    <h2 class="headline">New Azure Cobalt 200 VMs deliver 50% performance improvement, fully optimized for modern agentic AI workloads</h2>
+    <div class="meta">June 2 <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/">&rarr; Read more</a></div>
+    <p class="summary">Azure opened early access to Cobalt 200, its next-generation Arm-based VM family, claiming a 50% performance improvement over the prior generation. The VMs are tuned specifically for Linux-based agentic AI workloads rather than general-purpose compute. It's Microsoft's answer to AWS Graviton and Google Axion in the growing race for custom Arm silicon in the cloud.</p>
+  </div>
+
+</div>
+
+<div class="skipping">
+  <div class="skipping-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>&middot; [Hacker News] &mdash; "Om" &mdash; (personal blog post, no news value)</li>
+    <li>&middot; [BleepingComputer] &mdash; Polymarket customers lose $3 million in supply-chain attack &mdash; (crypto/Web3 story)</li>
+    <li>&middot; [Engadget] &mdash; It's a dumb time to buy an Xbox &mdash; (consumer gadget pricing piece)</li>
+    <li>&middot; [The Register] &mdash; BOFH: Amnesty means never having to say you're sorry &mdash; (humor column, no news value)</li>
+    <li>&middot; [The Register] &mdash; ZTE and Tianyi Digital Life unveil flagship home AI router &mdash; (vendor press release, no depth)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:02 AST &middot;
+  Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+  Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+</footer>
+
+</body>
+</html>
