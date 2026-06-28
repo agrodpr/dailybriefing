@@ -1,7 +1,43 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-06-23T11:11:53Z",
+  "updated": "2026-06-27T11:09:00Z",
   "briefings": [
+    {
+      "date": "2026-06-27",
+      "file": "briefings/2026-06-27.html",
+      "weekday": "Saturday",
+      "label": "June 27, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Washington is now gatekeeping which organizations get access to OpenAI's GPT-5.6 and Anthropic's Mythos models, treating frontier AI like export-controlled technology. On the cloud side, AWS and Azure both pushed deeper into agentic security and ops tooling — AWS shipped a Security Agent and Lambda MicroVMs while Azure leaned into autonomous cloud operations. The story to actually watch is exploitation speed: Cisco's CUCM flaw went from disclosure to active attack in under 24 hours, and CISA is forcing federal agencies to patch it by Sunday."
+    },
+    {
+      "date": "2026-06-26",
+      "file": "briefings/2026-06-26.html",
+      "weekday": "Friday",
+      "label": "June 26, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Cisco's networking stack is having a brutal week — SD-WAN, CUCM, and a second zero-day are all under active exploitation at once, while the FortiBleed firewall-credential campaign keeps growing past 430,000 devices. On the cloud side, AWS and Azure both leaned into resilience and embedded security tooling rather than flashy launches, with Cognito's multi-Region failover and AWS Security Agent's threat modeling standing out. Watch the Cisco patch cycle and the Australian critical-infrastructure prepositioning story closely — both show attackers moving faster than defenders' patch windows."
+    },
+    {
+      "date": "2026-06-25",
+      "file": "briefings/2026-06-25.html",
+      "weekday": "Thursday",
+      "label": "June 25, 2026",
+      "stories": 20,
+      "flagged": 8,
+      "note": "OpenAI and Broadcom's custom silicon launch is dominating the chatter, but the bigger story today is how many live exploits hit at once — two actively-exploited Cisco CVEs, a CISA warning on Ubiquiti, and a 430,000-firewall FortiBleed credential heist. The cloud angle is virtualization and identity: AWS shipped VM-isolated Lambda sandboxes and Cognito multi-Region failover, while Azure pushed its own Arm-based VM line for agentic workloads. Keep an eye on Alibaba — it's the common thread in both an IP-theft accusation from Anthropic and a blacklist lawsuit against the US government."
+    },
+    {
+      "date": "2026-06-24",
+      "file": "briefings/2026-06-24.html",
+      "weekday": "Wednesday",
+      "label": "June 24, 2026",
+      "stories": 20,
+      "flagged": 5,
+      "note": "Fortinet's FortiGate firewalls and Cisco's Unified Communications Manager are both being actively exploited right now, and a single compromised Klue integration keeps cascading into new Salesforce-linked breaches at LastPass and others. Supply chain is the theme of the week — Dark Reading's \"Cordyceps\" PR-poisoning bug hit five major open-source projects, while AWS doubled down on isolation with Lambda MicroVMs and Azure pitched fully autonomous \"agentic\" cloud operations. Patch your FortiGate and Cisco UCM boxes today; everything else can wait for coffee."
+    },
     {
       "date": "2026-06-23",
       "file": "briefings/2026-06-23.html",
