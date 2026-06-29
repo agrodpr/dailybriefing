@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; Monday, June 29, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B0B0F;
+  --surface: #13131A;
+  --surface-2: #1C1C26;
+  --text: #EDEAE2;
+  --text-muted: #8B8A84;
+  --cyan: #00B4D8;
+  --orange: #E8823A;
+  --red: #F87171;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 64px 24px 32px;
+}
+
+.masthead {
+  text-align: center;
+}
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin: 0;
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 32px auto;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.stories {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--accent);
+}
+
+.card:hover {
+  filter: brightness(1.3);
+}
+
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.chip {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #0B0B0F;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.chip-flag {
+  background: var(--orange);
+  color: #0B0B0F;
+}
+
+.headline {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.readmore {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.skip-section {
+  max-width: 860px;
+  margin: 64px auto 0;
+}
+
+.skip-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.skip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <div class="tagline">Your daily intelligence feed &middot; Monday, June 29, 2026</div>
+  </div>
+
+  <hr>
+
+  <div class="legend">
+    <div class="legend-item"><span class="dot" style="background: var(--cyan);"></span>Hacker News</div>
+    <div class="legend-item"><span class="dot" style="background: var(--orange);"></span>BleepingComputer</div>
+    <div class="legend-item"><span class="dot" style="background: var(--red);"></span>The Register</div>
+    <div class="legend-item"><span class="dot" style="background: var(--purple);"></span>Dark Reading</div>
+    <div class="legend-item"><span class="dot" style="background: var(--pink);"></span>Engadget</div>
+    <div class="legend-item"><span class="dot" style="background: var(--green);"></span>AWS</div>
+    <div class="legend-item"><span class="dot" style="background: var(--blue);"></span>Azure</div>
+  </div>
+
+  <p class="editors-note">Today's dominant thread is AI agents trusting things they shouldn't &mdash; from Amazon Q executing code straight out of booby-trapped Git repos to a clean-looking GitHub repo fooling coding agents into running malware. The cloud angle is virtualization and isolation: AWS Lambda's new MicroVMs and Azure's Cobalt 200 VMs both ship this week, racing to give agentic workloads stronger sandboxing. Watch the CISA Cisco deadline and the Miasma npm campaign closely &mdash; both have short fuses for anyone running affected infrastructure.</p>
+
+  <div class="stories">
+
+      <article class="card" style="--accent: var(--red);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--red);">The Register</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Amazon Q flaw let booby-trapped Git repos execute code, swipe cloud creds</h2>
+        <div class="meta">June 26 &middot; <a class="readmore" href="https://www.theregister.com/cyber-crime/2026/06/26/amazon-q-flaw-let-booby-trapped-git-repos-execute-code-swipe-cloud-creds/5263202" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Researchers found that Amazon Q's AI coding assistant will execute commands embedded in a project's configuration files the moment it opens a repo, no user confirmation required. A booby-trapped Git repo can use that behavior to run arbitrary code and exfiltrate AWS credentials from the developer's machine. The flaw underscores a wider pattern: AI coding agents across the industry are quietly trusting repo content as instructions.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--orange);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--orange);">BleepingComputer</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">CISA sets urgent deadline to fix Cisco flaw exploited in attacks</h2>
+        <div class="meta">June 26 &middot; <a class="readmore" href="https://www.bleepingcomputer.com/news/security/cisa-sets-urgent-deadline-to-fix-cisco-flaw-exploited-in-attacks/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">CISA is giving federal agencies until Sunday to patch a vulnerability in Cisco Unified Communications Manager Server that's already being actively exploited in the wild. The compressed timeline signals attackers have working exploits in hand, not just proof-of-concept code. Any org running affected Cisco UCM should treat this as a same-week patch, not a backlog item.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--orange);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--orange);">BleepingComputer</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">FBI: Russian hackers now target Signal backup recovery keys</h2>
+        <div class="meta">June 26 &middot; <a class="readmore" href="https://www.bleepingcomputer.com/news/security/fbi-russian-hackers-now-target-signal-backup-recovery-keys/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">The FBI and CISA say a phishing campaign tied to Russian intelligence services has evolved to specifically harvest Signal Backup Recovery Keys, giving attackers access to a victim's full historical message archive rather than just live chats. The shift turns a single successful phish into a long-term surveillance foothold. Signal users in government, journalism, or activist roles are the primary targets named in the advisory.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--red);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--red);">The Register</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Miasma campaign poisons 20-plus npm packages, hunts for developer secrets</h2>
+        <div class="meta">June 26 &middot; <a class="readmore" href="https://www.theregister.com/security/2026/06/26/miasma-campaign-poisons-20-plus-npm-packages-hunts-for-developer-secrets/5262886" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Microsoft says the ongoing Miasma campaign has already compromised more than 20 npm packages, including the Leo Platform and RStreams libraries, to harvest credentials from developer machines. The attackers are actively going after package maintainers to widen the blast radius further. Anyone with these packages in a build pipeline should rotate exposed secrets and pin known-good versions now.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--green);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--green);">AWS Blog</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+        <div class="meta">June 22 &middot; <a class="readmore" href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">AWS Lambda now offers MicroVMs: a new serverless compute primitive that gives each session a true VM-level isolated sandbox with no shared kernel or resources between tenants. Sessions can preserve state for up to 8 hours with rapid launch and resume, and there's zero infrastructure to manage. It's a direct answer to the multi-tenant isolation concerns that come with running untrusted code, including AI agent workloads, at scale.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--blue);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--blue);">Azure Blog</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">New Azure Cobalt 200 VMs deliver 50% performance improvement, fully optimized for modern agentic AI workloads</h2>
+        <div class="meta">June 02 &middot; <a class="readmore" href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Microsoft opened early access to Azure Cobalt 200, its next-generation Arm-based VM family, promising a 50% performance jump for Linux-based agentic AI workloads. The new VM tier is positioned squarely against AWS Graviton for cost-per-core efficiency on inference and agent-orchestration jobs. Worth tracking for anyone benchmarking ARM-based virtualization options for production AI infrastructure.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--orange);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--orange);">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">Data breach exposes up to 14.2 million email logins at six ISPs</h2>
+        <div class="meta">June 28 &middot; <a class="readmore" href="https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Japanese telecom KDDI Corporation disclosed that attackers breached one of its email systems, exposing login data shared across five other ISPs and affecting up to 14.2 million accounts. The shared-infrastructure setup meant a single point of failure rippled across six separate providers. Affected users should assume credential exposure and rotate email passwords, especially if reused elsewhere.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--orange);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--orange);">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">Clean GitHub repo tricks AI coding agents into running malware</h2>
+        <div class="meta">June 27 &middot; <a class="readmore" href="https://www.bleepingcomputer.com/news/security/clean-github-repo-tricks-ai-coding-agents-into-running-malware/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Researchers demonstrated that an agentic coding tool asked to clone and set up a seemingly benign GitHub repo can be tricked into executing a hidden malicious payload, one invisible to security scanners, the AI agent itself, and human reviewers. The technique exploits blind trust between agent tooling and repo content rather than a code vulnerability. Expect more of this class of attack as agentic dev tools get wider deployment.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--orange);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--orange);">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">Cybersecurity firms targeted by fraudulent OpenAI organization invites</h2>
+        <div class="meta">June 26 &middot; <a class="readmore" href="https://www.bleepingcomputer.com/news/security/cybersecurity-firms-targeted-by-fraudulent-openai-organization-invites/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Threat actors are spinning up fake OpenAI tenants impersonating real companies, then inviting employees to join in hopes they'll paste sensitive company data into chats or shared projects. Security firms themselves are among the named targets, a sign attackers are going after the people most likely to have privileged access. It's a low-cost social-engineering angle that sidesteps traditional phishing filters entirely.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--orange);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--orange);">BleepingComputer</span>
+          
+        </div>
+        <h2 class="headline">Bluekit phishing kit adopts browser-in-the-middle for login theft</h2>
+        <div class="meta">June 25 &middot; <a class="readmore" href="https://www.bleepingcomputer.com/news/security/bluekit-phishing-kit-adopts-browser-in-the-middle-for-login-theft/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">The Bluekit phishing-as-a-service platform added browser-in-the-middle capabilities to its kit, letting affiliates intercept live sessions rather than just harvesting static credentials. Nearly 70 new hostnames tied to the operation surfaced in the past week alone. The upgrade makes MFA-protected logins meaningfully easier to steal, which is the whole point of the BitM technique.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--red);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--red);">The Register</span>
+          
+        </div>
+        <h2 class="headline">It's looking like a hot, messy summer for security teams as AI finds countless previously hidden vulns</h2>
+        <div class="meta">June 27 &middot; <a class="readmore" href="https://www.theregister.com/security/2026/06/27/its-looking-like-a-hot-messy-summer-for-security-teams-as-ai-finds-countless-previously-hidden-vulns/5260478" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">AI-assisted vulnerability hunting is surfacing previously hidden bugs across codebases far faster than security teams can triage and patch them, flipping the usual scarcity problem into a backlog problem. The piece argues defenders now need their own AI tooling just to keep pace with disclosure volume. Expect patch fatigue to become the dominant security-ops complaint this summer.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--red);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--red);">The Register</span>
+          
+        </div>
+        <h2 class="headline">Sysadmin broke hardware worth more than he made in a month – and lied his way out of the mess</h2>
+        <div class="meta">June 29 &middot; <a class="readmore" href="https://www.theregister.com/storage/2026/06/29/sysadmin-broke-hardware-worth-more-than-he-made-in-a-month-and-lied-his-way-out-of-the-mess/5262711" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">This week's On Call column features a sysadmin who damaged storage hardware worth more than his monthly salary, then talked his way out of taking the blame rather than face the bill. It's a reminder of how often physical hardware handling, not just software bugs, drives real operational incidents. Good for a laugh, but also a nudge to double-check your team's incident-reporting culture.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--green);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--green);">AWS Blog</span>
+          
+        </div>
+        <h2 class="headline">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+        <div class="meta">June 17 &middot; <a class="readmore" href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">AWS Security Agent now does STRIDE-based threat modeling plus full repo and PR scanning with remediation suggestions across major Git platforms. New IDE integrations via Kiro power, a Claude Code plugin, and MCP let developers run security reviews without leaving their editor. It pushes shift-left security further into the actual coding workflow rather than a separate review gate.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--green);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--green);">AWS Blog</span>
+          
+        </div>
+        <h2 class="headline">Improve your application resilience with Amazon Cognito multi-Region replication</h2>
+        <div class="meta">June 03 &middot; <a class="readmore" href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Cognito now automatically replicates user data, credentials, and pool configuration to a secondary AWS Region, keeping authentication alive during a regional failover without forcing password resets. The release also adds support for customer-managed KMS keys, giving teams direct control over encryption for replicated identity data. It closes a long-standing resilience gap for anyone running Cognito as a primary identity provider.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--blue);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--blue);">Azure Blog</span>
+          
+        </div>
+        <h2 class="headline">The performance dividend: Optimizing PostgreSQL on Azure directly in Visual Studio Code</h2>
+        <div class="meta">June 26 &middot; <a class="readmore" href="https://azure.microsoft.com/en-us/blog/the-performance-dividend-optimizing-postgresql-on-azure-directly-in-visual-studio-code/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Microsoft is pushing PostgreSQL performance tuning directly into VS Code, framing slow queries as a business problem rather than a DBA-only concern: missed SLAs, delayed releases, and rising operational risk. The integration lets developers spot and fix query performance issues without switching to a separate database tool. It's part of a broader trend of pulling ops-level diagnostics into the everyday dev environment.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--pink);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--pink);">Engadget</span>
+          
+        </div>
+        <h2 class="headline">Flock cameras track more than your license plate, and they're spreading fast</h2>
+        <div class="meta">June 28 &middot; <a class="readmore" href="https://www.engadget.com/2203000/flock-cameras-recording-license-plate/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Flock Safety's automated license-plate-reader cameras are expanding rapidly into more towns and neighborhoods, and residents and privacy activists are raising alarms about how much they actually capture and who can access it. The concern isn't just plates, it's the broader surveillance footprint these networks quietly build over time. Worth watching as a privacy and civil-liberties story, not just a public-safety one.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--pink);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--pink);">Engadget</span>
+          
+        </div>
+        <h2 class="headline">Google reportedly capped Meta's use of Gemini AI for coding and chatbots</h2>
+        <div class="meta">June 29 &middot; <a class="readmore" href="https://www.engadget.com/2203579/google-reportedly-capped-meta-use-of-gemini-ai-for-coding-chatbots/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Google reportedly had to throttle Meta's usage of Gemini AI for coding and chatbot workloads due to a lack of compute capacity. It's a small but telling data point on just how tight GPU and inference capacity remains industry-wide, even among the largest buyers. If Meta is getting capped, smaller AI-dependent infra teams should expect their own capacity constraints this year.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--cyan);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--cyan);">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">GLM 5.2 beats Claude in our benchmarks</h2>
+        <div class="meta">877 pts &middot; 407 comments &middot; <a class="readmore" href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Security firm Semgrep ran its internal cyber-focused benchmark suite and found the open GLM 5.2 model edging out Claude on vulnerability-detection tasks. The result is generating heavy discussion about benchmark design and whether cyber-specific evals are starting to diverge meaningfully from general coding benchmarks. Worth a read for anyone picking a model for security tooling rather than general dev work.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--cyan);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--cyan);">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">Age verification is just a precursor to automated attribution of speech</h2>
+        <div class="meta">540 pts &middot; 307 comments &middot; <a class="readmore" href="https://nonogra.ph/age-verification-is-just-a-precursor-to-attribution-of-speech-06-29-2026" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">The post argues that the current wave of online age-verification mandates is building the exact infrastructure needed to attribute anonymous speech to real identities, regardless of the stated child-safety goal. It's a compliance and privacy-architecture argument as much as a policy one. Relevant for any org now building or integrating age-verification systems under new regulatory pressure.</p>
+      </article>
+
+      <article class="card" style="--accent: var(--cyan);">
+        <div class="card-tags">
+          <span class="chip" style="background: var(--cyan);">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88</h2>
+        <div class="meta">509 pts &middot; 200 comments &middot; <a class="readmore" href="https://danunparsed.com/p/hackerrank-open-source-ats" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">After HackerRank open-sourced its applicant-tracking-system resume scorer, the author ran the same resume through it multiple times and got wildly different scores, 90, then 74, then 88, with no changes to the input. The inconsistency raises real questions about how much weight hiring pipelines put on AI-driven resume scoring today. A good cautionary read for anyone building or relying on automated candidate screening.</p>
+      </article>
+  </div>
+
+  <div class="skip-section">
+    <div class="skip-title">Worth Skipping Today</div>
+    <ul class="skip-list">
+        <li>&middot; [BleepingComputer] &mdash; Polymarket customers lose $3 million in supply-chain attack &mdash; (crypto/web3 story)</li>
+        <li>&middot; [Engadget] &mdash; DJI's Osmo Pocket 4P promises 17 stops of dynamic range &mdash; (gadget review, no depth)</li>
+        <li>&middot; [The Register] &mdash; ZTE AIR Core unleashes a new era of agent services &mdash; (vendor press release)</li>
+        <li>&middot; [Hacker News] &mdash; 5k menus from the New York Public Library's Buttolph Collection &mdash; (no infra/security angle)</li>
+        <li>&middot; [AWS Blog] &mdash; AWS Weekly Roundup: NY Summit recap, Local Zone in Hanoi &mdash; (weekly digest, no single story)</li>
+    </ul>
+  </div>
+
+  <footer>
+    Morning Briefing &middot; Generated 07:10 AST &middot;
+    Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+    Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+  </footer>
+
+</body>
+</html>
