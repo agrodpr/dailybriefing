@@ -398,7 +398,9 @@ let current = -1;
 /* Read/unread tracking. GitHub Pages is static (no server, no per-user accounts),
    so there's nowhere to store this except the browser itself — localStorage is the
    right tool here, not an analytics tracker (GA reports pageviews, not which dates
-   *you* have opened). This is per-browser/device only; it won't sync across devices. */
+   *you* have opened). This is per-browser/device only; it won't sync across devices.
+   A date only counts as read after READ_DWELL_MS of continuous dwell, so flipping
+   past a day via next/prev or a stray click doesn't falsely mark it read. */
 const READ_KEY = "mb_read_dates";
 let readDates = new Set();
 try { readDates = new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]")); } catch(e){}
@@ -407,6 +409,15 @@ function markRead(date){
   if(readDates.has(date)) return;
   readDates.add(date);
   try { localStorage.setItem(READ_KEY, JSON.stringify([...readDates])); } catch(e){}
+  renderCalendar();
+}
+
+const READ_DWELL_MS = 10000; // must stay on a date this long before it counts as read
+let readTimer = null;
+
+function armReadTimer(date){
+  clearTimeout(readTimer);
+  readTimer = setTimeout(() => markRead(date), READ_DWELL_MS);
 }
 
 const $ = id => document.getElementById(id);
@@ -505,7 +516,7 @@ function show(idx){
   $("nsTitle").textContent = b.label;
   $("nsSub").textContent = b.weekday + " · " + b.stories + " stories · " + b.flagged + " flagged";
   $("openBtn").href = b.file;
-  markRead(b.date);
+  armReadTimer(b.date);
 
   $("nextBtn").disabled = idx <= 0;
   $("prevBtn").disabled = idx >= briefings.length - 1;
