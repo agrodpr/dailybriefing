@@ -228,6 +228,12 @@ footer {
   margin: 0 auto;
 }
 </style>
+<style>
+/* Mobile safety net: prevent horizontal overflow/sliding on iOS regardless of the markup above */
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
 </head>
 <body>
 
