@@ -4,45 +4,56 @@ This repo is updated once a day by a scheduled Claude Code routine. The
 routine writes one new file per day and must also update the manifest that
 the reader (`index.html`) uses to discover briefings.
 
-**Known failure mode:** for several days (2026-06-16 through 2026-06-22)
-the routine wrote `briefings/YYYY-MM-DD.html` correctly but skipped the
-manifest update below, so those briefings existed in the repo but never
-appeared in the reader. They were backfilled by hand on 2026-06-23. To
-prevent recurrence, Step B is now written as an idempotent resync rather
-than a one-time append, and should run as its own routine — see
-[Recommended: split Step B into its own routine](#recommended-split-step-b-into-its-own-routine)
-below.
+**Known failure modes, in order of severity:**
 
-## Step A — Generate and push the briefing
+1. **2026-06-28: no repo write access at all.** The routine reported it
+   could not push anything — `briefings/2026-06-28.html` was generated but
+   lost, since it only ever existed in that session's transcript. Likely
+   cause: the Claude GitHub App's repository grant for `agrodpr/dailybriefing`
+   got narrowed or dropped, possibly from a `/web-setup` re-auth done from a
+   different device/session selecting a different repo set. **This is a
+   GitHub-App-connection problem, not something fixable by editing this
+   repo.** Check at claude.ai/code/routines → the routine → Repositories,
+   and at github.com → Settings → Applications → Installed GitHub Apps →
+   Claude → Configure, that `agrodpr/dailybriefing` is still listed in both
+   places before each session that's supposed to write here.
+2. **2026-06-16 through 2026-06-27 (recurring): manifest update silently
+   skipped.** The routine wrote `briefings/YYYY-MM-DD.html` correctly but
+   never touched `briefings/index.json`, so those briefings existed in the
+   repo but never appeared in the reader. This happened repeatedly even
+   after Step B was rewritten as an idempotent resync — rewriting the
+   *instructions* didn't help because nothing was forcing them to run.
+   The fix below removes the failure mode structurally: Step A and Step B
+   are now **one atomic commit**, so it is no longer possible to write the
+   HTML file without also updating the manifest.
 
-`PUT /repos/{GITHUB_REPO}/contents/briefings/YYYY-MM-DD.html`
-(base64 content, branch = `{GITHUB_BRANCH}`)
+## Step A+B — Generate the briefing and resync the manifest, as one commit
 
-## Step B — Resync the manifest (`briefings/index.json`)
+Do this as a single multi-file commit via the Git Data API, not two
+separate `PUT /contents` calls. Two separate calls is exactly how this has
+failed before — if the session is interrupted, hits a rate limit, or simply
+stops after step one, the HTML file lands without the manifest update.
+One commit makes that impossible.
 
-**This step is required.** `index.html` never lists the `briefings/`
-directory — it only reads `briefings/index.json`. If this step is skipped,
-today's briefing exists in the repo but never appears in the reader, even
-if the URL hash is set to today's date.
-
-Do not just append today's entry — that's exactly the step that has been
-silently skipped before. Instead, **rebuild the manifest from the actual
-directory contents** so a missed day self-heals the next time this runs:
-
-1. `GET /repos/{GITHUB_REPO}/contents/briefings?ref={GITHUB_BRANCH}` — list
-   every `briefings/YYYY-MM-DD.html` file that exists.
-2. `GET /repos/{GITHUB_REPO}/contents/briefings/index.json?ref={GITHUB_BRANCH}`
-   — read current content + `sha`.
-3. For every `.html` file in the directory listing that has no matching
-   `"date"` entry in `index.json`, fetch that file's content and extract:
-   - `weekday` / `label` from the `<div class="tagline">` text
-   - `note` from the `<div class="editors-note">` /
-     `<p class="editors-note">` / `<section class="editors-note">` text
-     (markup has varied day to day — check all three)
-   - `flagged` = count of `ON YOUR RADAR` chip occurrences
-   - `stories` = count of story cards (usually 20)
-4. Add one manifest entry per missing date (schema below), then sort the
-   `briefings` array newest-first by date.
+1. `GET /repos/{GITHUB_REPO}/git/ref/heads/{GITHUB_BRANCH}` → `latest_commit_sha`.
+2. `GET /repos/{GITHUB_REPO}/git/commits/{latest_commit_sha}` → `base_tree_sha`.
+3. `GET /repos/{GITHUB_REPO}/contents/briefings?ref={GITHUB_BRANCH}` — list
+   every `briefings/YYYY-MM-DD.html` file that currently exists.
+4. `GET /repos/{GITHUB_REPO}/contents/briefings/index.json?ref={GITHUB_BRANCH}`
+   — read the current manifest.
+5. Build the new manifest by **resyncing from the directory listing**, not
+   just appending today's entry — that way a previously-missed day also
+   self-heals in the same commit:
+   - For today's new file plus any `.html` file in the listing from step 3
+     with no matching `"date"` entry in the manifest, extract:
+     - `weekday` / `label` from the `<div class="tagline">` text
+     - `note` from the `editors-note` element (markup varies day to day —
+       check `<p>`, `<div>`, and `<section>` with that class)
+     - `flagged` = count of `on your radar` chip occurrences (case-insensitive)
+     - `stories` = count of story cards (usually 20)
+   - Add one manifest entry per missing date (schema below), sort the
+     `briefings` array newest-first by date, and update the top-level
+     `"updated"` field to the current UTC timestamp.
    ```json
    {
      "date": "YYYY-MM-DD",
@@ -54,30 +65,37 @@ directory contents** so a missed day self-heals the next time this runs:
      "note": "{Editor's note, 2-3 sentences summarizing the day's themes}"
    }
    ```
-5. Update the top-level `"updated"` field to the current UTC timestamp
-   (`YYYY-MM-DDTHH:MM:SSZ`).
-6. If anything changed, `PUT /repos/{GITHUB_REPO}/contents/briefings/index.json`
-   with the `sha` from step 2, `branch: {GITHUB_BRANCH}`, commit message
-   `"Sync briefings index"`. If nothing was missing, skip the write —
-   no-op runs should not create empty commits.
+6. `POST /repos/{GITHUB_REPO}/git/blobs` once for the new HTML content and
+   once for the new `index.json` content (base64).
+7. `POST /repos/{GITHUB_REPO}/git/trees` with `base_tree = base_tree_sha`
+   and both files: `briefings/YYYY-MM-DD.html` and `briefings/index.json`,
+   each pointing at its blob `sha`, `mode: "100644"`.
+8. `POST /repos/{GITHUB_REPO}/git/commits` with the new tree `sha`, parent
+   = `latest_commit_sha`, message `"Morning Briefing YYYY-MM-DD"`.
+9. `PATCH /repos/{GITHUB_REPO}/git/refs/heads/{GITHUB_BRANCH}` with the new
+   commit `sha` to move the branch forward.
 
-### Recommended: split Step B into its own routine
+If any step fails, nothing has been pushed yet — steps 6-9 only take effect
+at step 9. There's no partial state to clean up.
 
-Step A and Step B have been bundled into one daily routine, which is how
-a content-generation glitch silently took the manifest update down with
-it. Routines are managed at claude.ai/code/routines (not from inside a
-session) — create a second, independent routine there:
+### Required: mobile-safety CSS in every generated briefing
 
-- **Prompt:** "Run Step B from `PIPELINE.md` in agrodpr/dailybriefing —
-  resync `briefings/index.json` against the actual contents of the
-  `briefings/` directory. Do not touch any `.html` files."
-- **Repository:** `agrodpr/dailybriefing`
-- **Schedule:** daily, 15–30 minutes after the existing briefing-generation
-  routine, so Step A has had time to land first.
+Every `<head>` must end with this exact block (after the page's own
+`<style>`), regardless of the rest of that day's markup or class names.
+Without it, the masthead `<h1>` (commonly styled at a fixed 80px with no
+responsive sizing) overflows narrow viewports and the whole page becomes
+horizontally scrollable — on iOS this causes the page to visibly slide
+side to side while scrolling vertically. This was found and patched on all
+existing briefings on 2026-06-30; it must not be reintroduced.
 
-Because Step B is now a full resync rather than an append, this second
-routine is safe to run even on days when Step A's content already has a
-manifest entry — it's a no-op then.
+```html
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+```
 
 ## Step C — Slack + console summary
 
