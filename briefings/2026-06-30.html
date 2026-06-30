@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; Tuesday, June 30, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0B0B0F;
+    --surface: #13131A;
+    --surface-2: #1C1C26;
+    --text: #EDEAE2;
+    --text-muted: #8B8A84;
+    --cyan: #00B4D8;
+    --orange: #E8823A;
+    --red: #F87171;
+    --purple: #A78BFA;
+    --pink: #F472B6;
+    --green: #4ADE80;
+    --blue: #60A5FA;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 64px 24px 32px;
+  }
+
+  .masthead {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .masthead h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--surface-2);
+    max-width: 860px;
+    margin: 32px auto;
+  }
+
+  .legend-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    background: var(--surface);
+    padding: 12px 32px;
+    border-radius: 40px;
+    max-width: fit-content;
+    margin: 0 auto 48px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .editors-note {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 24px;
+    max-width: 700px;
+    text-align: center;
+    color: var(--text);
+    margin: 48px auto;
+    line-height: 1.5;
+  }
+
+  .stories {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 8px 0 0 8px;
+  }
+
+  .card:hover::before {
+    filter: brightness(1.3);
+  }
+
+  .chips {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: #0B0B0F;
+  }
+
+  .chip-hn { background: var(--cyan); }
+  .chip-bc { background: var(--orange); }
+  .chip-reg { background: var(--red); }
+  .chip-dr { background: var(--purple); }
+  .chip-eng { background: var(--pink); }
+  .chip-aws { background: var(--green); }
+  .chip-az { background: var(--blue); }
+  .chip-flag { background: var(--orange); color: #0B0B0F; }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+
+  .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .meta a {
+    color: var(--text-muted);
+  }
+
+  .summary {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .skip-section {
+    max-width: 860px;
+    margin: 56px auto 0;
+  }
+
+  .skip-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .skip-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skip-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding-top: 48px;
+    padding-bottom: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <div class="tagline">Your daily intelligence feed &middot; Tuesday, June 30, 2026</div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="legend-bar">
+        <div class="legend-item"><span class="dot" style="background: var(--cyan);"></span>Hacker News</div>
+        <div class="legend-item"><span class="dot" style="background: var(--orange);"></span>BleepingComputer</div>
+        <div class="legend-item"><span class="dot" style="background: var(--red);"></span>The Register</div>
+        <div class="legend-item"><span class="dot" style="background: var(--purple);"></span>Dark Reading</div>
+        <div class="legend-item"><span class="dot" style="background: var(--pink);"></span>Engadget</div>
+        <div class="legend-item"><span class="dot" style="background: var(--green);"></span>AWS</div>
+        <div class="legend-item"><span class="dot" style="background: var(--blue);"></span>Azure</div>
+  </div>
+
+  <p class="editors-note">Today's dominant thread is the Oracle PeopleSoft zero-day: ShinyHunters has now burned Nissan and the NAIC with the same unpatched flaw, while CISA flags a separate Defender bug already weaponized by ransomware crews. On the cloud side, AWS is racing to harden the AI dev loop &mdash; Lambda MicroVMs for sandbox isolation, a Security Agent for in-IDE threat modeling &mdash; just as Dark Reading reports a credential-stealing flaw in Amazon Q's own VS Code extension. Watch disclosure-to-exploit windows shrinking further: the Cisco CUCM flaw was weaponized in under a day, and a new zero-day repo already has live victims.</p>
+
+  <div class="stories">
+      <article class="card" style="--accent: var(--cyan);">
+        <div class="chips">
+          <span class="chip chip-hn">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">Qwen 3.6 27B is the sweet spot for local development</h2>
+        <div class="meta">952 pts &middot; 624 comments &middot; <a href="https://quesma.com/blog/qwen-36-is-awesome/" target="_blank" rel="noopener">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48721903" target="_blank" rel="noopener">&#128172; HN thread</a></div>
+        <p class="summary">Qwen 3.6 27B is being held up as the new sweet spot for running capable LLMs locally, with developers reporting it matches much larger cloud models while running comfortably on consumer-grade GPUs. The front-page discussion centers on inference cost, memory footprint, and whether local models are now good enough to replace API calls for everyday coding work.</p>
+      </article>
+      <article class="card" style="--accent: var(--cyan);">
+        <div class="chips">
+          <span class="chip chip-hn">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">US Supreme Court rules geofence warrants require constitutional protections</h2>
+        <div class="meta">535 pts &middot; 250 comments &middot; <a href="https://www.theguardian.com/us-news/2026/jun/29/supreme-court-geofence-warrants-case-decision" target="_blank" rel="noopener">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48720924" target="_blank" rel="noopener">&#128172; HN thread</a></div>
+        <p class="summary">The Supreme Court ruled that geofence warrants, which let police pull location data on every device near a crime scene, require the same probable-cause protections as traditional searches. The decision reins in a tactic used heavily by federal and state law enforcement and will force agencies to retool how they request location data from Google and other providers.</p>
+      </article>
+      <article class="card" style="--accent: var(--cyan);">
+        <div class="chips">
+          <span class="chip chip-hn">Hacker News</span>
+          
+        </div>
+        <h2 class="headline">One million passports leaked online</h2>
+        <div class="meta">293 pts &middot; 178 comments &middot; <a href="https://www.theverge.com/tech/947157/passports-data-breach-cannabis-club-systems-nefos-puffpal" target="_blank" rel="noopener">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48706389" target="_blank" rel="noopener">&#128172; HN thread</a></div>
+        <p class="summary">A leak tied to backend systems used by a cannabis dispensary network and an age-verification platform exposed roughly one million scanned passports and ID documents. The exposure underscores how loosely regulated industries are accumulating sensitive identity documents with minimal security oversight.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange);">
+        <div class="chips">
+          <span class="chip chip-bc">BleepingComputer</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">CISA: Windows BlueHammer flaw now exploited by ransomware gangs</h2>
+        <div class="meta">Jun 30 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">CISA confirmed that ransomware gangs are now exploiting BlueHammer, a Microsoft Defender privilege-escalation flaw previously seen only in zero-day attacks, to gain SYSTEM-level access on compromised Windows hosts. Defenders should prioritize the patch immediately — any unpatched Defender install is now active target infrastructure for at least one ransomware crew.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange);">
+        <div class="chips">
+          <span class="chip chip-bc">BleepingComputer</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Critical SimpleHelp flaw exploited to deploy new stealer malware</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-simplehelp-flaw-deploy-new-djinn-infostealer-taskweaver-malware/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Attackers are exploiting CVE-2026-48558, a critical SimpleHelp remote-access vulnerability, to drop a new cross-platform infostealer called Djinn that targets Windows, macOS, and Linux credential stores. SimpleHelp's heavy use inside MSP environments makes this a supply-chain-style risk for every downstream client of an affected provider.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange);">
+        <div class="chips">
+          <span class="chip chip-bc">BleepingComputer</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Nissan discloses employee data breach linked to Oracle zero-day attacks</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Nissan disclosed that current and former employee data was exposed after attackers exploited an unpatched Oracle PeopleSoft zero-day, an intrusion tied to the ShinyHunters extortion group's broader PeopleSoft campaign. Nissan now joins a growing list of large enterprises hit through the same unpatched flaw.</p>
+      </article>
+      <article class="card" style="--accent: var(--orange);">
+        <div class="chips">
+          <span class="chip chip-bc">BleepingComputer</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">NAIC says public data stolen in ShinyHunters' PeopleSoft breach</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.bleepingcomputer.com/news/security/naic-says-public-data-stolen-in-shinyhunters-peoplesoft-breach/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">The National Association of Insurance Commissioners says ShinyHunters used the same Oracle PeopleSoft zero-day to breach its systems, though it claims only public data, outdated logs, and configuration files were taken. NAIC's regulatory role means even 'low-sensitivity' stolen configs could still map attack paths into state insurance systems.</p>
+      </article>
+      <article class="card" style="--accent: var(--red);">
+        <div class="chips">
+          <span class="chip chip-reg">The Register</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Anonymous researcher drops 0-day 'exploitarium' repo</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.theregister.com/security/2026/06/29/anonymous-researcher-drops-0-day-exploitarium-repo/5263961" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">An anonymous researcher published a repository of zero-day exploits dubbed &quot;exploitarium,&quot; and at least two of the included vulnerabilities are already being used in live attacks. The release pressures affected vendors to ship emergency patches before the rest of the repo gets weaponized too.</p>
+      </article>
+      <article class="card" style="--accent: var(--red);">
+        <div class="chips">
+          <span class="chip chip-reg">The Register</span>
+          
+        </div>
+        <h2 class="headline">India's central bank mandated use of .bank domains to enhance trust — but its registry leaked sensitive info</h2>
+        <div class="meta">Jun 30 &middot; <a href="https://www.theregister.com/security/2026/06/30/indias-central-bank-mandated-use-of-bank-domains-to-enhance-trust-but-its-registry-leaked-sensitive-info/5264152" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">India's central bank mandated .bank domains to help customers trust legitimate banking sites, but the registry running the program exposed an open API that could give an attacker everything needed to impersonate bank officials. A trust-building compliance mandate became its own disclosure risk.</p>
+      </article>
+      <article class="card" style="--accent: var(--red);">
+        <div class="chips">
+          <span class="chip chip-reg">The Register</span>
+          
+        </div>
+        <h2 class="headline">Security researchers tricked LLMs into giving them cocaine recipes by abusing role models for prompt injection</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.theregister.com/ai-and-ml/2026/06/30/security-researchers-tricked-llms-into-giving-them-cocaine-recipes-by-abusing-role-models-for-prompt-injection/5264115" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Security researchers used role-play-style prompt injection to get multiple LLMs to output detailed synthesis instructions for controlled substances, bypassing the models' safety guardrails entirely. It's a reminder that jailbreak technique evolution is currently outpacing vendor patching, with no durable fix in sight.</p>
+      </article>
+      <article class="card" style="--accent: var(--purple);">
+        <div class="chips">
+          <span class="chip chip-dr">Dark Reading</span>
+          
+        </div>
+        <h2 class="headline">Amazon Q VS Extension Flaw Leads to Cloud Credential Theft</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.darkreading.com/cloud-security/amazon-q-vs-extension-flaw-leads-cloud-credential-theft" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">A flaw in the Amazon Q Visual Studio Code extension let attackers plant a malicious repository that executes arbitrary code and steals AWS credentials the moment it's opened, exposing growing risk in MCP-style AI coding integrations. Developers using Q's repo-aware features should audit exactly which credentials the extension can reach before trusting unfamiliar codebases.</p>
+      </article>
+      <article class="card" style="--accent: var(--purple);">
+        <div class="chips">
+          <span class="chip chip-dr">Dark Reading</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">In Less Than 24 Hours, Attackers Weaponize Cisco CUCM Flaw</h2>
+        <div class="meta">Jun 25 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/less-than-24-hours-attackers-weaponize-cisco-cucm-flaw" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Attackers weaponized a Cisco Unified Communications Manager flaw within 24 hours of disclosure, chaining server-side request forgery with root privilege escalation across CUCM and CUCM SME deployments. Any organization running an unpatched Unified CM server should assume compromise attempts are already underway.</p>
+      </article>
+      <article class="card" style="--accent: var(--purple);">
+        <div class="chips">
+          <span class="chip chip-dr">Dark Reading</span>
+          
+        </div>
+        <h2 class="headline">Iran, Russia, China Target Water Systems for Sabotage</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.darkreading.com/ics-ot-security/iran-russia-china-target-water-systems-sabotage" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Nation-state actors from Iran, Russia, and China are targeting water utility systems for sabotage — getting in not through sophisticated malware but through weak passwords, internet-exposed PLCs, and flat network segmentation. Critical infrastructure operators are still losing to basic hygiene failures, not novel tradecraft.</p>
+      </article>
+      <article class="card" style="--accent: var(--pink);">
+        <div class="chips">
+          <span class="chip chip-eng">Engadget</span>
+          
+        </div>
+        <h2 class="headline">Sensitive iPhone supplier details were part of last week's data leak at Tata Electronics</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.engadget.com/2204589/sensitive-iphone-supplier-details-were-part-of-last-weeks-data-leak-at-tata-electronics/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Last week's data leak at Tata Electronics, an Apple supplier, turns out to have exposed sensitive iPhone supply-chain details alongside the employee data first reported. It's a reminder that a single vendor breach can ripple into a major OEM's confidential manufacturing and component data.</p>
+      </article>
+      <article class="card" style="--accent: var(--pink);">
+        <div class="chips">
+          <span class="chip chip-eng">Engadget</span>
+          
+        </div>
+        <h2 class="headline">Half of social media child safety features don't work, report claims</h2>
+        <div class="meta">Jun 29 &middot; <a href="https://www.engadget.com/2203983/half-of-social-media-child-safety-features-dont-work-report-claims/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">A new report found that roughly half of the child-safety features social platforms advertise, like screen-time limits and content filters, don't actually work as claimed. Regulators pushing platforms toward compliance may need independent testing rather than self-reported safety claims.</p>
+      </article>
+      <article class="card" style="--accent: var(--green);">
+        <div class="chips">
+          <span class="chip chip-aws">AWS</span>
+          
+        </div>
+        <h2 class="headline">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+        <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">AWS Security Agent now adds STRIDE-based threat modeling plus full repository and pull-request scanning with remediation across major Git platforms, reachable from Kiro, the Claude Code plugin, or MCP. The push folds AppSec further into the IDE so teams can review and fix issues without context switching.</p>
+      </article>
+      <article class="card" style="--accent: var(--green);">
+        <div class="chips">
+          <span class="chip chip-aws">AWS</span>
+          <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+        </div>
+        <h2 class="headline">Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+        <div class="meta">Jun 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">AWS Lambda now offers MicroVMs, a serverless compute primitive that gives each session a fully isolated VM-level sandbox with no shared kernel, rapid launch and resume, and state preservation for up to 8 hours. It directly addresses multi-tenant isolation concerns for untrusted or agentic code running inside Lambda.</p>
+      </article>
+      <article class="card" style="--accent: var(--green);">
+        <div class="chips">
+          <span class="chip chip-aws">AWS</span>
+          
+        </div>
+        <h2 class="headline">Improve your application resilience with Amazon Cognito multi-Region replication</h2>
+        <div class="meta">Jun 03 &middot; <a href="https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Amazon Cognito now replicates user data, credentials, and pool configuration to a secondary AWS Region automatically, keeping authentication available through regional failovers without forcing password resets. The release also adds customer-managed KMS keys for tighter control over how identity data gets encrypted.</p>
+      </article>
+      <article class="card" style="--accent: var(--blue);">
+        <div class="chips">
+          <span class="chip chip-az">Azure</span>
+          
+        </div>
+        <h2 class="headline">New Azure Cobalt 200 VMs deliver 50% performance improvement, fully optimized for modern agentic AI workloads</h2>
+        <div class="meta">Jun 02 &middot; <a href="https://azure.microsoft.com/en-us/blog/new-azure-cobalt-200-vms-deliver-50-performance-improvement-fully-optimized-for-modern-agentic-ai-workloads/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Microsoft opened early access to Azure Cobalt 200, its next-generation Arm-based VM family, claiming a 50% performance jump for Linux-based agentic AI workloads. It's Microsoft's clearest signal yet that custom silicon, not just GPUs, is becoming central to its AI infrastructure roadmap.</p>
+      </article>
+      <article class="card" style="--accent: var(--blue);">
+        <div class="chips">
+          <span class="chip chip-az">Azure</span>
+          
+        </div>
+        <h2 class="headline">Modernize your data with Azure Storage: Plan and migrate with confidence</h2>
+        <div class="meta">Jun 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+        <p class="summary">Azure's latest storage guidance walks enterprises through planning large-scale data migrations without disrupting business continuity, performance, or cost as datasets grow into the petabyte range. It's aimed squarely at teams who've been putting off a storage modernization project for fear of the cutover.</p>
+      </article>
+  </div>
+
+  <div class="skip-section">
+    <div class="skip-title">Worth Skipping Today</div>
+    <ul class="skip-list">
+        <li>&middot; [HN] &mdash; 30-year sentence for transporting zines is a five-alarm fire for free speech &mdash; (no tech/security angle)</li>
+        <li>&middot; [The Register] &mdash; ZTE released all-in-one FTTR-B solution for SME AI and connectivity at MWC Shanghai 2026 &mdash; (sponsored partner content)</li>
+        <li>&middot; [AWS] &mdash; AWS Weekly Roundup: NY Summit recap, Local Zone in Hanoi, Grok 4.3 in Bedrock (June 22, 2026) &mdash; (duplicate weekly roundup recap)</li>
+        <li>&middot; [Engadget] &mdash; MacBook Ultra rumors: What to expect including the touchscreen, chips, release date and more &mdash; (pure speculation, no depth)</li>
+        <li>&middot; [Engadget] &mdash; Oura Ring 5 review: Size is everything &mdash; (consumer gadget review)</li>
+    </ul>
+  </div>
+
+  <footer>
+    Morning Briefing &middot; Generated 07:07 AST &middot;
+    Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+    Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+  </footer>
+
+</body>
+</html>
