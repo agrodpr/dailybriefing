@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-06-27T11:09:00Z",
+  "updated": "2026-06-29T11:09:00Z",
   "briefings": [
+    {
+      "date": "2026-06-29",
+      "file": "briefings/2026-06-29.html",
+      "weekday": "Monday",
+      "label": "June 29, 2026",
+      "stories": 20,
+      "flagged": 6,
+      "note": "Today's dominant thread is AI agents trusting things they shouldn't — from Amazon Q executing code straight out of booby-trapped Git repos to a clean-looking GitHub repo fooling coding agents into running malware. The cloud angle is virtualization and isolation: AWS Lambda's new MicroVMs and Azure's Cobalt 200 VMs both ship this week, racing to give agentic workloads stronger sandboxing. Watch the CISA Cisco deadline and the Miasma npm campaign closely — both have short fuses for anyone running affected infrastructure."
+    },
     {
       "date": "2026-06-27",
       "file": "briefings/2026-06-27.html",
