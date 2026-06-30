@@ -194,6 +194,7 @@ body{
 }
 .day.today{ box-shadow:inset 0 0 0 1.5px var(--text-muted); }
 .day.today.active{ box-shadow:inset 0 0 0 1.5px var(--accent); }
+.day.has.read:not(.active){ opacity:0.5; }
 .day .cdot{
   position:absolute;
   bottom:4px; left:50%; transform:translateX(-50%);
@@ -315,6 +316,7 @@ body{
       <div class="cal-hint">
         <div class="row"><span class="swatch" style="background:var(--accent)"></span>Briefing available · click to read</div>
         <div class="row"><span class="swatch" style="background:var(--orange)"></span>Has flagged stories</div>
+        <div class="row"><span class="swatch" style="background:var(--surface-2);opacity:0.6"></span>Already read</div>
       </div>
     </div>
   </div>
@@ -392,6 +394,20 @@ async function loadSources(){
 
 let briefings = [];   // newest-first
 let current = -1;
+
+/* Read/unread tracking. GitHub Pages is static (no server, no per-user accounts),
+   so there's nowhere to store this except the browser itself — localStorage is the
+   right tool here, not an analytics tracker (GA reports pageviews, not which dates
+   *you* have opened). This is per-browser/device only; it won't sync across devices. */
+const READ_KEY = "mb_read_dates";
+let readDates = new Set();
+try { readDates = new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]")); } catch(e){}
+
+function markRead(date){
+  if(readDates.has(date)) return;
+  readDates.add(date);
+  try { localStorage.setItem(READ_KEY, JSON.stringify([...readDates])); } catch(e){}
+}
 
 const $ = id => document.getElementById(id);
 
@@ -489,6 +505,7 @@ function show(idx){
   $("nsTitle").textContent = b.label;
   $("nsSub").textContent = b.weekday + " · " + b.stories + " stories · " + b.flagged + " flagged";
   $("openBtn").href = b.file;
+  markRead(b.date);
 
   $("nextBtn").disabled = idx <= 0;
   $("prevBtn").disabled = idx >= briefings.length - 1;
@@ -531,6 +548,7 @@ function renderCalendar(){
     const cell = document.createElement(has ? "button" : "div");
     cell.className = "day " + (has ? "has" : "muted");
     if(has && briefings[idx].flagged) cell.classList.add("flag");
+    if(has && readDates.has(dateStr)) cell.classList.add("read");
     if(dateStr === today) cell.classList.add("today");
     if(dateStr === selDate) cell.classList.add("active");
     cell.innerHTML = d + (has ? `<span class="cdot"></span>` : ``);
