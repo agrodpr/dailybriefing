@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-06-29T11:09:00Z",
+  "updated": "2026-07-01T21:10:10Z",
   "briefings": [
+    {
+      "date": "2026-06-30",
+      "file": "briefings/2026-06-30.html",
+      "weekday": "Tuesday",
+      "label": "June 30, 2026",
+      "stories": 20,
+      "flagged": 7,
+      "note": "Today’s dominant thread is the Oracle PeopleSoft zero-day: ShinyHunters has now burned Nissan and the NAIC with the same unpatched flaw, while CISA flags a separate Defender bug already weaponized by ransomware crews. On the cloud side, AWS is racing to harden the AI dev loop — Lambda MicroVMs for sandbox isolation, a Security Agent for in-IDE threat modeling — just as Dark Reading reports a credential-stealing flaw in Amazon Q’s own VS Code extension. Watch disclosure-to-exploit windows shrinking further: the Cisco CUCM flaw was weaponized in under a day, and a new zero-day repo already has live victims."
+    },
     {
       "date": "2026-06-29",
       "file": "briefings/2026-06-29.html",
