@@ -101,6 +101,38 @@ h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
 
 Unchanged from the existing routine instructions.
 
+## Backup Routine — manifest resync (runs at 7:20 AM daily)
+
+Because Step B has repeatedly been silently skipped even after documentation
+changes, a second Claude Code Routine at 7:20 AM acts as a safety net: it
+checks whether `briefings/index.json` is in sync with the actual files in
+the repo and commits a correction if needed. Create this at
+claude.ai/code/routines as a separate daily schedule. Use this exact prompt:
+
+---
+
+Read `briefings/index.json` and list the files under `briefings/` in the
+`agrodpr/dailybriefing` repo (default branch). For each `briefings/YYYY-MM-DD.html`
+that exists in the repo but has no matching entry in the manifest, add one entry
+following this schema:
+```
+{"date":"YYYY-MM-DD","file":"briefings/YYYY-MM-DD.html","weekday":"…","label":"Month DD, YYYY","stories":N,"flagged":N,"note":"…"}
+```
+Extract `weekday` and `label` from the `<div class="tagline">` text, `note` from
+the `editors-note` element (check `<p>`, `<div>`, and `<section>` with that class),
+`flagged` from the count of "on your radar" chip occurrences (case-insensitive),
+and `stories` from the count of `.card` elements.
+
+After building the corrected manifest, commit **only `briefings/index.json`** via
+the Git Data API as a single atomic commit (GET ref → GET commit → POST blob →
+POST tree with base_tree → POST commit → PATCH ref). Do not touch any HTML files.
+If the manifest is already fully in sync, do nothing and exit cleanly.
+
+---
+
+This routine is intentionally read-only except for `index.json`. It is safe to
+run even if the primary briefing routine has already run that morning.
+
 ## Schema note
 
 `briefings/sources.json` describes a newer v2 schema (30 stories across 14
