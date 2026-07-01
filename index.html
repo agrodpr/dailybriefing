@@ -240,6 +240,12 @@ body{
   padding:14px 22px;
   background:var(--surface);
   border-bottom:1px solid var(--surface-2);
+  overflow:hidden;
+  max-height:80px;
+  transition:max-height 0.28s ease, padding 0.28s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+.topbar.hidden{
+  max-height:0; padding-top:0; padding-bottom:0; opacity:0; border-color:transparent; pointer-events:none;
 }
 .iconbtn{
   background:var(--surface-2); border:none; color:var(--text);
@@ -440,12 +446,28 @@ function cardSourceKey(card){
   return null;
 }
 
+/* Topbar auto-hide: listen to scroll inside the same-origin briefing iframe.
+   Scrolling down hides the bar; scrolling up (or reaching the top) restores it. */
+function attachTopbarScroll(win){
+  const topbar = document.querySelector('.topbar');
+  let lastY = 0;
+  win.addEventListener('scroll', () => {
+    const y = win.scrollY;
+    const dy = y - lastY;
+    lastY = y;
+    if(dy > 8)       topbar.classList.add('hidden');
+    else if(dy < -8) topbar.classList.remove('hidden');
+    if(y <= 0)       topbar.classList.remove('hidden');
+  }, {passive:true});
+}
+
 /* After the iframe loads: hide its inline legend, then build the source nav */
 function onFrameReady(){
   $("loadState").classList.add("hidden");
   let doc = null;
   try { doc = $("viewer").contentDocument; } catch(e){ /* cross-origin */ }
   buildSources(doc);
+  try { attachTopbarScroll($("viewer").contentWindow); } catch(e){}
 }
 
 function buildSources(doc){
@@ -516,6 +538,7 @@ function show(idx){
   $("nsTitle").textContent = b.label;
   $("nsSub").textContent = b.weekday + " · " + b.stories + " stories · " + b.flagged + " flagged";
   $("openBtn").href = b.file;
+  document.querySelector('.topbar').classList.remove('hidden');
   armReadTimer(b.date);
 
   $("nextBtn").disabled = idx <= 0;
