@@ -27,6 +27,31 @@ the reader (`index.html`) uses to discover briefings.
    are now **one atomic commit**, so it is no longer possible to write the
    HTML file without also updating the manifest.
 
+   **Root cause found 2026-07-02.** The live routine prompt was inspected
+   directly and never touched `index.json` at all: its commit step was a
+   single-file `PUT /contents/briefings/YYYY-MM-DD.html` followed by the
+   literal instruction *"Do NOT create any other files."* The manifest was
+   never skipped by accident — the prompt actively forbade writing it. The
+   atomic Step A+B commit in this doc had only ever been documentation; it
+   was finally ported into the routine prompt on 2026-07-02 (the same
+   revision that expanded coverage to 26 stories across 9 sources and added
+   the mobile-safety block and correct Slack channel). The manifest now
+   advances on every run by construction.
+
+## Sources and distribution (as of 2026-07-02)
+
+Nine sources are fetched with native `fetch()` — HN (Algolia API),
+BleepingComputer, The Register (Atom), Dark Reading, Engadget, the AWS and
+Azure blogs (RSS), plus two US-region service-health feeds: AWS
+(`status.aws.amazon.com/rss/all.rss`) and Azure
+(`azurestatuscdn.azureedge.net/en-us/status/feed/`). A dead feed is skipped,
+not fatal; a failed status feed means "no incidents." 26 stories total:
+HN 3 · BleepingComputer 4 · The Register 3 · Dark Reading 3 · Engadget 2 ·
+Cloud 11 (AWS ~6 / Azure ~5). The cloud block is sub-bucketed into **Service
+Health · US Regions** (active US-region incidents, auto-flagged; a muted
+"all operational" line when quiet), **Deprecations & Migrations**, and **New
+& Noteworthy** — filled in that priority order to reach 11.
+
 ## Step A+B — Generate the briefing and resync the manifest, as one commit
 
 Do this as a single multi-file commit via the Git Data API, not two
@@ -50,7 +75,7 @@ One commit makes that impossible.
      - `note` from the `editors-note` element (markup varies day to day —
        check `<p>`, `<div>`, and `<section>` with that class)
      - `flagged` = count of `on your radar` chip occurrences (case-insensitive)
-     - `stories` = count of story cards (usually 20)
+     - `stories` = count of story cards (usually 26)
    - Add one manifest entry per missing date (schema below), sort the
      `briefings` array newest-first by date, and update the top-level
      `"updated"` field to the current UTC timestamp.
@@ -60,7 +85,7 @@ One commit makes that impossible.
      "file": "briefings/YYYY-MM-DD.html",
      "weekday": "{Day}",
      "label": "{Month DD, YYYY}",
-     "stories": 20,
+     "stories": 26,
      "flagged": {N},
      "note": "{Editor's note, 2-3 sentences summarizing the day's themes}"
    }
@@ -99,7 +124,12 @@ h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
 
 ## Step C — Slack + console summary
 
-Unchanged from the existing routine instructions.
+Slack posts go to the **`dailybriefing`** channel (channel ID
+`C0BACLM772M`). An earlier prompt targeted a `morning-briefing` channel that
+does not exist in the workspace, so every run fell back with a warning — the
+corrected channel name is part of the 2026-07-02 prompt revision. Console
+summary prints the per-source counts, the number of US-region cloud
+incidents, and the flagged count.
 
 ## Backup Routine — manifest resync (runs at 7:20 AM daily)
 
@@ -137,5 +167,6 @@ run even if the primary briefing routine has already run that morning.
 
 `briefings/sources.json` describes a newer v2 schema (30 stories across 14
 sources, heat-ranked ordering, additional radar categories). The current
-generator still follows the older 20-story / 7-source / grouped-by-source
-layout. Migrating to v2 is a separate, larger change — not done by this doc.
+generator follows a 26-story / 9-source layout with a sub-bucketed cloud
+block (see "Sources and distribution" above). Fully migrating to the v2
+sources.json schema is a separate, larger change — not done by this doc.
