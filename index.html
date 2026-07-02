@@ -526,8 +526,6 @@ function scrollFrameTop(){
 
 function show(idx){
   if(idx < 0 || idx >= briefings.length) return;
-  // Navigating away from the previous article counts as having read it
-  if(current >= 0 && current !== idx) markRead(briefings[current].date);
   current = idx;
   const b = briefings[idx];
 
