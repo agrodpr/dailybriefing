@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-01T21:10:10Z",
+  "updated": "2026-07-02T12:00:00Z",
   "briefings": [
+    {
+      "date": "2026-07-02",
+      "file": "briefings/2026-07-02.html",
+      "weekday": "Thursday",
+      "label": "July 2, 2026",
+      "stories": 20,
+      "flagged": 4,
+      "note": "FortiBleed graduates from mass credential theft to confirmed ransomware pipeline — Lynx and INC are both linked to stolen FortiGate access, with 12 deployments confirmed and 430,000 firewalls potentially exposed. DHS's own HSIN info-sharing platform was breached in a weeks-long intrusion nobody noticed. ShinyHunters keeps expanding its victim roster — Medtronic today, after Nissan and NAIC last week. On the AWS side, Fable 5 on Bedrock, the MCP Server going GA, and AgentCore in preview all landed this week."
+    },
     {
       "date": "2026-06-30",
       "file": "briefings/2026-06-30.html",
@@ -9,7 +18,7 @@
       "label": "June 30, 2026",
       "stories": 20,
       "flagged": 7,
-      "note": "Today’s dominant thread is the Oracle PeopleSoft zero-day: ShinyHunters has now burned Nissan and the NAIC with the same unpatched flaw, while CISA flags a separate Defender bug already weaponized by ransomware crews. On the cloud side, AWS is racing to harden the AI dev loop — Lambda MicroVMs for sandbox isolation, a Security Agent for in-IDE threat modeling — just as Dark Reading reports a credential-stealing flaw in Amazon Q’s own VS Code extension. Watch disclosure-to-exploit windows shrinking further: the Cisco CUCM flaw was weaponized in under a day, and a new zero-day repo already has live victims."
+      "note": "Today's dominant thread is the Oracle PeopleSoft zero-day: ShinyHunters has now burned Nissan and the NAIC with the same unpatched flaw, while CISA flags a separate Defender bug already weaponized by ransomware crews. On the cloud side, AWS is racing to harden the AI dev loop — Lambda MicroVMs for sandbox isolation, a Security Agent for in-IDE threat modeling — just as Dark Reading reports a credential-stealing flaw in Amazon Q's own VS Code extension. Watch disclosure-to-exploit windows shrinking further: the Cisco CUCM flaw was weaponized in under a day, and a new zero-day repo already has live victims."
     },
     {
       "date": "2026-06-29",

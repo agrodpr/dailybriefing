@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; Thursday, July 2, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0B0B0F;
+    --surface: #13131A;
+    --surface-2: #1C1C26;
+    --text: #EDEAE2;
+    --text-muted: #8B8A84;
+    --cyan: #00B4D8;
+    --orange: #E8823A;
+    --red: #F87171;
+    --purple: #A78BFA;
+    --pink: #F472B6;
+    --green: #4ADE80;
+    --blue: #60A5FA;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 64px 24px 32px;
+  }
+
+  .masthead {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .masthead h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--surface-2);
+    max-width: 860px;
+    margin: 32px auto;
+  }
+
+  .legend-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    background: var(--surface);
+    padding: 12px 32px;
+    border-radius: 40px;
+    max-width: fit-content;
+    margin: 0 auto 48px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .editors-note {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 24px;
+    max-width: 700px;
+    text-align: center;
+    color: var(--text);
+    margin: 48px auto;
+    line-height: 1.5;
+  }
+
+  .stories {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 8px 0 0 8px;
+  }
+
+  .card:hover::before {
+    filter: brightness(1.3);
+  }
+
+  .chips {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: #0B0B0F;
+  }
+
+  .chip-hn { background: var(--cyan); }
+  .chip-bc { background: var(--orange); }
+  .chip-reg { background: var(--red); }
+  .chip-dr { background: var(--purple); }
+  .chip-eng { background: var(--pink); }
+  .chip-aws { background: var(--green); }
+  .chip-az { background: var(--blue); }
+  .chip-flag { background: var(--orange); color: #0B0B0F; }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+
+  .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .meta a {
+    color: var(--text-muted);
+  }
+
+  .summary {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .skip-section {
+    max-width: 860px;
+    margin: 56px auto 0;
+  }
+
+  .skip-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .skip-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skip-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding-top: 48px;
+    padding-bottom: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  a { color: inherit; }
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>MORNING BRIEFING</h1>
+    <div class="tagline">Your daily intelligence feed &middot; Thursday, July 2, 2026</div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="legend-bar">
+        <div class="legend-item"><span class="dot" style="background: var(--cyan);"></span>Hacker News</div>
+        <div class="legend-item"><span class="dot" style="background: var(--orange);"></span>BleepingComputer</div>
+        <div class="legend-item"><span class="dot" style="background: var(--red);"></span>The Register</div>
+        <div class="legend-item"><span class="dot" style="background: var(--purple);"></span>Dark Reading</div>
+        <div class="legend-item"><span class="dot" style="background: var(--pink);"></span>Engadget</div>
+        <div class="legend-item"><span class="dot" style="background: var(--green);"></span>AWS</div>
+        <div class="legend-item"><span class="dot" style="background: var(--blue);"></span>Azure</div>
+  </div>
+
+  <p class="editors-note">FortiBleed graduates today from mass credential theft to confirmed ransomware pipeline: Lynx and INC have both been linked to stolen FortiGate access, with 12 confirmed deployments already and 430,000 firewalls still potentially exposed. DHS's own HSIN info-sharing platform was breached in a weeks-long intrusion nobody noticed. ShinyHunters keeps expanding its victim roster &mdash; Medtronic today, after Nissan and NAIC last week. On the AI side, AWS is shipping fast: Fable 5 on Bedrock, the MCP Server going GA, and AgentCore in preview all landed this week.</p>
+
+  <div class="stories">
+
+    <article class="card" style="--accent: var(--cyan);">
+      <div class="chips">
+        <span class="chip chip-hn">Hacker News</span>
+      </div>
+      <h2 class="headline">Phantom Squatting: LLMs hallucinate domains &mdash; attackers register them</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://unit42.paloaltonetworks.com/phantom-squatting-hallucinated-web-domains/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Palo Alto Networks Unit 42 studied 913 global brands across 685,339 prompts and found 2.1 million hallucinated URLs, with 13,229 already classified as malicious and roughly 250,000 unregistered domains that attackers could claim today. In one documented case, both tested LLMs consistently invented a fake postal marketplace domain; 23 days later, an attacker registered it and deployed a phishing kit named Montana Empire. The researchers call the vector &ldquo;structurally unpatchable&rdquo; because it exploits an inherent property of how LLMs predict text.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--cyan);">
+      <div class="chips">
+        <span class="chip chip-hn">Hacker News</span>
+      </div>
+      <h2 class="headline">FTC seeks public comment on proposed AI accuracy policy</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">The Federal Trade Commission published a proposed policy statement addressing concerns that AI companies are manipulating their systems' behavior in ways that are &ldquo;contrary to reasonable consumer expectations for objectivity and accuracy.&rdquo; The agency is inviting public comment before finalizing, signaling it views AI output fidelity as a consumer-protection issue it can act on under existing deceptive-practices authority.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--cyan);">
+      <div class="chips">
+        <span class="chip chip-hn">Hacker News</span>
+      </div>
+      <h2 class="headline">Trump AI Action Plan: voluntary federal disclosure before model release</h2>
+      <div class="meta">Jun 30 &middot; <a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">The White House executive order &ldquo;Promoting Advanced Artificial Intelligence Innovation and Security&rdquo; creates a voluntary framework under which developers of frontier models can share access with the federal government before public release for national-security and cybersecurity review. The order also reverses an earlier administration ban on Anthropic's Fable and Mythos models after the company implemented stronger safeguards.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--orange);">
+      <div class="chips">
+        <span class="chip chip-bc">BleepingComputer</span>
+        <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+      </div>
+      <h2 class="headline">FortiBleed now confirmed as ransomware pipeline: Lynx and INC linked to 430k firewalls</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/fortibleed-credential-theft-campaign-linked-to-lynx-ransomware/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Analysis of FortiBleed infrastructure confirms the stolen FortiGate credentials are flowing directly into both the Lynx and INC ransomware operations, with at least 12 confirmed ransomware deployments traced back to the campaign and traffic sniffers still running on roughly 19,000 devices. The 430,000 firewalls touched by the initial credential sweep represent a very long tail of organizations that may not know they are inside the pipeline. Any unrotated FortiGate credentials from the past several months should be treated as compromised.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--orange);">
+      <div class="chips">
+        <span class="chip chip-bc">BleepingComputer</span>
+        <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+      </div>
+      <h2 class="headline">DHS confirms hackers breached HSIN, the federal info-sharing platform</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">The Department of Homeland Security confirmed an unknown threat actor breached the Homeland Security Information Network, a platform used by federal, state, local, and private-sector partners to share sensitive intelligence, in an intrusion believed to span late May through early June. The platform's role as a cross-agency intelligence conduit makes even a read-only breach significant for operational security across the organizations that rely on it.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--orange);">
+      <div class="chips">
+        <span class="chip chip-bc">BleepingComputer</span>
+        <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+      </div>
+      <h2 class="headline">CISA: Microsoft SharePoint RCE flaw now actively exploited</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-microsoft-sharepoint-rce-flaw-now-actively-exploited/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">CISA confirmed that attackers are actively exploiting CVE-2026-45659, a Microsoft SharePoint deserialization flaw that lets low-privilege users execute arbitrary code without user interaction. The vulnerability's low attack complexity and low privilege requirement make it an attractive target for initial access brokers. Organizations running on-premises or hybrid SharePoint should treat patching as urgent.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--orange);">
+      <div class="chips">
+        <span class="chip chip-bc">BleepingComputer</span>
+        <span class="chip chip-flag">&#9889; ON YOUR RADAR</span>
+      </div>
+      <h2 class="headline">Medtronic patients notified of data breach tied to ShinyHunters</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/medtronic-notifies-customers-impacted-by-shinyhunters-data-breach/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Medical device maker Medtronic is notifying affected patients that their personal data was exposed after ShinyHunters compromised its systems, adding the company to a growing list that now includes Nissan and the NAIC from last week. Healthcare device manufacturers carry particularly sensitive patient data, and the group's momentum suggests more victims are still in the pipeline before the campaign winds down.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--orange);">
+      <div class="chips">
+        <span class="chip chip-bc">BleepingComputer</span>
+      </div>
+      <h2 class="headline">Alleged Scattered Spider member extradited from Finland to face US charges</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/alleged-scattered-spider-hacker-extradited-to-the-united-states/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">A 19-year-old dual US-Estonian citizen was extradited from Finland, where authorities detained him at the airport while he was attempting to board a flight to Japan, and he now faces US charges as an alleged Scattered Spider member accused of helping extort millions from high-profile companies. The arrest continues a pattern of international law-enforcement coordination closing in on the group's remaining members.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--red);">
+      <div class="chips">
+        <span class="chip chip-reg">The Register</span>
+      </div>
+      <h2 class="headline">Apple ships iOS 26.5.2 a week early with ~30 security fixes, blames AI-accelerated hacking</h2>
+      <div class="meta">Jun 29 &middot; <a href="https://www.theregister.com/security/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Apple released iOS, iPadOS, and macOS 26.5.2 ahead of its planned cycle, packing roughly 30 security fixes targeting WebKit, Kernel, WebRTC, and libxslt. The company cited concerns that AI is enabling attackers to develop and deploy exploits faster than its standard update cadence can counter, making the early release a deliberate response to a structural acceleration in the threat environment rather than a specific zero-day.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--red);">
+      <div class="chips">
+        <span class="chip chip-reg">The Register</span>
+      </div>
+      <h2 class="headline">Opera Paste Protect: browser-level block against ClickFix clipboard attacks</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/opera-rolls-out-paste-protect-feature-to-fight-clickfix-attacks/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Opera launched Paste Protect, a browser feature that intercepts clipboard contents before they reach the terminal and warns users when a paste contains commands that could execute malicious code, directly targeting the ClickFix social-engineering technique where attackers trick users into pasting attacker-controlled commands. It's the first browser to ship a dedicated ClickFix defense at the paste layer, putting pressure on Chrome and Firefox to follow.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--red);">
+      <div class="chips">
+        <span class="chip chip-reg">The Register</span>
+      </div>
+      <h2 class="headline">Microsoft begins retiring legacy TLS in Exchange Online this month</h2>
+      <div class="meta">Jul 1 &middot; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-to-deprecate-legacy-tls-in-exchange-online-starting-july/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Microsoft is deprecating TLS 1.0 and TLS 1.1 support in Exchange Online effective this month, cutting off email clients, connectors, and third-party integrations that haven't yet migrated to TLS 1.2 or higher. Organizations that missed the migration window will see authentication failures and mail-flow disruptions, making this an urgent operational check for anyone running older on-premise or appliance-based mail routing.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--purple);">
+      <div class="chips">
+        <span class="chip chip-dr">Dark Reading</span>
+      </div>
+      <h2 class="headline">Phishing kits now fingerprint victims and swap payloads by device and OS</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.darkreading.com/application-security/phishing-campaigns-auto-adapt-victims-device-os" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Cofense research shows phishing kits have moved beyond static lures to landing pages that fingerprint the visitor's device and OS at render time, then serve platform-appropriate payloads &mdash; macOS gets FleetDeck, Windows gets the Tiflux RAT, mobile gets a credential harvest form. The shift means email-filter evasion is no longer the hardest part; the payload adapts after the click, making static IOC-based detection increasingly insufficient.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--purple);">
+      <div class="chips">
+        <span class="chip chip-dr">Dark Reading</span>
+      </div>
+      <h2 class="headline">FIFA World Cup 2026 draws surge in ticket fraud, brand spoofing, and DDoS threats</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.darkreading.com/cybersecurity-operations/2026-fifa-world-cup-faces-surge-cyber-threats" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Security firms tracking the 2026 FIFA World Cup's digital surface report a spike in fake ticket marketplaces, official-brand impersonation sites, and DDoS probing of infrastructure used by host venues and broadcasters. With matches running across US, Canada, and Mexico through mid-July, the attack window is wide open and expected to intensify as the knockout rounds approach.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--pink);">
+      <div class="chips">
+        <span class="chip chip-eng">Engadget</span>
+      </div>
+      <h2 class="headline">Xbox layoffs: Arkane Studios to close, Blade game officially canceled</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.engadget.com/2205451/xbox-layoff-plans-reportedly-include-closing-arkane-canceling-blade/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Microsoft's sweeping Xbox layoff round, set to begin July 6, includes the closure of Arkane Studios and the cancellation of Blade, the vampire-hunter action game the studio had been building since late 2023. Arkane's shutdown ends the studio responsible for Dishonored and Prey, and the Blade cancellation means Marvel's most expensive gaming bet yet goes undelivered.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--pink);">
+      <div class="chips">
+        <span class="chip chip-eng">Engadget</span>
+      </div>
+      <h2 class="headline">Trump bought up to $5M in big-tech stocks the same day he released his AI Action Plan</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://www.engadget.com/2206671/donald-trump-bought-a-bunch-of-tech-stock-the-same-day-he-announced-his-ai-action-plan/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Financial disclosures show Trump purchased up to $5 million in Amazon, Apple, Meta, Microsoft, Nvidia, and Broadcom stock on the same day the White House released its long-awaited AI Action Plan, raising questions about the timing of trades relative to policy announcements that could move those prices. The disclosure is drawing bipartisan attention on Capitol Hill.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--green);">
+      <div class="chips">
+        <span class="chip chip-aws">AWS</span>
+      </div>
+      <h2 class="headline">Claude Fable 5 now available on Amazon Bedrock with Mythos-class capabilities</h2>
+      <div class="meta">Jul 1 &middot; <a href="https://aws.amazon.com/blogs/aws/anthropic-claude-fable-5-on-aws-mythos-class-capabilities-with-built-in-safeguards-now-available/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Anthropic's Claude Fable 5 is now available through Amazon Bedrock, offering Mythos-level reasoning and coding capabilities with enhanced built-in safeguards designed to prevent misuse in cyberattacks or harmful content generation. The listing comes shortly after the White House executive order reversed the administration's earlier ban on Anthropic's frontier models, clearing the path for broad enterprise deployment.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--green);">
+      <div class="chips">
+        <span class="chip chip-aws">AWS</span>
+      </div>
+      <h2 class="headline">AWS MCP Server reaches general availability</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://aws.amazon.com/blogs/aws/the-aws-mcp-server-is-now-generally-available/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">The AWS MCP Server, which lets AI coding assistants and agents interact directly with AWS services through a standardized Model Context Protocol interface, is now generally available after a preview period. The GA release formalizes the integration layer that lets tools like Claude Code, Kiro, and third-party agents read infrastructure state and take AWS actions without custom tooling for each service.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--green);">
+      <div class="chips">
+        <span class="chip chip-aws">AWS</span>
+      </div>
+      <h2 class="headline">Amazon Bedrock AgentCore in preview: secure scaffolding for AI agents at scale</h2>
+      <div class="meta">Jul 1 &middot; <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Amazon Bedrock AgentCore enters preview as a managed platform for deploying and operating AI agents, providing built-in scaffolding for identity management, memory, gateway integration, and lifecycle control so teams don't have to build agent infrastructure from scratch. It's designed to handle the operational concerns &mdash; isolation, auditability, credential scoping &mdash; that become critical when agentic workloads run at production scale.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--blue);">
+      <div class="chips">
+        <span class="chip chip-az">Azure</span>
+      </div>
+      <h2 class="headline">Azure HorizonDB enters public preview: PostgreSQL-compatible managed DB at cloud scale</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Microsoft opened public preview for Azure HorizonDB, a fully managed database that combines PostgreSQL compatibility with a cloud-native architecture built for horizontal scale and high-throughput agentic AI workloads. Teams get the familiar Postgres surface and tooling while HorizonDB handles partition management, replication, and autoscaling beneath the hood.</p>
+    </article>
+
+    <article class="card" style="--accent: var(--blue);">
+      <div class="chips">
+        <span class="chip chip-az">Azure</span>
+      </div>
+      <h2 class="headline">Microsoft expands sovereign cloud with new services for regulated industries</h2>
+      <div class="meta">Jul 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/microsoft-strengthens-sovereign-cloud-capabilities-with-new-services/" target="_blank" rel="noopener">&rarr; Read more</a></div>
+      <p class="summary">Microsoft added new capabilities to its sovereign cloud offering, expanding services available to government, defense, and regulated-industry customers who need data to remain within a specific jurisdiction and outside the standard commercial cloud control plane. The additions cover AI and analytics services previously unavailable in sovereign configurations, closing the feature gap that had been pushing some regulated workloads toward on-premises deployments.</p>
+    </article>
+
+  </div>
+
+  <div class="skip-section">
+    <div class="skip-title">Worth Skipping Today</div>
+    <ul class="skip-list">
+      <li>&middot; [HN] &mdash; US World Cup red-card controversy vs Bosnia and Herzegovina &mdash; (sports, no tech angle)</li>
+      <li>&middot; [Engadget] &mdash; Hyundai/Kia UV car odor elimination system &mdash; (automotive gadget, low stakes)</li>
+      <li>&middot; [Engadget] &mdash; HDMI 2.1 vs USB-C vs DisplayPort monitor guide &mdash; (evergreen explainer, no news)</li>
+      <li>&middot; [AWS] &mdash; AWS Weekly Roundup June 29: Amazon Connect CX designer, EC2 AMI Watermarks &mdash; (roundup recap, covered in individual stories)</li>
+      <li>&middot; [Azure] &mdash; Azure Storage 2026: scale and cloud-native migration guidance &mdash; (planning doc, not a product launch)</li>
+    </ul>
+  </div>
+
+  <footer>
+    Morning Briefing &middot; Generated 07:02 AST &middot;
+    Sources: HN &middot; BleepingComputer &middot; The Register &middot;
+    Dark Reading &middot; Engadget &middot; AWS &middot; Azure
+  </footer>
+
+</body>
+</html>
