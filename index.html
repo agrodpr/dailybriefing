@@ -400,12 +400,12 @@ async function loadSources(){
 let briefings = [];   // newest-first
 let current = -1;
 
-/* Read/unread tracking. GitHub Pages is static (no server, no per-user accounts),
-   so there's nowhere to store this except the browser itself — localStorage is the
-   right tool here, not an analytics tracker (GA reports pageviews, not which dates
-   *you* have opened). This is per-browser/device only; it won't sync across devices.
-   A date only counts as read after READ_DWELL_MS of continuous dwell, so flipping
-   past a day via next/prev or a stray click doesn't falsely mark it read. */
+/* Read/unread tracking via localStorage — per-browser/device only, no sync.
+   Two triggers mark a date read:
+   1. Navigating AWAY to another article (you saw enough to move on).
+   2. Staying on the same article for READ_DWELL_MS without navigating (last
+      article of the session). Together these cover all normal reading patterns
+      without requiring a specific dwell time on every article. */
 const READ_KEY = "mb_read_dates";
 let readDates = new Set();
 try { readDates = new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]")); } catch(e){}
@@ -417,11 +417,13 @@ function markRead(date){
   renderCalendar();
 }
 
-const READ_DWELL_MS = 10000; // must stay on a date this long before it counts as read
+const READ_DWELL_MS = 10000; // fallback: mark read if still on same article after this long
 let readTimer = null;
+let readTimerDate = null;
 
 function armReadTimer(date){
   clearTimeout(readTimer);
+  readTimerDate = date;
   readTimer = setTimeout(() => markRead(date), READ_DWELL_MS);
 }
 
@@ -524,6 +526,8 @@ function scrollFrameTop(){
 
 function show(idx){
   if(idx < 0 || idx >= briefings.length) return;
+  // Navigating away from the previous article counts as having read it
+  if(current >= 0 && current !== idx) markRead(briefings[current].date);
   current = idx;
   const b = briefings[idx];
 
