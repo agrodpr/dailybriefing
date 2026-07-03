@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 3, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Friday, July 3, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">Enterprise software is having a rough week &mdash; attackers are actively exploiting Cisco Unified CM, Oracle E-Business Suite, and a SharePoint RCE that just landed on CISA's KEV list, while FortiBleed-stolen credentials feed straight into ransomware. Both AWS and Azure report all US regions operating normally, though AWS tightened certificate governance with ACM's new IAM-gated ACME support and Azure pushed storage-migration guidance. Watch the SharePoint and Oracle exploitation chains closely through the weekend, and keep an eye on the Medtronic and DHS/HSIN breach disclosures as more detail emerges.</p>
+
+<div class="cards-wrap">
+
+<!-- HN 1 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Android Developer Verification: Threat Masquerading as Protection</h2>
+  <div class="meta">1,630 pts &middot; 698 comments &middot; <a href="https://f-droid.org/2026/07/01/adv-malware.html">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48755965">Discuss on HN</a></div>
+  <p class="summary">F-Droid is calling out Google's Android Developer Verification program, which requires every sideloaded app's developer to register a legal identity before install, as a de facto lockdown on unauthorized software distribution dressed up as anti-malware protection. Critics argue the framing masks a shift toward requiring centralized approval for anything that runs on Android, threatening open distribution channels like F-Droid itself.</p>
+</div>
+
+<!-- HN 2 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Virginia Bans Sale of Geolocation Data</h2>
+  <div class="meta">817 pts &middot; 128 comments &middot; <a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48767347">Discuss on HN</a></div>
+  <p class="summary">Virginia has enacted a law specifically banning the sale of precise geolocation data collected from residents' devices without explicit consent, joining a small group of states targeting location-data brokers rather than personal data in general. The law closes a gap that let brokers resell movement histories tied to sensitive locations such as clinics and shelters.</p>
+</div>
+
+<!-- HN 3 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Podman v6.0.0</h2>
+  <div class="meta">545 pts &middot; 211 comments &middot; <a href="https://blog.podman.io/2026/07/introducing-podman-v6-0-0/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48762098">Discuss on HN</a></div>
+  <p class="summary">Podman 6.0 ships a rearchitected network stack and faster rootless container performance, aimed at closing remaining gaps with Docker for enterprise workflows. The release also tightens default security settings for rootless pods, shrinking the attack surface for privilege-escalation bugs on shared hosts.</p>
+</div>
+
+<!-- HN 4 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Since Linux 6.9, LUKS Suspend Stopped Wiping Disk-Encryption Keys From Memory</h2>
+  <div class="meta">483 pts &middot; 208 comments &middot; <a href="https://mathstodon.xyz/@iblech/116769502749142438">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48763035">Discuss on HN</a></div>
+  <p class="summary">A regression since kernel 6.9 means the LUKS suspend-to-RAM path no longer reliably wipes disk-encryption keys from memory before sleep, so a seized or stolen laptop's keys can persist in RAM and be pulled via a cold-boot or DMA attack. The bug affects any distro relying on systemd's default suspend hooks and has no CVE yet, though the discoverer has flagged it upstream.</p>
+</div>
+
+<!-- BC 1 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Kubota Says Hackers Had Month-Long Access to Network Systems</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://www.bleepingcomputer.com/news/security/kubota-says-hackers-had-month-long-access-to-network-systems/">&rarr; Read more</a></div>
+  <p class="summary">Kubota North America disclosed that attackers had unauthorized access to portions of its internal network for more than a month before detection, though the company says it found no evidence of exfiltration from manufacturing control systems. The intrusion adds Kubota to a growing list of industrial-equipment makers targeted for the OT environments they run alongside standard IT.</p>
+</div>
+
+<!-- BC 2 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Cisco Finally Confirms Attackers Exploiting Unified CM Flaw</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisco-finally-confirms-attackers-exploiting-unified-cm-flaw/">&rarr; Read more</a></div>
+  <p class="summary">Cisco confirmed active exploitation of a Unified Communications Manager vulnerability it patched in early June, reversing its earlier "no evidence of exploitation" stance. The flaw lets an unauthenticated attacker execute arbitrary code on unpatched on-prem Unified CM servers, and Cisco is urging immediate patching for any exposed instance.</p>
+</div>
+
+<!-- BC 3 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Medtronic Notifies Customers Impacted by ShinyHunters Data Breach</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/medtronic-notifies-customers-impacted-by-shinyhunters-data-breach/">&rarr; Read more</a></div>
+  <p class="summary">Medtronic is notifying patients and customers that data exposed in the ShinyHunters extortion campaign against a third-party platform included personal information tied to its medical-device business. The healthcare device maker says clinical device functionality wasn't affected, only administrative and customer records.</p>
+</div>
+
+<!-- BC 4 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>FortiBleed Credential-Theft Campaign Linked to Lynx Ransomware</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://www.bleepingcomputer.com/news/security/fortibleed-credential-theft-campaign-linked-to-lynx-ransomware/">&rarr; Read more</a></div>
+  <p class="summary">The FortiBleed campaign, which harvested Fortinet device credentials at scale, has now been tied to both the INC and Lynx ransomware operations, suggesting the stolen logins are being recycled directly into new intrusions. Any organization that hasn't rotated Fortinet credentials since the campaign became public should treat every exposed device as compromised.</p>
+</div>
+
+<!-- BC 5 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>DHS Confirms Hackers Breached HSIN Info-Sharing Platform</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/">&rarr; Read more</a></div>
+  <p class="summary">DHS confirmed hackers breached the Homeland Security Information Network, the platform federal, state, local, and private-sector partners use to share sensitive threat and infrastructure information. The scope of accessed data isn't public yet, but a breach of a cross-agency sharing hub raises exposure risk for every organization that fed reports into HSIN.</p>
+</div>
+
+<!-- REG 1 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Microsoft Said Exploitation Was "Less Likely" &mdash; But CISA Just Added SharePoint RCE to KEV List</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.theregister.com/security/2026/07/02/microsoft-said-exploitation-was-less-likely-but-cisa-just-added-sharepoint-rce-to-kev-list/5265886">&rarr; Read more</a></div>
+  <p class="summary">CISA added the on-prem SharePoint remote-code-execution flaw to its Known Exploited Vulnerabilities list days after Microsoft characterized exploitation as "less likely." Attackers need nothing more than a valid SharePoint account to execute code on a vulnerable server, and federal agencies now face a mandated patch deadline.</p>
+</div>
+
+<!-- REG 2 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Smooth AI Criminal Drives "First" End-to-End Agentic Ransomware Attack</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.theregister.com/security/2026/07/02/smooth-ai-criminal-drives-first-end-to-end-agentic-ransomware-attack/5266073">&rarr; Read more</a></div>
+  <p class="summary">Researchers documented what they're calling the first fully agentic ransomware run: an LLM-driven agent handled reconnaissance, lateral movement, and exfiltration end to end with minimal human direction. Even after the victim paid, the agent didn't reliably return the stolen data, underscoring that "AI ransomware-as-a-service" doesn't inherit a human operator's incentive to honor the deal.</p>
+</div>
+
+<!-- REG 3 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Oracle E-Business Suite Was Under Attack via Critical Flaw Before the Public Exploit Code Was Even Released</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/02/oracle-e-business-suite-was-under-attack-via-critical-flaw-before-the-public-exploit-code-was-even-released/5265710">&rarr; Read more</a></div>
+  <p class="summary">Attackers were exploiting a critical Oracle E-Business Suite flaw in the wild before Oracle's own patch details or public exploit code existed, meaning the intrusion set reverse-engineered the fix itself to build a working exploit. Oracle EBS runs core financial and supply-chain workloads at large enterprises, making pre-disclosure exploitation especially costly to contain.</p>
+</div>
+
+<!-- REG 4 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>EvilTokens Device-Code Phishing Kit "Totally More Evil Than We All Thought"</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/01/eviltokens-device-code-phishing-kit-totally-more-evil-than-we-all-thought/5265409">&rarr; Read more</a></div>
+  <p class="summary">The EvilTokens kit is a full business-email-compromise operations environment, not just a credential-harvesting page, according to Cisco Talos &mdash; it automates OAuth device-code abuse to hijack sessions without ever touching a password. Packaging it as a turnkey BEC platform lowers the skill bar for attackers running large-scale account-takeover campaigns.</p>
+</div>
+
+<!-- ENG 1 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Opera's New Security Feature Stops Copy-Paste Attacks From Malicious Websites</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.engadget.com/2206574/opera-new-security-feature-stops-copy-paste-clickfix-attacks/">&rarr; Read more</a></div>
+  <p class="summary">Opera shipped a browser-level defense against "ClickFix" attacks, which trick users into pasting attacker-supplied clipboard content into a Run dialog or terminal to execute malicious commands. The new Paste Protect feature intercepts and warns on suspicious clipboard-to-execution paths before anything runs.</p>
+</div>
+
+<!-- ENG 2 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Cloudflare Will Filter Out Web Crawlers That Serve AI Companies</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.engadget.com/2207360/cloudflare-will-filter-out-web-crawlers-that-serve-ai-companies/">&rarr; Read more</a></div>
+  <p class="summary">Cloudflare is rolling out filtering to block web crawlers that scrape content specifically to feed AI companies' training and retrieval pipelines, giving site owners a default lever over AI access separate from generic bot management. The move formalizes Cloudflare's earlier pay-per-crawl push into a blocking-first default for ad-supported publishers.</p>
+</div>
+
+<!-- CLOUD BLOCK -->
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">&rarr; Read more</a></div>
+  <p class="summary">Azure published new guidance for planning large-scale storage migrations, emphasizing that moving terabytes or petabytes of production data is as much about business continuity and performance as it is about the transfer itself. The post walks through Azure's tooling for minimizing downtime and validating data integrity during cutover.</p>
+</div>
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Security Agent Adds Threat Modeling, Kiro Power and Claude Code Plugin</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+  <p class="summary">AWS Security Agent now performs STRIDE-based threat modeling and full repo/PR scanning with remediation across major Git platforms, plus IDE integration via Kiro, the Claude Code plugin, and MCP. The goal is letting developers run security reviews and apply fixes without leaving their existing workflow.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Automate Public TLS Certificate Issuance With ACME Support in AWS Certificate Manager</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">&rarr; Read more</a></div>
+  <p class="summary">AWS Certificate Manager now supports the ACME protocol, letting any ACMEv2-compatible client automate public TLS certificate issuance and renewal instead of relying on manual console workflows. Administrators get centralized governance with IAM-based access controls and domain scoping, which matters as certificate lifetimes keep shrinking industry-wide.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Run Isolated Sandboxes With Full Lifecycle Control: AWS Lambda Introduces MicroVMs</h2>
+  <div class="meta">Jun 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+  <p class="summary">AWS Lambda now offers MicroVMs, a serverless compute primitive giving each sandbox full VM-level isolation with no shared kernel between sessions, rapid launch/resume, and state preservation for up to eight hours. It targets workloads that need stronger isolation guarantees than a standard Lambda function, without customers managing any underlying infrastructure.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon EC2 C9g and C9gd Instances Powered by AWS Graviton5 Are Now Available</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">&rarr; Read more</a></div>
+  <p class="summary">EC2 C9g and C9gd instances powered by AWS Graviton5 are now generally available, delivering up to 25% better compute performance than Graviton4 instances with 5x larger cache and the fastest memory of any cloud processor instance to date. The C9gd variant adds local NVMe storage for latency-sensitive workloads.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Accelerate Your Infrastructure Deployments by Up to 4x With AWS CloudFormation Express Mode</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">&rarr; Read more</a></div>
+  <p class="summary">AWS CloudFormation Express mode cuts infrastructure deployment time by up to 4x, returning deployment confirmation in seconds so developers and AI agents alike can iterate on infrastructure changes faster. It's available in all commercial regions at no additional cost.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS WAF Adds AI Traffic Monetization Capability to Help Content Owners Charge AI Bots for Access</h2>
+  <div class="meta">Jun 15 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/">&rarr; Read more</a></div>
+  <p class="summary">AWS WAF's new Bot Control capability lets publishers price, meter, and collect payment directly from AI bots and agents accessing their content or APIs, enforced at the edge. Site owners can grant scoped, paid access instead of choosing only between blocking AI crawlers outright or letting them scrape for free.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Meet Brain: The AI System Behind Azure Reliability</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft detailed "Brain," an AI system that maintains a digital twin of Azure Service Health to model failure modes and reliability risk across the platform before incidents occur. The company frames it as a shift from reactive incident response toward predictive reliability engineering at hyperscale.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Proving Application Resilience on Azure With Chaos Studio</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">&rarr; Read more</a></div>
+  <p class="summary">Azure Chaos Studio now supports simulating outages, failovers, network disruptions, and infrastructure failures against production-like environments so teams can validate resilience before a real incident hits. It's the practical complement to the Brain reliability work &mdash; testing failure paths instead of just predicting them.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Claude in Microsoft Foundry Is Now Generally Available</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">&rarr; Read more</a></div>
+  <p class="summary">Claude models are now generally available in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware, giving enterprise teams a supported path from agent prototyping to production. This extends Azure's multi-model strategy alongside its existing OpenAI integration.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>From Insight to Action: The Next Phase of Agentic Cloud Operations</h2>
+  <div class="meta">Jun 23 &middot; <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft outlined the next phase of "agentic cloud operations" &mdash; moving cloud management from passive insight dashboards toward systems that act on operational signals in real time with minimal human intervention. It's framed as the natural extension of AIOps once monitoring data is trustworthy enough for automated remediation.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-relaunch-disappoints-users-with-nerfed-performance/">Claude Fable relaunch disappoints users</a> &mdash; (no infra/security angle)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/devops/2026/07/01/claude-sonnet-50-heads-straight-down-the-middle-of-the-road-to-dodge-controversy/5265398">Claude Sonnet 5.0 heads down the middle</a> &mdash; (opinion piece, no news value)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2206550/google-loses-final-appeal-over-eu-antitrust-fine/">Google loses final EU antitrust appeal</a> &mdash; (legal story, no infra angle)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2207503/teslas-model-y-long-wheelbase-comes-to-the-us/">Tesla's Model Y L comes to the US</a> &mdash; (consumer gadget, no depth)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/offbeat/2026/07/01/nasa-unsure-boeing-starliner-will-ever-be-certified-for-human-flight/5265177">NASA unsure Starliner will ever fly</a> &mdash; (no infra/security relevance)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:06 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>

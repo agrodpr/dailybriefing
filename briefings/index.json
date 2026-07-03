@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-02T12:00:00Z",
+  "updated": "2026-07-03T11:06:59Z",
   "briefings": [
+    {
+      "date": "2026-07-03",
+      "file": "briefings/2026-07-03.html",
+      "weekday": "Friday",
+      "label": "July 3, 2026",
+      "stories": 26,
+      "flagged": 8,
+      "note": "Enterprise software is having a rough week — attackers are actively exploiting Cisco Unified CM, Oracle E-Business Suite, and a SharePoint RCE that just landed on CISA's KEV list, while FortiBleed-stolen credentials feed straight into ransomware. Both AWS and Azure report all US regions operating normally, though AWS tightened certificate governance with ACM's new IAM-gated ACME support and Azure pushed storage-migration guidance. Watch the SharePoint and Oracle exploitation chains closely through the weekend, and keep an eye on the Medtronic and DHS/HSIN breach disclosures as more detail emerges."
+    },
     {
       "date": "2026-07-02",
       "file": "briefings/2026-07-02.html",
