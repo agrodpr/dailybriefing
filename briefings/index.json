@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-03T11:06:59Z",
+  "updated": "2026-07-04T11:12:10Z",
   "briefings": [
+    {
+      "date": "2026-07-04",
+      "file": "briefings/2026-07-04.html",
+      "weekday": "Saturday",
+      "label": "July 4, 2026",
+      "stories": 26,
+      "flagged": 8,
+      "note": "Exploitation is outrunning patch cycles again — CISA's SharePoint RCE and Cisco's Unified CM flaw are both under active attack, FortiBleed-stolen credentials are now feeding Lynx ransomware, and Medtronic and AdaptHealth both disclosed healthcare data breaches. Both AWS and Azure report all US regions operating normally, with AWS shipping Lambda MicroVMs for stronger sandbox isolation and Azure pushing storage-migration guidance alongside Claude's GA launch in Microsoft Foundry. Watch the SharePoint and Unified CM exploitation chains through the weekend, and keep an eye on the first documented end-to-end agentic ransomware attack as an early preview of what AI-driven crime looks like next."
+    },
     {
       "date": "2026-07-03",
       "file": "briefings/2026-07-03.html",

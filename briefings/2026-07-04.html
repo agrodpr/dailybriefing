@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 4, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Saturday, July 4, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">Exploitation is outrunning patch cycles again &mdash; CISA's SharePoint RCE and Cisco's Unified CM flaw are both under active attack, FortiBleed-stolen credentials are now feeding Lynx ransomware, and Medtronic and AdaptHealth both disclosed healthcare data breaches. Both AWS and Azure report all US regions operating normally, with AWS shipping Lambda MicroVMs for stronger sandbox isolation and Azure pushing storage-migration guidance alongside Claude's GA launch in Microsoft Foundry. Watch the SharePoint and Unified CM exploitation chains through the weekend, and keep an eye on the first documented end-to-end agentic ransomware attack as an early preview of what AI-driven crime looks like next.</p>
+
+<div class="cards-wrap">
+
+<!-- HN 1 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Jamesob's Guide to Running SOTA LLMs Locally</h2>
+  <div class="meta">353 pts &middot; 155 comments &middot; <a href="https://github.com/jamesob/local-llm">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48775921">Discuss on HN</a></div>
+  <p class="summary">A vendor-neutral field guide to running today's best open-weight models on local hardware, covering VRAM sizing and quantization tradeoffs, inference engines like llama.cpp and vLLM, and which open models come closest to hosted frontier APIs. It's aimed squarely at teams that need inference to stay in-house for cost, latency, or data-residency reasons.</p>
+</div>
+
+<!-- HN 2 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Hunting a 16-Year-Old SQLite WAL Bug With TLA+</h2>
+  <div class="meta">218 pts &middot; 25 comments &middot; <a href="https://ubuntu.com/blog/hunting-a-16-year-old-sqlite-bug-with-tla-is-dqlite-affected">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48730953">Discuss on HN</a></div>
+  <p class="summary">Canonical engineers used the TLA+ formal-specification language to track down a 16-year-old race condition in SQLite's write-ahead-log checkpointing code, then checked whether Canonical's own distributed SQLite fork, dqlite, inherited the same flaw. The bug can corrupt a database under a narrow concurrent-checkpoint sequence that's rare in practice but was invisible to a decade and a half of fuzzing and testing.</p>
+</div>
+
+<!-- HN 3 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>New Serious Vulnerabilities Spiked Around Release of Claude Mythos Preview</h2>
+  <div class="meta">112 pts &middot; 35 comments &middot; <a href="https://epoch.ai/data-insights/cve-severity-spike">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48780056">Discuss on HN</a></div>
+  <p class="summary">Epoch AI found a statistically significant spike in newly disclosed high- and critical-severity CVEs in the days surrounding Claude Mythos Preview's release, though the analysis stops short of establishing a causal link. It leaves security teams with a genuinely open question: whether frontier-model releases are correlating with, or actively accelerating, vulnerability research and disclosure timing industry-wide.</p>
+</div>
+
+<!-- HN 4 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Performance Per Dollar Is Getting Faster and Cheaper</h2>
+  <div class="meta">256 pts &middot; 90 comments &middot; <a href="https://www.wafer.ai/blog/glm52-amd">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48780417">Discuss on HN</a></div>
+  <p class="summary">Wafer.ai's benchmarks show GLM 5.2 running on AMD accelerators delivering a sharp improvement in inference cost-per-token versus the prior generation, narrowing the gap with Nvidia-based serving stacks. For infra teams evaluating multi-vendor GPU strategy, it's a data point that AMD's software stack is closing the performance-per-dollar gap faster than expected.</p>
+</div>
+
+<!-- BC 1 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>NetNut Proxy Network Disrupted, 2 Million Infected Devices Cut Off</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.bleepingcomputer.com/news/security/netnut-proxy-network-disrupted-2-million-infected-devices-cut-off/">&rarr; Read more</a></div>
+  <p class="summary">A joint operation involving Google disrupted NetNut, a residential proxy network that resold access to roughly 2 million compromised Android devices &mdash; including smart TVs and streaming boxes &mdash; to paying customers. Residential proxy networks like this are a staple infrastructure layer for credential-stuffing and ad-fraud operations, since traffic routed through real consumer IPs is far harder to blocklist than datacenter IPs.</p>
+</div>
+
+<!-- BC 2 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>CISA: Microsoft SharePoint RCE Flaw Now Actively Exploited</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-microsoft-sharepoint-rce-flaw-now-actively-exploited/">&rarr; Read more</a></div>
+  <p class="summary">CISA confirmed active exploitation of a high-severity SharePoint remote-code-execution flaw that Microsoft patched back in May, just days after Microsoft itself characterized exploitation as unlikely. On-prem SharePoint servers that missed the May patch should be treated as compromised, and federal agencies now face a mandated remediation deadline.</p>
+</div>
+
+<!-- BC 3 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Cisco Finally Confirms Attackers Exploiting Unified CM Flaw</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisco-finally-confirms-attackers-exploiting-unified-cm-flaw/">&rarr; Read more</a></div>
+  <p class="summary">Cisco confirmed attackers are actively exploiting a Unified Communications Manager vulnerability it patched in early June, reversing its earlier no-evidence-of-exploitation stance. The flaw allows unauthenticated remote code execution against unpatched on-prem Unified CM servers, and Cisco is urging immediate patching for anything internet-facing.</p>
+</div>
+
+<!-- BC 4 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Medtronic Notifies Customers Impacted by ShinyHunters Data Breach</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/medtronic-notifies-customers-impacted-by-shinyhunters-data-breach/">&rarr; Read more</a></div>
+  <p class="summary">Medtronic is notifying customers that personal data tied to its medical-device business was exposed in the ShinyHunters extortion campaign against a third-party platform. The company says clinical device functionality wasn't affected &mdash; only administrative and customer records &mdash; but it's the latest healthcare organization pulled into ShinyHunters' expanding victim list.</p>
+</div>
+
+<!-- BC 5 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>FortiBleed Credential-Theft Campaign Linked to Lynx Ransomware</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://www.bleepingcomputer.com/news/security/fortibleed-credential-theft-campaign-linked-to-lynx-ransomware/">&rarr; Read more</a></div>
+  <p class="summary">The FortiBleed campaign, which harvested Fortinet device credentials at scale, is now confirmed linked to both the INC and Lynx ransomware operations, meaning stolen logins are actively being recycled into new intrusions. Any organization that hasn't rotated credentials on affected FortiGate devices should treat every exposed unit as already compromised.</p>
+</div>
+
+<!-- REG 1 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Confidential Computing's Core Trust Mechanism Is Broken. The Fix May Not Exist</h2>
+  <div class="meta">Jul 4 &middot; <a href="https://www.theregister.com/security/2026/07/04/confidential-computings-core-trust-mechanism-is-broken-the-fix-may-not-exist/5266056">&rarr; Read more</a></div>
+  <p class="summary">The Register digs into a structural flaw in attested TLS, the handshake confidential-computing platforms rely on to prove a remote enclave is running trusted code before a client shares secrets with it: the attestation chain can't actually prove who's terminating the connection on the other end. Researchers quoted in the piece say a real fix may require rethinking the attestation model itself &mdash; unwelcome news for anyone anchoring a zero-trust architecture to confidential computing.</p>
+</div>
+
+<!-- REG 2 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>AdaptHealth Says Attackers Sweet-Talked Their Way Into Cloud Systems and Stole Patient Data</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/security/2026/07/03/adapthealth-crooks-stole-our-passwords-patient-health-data/5266512">&rarr; Read more</a></div>
+  <p class="summary">Home healthcare provider AdaptHealth disclosed that attackers compromised a third-party contractor's credentials through social engineering and used that access to pull patient health information and insurance billing passwords from its cloud systems. It's another reminder that vendor and contractor access is frequently the actual perimeter for healthcare data, not the provider's own network.</p>
+</div>
+
+<!-- REG 3 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Smooth AI Criminal Drives "First" End-to-End Agentic Ransomware Attack</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.theregister.com/security/2026/07/02/smooth-ai-criminal-drives-first-end-to-end-agentic-ransomware-attack/5266073">&rarr; Read more</a></div>
+  <p class="summary">Researchers documented what they're calling the first fully agentic ransomware run: an LLM-driven agent handled reconnaissance, lateral movement, and exfiltration end to end with minimal human direction. Even after the victim paid, the agent didn't reliably return the stolen data &mdash; a reminder that an "AI ransomware-as-a-service" operator doesn't inherit a human affiliate's incentive to honor the deal.</p>
+</div>
+
+<!-- REG 4 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Startup Sues Palo Alto Networks' Koi Security, Saying an AI-Hallucinated Report Falsely Linked It to Chinese Espionage</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/legal/2026/07/02/startup-sues-palo-alto-networks-koi-security-saying-an-ai-hallucinated-report-falsely-linked-it-to-chinese-espionage/5266201">&rarr; Read more</a></div>
+  <p class="summary">MeetingTV is suing Koi Security, a Palo Alto Networks-owned threat-intel outfit, alleging an AI-generated research report falsely tied the startup to a Chinese espionage campaign with no supporting evidence. The suit is an early test case for legal liability when an AI-assisted security report defames a company by hallucinating an attribution.</p>
+</div>
+
+<!-- ENG 1 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Cloudflare Will Filter Out Web Crawlers That Serve AI Companies</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.engadget.com/2207360/cloudflare-will-filter-out-web-crawlers-that-serve-ai-companies/">&rarr; Read more</a></div>
+  <p class="summary">Cloudflare is rolling out filtering that blocks web crawlers scraping content specifically to feed AI companies' training and retrieval pipelines, giving site owners a default lever over AI access separate from general bot management. It formalizes Cloudflare's earlier pay-per-crawl push into a blocking-first default for publishers that don't opt in.</p>
+</div>
+
+<!-- ENG 2 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Meta Has Released an App for Making Generative AI Games</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.engadget.com/2207426/meta-has-released-an-app-for-making-generative-ai-games/">&rarr; Read more</a></div>
+  <p class="summary">Meta quietly released Pocket, an app for generating playable games from text prompts, though it's listed in app stores but not actually available to download in the US yet. It's Meta's latest bet that consumer-facing generative tooling &mdash; not just chatbots &mdash; is where mainstream AI adoption happens next.</p>
+</div>
+
+<!-- CLOUD BLOCK -->
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+  <div class="meta">Jun 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">&rarr; Read more</a></div>
+  <p class="summary">Azure published detailed guidance for planning large-scale storage migrations, framing petabyte-scale data moves as a business-continuity and performance problem, not just a data-transfer one. The post walks through Azure's tooling for minimizing downtime and validating data integrity during cutover &mdash; worth a look for any team with a storage migration on the roadmap.</p>
+</div>
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Run Isolated Sandboxes With Full Lifecycle Control: AWS Lambda Introduces MicroVMs</h2>
+  <div class="meta">Jun 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+  <p class="summary">AWS Lambda now offers MicroVMs, a serverless compute primitive giving each sandbox full VM-level isolation with no shared kernel between sessions, rapid launch and resume, and state preservation for up to eight hours. It targets workloads &mdash; including AI agent code execution &mdash; that need stronger isolation guarantees than a standard Lambda function without customers managing any underlying infrastructure.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Automate Public TLS Certificate Issuance With ACME Support in AWS Certificate Manager</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">&rarr; Read more</a></div>
+  <p class="summary">AWS Certificate Manager now supports the ACME protocol, letting any ACMEv2-compatible client automate public TLS certificate issuance and renewal instead of relying on manual console workflows. Administrators get centralized governance with IAM-based access controls and domain scoping, which matters as certificate lifetimes keep shrinking industry-wide.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Upgrade Amazon EKS Clusters With Confidence Using Kubernetes Version Rollbacks</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">&rarr; Read more</a></div>
+  <p class="summary">Amazon EKS now supports Kubernetes version rollbacks, letting teams reverse a cluster upgrade within seven days if something breaks &mdash; no cluster rebuild required. It turns what used to be a one-way, high-stakes upgrade into a reversible, low-risk operation.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Accelerate Your Infrastructure Deployments by Up to 4x With AWS CloudFormation Express Mode</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">&rarr; Read more</a></div>
+  <p class="summary">AWS CloudFormation Express mode cuts infrastructure deployment time by up to 4x, returning deployment confirmation in seconds so developers &mdash; and AI coding agents &mdash; can iterate on infrastructure changes faster. It's available in all commercial regions at no additional cost.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon EC2 C9g and C9gd Instances Powered by AWS Graviton5 Are Now Available</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">&rarr; Read more</a></div>
+  <p class="summary">EC2 C9g and C9gd instances powered by AWS Graviton5 are now generally available, delivering up to 25% better compute performance than Graviton4 instances with 5x larger cache and the fastest memory of any cloud processor instance to date. The C9gd variant adds local NVMe storage for latency-sensitive workloads.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Security Agent Adds Threat Modeling, Kiro Power and Claude Code Plugin</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+  <p class="summary">AWS Security Agent now performs STRIDE-based threat modeling and full repo/PR scanning with remediation across major Git platforms, plus IDE integration via Kiro, the Claude Code plugin, and MCP. The goal is letting developers run security reviews and apply fixes without leaving their existing workflow.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Claude in Microsoft Foundry Is Now Generally Available</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">&rarr; Read more</a></div>
+  <p class="summary">Claude models are now generally available in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware, giving enterprise teams a supported path from agent prototyping to production. It extends Azure's multi-model strategy alongside its existing OpenAI integration.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Proving Application Resilience on Azure With Chaos Studio</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">&rarr; Read more</a></div>
+  <p class="summary">Azure Chaos Studio now supports simulating outages, failovers, network disruptions, and infrastructure failures against production-like environments so teams can validate resilience before a real incident hits. It's the practical complement to reliability engineering &mdash; testing failure paths instead of just predicting them.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Azure IaaS: How to Design, Build, and Optimize Cloud Infrastructure for Long-Term Cost Efficiency</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-iaas-how-to-design-build-and-optimize-cloud-infrastructure-for-long-term-cost-optimization-efficiency/">&rarr; Read more</a></div>
+  <p class="summary">Azure published a long-term cost-efficiency playbook for IaaS, covering rightsizing, reserved capacity, and architecture patterns for teams migrating mission-critical workloads while scaling AI infrastructure in parallel. It's aimed at organizations trying to avoid cost creep once cloud-native and AI workloads share the same environment.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Accelerate Modern Linux Workloads With Azure Files</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/accelerate-modern-linux-workloads-with-azure-files/">&rarr; Read more</a></div>
+  <p class="summary">Azure Files added performance and integration improvements aimed squarely at modern Linux workloads, combining familiar file-share semantics with built-in data protection and security controls. It's a lower-profile release, but a meaningful one for teams running Linux-heavy stacks where Azure Files' Linux support has historically trailed its Windows support.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [Hacker News] &mdash; <a href="https://phenomenalworld.org/analysis/the-anti-amazon/">Costco is the anti-Amazon</a> &mdash; (retail analysis, no infra angle)</li>
+  <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-bug-that-removed-copilot-button-in-outlook/">Microsoft fixes bug that removed Copilot buttons</a> &mdash; (minor bug fix, low signal)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/off-prem/2026/07/03/amazons-mechanical-turk-to-stop-accepting-new-customers-and-not-even-ai-can-save-it/5266274">Amazon's Mechanical Turk stops taking new customers</a> &mdash; (business story, no infra angle)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2207503/teslas-model-y-long-wheelbase-comes-to-the-us/">Tesla's Model Y L comes to the US</a> &mdash; (consumer gadget, no depth)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2207813/space-shuttle-endeavour-goes-on-public-display-later-this-year/">Space Shuttle Endeavour goes on public display</a> &mdash; (no tech relevance)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:08 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>
