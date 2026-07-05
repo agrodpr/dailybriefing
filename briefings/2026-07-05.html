@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 5, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Sunday, July 5, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">AI agents are now running entire cyberattacks unassisted &mdash; JadePuffer ransomware went from recon to encryption with zero human operators, while ARToken and ConsentFix/ClickFix show Microsoft 365 account takeovers collapsing to seconds via OAuth and device-code abuse. Both AWS and Azure report all US regions operating normally, though cloud cost governance is becoming its own headache: KPMG finds nearly a third of executives can't parse usage-based AI billing, and one developer's hijacked Google Cloud key still cost him $11,000 despite Google confirming the compromise. Watch the agentic-ransomware pattern spread beyond JadePuffer, and keep an eye on who ends up liable when a stolen credential &mdash; not a customer mistake &mdash; drives the bill.</p>
+
+<div class="cards-wrap">
+
+<!-- HN 1 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Leaking YouTube Creators' Private Videos</h2>
+  <div class="meta">625 pts &middot; 346 comments &middot; <a href="https://javoriuski.com/post/youtube">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48786781">Discuss on HN</a></div>
+  <p class="summary">A researcher found a prompt-injection flaw in YouTube Studio's AI assistant: malicious instructions hidden in video comments execute when a creator asks the assistant to summarize feedback, letting an attacker's payload masquerade as a legitimate YouTube response. Escalated further, the technique could exfiltrate private video titles &mdash; including unreleased content &mdash; just by getting a creator to click a link, with nothing suspicious visible in the original comment.</p>
+</div>
+
+<!-- HN 2 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Potential Session/Cache Leakage Between Workspace Instances or Consumer Accounts</h2>
+  <div class="meta">301 pts &middot; 129 comments &middot; <a href="https://github.com/anthropics/claude-code/issues/74066">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48785485">Discuss on HN</a></div>
+  <p class="summary">A user on an Enterprise ZDR Claude Code workspace reported the agent surfacing content from an entirely different session &mdash; confidently recapping a Minecraft build that was never part of their conversation. It's tagged as a security-area bug and left open, since the possible explanations range from cross-session leakage between colleagues to, worse, zero-data-retention enterprise chats leaking into consumer-tier accounts.</p>
+</div>
+
+<!-- HN 3 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>GPT-5.5 Codex Reasoning-Token Clustering May Be Leading to Degraded Performance</h2>
+  <div class="meta">283 pts &middot; 112 comments &middot; <a href="https://github.com/openai/codex/issues/30364">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48789428">Discuss on HN</a></div>
+  <p class="summary">An analysis of Codex logs found GPT-5.5 responses terminating at exactly 516 reasoning tokens far more often than any other model &mdash; 19% of responses but 82% of these exact cutoffs, a pattern that jumped from 0.1% to over 53% between February and May even as overall reasoning-token usage fell. The reporter ties this suspiciously precise clustering to a separate thread where 516-token cutoffs correlate with wrong answers, suggesting a truncation bug quietly degrading complex Codex tasks.</p>
+</div>
+
+<!-- BC 1 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>JadePuffer Ransomware Used AI Agent to Automate Entire Attack</h2>
+  <div class="meta">Jul 4 &middot; <a href="https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/">&rarr; Read more</a></div>
+  <p class="summary">Sysdig says JadePuffer is the first documented ransomware run entirely by an LLM agent &mdash; it broke in through CVE-2025-3248, an unauthenticated RCE in Langflow, then autonomously dumped databases, stole credentials, planted a cron-job backdoor, pivoted to production MySQL via Nacos, escalated privileges with CVE-2021-29441, and AES-encrypted 1,342 config items, adapting in real time when steps failed. It's an early look at how agentic AI collapses the skill floor for running a full intrusion chain end to end without a human operator.</p>
+</div>
+
+<!-- BC 2 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>ARToken PhaaS Exposes EvilTokens' Microsoft 365 Phishing Toolkit</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.bleepingcomputer.com/news/security/artoken-phaas-exposes-eviltokens-microsoft-365-phishing-toolkit/">&rarr; Read more</a></div>
+  <p class="summary">Cisco Talos exposed ARToken, a phishing-as-a-service affiliate of EvilTokens running over 80 API endpoints built to steal Microsoft 365 auth tokens, mint persistent access via Primary Refresh Tokens, and reach into Outlook, SharePoint, and OneDrive. It abuses Microsoft's device-code authentication flow to sidestep MFA entirely, turning account takeover and business email compromise into an off-the-shelf subscription service.</p>
+</div>
+
+<!-- BC 3 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>ConsentFix and ClickFix: How Microsoft 365 Accounts Are Hijacked in 3 Seconds</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/">&rarr; Read more</a></div>
+  <p class="summary">ClickFix tricks victims into pasting and running attacker commands via a fake "press this shortcut to continue" prompt, while its sibling ConsentFix lures them into dragging a malicious localhost link into their browser during a spoofed Microsoft 365 sign-in &mdash; surrendering OAuth tokens without ever touching a password or triggering MFA. Both techniques exploit ordinary click-through behavior, which is exactly why they're proving so hard for users and endpoint tools to catch in time.</p>
+</div>
+
+<!-- BC 4 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Kubota Says Hackers Had Month-Long Access to Network Systems</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://www.bleepingcomputer.com/news/security/kubota-says-hackers-had-month-long-access-to-network-systems/">&rarr; Read more</a></div>
+  <p class="summary">Kubota North America disclosed that intruders sat inside its network from March 16 to April 20, accessing employee and dependent records including Social Security numbers, dates of birth, driver's license data, and financial information. No group has claimed responsibility and Kubota reports no operational disruption, but a five-week dwell time on an equipment maker's network is a long window for exfiltration.</p>
+</div>
+
+<!-- REG 1 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Startup Targets Datacenters With 3D-Printed Nuclear Reactor Module</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/systems/2026/07/03/startup-targets-datacenters-with-3d-printed-nuclear-reactor-module/5266480">&rarr; Read more</a></div>
+  <p class="summary">Ampera unveiled a 3D-printed thorium microreactor design meant to power datacenters directly, promising up to 30 MWe for as long as 30 years from a single module. It's aimed squarely at the datacenter industry's power crunch, though real deployments aren't targeted until 2030 &mdash; a reminder that nuclear-for-AI pitches are still mostly running years ahead of steel in the ground.</p>
+</div>
+
+<!-- REG 2 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Dev Says Google Warned Him About Account Hijack &mdash; Then Charged Him $11,000 Anyway</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/03/dev-says-google-warned-him-about-account-hijack-then-charged-him-11000-anyway/5266234">&rarr; Read more</a></div>
+  <p class="summary">Developer Charles Jones racked up $11,089.77 in Gemini image-generation charges over 48 hours after a compromised Firebase Admin SDK service-account key was used against his Google Cloud account &mdash; Google confirmed the key was compromised but its billing team still refused a refund. It's a pointed example of a cloud provider acknowledging a security failure while still leaving the customer holding the invoice.</p>
+</div>
+
+<!-- REG 3 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>AI Bills Are Baffling the C-Suite After Shift to Usage-Based Pricing</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/ai-and-ml/2026/07/03/ai-bills-are-baffling-the-c-suite-after-shift-to-usage-based-pricing/5266383">&rarr; Read more</a></div>
+  <p class="summary">A KPMG survey finds nearly a third of executives can't clearly explain their own organization's AI operating costs now that vendors have shifted from flat licensing to usage-based pricing. The murkiness is already pushing companies to rethink AI deployments, since a bill nobody can forecast is hard to budget against or defend to a board.</p>
+</div>
+
+<!-- DR 1 -->
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <h2>Anthropic's AI Finds Bugs. IBM Bets $5B It Can Fix Them.</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.darkreading.com/vulnerabilities-threats/anthropic-s-ai-finds-bugs-ibm-bets-5b-it-can-fix-them--">&rarr; Read more</a></div>
+  <p class="summary">IBM and Red Hat are committing 20,000 engineers to a new service called Project Lightwell, built around Anthropic's Claude Mythos surfacing vulnerabilities across the open-source software supply chain. The scale of the bet &mdash; and the debate it's triggered &mdash; underscores how AI-assisted vulnerability discovery is outpacing the industry's ability to actually remediate what gets found.</p>
+</div>
+
+<!-- DR 2 -->
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <h2>Chinese LLMs Broaden the Gap Between Attackers & Defenders</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.darkreading.com/cyber-risk/chinese-llms-broaden-gap-between-attackers-and-defenders">&rarr; Read more</a></div>
+  <p class="summary">Two newly released large language models from Chinese AI firms now compete directly with top US mainstream and frontier models on capability. That parity matters for defenders specifically because it removes model access as a bottleneck for attackers operating outside the reach of US AI vendors' usage policies and monitoring.</p>
+</div>
+
+<!-- DR 3 -->
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <h2>Apple Reverses Age-Old Patch Policy to Keep Up With AI</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.darkreading.com/cybersecurity-operations/apple-patch-policy-ai">&rarr; Read more</a></div>
+  <p class="summary">Apple is moving away from its traditionally slow, batched patch cadence toward more compressed release cycles, a direct response to attackers using AI to shrink the time between a bug's disclosure and its exploitation. It's a notable reversal for a vendor that has historically prized patch stability over speed.</p>
+</div>
+
+<!-- ENG 1 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Router Brands Could Be Misleading You With That Wi-Fi 7 Label</h2>
+  <div class="meta">Jul 4 &middot; <a href="https://www.engadget.com/2206012/router-brands-could-be-misleading-you-with-that-wi-fi-7-label/">&rarr; Read more</a></div>
+  <p class="summary">Some routers are marketed as "WiFi 7" without the hyphen specifically to dodge Wi-Fi Alliance certification, which requires real Multi-Link Operation support, while others carry the official "Wi-Fi Certified 7" badge but only implement its weakest MLO tier &mdash; delivering fluctuating speeds instead of the simultaneous-band performance the standard promises. Most buyers don't even own a Wi-Fi 7 client device yet, making the label largely aspirational either way.</p>
+</div>
+
+<!-- ENG 2 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Midjourney Wants the Hollywood Studios That Sued It to Show the Court How They Use AI</h2>
+  <div class="meta">Jul 4 &middot; <a href="https://www.engadget.com/2207936/midjourney-wants-studios-that-sued-show-court-ai-use/">&rarr; Read more</a></div>
+  <p class="summary">Midjourney is asking a federal court to overturn an order limiting discovery into Disney's, Warner Bros.', and Universal's own AI practices &mdash; training data, model weights, and internal AI plans included. Its argument: if the studios train models on copyrighted material themselves, that undercuts their fair-use case against Midjourney doing the same.</p>
+</div>
+
+<!-- CLOUD BLOCK -->
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Azure IaaS: How to Design, Build, and Optimize Cloud Infrastructure for Long-Term Cost Efficiency</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-iaas-how-to-design-build-and-optimize-cloud-infrastructure-for-long-term-cost-optimization-efficiency/">&rarr; Read more</a></div>
+  <p class="summary">Azure published a long-term cost-efficiency playbook for IaaS covering rightsizing, reserved capacity, and architecture patterns aimed at teams migrating mission-critical workloads while scaling AI infrastructure in the same environment. It's guidance for organizations trying to avoid cost creep once cloud-native and AI workloads start sharing the same footprint.</p>
+</div>
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Weekly Roundup: Agentic CX Designer for Amazon Connect, EC2 AMI Watermarks, Open Governance for MySQL, and More</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-agentic-cx-designer-for-amazon-connect-customer-ec2-ami-watermarks-open-governance-for-mysql-and-more-june-29-2026/">&rarr; Read more</a></div>
+  <p class="summary">This week's roundup covers Amazon Connect's new no-code agentic CX designer for building customer-service agents without hand-written logic, EC2 AMI watermarks for verifying image provenance, and AWS backing an open governance model for MySQL. It's agentic tooling spreading into contact-center workflows alongside supply-chain trust and open-source stewardship moves.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Weekly Roundup: NY Summit Recap, Local Zone in Hanoi, Grok 4.3 in Bedrock, Price Reductions, and More</h2>
+  <div class="meta">Jun 22 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ny-summit-recap-local-zone-in-hanoi-grok-4-3-in-bedrock-price-reductions-and-more-june-22-2026/">&rarr; Read more</a></div>
+  <p class="summary">AWS recaps its NYC Summit's agentic-AI announcements, a new Local Zone launching in Hanoi to bring low-latency compute to Southeast Asia, xAI's Grok 4.3 landing in Bedrock, and a fresh round of price cuts across services. It's a broad infrastructure-expansion week, with both the Bedrock model roster and regional footprint growing.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon EC2 G7 Instances Accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs</h2>
+  <div class="meta">Jun 18 &middot; <a href="https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-g7-instances-accelerated-by-nvidia-rtx-pro-4500-blackwell-server-edition-gpus/">&rarr; Read more</a></div>
+  <p class="summary">New EC2 G7 instances pair NVIDIA's RTX PRO 4500 Blackwell Server Edition GPUs with AWS's infrastructure, delivering up to 4.6x the AI inference throughput and 2.1x the graphics performance of the prior generation. They're aimed at teams running graphics-heavy and inference workloads that don't need a full datacenter-class GPU like an H100 or B200.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Upgrade Amazon EKS Clusters With Confidence Using Kubernetes Version Rollbacks</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">&rarr; Read more</a></div>
+  <p class="summary">Amazon EKS now supports rolling back a cluster's Kubernetes version within seven days of an upgrade if something breaks, with no cluster rebuild required. It converts what used to be a one-way, high-stakes upgrade decision into a reversible operation, measurably lowering the risk teams take on with every new Kubernetes version.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Accelerate Your Infrastructure Deployments by Up to 4x With AWS CloudFormation Express Mode</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">&rarr; Read more</a></div>
+  <p class="summary">CloudFormation Express mode returns a deployment confirmation as soon as resource configuration is applied instead of waiting on full stabilization checks, cutting deployment time by up to 4x for iterative workflows. It's a meaningful speed-up for both human developers and AI coding agents that need fast infrastructure feedback loops.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>AWS Lambda Introduces MicroVMs for Isolated Sandboxes With Full Lifecycle Control</h2>
+  <div class="meta">Jun 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+  <p class="summary">Lambda MicroVMs give each sandbox full VM-level isolation with no shared kernel between sessions, launching rapidly from pre-initialized snapshots and preserving state for up to eight hours. It's built for workloads &mdash; including AI agent code execution &mdash; that need stronger isolation guarantees than a standard Lambda function without customers managing any underlying infrastructure.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Claude in Microsoft Foundry Is Now Generally Available</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">&rarr; Read more</a></div>
+  <p class="summary">Claude models are now generally available in Microsoft Foundry, running on Azure-hosted NVIDIA GB300 Blackwell Ultra hardware, giving enterprise teams a supported path from prototype to production. It extends Azure's multi-model strategy alongside its existing OpenAI integration, giving Foundry customers real model choice at the frontier tier.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>The 2026 Agent Confidence Index: Where 300 Builders See Real Momentum</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft surveyed 300 technical builders on where AI agents are delivering genuine production value versus hype, finding real momentum concentrated in specific workflows rather than general-purpose autonomy. The report's headline caveat is that "human judgment remains paramount" &mdash; enterprises adopting agents are keeping people firmly in the approval loop, not removing them.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Proving Application Resilience on Azure With Chaos Studio</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">&rarr; Read more</a></div>
+  <p class="summary">Azure Chaos Studio now simulates outages, failovers, network disruptions, and infrastructure failures against production-like environments so teams can validate resilience before a real incident hits. It's the practical complement to reliability planning &mdash; testing failure paths directly instead of just modeling them on paper.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Accelerate Modern Linux Workloads With Azure Files</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/accelerate-modern-linux-workloads-with-azure-files/">&rarr; Read more</a></div>
+  <p class="summary">Azure Files added performance and integration improvements targeted at Linux workloads, pairing familiar file-share semantics with built-in data protection and security controls. It's a lower-profile release, but a meaningful one for teams running Linux-heavy stacks where Azure Files' Linux support has historically lagged its Windows support.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [Hacker News] &mdash; <a href="https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main">Command and Conquer Generals ported to macOS/iPhone/iPad</a> &mdash; (fun hack, no infra angle)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/science/2026/07/04/nasa-says-it-will-isolate-volunteers-from-the-outside-world-for-a-year/5266558">NASA says it will isolate volunteers for a year</a> &mdash; (space/science, no infra angle)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/software/2026/07/03/failed-blockchain-project-ends-with-big-fine-for-fibs-about-it-being-on-track/5266297">Failed blockchain project fined A$20.5M</a> &mdash; (blockchain, deprioritized)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2207813/space-shuttle-endeavour-goes-on-public-display-later-this-year/">Space Shuttle Endeavour goes on public display</a> &mdash; (no tech relevance)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2207957/tesla-driver-charged-manslaughter-texas-crash-killed-woman-in-home/">Tesla driver charged with manslaughter in Texas crash</a> &mdash; (not infra/security related)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:12 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>

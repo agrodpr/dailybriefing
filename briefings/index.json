@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-04T11:12:10Z",
+  "updated": "2026-07-05T11:12:32Z",
   "briefings": [
+    {
+      "date": "2026-07-05",
+      "file": "briefings/2026-07-05.html",
+      "weekday": "Sunday",
+      "label": "July 5, 2026",
+      "stories": 26,
+      "flagged": 4,
+      "note": "AI agents are now running entire cyberattacks unassisted — JadePuffer ransomware went from recon to encryption with zero human operators, while ARToken and ConsentFix/ClickFix show Microsoft 365 account takeovers collapsing to seconds via OAuth and device-code abuse. Both AWS and Azure report all US regions operating normally, though cloud cost governance is becoming its own headache: KPMG finds nearly a third of executives can't parse usage-based AI billing, and one developer's hijacked Google Cloud key still cost him $11,000 despite Google confirming the compromise. Watch the agentic-ransomware pattern spread beyond JadePuffer, and keep an eye on who ends up liable when a stolen credential — not a customer mistake — drives the bill."
+    },
     {
       "date": "2026-07-04",
       "file": "briefings/2026-07-04.html",
