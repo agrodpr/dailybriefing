@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 6, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Monday, July 6, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">The first fully autonomous, LLM-run ransomware operation &mdash; JadePuffer &mdash; chained two known CVEs to compromise Langflow and Nacos servers end to end with no human operator, while ConsentFix blueprints for stealing Microsoft 365 OAuth tokens have circulated openly on cybercrime forums since March. Both AWS and Azure report all US regions operating normally, and this week's cloud news skews toward agentic tooling &mdash; AWS's DevOps Agent and WAF AI-traffic monetization, Azure's next phase of agentic cloud operations &mdash; rather than any forced migrations. Watch whether JadePuffer's reused, training-data-sourced Bitcoin address becomes a detection signature for AI-run attacks, and keep an eye on the MFA-optional-banks story as a reminder that consumer security posture hasn't caught up to attacker tooling.</p>
+
+<div class="cards-wrap">
+
+<!-- HN 1 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Organic Maps</h2>
+  <div class="meta">1025 pts &middot; 317 comments &middot; <a href="https://organicmaps.app/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48794446">Discuss on HN</a></div>
+  <p class="summary">Organic Maps is an open-source, privacy-respecting offline maps app built on OpenStreetMap data, with no ads, no tracking, and no account required. Its front-page run reflects growing developer appetite for software that works fully offline and doesn't monetize location data, as mapping keeps getting bundled into ad-supported platforms elsewhere.</p>
+</div>
+
+<!-- HN 2 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>OpenPrinter</h2>
+  <div class="meta">888 pts &middot; 224 comments &middot; <a href="https://www.opentools.studio/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48797916">Discuss on HN</a></div>
+  <p class="summary">OpenPrinter is an open-source, modular printer built for repairability, with refillable ink cartridges and swappable parts designed to resist the planned-obsolescence model that dominates consumer printers. For IT teams tired of vendor lock-in on ink and firmware, it's a rare hardware project that treats printers as maintainable infrastructure rather than disposable peripherals.</p>
+</div>
+
+<!-- HN 3 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>The Future of Flipper Zero Development</h2>
+  <div class="meta">342 pts &middot; 147 comments &middot; <a href="https://blog.flipper.net/future-of-flipper-zero-development/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48796552">Discuss on HN</a></div>
+  <p class="summary">Flipper Devices committed to keeping Flipper Zero's firmware alive after community backlash over perceived abandonment, promising GitHub Discussions-based feature voting, stricter pull-request review, and integration testing going forward. Development stays limited, though, since the company's own priority has shifted to building new hardware rather than iterating on the original device.</p>
+</div>
+
+<!-- HN 4 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Does Code Cleanliness Affect Coding Agents? A Controlled Minimal-Pair Study</h2>
+  <div class="meta">139 pts &middot; 75 comments &middot; <a href="https://arxiv.org/abs/2605.20049">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48798815">Discuss on HN</a></div>
+  <p class="summary">A controlled study running 660 trials of Claude Code against matched "minimal pair" repositories found that messy code didn't change the agent's pass rate, but clean code cut token usage by 7-8% and reduced file revisitations by 34%. It's a concrete data point for teams weighing whether code-quality investment pays off in agentic-coding cost even when it doesn't move correctness outcomes.</p>
+</div>
+
+<!-- BC 1 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>JadePuffer Ransomware Used AI Agent to Automate Entire Attack</h2>
+  <div class="meta">Jul 4 &middot; <a href="https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/">&rarr; Read more</a></div>
+  <p class="summary">Researchers at Sysdig documented JadePuffer, reportedly the first ransomware operation run entirely by an autonomous LLM agent &mdash; it exploited an unauthenticated RCE in Langflow (CVE-2025-3248) and a Nacos auth bypass (CVE-2021-29441), then encrypted 1,342 Nacos configuration items with MySQL's AES_ENCRYPT() function after installing cron-job persistence. The agent adapted in real time, in one case going from a failed login to a working fix in 31 seconds, and its ransom note reused a Bitcoin address lifted straight from public documentation &mdash; a tell that may become a detection signature for future AI-run attacks.</p>
+</div>
+
+<!-- BC 2 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>ARToken PhaaS Exposes EvilTokens' Microsoft 365 Phishing Toolkit</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.bleepingcomputer.com/news/security/artoken-phaas-exposes-eviltokens-microsoft-365-phishing-toolkit/">&rarr; Read more</a></div>
+  <p class="summary">A new phishing-as-a-service platform called ARToken is operating as an affiliate of the EvilTokens toolkit, giving researchers visibility into an extensive kit built specifically to compromise Microsoft 365 accounts. It's another sign that turnkey M365 phishing infrastructure keeps getting more accessible to lower-skilled affiliates.</p>
+</div>
+
+<!-- BC 3 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>ConsentFix and ClickFix: How Microsoft 365 Accounts Are Hijacked in 3 Seconds</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/">&rarr; Read more</a></div>
+  <p class="summary">ConsentFix, an evolution of the ClickFix social-engineering technique, tricks Microsoft 365 users into dragging a localhost callback link into their browser during a fake authentication flow, handing over OAuth session tokens without triggering a password prompt or MFA challenge. Working blueprints and video tutorials have circulated on Russian cybercrime forums since March, so "paste this to verify" prompts should be treated as a live attack pattern, not a hypothetical one.</p>
+</div>
+
+<!-- BC 4 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Opera Rolls Out Paste Protect Feature to Fight ClickFix Attacks</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/opera-rolls-out-paste-protect-feature-to-fight-clickfix-attacks/">&rarr; Read more</a></div>
+  <p class="summary">Opera shipped Paste Protect, a browser feature that intercepts ClickFix-style attacks by flagging suspicious clipboard-paste-and-run sequences before they execute. It's a rare case of a browser vendor building a targeted defense against one specific, currently active social-engineering technique rather than relying on general anti-phishing heuristics.</p>
+</div>
+
+<!-- BC 5 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Alleged Scattered Spider Hacker Extradited to the United States</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.bleepingcomputer.com/news/security/alleged-scattered-spider-hacker-extradited-to-the-united-states/">&rarr; Read more</a></div>
+  <p class="summary">A dual U.S.-Estonian citizen has been extradited to the United States to face charges tied to membership in the Scattered Spider hacking collective, the group behind a string of high-profile social-engineering breaches against major enterprises. It's the latest in a slow but steady string of arrests chipping away at the loosely affiliated group's membership.</p>
+</div>
+
+<!-- REG 1 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>MFA-Optional Banks Leave Safe Doors (and Accounts) Wide Open for Thieves to Pillage</h2>
+  <div class="meta">Jul 5 &middot; <a href="https://www.theregister.com/security/2026/07/05/mfa-optional-banks-leave-safe-doors-and-accounts-wide-open-for-thieves-to-pillage/5266161">&rarr; Read more</a></div>
+  <p class="summary">Several major U.S. banks &mdash; including Bank of America, Chase, Capital One, and Citibank &mdash; still treat multi-factor authentication as optional rather than required; The Register traces one resulting case where an 84-year-old woman lost $30,000 after attackers used breached passwords to walk straight into her account. Microsoft research pegs MFA as stopping 99.9% of automated account-takeover attempts, making "optional" a design choice banks are making with customers' money on the line.</p>
+</div>
+
+<!-- REG 2 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>AI Bills Are Baffling the C-Suite After Shift to Usage-Based Pricing</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/ai-and-ml/2026/07/03/ai-bills-are-baffling-the-c-suite-after-shift-to-usage-based-pricing/5266383">&rarr; Read more</a></div>
+  <p class="summary">KPMG research cited by The Register finds nearly a third of executives can't clearly explain their own company's AI spending after providers shifted from flat licensing to usage-based pricing. The murkiness is reportedly changing how some companies structure AI deployments, favoring predictable-cost approaches over open-ended usage billing.</p>
+</div>
+
+<!-- REG 3 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Startup Targets Datacenters With 3D-Printed Nuclear Reactor Module</h2>
+  <div class="meta">Jul 3 &middot; <a href="https://www.theregister.com/systems/2026/07/03/startup-targets-datacenters-with-3d-printed-nuclear-reactor-module/5266480">&rarr; Read more</a></div>
+  <p class="summary">A startup is pitching a 3D-printed thorium microreactor module capable of delivering up to 30 MWe for up to 30 years, aimed squarely at datacenters facing power-constrained growth. It's one more entry in the growing list of nuclear-for-datacenters plays betting that AI-driven power demand outruns what utilities can deliver on a normal grid-interconnection timeline.</p>
+</div>
+
+<!-- REG 4 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Trouble Keeps Finding Supermicro as Strange Server Shipments Attract Police Attention</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://www.theregister.com/legal/2026/07/02/trouble-keeps-finding-supermicro-as-strange-server-shipments-attract-police-attention-in-taiwan-and-singapore/5265520">&rarr; Read more</a></div>
+  <p class="summary">Supermicro is facing fresh scrutiny in Taiwan and Singapore after police seized a $42 million house tied to alleged illicit movement of GPU-laden server shipments. It's the latest chapter in a pattern of legal trouble following the server maker, adding to existing supply-chain-integrity concerns around its hardware.</p>
+</div>
+
+<!-- ENG 1 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Alibaba Gets a Reprieve From US Chinese Military Ban</h2>
+  <div class="meta">Jul 6 &middot; <a href="https://www.engadget.com/2208232/alibaba-gets-a-reprieve-from-us-chinese-military-ban/">&rarr; Read more</a></div>
+  <p class="summary">A U.S. judge ruled the Pentagon must grant Alibaba a reprieve from its placement on a list of Chinese companies alleged to support the Chinese military, temporarily pausing restrictions tied to that designation. It matters for any enterprise running workloads on or partnering with Alibaba Cloud internationally, since a U.S. blacklist designation carries real compliance weight for American customers and partners.</p>
+</div>
+
+<!-- ENG 2 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>These Popular Smartphones Are in Their Last Year of Software Support</h2>
+  <div class="meta">Jul 5 &middot; <a href="https://www.engadget.com/2206707/these-popular-smartphones-are-in-their-last-year-of-software-support/">&rarr; Read more</a></div>
+  <p class="summary">Engadget rounds up several popular smartphone models now entering their final year of guaranteed software updates, after which they'll stop receiving security patches. It's a useful checklist for IT and security teams tracking device-lifecycle risk in BYOD and mobile fleets, where an unsupported phone quietly becomes an unpatched one.</p>
+</div>
+
+<!-- CLOUD BLOCK -->
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Modernize Your Data With Azure Storage: Plan and Migrate With Confidence</h2>
+  <div class="meta">Jun 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">&rarr; Read more</a></div>
+  <p class="summary">Azure published planning guidance for large-scale storage migrations, framing petabyte-scale data moves as a business-continuity and cost problem as much as a technical one. The post walks through tooling for minimizing downtime and validating data integrity during cutover, aimed at teams with a storage migration already on the roadmap.</p>
+</div>
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS WAF Adds AI Traffic Monetization Capability to Help Content Owners Charge AI Bots for Content Access</h2>
+  <div class="meta">Jun 15 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/">&rarr; Read more</a></div>
+  <p class="summary">AWS WAF now includes an AI-traffic-monetization capability that lets content owners and publishers set a price for AI bots and agents accessing their content and APIs, with payment collected through third-party providers at the edge. It gives publishers a monetization lever instead of a pure block/allow choice for AI crawler traffic.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon S3 Annotations: Attach Rich, Queryable Context Directly to Your Objects</h2>
+  <div class="meta">Jun 16 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-s3-annotations-attach-rich-queryable-context-directly-to-your-objects/">&rarr; Read more</a></div>
+  <p class="summary">Amazon S3 now supports attaching up to 1 GB of rich, mutable, queryable context directly to objects via annotations, purpose-built for AI agents that need to discover and act on data without maintaining a separate metadata system. It's aimed at autonomous workflows where object-level context needs to travel with the data itself.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS DevOps Agent Adds Release Management Capabilities to Assess Code Changes Before Production</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-devops-agent-adds-release-management-capabilities-to-assess-code-changes-before-production-preview/">&rarr; Read more</a></div>
+  <p class="summary">AWS DevOps Agent added release-management capabilities in preview, reviewing code changes for release readiness and running autonomous release testing before production deployment. It extends AWS's push toward agent-assisted DevOps pipelines that can gate releases without a human manually signing off on every change.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Proactively Reduce Tech Debt Autonomously With AWS Transform &mdash; Continuous Modernization</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/proactively-reduce-tech-debt-autonomously-with-aws-transform-continuous-modernization-preview/">&rarr; Read more</a></div>
+  <p class="summary">AWS Transform's new continuous-modernization preview automatically scans code repositories to detect, prioritize, and remediate technical debt at scale, rather than requiring a one-time migration project. It's aimed at organizations that want tech-debt reduction running as an ongoing background process instead of a periodic initiative.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Announcing Web Search on Amazon Bedrock AgentCore</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/announcing-web-search-on-amazon-bedrock-agentcore-ground-your-ai-agents-in-current-accurate-web-knowledge/">&rarr; Read more</a></div>
+  <p class="summary">Amazon Bedrock AgentCore now offers a fully managed web-search tool that grounds agent responses in current, cited web knowledge with zero data egress from the customer's AWS environment. It removes the need for teams to build and operate their own web-search infrastructure just to keep agents current.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon ECS Introduces New High-Resolution Metrics for Faster Service Auto Scaling</h2>
+  <div class="meta">Jun 18 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/">&rarr; Read more</a></div>
+  <p class="summary">Amazon ECS added high-resolution metrics for service auto scaling, combining predictive scaling for recurring traffic patterns, scheduled scaling for planned events, and real-time target tracking in one policy set. It gives teams finer-grained, faster-reacting autoscaling than the previous metric resolution allowed.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>The Performance Dividend: Optimizing PostgreSQL on Azure Directly in Visual Studio Code</h2>
+  <div class="meta">Jun 26 &middot; <a href="https://azure.microsoft.com/en-us/blog/the-performance-dividend-optimizing-postgresql-on-azure-directly-in-visual-studio-code/">&rarr; Read more</a></div>
+  <p class="summary">Azure added tooling for optimizing PostgreSQL performance directly inside Visual Studio Code, aimed at catching database issues before they surface as missed SLAs and frustrated engineering teams. It folds performance tuning into the same editor developers already use, rather than a separate ops-only console.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>From Insight to Action: The Next Phase of Agentic Cloud Operations</h2>
+  <div class="meta">Jun 23 &middot; <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">&rarr; Read more</a></div>
+  <p class="summary">Azure outlined its next phase of "agentic cloud operations," aiming for cloud environments that move from surfacing insights to autonomously acting on the next set of operational decisions in real time. It's Microsoft's framing of where AIOps is headed as agents take on more of the response loop, not just the detection loop.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>The 2026 Agent Confidence Index: Where 300 Builders See Real Momentum</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft's 2026 Agent Confidence Index surveyed 300 builders on where they actually trust AI agents today, finding that human judgment remains the deciding factor even as agent capability grows. It's a useful reality check against the more triumphalist agentic-AI messaging elsewhere in the industry.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>3 Things Leaders Need to Know From Microsoft Build 2026</h2>
+  <div class="meta">Jun 11 &middot; <a href="https://azure.microsoft.com/en-us/blog/3-things-leaders-need-to-know-from-microsoft-build-2026/">&rarr; Read more</a></div>
+  <p class="summary">Azure's leadership recap of Microsoft Build 2026 frames this year's shift as AI moving from isolated tools to connected systems grounded in business data, arguing that winners will embed AI across workflows rather than bolt it onto existing processes. It's aimed at leadership audiences deciding how much organizational change an AI rollout actually requires.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [Hacker News] &mdash; <a href="https://popcar.bearblog.dev/its-about-ownership/">It's not about physical vs. digital games, it's about ownership</a> &mdash; (gaming opinion, no infra angle)</li>
+  <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-bug-that-removed-copilot-button-in-outlook/">Microsoft fixes bug that removed Copilot buttons in Outlook</a> &mdash; (minor bug fix, low signal)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/os-platforms/2026/07/06/zombie-who-owns-unix-lawsuit-comes-alive-again/5266761">Zombie 'who owns Unix?' lawsuit comes alive again</a> &mdash; (old lawsuit revival, no depth)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2208210/apple-foldable-iphone-may-be-in-short-supply-after-it-launches/">Apple's foldable iPhone may be in short supply after it launches</a> &mdash; (consumer gadget, no depth)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2208083/sony-will-make-physical-discs-after-2028-if-game-came-out-before-then/">Sony says it will still make physical discs after 2028</a> &mdash; (consumer gaming news, no tech angle)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:10 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>

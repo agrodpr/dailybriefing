@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-04T11:12:10Z",
+  "updated": "2026-07-06T11:10:40Z",
   "briefings": [
+    {
+      "date": "2026-07-06",
+      "file": "briefings/2026-07-06.html",
+      "weekday": "Monday",
+      "label": "July 6, 2026",
+      "stories": 26,
+      "flagged": 2,
+      "note": "The first fully autonomous, LLM-run ransomware operation — JadePuffer — chained two known CVEs to compromise Langflow and Nacos servers end to end with no human operator, while ConsentFix blueprints for stealing Microsoft 365 OAuth tokens have circulated openly on cybercrime forums since March. Both AWS and Azure report all US regions operating normally, and this week's cloud news skews toward agentic tooling — AWS's DevOps Agent and WAF AI-traffic monetization, Azure's next phase of agentic cloud operations — rather than any forced migrations. Watch whether JadePuffer's reused, training-data-sourced Bitcoin address becomes a detection signature for AI-run attacks, and keep an eye on the MFA-optional-banks story as a reminder that consumer security posture hasn't caught up to attacker tooling."
+    },
     {
       "date": "2026-07-04",
       "file": "briefings/2026-07-04.html",
