@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · July 7, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171;
+  --purple:#A78BFA; --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--text); margin:0; padding:0 20px 40px;
+  font-family:'Inter',sans-serif;
+}
+a{color:inherit;}
+.masthead{text-align:center; padding-top:56px;}
+h1{
+  font-family:'Fraunces',serif; font-size:80px; font-weight:600;
+  letter-spacing:-2px; margin:0; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:14px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:36px auto;}
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:860px; margin:0 auto;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase;}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; text-align:center; margin:48px auto; color:var(--text);
+  line-height:1.5;
+}
+.container{max-width:860px; margin:0 auto;}
+.sub-header{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px;
+  color:var(--text-muted); margin:40px 0 12px;
+}
+.card{
+  background:var(--surface); padding:28px 32px; border-radius:8px;
+  margin-bottom:16px; border-left:3px solid var(--source-color, var(--cyan));
+}
+.card:hover{filter:brightness(1.3);}
+.chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+.chip{
+  font-size:10px; text-transform:uppercase; padding:4px 10px; border-radius:999px;
+  font-weight:600; color:#0B0B0F; background:var(--source-color, var(--cyan));
+  display:inline-block;
+}
+.chip-flag{background:var(--orange); color:#0B0B0F;}
+.chip-health{background:#2a1416; color:var(--red); border:1px solid var(--red);}
+.headline{font-family:'Fraunces',serif; font-size:32px; margin:0 0 8px; line-height:1.2;}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted); text-decoration:underline;}
+.summary{font-size:17px; line-height:1.7; margin:0;}
+.status-line{
+  font-size:15px; color:var(--text-muted); padding:8px 4px 20px;
+}
+.skip-title{font-size:11px; text-transform:uppercase; color:var(--text-muted); letter-spacing:1px; margin:56px 0 12px;}
+.skip-list{list-style:none; padding:0; margin:0; font-size:14px; color:var(--text-muted); line-height:2;}
+.skip-list a{text-decoration:underline;}
+footer{
+  font-size:11px; text-align:center; color:var(--text-muted); padding-top:48px;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Tuesday, July 7, 2026</div>
+</div>
+
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">Exploitation is today's throughline — Adobe's max-severity ColdFusion flaw is under active attack, Pegasus spyware just turned up on an EU lawmaker's own phone, and researchers documented the first ransomware run entirely by an autonomous AI agent. AWS spent four early-morning hours fighting elevated EC2 Launch Template errors in US-EAST-1 that spilled into EKS node provisioning before fully recovering, while Azure reports all US regions normal and pushed Claude's GA launch in Microsoft Foundry alongside new storage-migration guidance. Watch the ColdFusion exploitation chain, and whether JadePuffer's AI-orchestrated playbook gets copied.</p>
+
+<div class="container">
+
+<!-- HACKER NEWS -->
+<div class="card" style="--source-color:var(--cyan)">
+  <div class="chip-row"><span class="chip">Hacker News</span></div>
+  <h2 class="headline">OpenWrt One – Open Hardware Router</h2>
+  <div class="meta">655 pts · 251 comments · <a href="https://news.ycombinator.com/item?id=48808482">HN discussion</a> · <a href="https://openwrt.org/toh/openwrt/one">Read more</a></div>
+  <p class="summary">OpenWrt One is officially-supported OpenWrt reference hardware built on MediaTek's Filogic 820 chipset — WiFi 6, dual 2.5GbE/1GbE ports, 1GB RAM — that ships pre-loaded with current OpenWrt firmware and full LuCI tooling out of the box. It's notable as a purpose-built reference platform for the open-source router project rather than a repurposed consumer device, giving firmware developers a known-good baseline to target.</p>
+</div>
+
+<div class="card" style="--source-color:var(--cyan)">
+  <div class="chip-row"><span class="chip">Hacker News</span></div>
+  <h2 class="headline">Resetting Xbox</h2>
+  <div class="meta">640 pts · 700 comments · <a href="https://news.ycombinator.com/item?id=48804993">HN discussion</a> · <a href="https://news.xbox.com/en-us/2026/07/06/resetting-xbox/">Read more</a></div>
+  <p class="summary">Xbox leadership announced a sweeping reorg cutting roughly 3,200 jobs and spinning off four studios, citing margins "3-10x lower" than comparable platform businesses. The overhaul flattens management layers and creates a new COO role to unify operations across the gaming division as Microsoft refocuses investment on higher-priority projects.</p>
+</div>
+
+<div class="card" style="--source-color:var(--cyan)">
+  <div class="chip-row"><span class="chip">Hacker News</span></div>
+  <h2 class="headline">CoMaps – FOSS Offline Maps</h2>
+  <div class="meta">594 pts · 130 comments · <a href="https://news.ycombinator.com/item?id=48808928">HN discussion</a> · <a href="https://www.comaps.app/">Read more</a></div>
+  <p class="summary">CoMaps is a privacy-focused, fully offline navigation app — hike, bike, or drive with no connectivity or account required — built as a community fork of Organic Maps and Maps.Me. It collects no tracking data, sources map data from OpenStreetMap, and develops in the open on Codeberg.</p>
+</div>
+
+<!-- BLEEPINGCOMPUTER -->
+<div class="card" style="--source-color:var(--orange)">
+  <div class="chip-row"><span class="chip">BleepingComputer</span><span class="chip chip-flag">⚡ On Your Radar</span></div>
+  <h2 class="headline">Max severity Adobe ColdFusion flaw now exploited in attacks</h2>
+  <div class="meta">Jul 6 · <a href="https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/">Read more</a></div>
+  <p class="summary">Attackers are actively exploiting a maximum-severity Adobe ColdFusion vulnerability, CVE-2026-48282, according to vulnerability-intel firm KEVIntel — a strong signal it's headed for CISA's Known Exploited Vulnerabilities list. Organizations running ColdFusion should patch now rather than wait for a formal KEV deadline.</p>
+</div>
+
+<div class="card" style="--source-color:var(--orange)">
+  <div class="chip-row"><span class="chip">BleepingComputer</span><span class="chip chip-flag">⚡ On Your Radar</span></div>
+  <h2 class="headline">JadePuffer ransomware used AI agent to automate entire attack</h2>
+  <div class="meta">Jul 4 · <a href="https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/">Read more</a></div>
+  <p class="summary">Researchers documented what they believe is the first ransomware operation run entirely by an LLM agent, from initial access through encryption and extortion, with no human operator in the loop. JadePuffer is being treated as an early preview of autonomous, AI-driven ransomware-as-a-service.</p>
+</div>
+
+<div class="card" style="--source-color:var(--orange)">
+  <div class="chip-row"><span class="chip">BleepingComputer</span></div>
+  <h2 class="headline">BeyondTrust warns of critical flaws in remote access software</h2>
+  <div class="meta">Jul 7 · <a href="https://www.bleepingcomputer.com/news/security/beyondtrust-warns-of-critical-flaws-in-remote-access-software/">Read more</a></div>
+  <p class="summary">BeyondTrust is urging customers to patch two critical vulnerabilities in its Remote Support and Privileged Remote Access products that could let attackers bypass authentication entirely. Both products sit at the center of many enterprise support workflows, making unpatched instances a high-value target.</p>
+</div>
+
+<div class="card" style="--source-color:var(--orange)">
+  <div class="chip-row"><span class="chip">BleepingComputer</span></div>
+  <h2 class="headline">Fake IT support calls on Microsoft Teams push EtherRAT malware</h2>
+  <div class="meta">Jul 6 · <a href="https://www.bleepingcomputer.com/news/security/fake-it-support-calls-on-microsoft-teams-push-etherrat-malware/">Read more</a></div>
+  <p class="summary">Threat actors are cold-calling employees over Microsoft Teams voice, impersonating internal IT support to talk victims into installing the EtherRAT malware. Once installed, it hands attackers initial access to the corporate network — the same vishing-via-collaboration-tool pattern behind several recent ransomware intrusions.</p>
+</div>
+
+<div class="card" style="--source-color:var(--orange)">
+  <div class="chip-row"><span class="chip">BleepingComputer</span></div>
+  <h2 class="headline">Phishing poses as big-brand job interview to steal Google accounts</h2>
+  <div class="meta">Jul 6 · <a href="https://www.bleepingcomputer.com/news/security/phishing-poses-as-big-brand-job-interview-to-steal-google-accounts/">Read more</a></div>
+  <p class="summary">A phishing campaign is impersonating more than 30 recognizable brands — including Adobe, Netflix, Coca-Cola, and OpenAI — with fake job-interview invitations aimed at marketing professionals. The end goal is harvesting Google account credentials, not the job itself.</p>
+</div>
+
+<div class="card" style="--source-color:var(--orange)">
+  <div class="chip-row"><span class="chip">BleepingComputer</span></div>
+  <h2 class="headline">NetNut proxy network disrupted, 2 million infected devices cut off</h2>
+  <div class="meta">Jul 3 · <a href="https://www.bleepingcomputer.com/news/security/netnut-proxy-network-disrupted-2-million-infected-devices-cut-off/">Read more</a></div>
+  <p class="summary">A joint takedown involving Google dismantled NetNut, a residential proxy network built on roughly 2 million compromised Android devices, including smart TVs and streaming boxes. The network had been quietly reselling access to that hijacked device pool as "residential" IP addresses.</p>
+</div>
+
+<!-- THE REGISTER -->
+<div class="card" style="--source-color:var(--red)">
+  <div class="chip-row"><span class="chip">The Register</span></div>
+  <h2 class="headline">Spain collars alleged pro-Russia hacktivist after FBI tip-off</h2>
+  <div class="meta">Jul 7 · <a href="https://www.theregister.com/security/2026/07/07/alleged-pro-russia-hacktivist-arrested-in-palencia/5267569">Read more</a></div>
+  <p class="summary">Spanish police arrested a man in Palencia suspected of ties to pro-Russia hacktivist crews CARR, Z-Pentest, and NoName057(16), reportedly acting on an FBI tip. He's also accused of helping a Ukrainian hacker flee to Russia.</p>
+</div>
+
+<div class="card" style="--source-color:var(--red)">
+  <div class="chip-row"><span class="chip">The Register</span><span class="chip chip-flag">⚡ On Your Radar</span></div>
+  <h2 class="headline">EU urged to act after Pegasus infects phone of spyware inquiry MEP</h2>
+  <div class="meta">Jul 6 · <a href="https://www.theregister.com/security/2026/07/06/eus-latest-spyware-scandal-prompts-calls-for-urgent-action/5267054">Read more</a></div>
+  <p class="summary">Campaigners are demanding an EU investigation after NSO Group's Pegasus spyware was found on the phone of a member of the European Parliament's own spyware-inquiry committee. It reignites pressure on Brussels to act on the long-delayed PEGA Committee recommendations.</p>
+</div>
+
+<div class="card" style="--source-color:var(--red)">
+  <div class="chip-row"><span class="chip">The Register</span></div>
+  <h2 class="headline">Moody Bible Institute breach leaves 2.3M accounts needing salvation</h2>
+  <div class="meta">Jul 6 · <a href="https://www.theregister.com/security/2026/07/06/moody-bible-institute-breach-leaves-23m-accounts-needing-salvation-says-cyber-expert/5266827">Read more</a></div>
+  <p class="summary">ShinyHunters leaked names, addresses, dates of birth, and more after the Christian college disclosed a cyberattack affecting 2.3 million accounts. It's the latest entry in the group's ongoing string of institutional breaches.</p>
+</div>
+
+<div class="card" style="--source-color:var(--red)">
+  <div class="chip-row"><span class="chip">The Register</span></div>
+  <h2 class="headline">Government's cyber pledge lands 60 signatories, including M&S and Capita</h2>
+  <div class="meta">Jul 7 · <a href="https://www.theregister.com/security/2026/07/07/governments-cyber-pledge-lands-60-signatories-including-ms-and-somehow-capita/5267554">Read more</a></div>
+  <p class="summary">The UK government's latest push for corporate cyber hygiene has attracted 60 signatories — a list that oddly includes Capita, still recovering from its own high-profile breaches. Critics note that signing a pledge is a low bar compared to demonstrated security posture.</p>
+</div>
+
+<!-- ENGADGET -->
+<div class="card" style="--source-color:var(--pink)">
+  <div class="chip-row"><span class="chip">Engadget</span></div>
+  <h2 class="headline">Google now uses your uploaded search media to train AI</h2>
+  <div class="meta">Jul 6 · <a href="https://www.engadget.com/2208978/google-now-uses-your-uploaded-search-media-to-train-ai/">Read more</a></div>
+  <p class="summary">Google has quietly started using photos and other media uploaded through Search to train its AI models by default. Opting out requires digging into account settings rather than being offered as a prompted choice.</p>
+</div>
+
+<div class="card" style="--source-color:var(--pink)">
+  <div class="chip-row"><span class="chip">Engadget</span></div>
+  <h2 class="headline">Meta is facing $1.4 trillion in state lawsuits over social media addiction</h2>
+  <div class="meta">Jul 7 · <a href="https://www.engadget.com/2209332/meta-is-facing-1-4-trillion-in-state-lawsuits-over-social-media-addiction/">Read more</a></div>
+  <p class="summary">Four US states are suing Meta over allegedly addictive platform design aimed at young users, seeking damages that add up to $1.4 trillion. It's among the largest state-level legal actions Meta has faced over its consumer products.</p>
+</div>
+
+<!-- CLOUD BLOCK -->
+<div class="sub-header">Service Health · US Regions</div>
+
+<div class="card" style="--source-color:var(--green)">
+  <div class="chip-row"><span class="chip">AWS</span><span class="chip chip-health">🔴 Service Health — US-EAST-1</span><span class="chip chip-flag">⚡ On Your Radar</span></div>
+  <h2 class="headline">EC2 Launch Template API errors disrupted US-EAST-1 for nearly 4 hours</h2>
+  <div class="meta">Jul 6 (resolved) · <a href="https://status.aws.amazon.com/">Read more</a></div>
+  <p class="summary">A congestion issue in an internal EC2 subsystem drove elevated error rates on Launch Template APIs in US-EAST-1 (N. Virginia) from 2:56 AM to 6:54 AM PDT, spilling into EKS — node provisioning, Managed Node Group creation, and cluster modification all took hits, though already-running instances and workloads were unaffected. AWS throttled the affected APIs to mitigate and confirmed full recovery by 6:54 AM PDT; retry any requests that failed during the window.</p>
+</div>
+
+<div class="sub-header">Deprecations &amp; Migrations</div>
+
+<div class="card" style="--source-color:var(--blue)">
+  <div class="chip-row"><span class="chip">Azure</span></div>
+  <h2 class="headline">Modernize your data with Azure Storage: Plan and migrate with confidence</h2>
+  <div class="meta">Jun 16 · <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">Read more</a></div>
+  <p class="summary">Microsoft published new guidance for planning large-scale Azure Storage migrations, emphasizing business continuity, performance, and cost control when moving terabyte- to petabyte-scale datasets. It's aimed at teams staring down migrations they can't afford to get wrong on the first try.</p>
+</div>
+
+<div class="sub-header">New &amp; Noteworthy</div>
+
+<div class="card" style="--source-color:var(--green)">
+  <div class="chip-row"><span class="chip">AWS</span></div>
+  <h2 class="headline">AWS Weekly Roundup: Claude Sonnet 5 on AWS, WorkSpaces for AI agents, and more</h2>
+  <div class="meta">Jul 6 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">Read more</a></div>
+  <p class="summary">This week's roundup highlights Claude Sonnet 5's arrival on AWS, Amazon WorkSpaces built specifically for AI agents, and a batch of AWS service-availability updates. It's a snapshot of how fast agentic tooling is becoming a first-class citizen across AWS's platform.</p>
+</div>
+
+<div class="card" style="--source-color:var(--green)">
+  <div class="chip-row"><span class="chip">AWS</span></div>
+  <h2 class="headline">Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks</h2>
+  <div class="meta">Jul 1 · <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">Read more</a></div>
+  <p class="summary">Amazon EKS now supports rolling back a cluster version upgrade within seven days, without a full cluster rebuild. It turns what used to be a one-way, high-stakes operation into a reversible, low-risk one.</p>
+</div>
+
+<div class="card" style="--source-color:var(--green)">
+  <div class="chip-row"><span class="chip">AWS</span></div>
+  <h2 class="headline">Accelerate infrastructure deployments by up to 4x with CloudFormation Express mode</h2>
+  <div class="meta">Jun 30 · <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">Read more</a></div>
+  <p class="summary">CloudFormation's new Express mode returns deployment confirmation in seconds instead of minutes, aimed squarely at AI agents and developers iterating quickly on infrastructure changes. It's available in all commercial Regions at no extra cost.</p>
+</div>
+
+<div class="card" style="--source-color:var(--green)">
+  <div class="chip-row"><span class="chip">AWS</span></div>
+  <h2 class="headline">Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 are now available</h2>
+  <div class="meta">Jun 30 · <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">Read more</a></div>
+  <p class="summary">The new Graviton5-based C9g and C9gd instances deliver up to 25% better compute performance than Graviton4, a 5x larger cache, and the fastest memory of any cloud processor instance to date; C9gd adds local NVMe storage. They're a straightforward upgrade path for compute-heavy workloads already on Graviton.</p>
+</div>
+
+<div class="card" style="--source-color:var(--green)">
+  <div class="chip-row"><span class="chip">AWS</span><span class="chip chip-flag">⚡ On Your Radar</span></div>
+  <h2 class="headline">Automate public TLS certificate issuance with ACME support in AWS Certificate Manager</h2>
+  <div class="meta">Jun 30 · <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">Read more</a></div>
+  <p class="summary">ACM now speaks the ACME protocol, letting any ACMEv2-compatible client automate public TLS certificate issuance and renewal across any workload. Administrators get centralized, IAM-based access controls and domain scoping — useful as certificate lifetimes keep shrinking industry-wide.</p>
+</div>
+
+<div class="card" style="--source-color:var(--blue)">
+  <div class="chip-row"><span class="chip">Azure</span></div>
+  <h2 class="headline">Meet Brain: The AI system behind Azure reliability</h2>
+  <div class="meta">Jul 2 · <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">Read more</a></div>
+  <p class="summary">Microsoft detailed "Brain," an AI system that builds a live digital twin of Azure Service Health to predict and route around failures before they cascade. It's a look at how Microsoft is trying to operationalize AI for hyperscale reliability rather than just customer-facing features.</p>
+</div>
+
+<div class="card" style="--source-color:var(--blue)">
+  <div class="chip-row"><span class="chip">Azure</span></div>
+  <h2 class="headline">Proving application resilience on Azure with Chaos Studio</h2>
+  <div class="meta">Jul 1 · <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">Read more</a></div>
+  <p class="summary">Azure Chaos Studio lets teams simulate outages, failovers, network disruptions, and infrastructure failures against real workloads before those failures happen for real. It's positioned as a way to validate resilience claims instead of assuming them.</p>
+</div>
+
+<div class="card" style="--source-color:var(--blue)">
+  <div class="chip-row"><span class="chip">Azure</span></div>
+  <h2 class="headline">Claude in Microsoft Foundry is now generally available</h2>
+  <div class="meta">Jun 29 · <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">Read more</a></div>
+  <p class="summary">Claude is now GA in Microsoft Foundry, running on Azure atop NVIDIA GB300 Blackwell Ultra hardware, giving enterprise teams a direct path from agent prototyping to production. It's another sign of Anthropic's models becoming a standard option across the major cloud AI platforms.</p>
+</div>
+
+<div class="card" style="--source-color:var(--blue)">
+  <div class="chip-row"><span class="chip">Azure</span></div>
+  <h2 class="headline">From insight to action: The next phase of agentic cloud operations</h2>
+  <div class="meta">Jun 23 · <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">Read more</a></div>
+  <p class="summary">Microsoft outlined its vision for cloud environments that don't just surface insights but act on them — systems that work through the next set of operational decisions in real time. It's Azure's framing of where agentic ops tooling goes next, beyond dashboards and alerts.</p>
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>· [BleepingComputer] — <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-relaunch-disappoints-users-with-nerfed-performance/">Claude Fable relaunch disappoints users with nerfed performance</a> — (AI product gossip)</li>
+  <li>· [Engadget] — <a href="https://www.engadget.com/2202348/nothing-announces-ear-3a-sub-dollar100-anc-earbuds/">Nothing announces Ear (3a) sub-$100 ANC earbuds</a> — (consumer gadget launch)</li>
+  <li>· [The Register] — <a href="https://www.theregister.com/systems/2026/07/06/madlad-builds-homebrew-gpu-using-8192-risc-v-chips/">Madlad builds homebrew GPU using 8,192 RISC-V chips</a> — (fun hack, no actionable news)</li>
+  <li>· [Engadget] — <a href="https://www.engadget.com/2207881/usb-c-port-cable-types-explained/">A USB-C port isn't a guarantee of high speeds</a> — (consumer explainer)</li>
+  <li>· [BleepingComputer] — <a href="https://www.bleepingcomputer.com/news/security/vietnam-arrests-suspects-behind-hianime-anime-piracy-service/">Vietnam arrests suspects behind HiAnime anime piracy service</a> — (piracy, low relevance)</li>
+</ul>
+
+</div>
+
+<footer>
+  Morning Briefing · Generated 07:05 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure · AWS/Azure Status
+</footer>
+
+</body>
+</html>
