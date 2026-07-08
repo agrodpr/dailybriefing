@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-04T11:12:10Z",
+  "updated": "2026-07-08T11:10:16Z",
   "briefings": [
+    {
+      "date": "2026-07-08",
+      "file": "briefings/2026-07-08.html",
+      "weekday": "Wednesday",
+      "label": "July 8, 2026",
+      "stories": 26,
+      "flagged": 4,
+      "note": "Two CISA emergency directives dropped today with the same Friday deadline — an actively exploited auth-bypass flaw in the Langflow AI-agent framework and a max-severity ColdFusion RCE — while a fresh Ubiquiti UniFi OS bug and a 16-year-old Linux kernel flaw that lets attackers escape a VM round out a rough day for anything internet-facing. Both AWS and Azure report all US regions operating normally, with AWS's weekly roundup spotlighting Claude Sonnet 5 landing on the platform and Azure detailing \"Brain,\" the AI system now driving its own reliability engineering. Watch the Langflow and ColdFusion patch deadlines closely, and keep an eye on GitLost — a prompt-injection technique that tricks GitHub's AI coding agent into leaking private repos with no fix yet available."
+    },
     {
       "date": "2026-07-04",
       "file": "briefings/2026-07-04.html",

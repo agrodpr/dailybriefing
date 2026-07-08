@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 8, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Wednesday, July 8, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">Two CISA emergency directives dropped today with the same Friday deadline &mdash; an actively exploited auth-bypass flaw in the Langflow AI-agent framework and a max-severity ColdFusion RCE &mdash; while a fresh Ubiquiti UniFi OS bug and a 16-year-old Linux kernel flaw that lets attackers escape a VM round out a rough day for anything internet-facing. Both AWS and Azure report all US regions operating normally, with AWS's weekly roundup spotlighting Claude Sonnet 5 landing on the platform and Azure detailing "Brain," the AI system now driving its own reliability engineering. Watch the Langflow and ColdFusion patch deadlines closely, and keep an eye on GitLost &mdash; a prompt-injection technique that tricks GitHub's AI coding agent into leaking private repos with no fix yet available.</p>
+
+<div class="cards-wrap">
+
+<!-- HN 1 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Chat Control 1.0 and 2.0 Explained</h2>
+  <div class="meta">687 pts &middot; 273 comments &middot; <a href="https://fightchatcontrol.eu/chat-control-overview">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48818311">Discuss on HN</a></div>
+  <p class="summary">A plain-language breakdown of the EU's long-running "Chat Control" proposal, which would require messaging platforms to scan private communications &mdash; including end-to-end encrypted ones &mdash; for CSAM before it's sent. The explainer walks through why the current 2.0 draft still triggers the same client-side-scanning objections that sank earlier versions, and why encryption experts call it a backdoor by another name.</p>
+</div>
+
+<!-- HN 2 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Decoding the Obfuscated Bash Script on a Uniqlo T-Shirt</h2>
+  <div class="meta">216 pts &middot; 48 comments &middot; <a href="https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48829312">Discuss on HN</a></div>
+  <p class="summary">A researcher reverse-engineers a heavily obfuscated, self-evaluating bash script found printed on a Uniqlo t-shirt's QR code, tracing its delivery chain back through Akamai's CDN. The writeup is a good reminder that obfuscated shell one-liners show up in the strangest supply chains, and that "scan this code" from a retail display deserves the same scrutiny as any other untrusted script source.</p>
+</div>
+
+<!-- HN 3 -->
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>GitLost: We Tricked GitHub's AI Agent Into Leaking Private Repos</h2>
+  <div class="meta">213 pts &middot; 87 comments &middot; <a href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48827858">Discuss on HN</a></div>
+  <p class="summary">Researchers tricked GitHub's AI coding agent into exfiltrating private repository contents using a prompt-injection payload hidden in an issue comment, with no patch or official guidance available yet. It's another entry in a growing pattern of AI coding agents treating untrusted repository content as trusted instructions &mdash; the same class of flaw that's already hit other agentic coding tools this year.</p>
+</div>
+
+<!-- BC 1 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>CISA Orders Feds to Prioritize Patching Langflow Auth Bypass Flaw</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-prioritize-patching-langflow-auth-bypass-flaw/">&rarr; Read more</a></div>
+  <p class="summary">CISA gave federal agencies until Friday to patch an authentication-bypass flaw in Langflow, the open-source visual framework many teams use to build AI agents, after confirming active exploitation in the wild. Any internet-facing Langflow instance that hasn't applied the patch should be treated as potentially compromised already.</p>
+</div>
+
+<!-- BC 2 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>CISA Orders Feds to Patch Max Severity ColdFusion Flaw by Friday</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-max-severity-coldfusion-flaw-by-friday/">&rarr; Read more</a></div>
+  <p class="summary">CISA also ordered a Friday patch deadline for a maximum-severity, actively exploited remote-code-execution flaw in Adobe ColdFusion &mdash; the second emergency directive of the day. On-prem ColdFusion deployments are a perennial target for RCE chains, and the active-exploitation confirmation means the clock is already running for anyone who missed it.</p>
+</div>
+
+<!-- BC 3 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Ubiquiti Warns of New Max Severity UniFi OS Vulnerability</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.bleepingcomputer.com/news/security/ubiquiti-warns-of-new-max-severity-unifi-os-vulnerability/">&rarr; Read more</a></div>
+  <p class="summary">Ubiquiti patched seven critical vulnerabilities in UniFi OS, including a maximum-severity flaw exploitable for command injection against the underlying device. UniFi's ubiquity in SMB and prosumer network deployments makes an unpatched command-injection bug like this a high-value target once proof-of-concept exploit code surfaces.</p>
+</div>
+
+<!-- BC 4 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Accenture Confirms Breach After Hacker Offers Stolen Data for Sale</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.bleepingcomputer.com/news/security/accenture-confirms-breach-after-hacker-offers-stolen-data-for-sale/">&rarr; Read more</a></div>
+  <p class="summary">Accenture confirmed a security breach after a threat actor claimed to have stolen roughly 35GB of source code and other internal data and put it up for sale. As one of the largest IT services and cloud-consulting firms in the world, any confirmed exfiltration of source code raises questions about downstream exposure for its client base.</p>
+</div>
+
+<!-- BC 5 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Hidden Backdoor in Tenda Router Firmware Grants Admin Access</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.bleepingcomputer.com/news/security/hidden-backdoor-in-tenda-router-firmware-grants-admin-access/">&rarr; Read more</a></div>
+  <p class="summary">Security researchers found a hidden authentication backdoor baked into multiple Tenda router firmware versions, letting an attacker log into the web management panel with administrative rights without a legitimate credential. Hardcoded backdoors like this typically ship across an entire product line, so the exposure isn't limited to a single model or firmware revision.</p>
+</div>
+
+<!-- BC 6 -->
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>New Januscape Linux Flaw Allows VM Escape on Intel, AMD Devices</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.bleepingcomputer.com/news/linux/new-januscape-linux-kernel-flaw-allows-vm-escape-on-intel-amd-devices/">&rarr; Read more</a></div>
+  <p class="summary">Researchers disclosed Januscape, a 16-year-old Linux kernel vulnerability that lets an attacker inside a virtual machine escape the guest and execute code on the host across both Intel and AMD platforms. The bug's age underscores how deep and rarely-audited the VM-isolation boundary is &mdash; the exact guarantee cloud multi-tenancy depends on.</p>
+</div>
+
+<!-- REG 1 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>NHS Told to Show Its Working on Palantir Platform Benefits</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.theregister.com/public-sector/2026/07/08/nhs-told-to-show-its-working-on-palantir-platform-benefits/5267621">&rarr; Read more</a></div>
+  <p class="summary">UK campaigners pushed back on NHS ministers for repeating benefit claims about the Palantir-built Federated Data Platform even after officials admitted the data doesn't establish cause and effect. It's a fresh flashpoint in the ongoing fight over Palantir's expanding footprint inside government health-data infrastructure.</p>
+</div>
+
+<!-- REG 2 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>CAI Cloud Worm Gives Competitors' Malware the Boot, Then Steals Secrets and Mines for Coin</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/07/cai-cloud-worm-gives-competitors-malware-the-boot-then-steals-secrets-and-mines-for-coin/5267856">&rarr; Read more</a></div>
+  <p class="summary">A newly documented cloud-targeting worm, tracked as CAI, actively evicts rival malware from compromised cloud instances before stealing credentials and installing a cryptominer of its own. Credential-stealing malware fighting over the same compromised infrastructure is a sign of just how commoditized initial cloud access has become for opportunistic attackers.</p>
+</div>
+
+<!-- REG 3 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Windows Is Watching: Anti-Piracy Tool Fingers Scattered Spider Suspect</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/07/windows-is-watching-anti-piracy-tool-fingers-scattered-spider-suspect/5267953">&rarr; Read more</a></div>
+  <p class="summary">Microsoft's Windows anti-piracy telemetry, GDID, reportedly helped investigators identify a suspect tied to Scattered Spider, the group behind a string of high-profile ransomware and social-engineering intrusions. It's a reminder that telemetry built for one purpose &mdash; piracy detection &mdash; routinely ends up as evidence in unrelated criminal investigations.</p>
+</div>
+
+<!-- REG 4 -->
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Predatorgate Snoopfest Victims Launch &euro;8M Sueball at Spyware Maker</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.theregister.com/security/2026/07/07/predatorgate-victims-launch-8m-sueball-at-spyware-maker/5267766">&rarr; Read more</a></div>
+  <p class="summary">Victims of the Predator spyware scandal filed an &euro;8 million lawsuit against the spyware's maker in Greece, adding legal pressure as rights campaigners lobby the EU for a firmer stance on commercial spyware abuse. The case adds to a growing list of jurisdictions where spyware vendors face direct civil liability rather than just regulatory scrutiny.</p>
+</div>
+
+<!-- ENG 1 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>OpenAI Gets Permission to Roll Out GPT-5.6 to the Public on July 9</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.engadget.com/2210308/openai-rolls-out-gpt5-6-july-9/">&rarr; Read more</a></div>
+  <p class="summary">OpenAI received the green light to roll out GPT-5.6 &mdash; internally split into Sol, Terra, and Luna variants &mdash; to the general public starting Thursday. The staggered, multi-variant release strategy suggests OpenAI is tuning different models for different latency and capability tradeoffs rather than shipping one monolithic flagship.</p>
+</div>
+
+<!-- ENG 2 -->
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Meta Says It Will Disable the Camera on Its Glasses If You Tamper With the Recording LED</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.engadget.com/2210283/meta-disable-camera-glasses-tamper-with-recording-led/">&rarr; Read more</a></div>
+  <p class="summary">Meta says its smart glasses will disable the camera outright if a user tampers with the hardware recording LED, addressing a standing privacy complaint that the light could simply be covered or disabled to record without consent. It's a concrete hardware-level answer to a criticism that's dogged every camera-equipped wearable since Google Glass.</p>
+</div>
+
+<!-- CLOUD BLOCK -->
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Proactively Reduce Tech Debt Autonomously With AWS Transform &mdash; Continuous Modernization (Preview)</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/proactively-reduce-tech-debt-autonomously-with-aws-transform-continuous-modernization-preview/">&rarr; Read more</a></div>
+  <p class="summary">AWS Transform now offers continuous modernization in preview, automatically scanning code repositories to detect, prioritize, and remediate technical debt at scale rather than treating modernization as a one-time migration project. It's aimed at teams that finished an initial cloud migration but are still sitting on the legacy code patterns that migration didn't fix.</p>
+</div>
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Weekly Roundup: Claude Sonnet 5 on AWS, Amazon WorkSpaces for AI Agents, and More</h2>
+  <div class="meta">Jul 6 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">&rarr; Read more</a></div>
+  <p class="summary">This week's roundup highlights Claude Sonnet 5 landing on AWS, Amazon WorkSpaces gaining features built specifically for AI agents, and a batch of service-availability improvements across the platform. It's a signal that AWS is treating "infrastructure for AI agents" as its own product category rather than a bolt-on to existing services.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Introducing Amazon Bedrock Managed Knowledge Base for Faster, More Accurate Enterprise AI Applications</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-managed-knowledge-base-for-faster-more-accurate-enterprise-ai-applications/">&rarr; Read more</a></div>
+  <p class="summary">Amazon Bedrock's new fully managed Knowledge Bases simplify building enterprise RAG pipelines with native data connectors, automatic multi-format parsing, and an agentic setup flow. It removes a meaningful chunk of the plumbing teams previously had to hand-build to ground an LLM in their own enterprise data.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Announcing Web Search on Amazon Bedrock AgentCore</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/announcing-web-search-on-amazon-bedrock-agentcore-ground-your-ai-agents-in-current-accurate-web-knowledge/">&rarr; Read more</a></div>
+  <p class="summary">Amazon Bedrock AgentCore now offers a fully managed Web Search tool that grounds agent responses in current, cited web knowledge with zero data egress from the customer's own AWS environment. Keeping the search traffic inside the customer's AWS boundary is the detail enterprise security teams will care about most.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon ECS Introduces New High-Resolution Metrics for Faster Service Auto Scaling</h2>
+  <div class="meta">Jun 18 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/">&rarr; Read more</a></div>
+  <p class="summary">Amazon ECS now supports high-resolution metrics for service auto scaling, letting scaling policies react to demand spikes faster, including predictive scaling for recurring load patterns. Faster-reacting autoscaling is a direct cost and latency lever for any team running bursty containerized workloads.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Announcing Amazon EC2 G7 Instances Accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs</h2>
+  <div class="meta">Jun 18 &middot; <a href="https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-g7-instances-accelerated-by-nvidia-rtx-pro-4500-blackwell-server-edition-gpus/">&rarr; Read more</a></div>
+  <p class="summary">Amazon EC2 G7 instances, accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs, are now generally available for AI inference, graphics, and data-analytics workloads. It's AWS's latest GPU instance refresh as the Blackwell generation continues rolling out across its accelerated-computing lineup.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Meet Brain: The AI System Behind Azure Reliability</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft detailed "Brain," an AI system built to maintain a live digital twin of Azure Service Health, changing how the company detects and responds to hyperscale infrastructure problems. It's a look behind the curtain at how Azure itself is trying to get ahead of the kind of incidents that show up in this section on a bad day.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>The 2026 Agent Confidence Index: Where 300 Builders See Real Momentum</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/">&rarr; Read more</a></div>
+  <p class="summary">A new Microsoft-commissioned survey of 300 builders finds real momentum in production AI agent deployments, but also that human judgment remains the deciding factor teams aren't ready to hand off. It's a useful gut-check against the more breathless "agents run everything now" narratives circulating elsewhere.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>The Performance Dividend: Optimizing PostgreSQL on Azure Directly in Visual Studio Code</h2>
+  <div class="meta">Jun 26 &middot; <a href="https://azure.microsoft.com/en-us/blog/the-performance-dividend-optimizing-postgresql-on-azure-directly-in-visual-studio-code/">&rarr; Read more</a></div>
+  <p class="summary">A new Azure Database for PostgreSQL extension for VS Code surfaces performance diagnostics directly in the editor, aiming to catch database performance problems before they turn into missed SLAs and delayed releases. Bringing query-performance feedback into the same window as the code removes a common excuse for skipping it.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>From Insight to Action: The Next Phase of Agentic Cloud Operations</h2>
+  <div class="meta">Jun 23 &middot; <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">&rarr; Read more</a></div>
+  <p class="summary">Azure is pushing further into agentic cloud operations, outlining tooling that moves beyond surfacing insights to having systems act on operational decisions in real time. It's part of a broader industry shift toward letting agents handle first-pass remediation rather than just paging a human with a dashboard link.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>3 Things Leaders Need to Know From Microsoft Build 2026</h2>
+  <div class="meta">Jun 11 &middot; <a href="https://azure.microsoft.com/en-us/blog/3-things-leaders-need-to-know-from-microsoft-build-2026/">&rarr; Read more</a></div>
+  <p class="summary">A leadership-focused recap of Microsoft Build 2026 argues AI has moved from experimentation to execution, with the biggest gains going to organizations that connect AI across workflows rather than bolting on isolated tools. It's a useful one-page distillation for anyone who didn't have a few days to watch the keynotes live.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [Hacker News] &mdash; <a href="https://streetcomplete.app/">StreetComplete: Fixing OpenStreetMap, one tiny quest at a time</a> &mdash; (no infra/security angle)</li>
+  <li>&middot; [Hacker News] &mdash; <a href="https://allaboutcookies.org/eu-mandatory-distracted-driver-system">Every new car sold in the EU must include a driver monitoring camera</a> &mdash; (consumer auto regulation)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/storage/2026/07/08/ais-biggest-challenge-is-not-compute-its-data-storage/5267453">AI's biggest challenge is not compute, it's data storage</a> &mdash; (sponsored content)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2209980/hasbro-and-scooby-doo-team-up-for-one-of-the-goofiest-transformers-yet/">Hasbro and Scooby Doo team up for a goofy Transformers toy</a> &mdash; (pure entertainment)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2209802/irobot-made-a-non-robot-floor-cleaner/">iRobot made a non-robot floor cleaner</a> &mdash; (consumer gadget, no depth)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:08 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>
