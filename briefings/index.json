@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-04T11:12:10Z",
+  "updated": "2026-07-09T11:12:05Z",
   "briefings": [
+    {
+      "date": "2026-07-09",
+      "file": "briefings/2026-07-09.html",
+      "weekday": "Thursday",
+      "label": "July 9, 2026",
+      "stories": 26,
+      "flagged": 6,
+      "note": "Zero-days and AI-driven attacks dominate today — Microsoft patched a Defender flaw under active exploitation while researchers documented the first fully LLM-driven ransomware campaign and a lone attacker who breached an AWS environment in 72 hours using stolen credentials and chained cloud weaknesses. Cloud infrastructure stayed quiet on the incident front, with every monitored AWS and Azure US region operating normally, though both providers pushed migration and modernization tooling worth planning around (AWS Transform, Azure Storage migration guidance). Watch CISA's Friday deadline for the Langflow and ColdFusion flaws — the same Langflow bug is now tied to both a federal patch order and a live ransomware attack."
+    },
     {
       "date": "2026-07-04",
       "file": "briefings/2026-07-04.html",

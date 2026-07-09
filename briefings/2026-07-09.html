@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 9, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Thursday, July 9, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">Zero-days and AI-driven attacks dominate today &mdash; Microsoft patched a Defender flaw under active exploitation while researchers documented the first fully LLM-driven ransomware campaign and a lone attacker who breached an AWS environment in 72 hours using stolen credentials and chained cloud weaknesses. Cloud infrastructure stayed quiet on the incident front, with every monitored AWS and Azure US region operating normally, though both providers pushed migration and modernization tooling worth planning around (AWS Transform, Azure Storage migration guidance). Watch CISA's Friday deadline for the Langflow and ColdFusion flaws &mdash; the same Langflow bug is now tied to both a federal patch order and a live ransomware attack.</p>
+
+<div class="cards-wrap">
+
+<!-- HN -->
+
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Decoding the obfuscated bash script on a Uniqlo t-shirt</h2>
+  <div class="meta">1386 pts &middot; 219 comments &middot; <a href="https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48829312">Discuss on HN</a></div>
+  <p class="summary">A researcher reverse-engineered a self-evaluating, obfuscated bash script printed on a Uniqlo t-shirt and traced its delivery chain back through Akamai's CDN infrastructure to the retailer's own supply chain. The writeup walks through de-obfuscating nested shell substitutions layer by layer, a good primer on the same techniques attackers use to hide malicious payloads in scripts.</p>
+</div>
+
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>Chatto is now open source</h2>
+  <div class="meta">987 pts &middot; 270 comments &middot; <a href="https://www.hmans.dev/blog/chatto-is-open-source">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48833116">Discuss on HN</a></div>
+  <p class="summary">The developer behind Chatto, a lightweight chat-widget library, released the full project under an open source license after running it commercially. The announcement covers the rationale for open-sourcing a previously paid product and what changes for existing customers.</p>
+</div>
+
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>John Deere owners will get the right to repair equipment under FTC settlement</h2>
+  <div class="meta">884 pts &middot; 172 comments &middot; <a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48838876">Discuss on HN</a></div>
+  <p class="summary">The FTC settlement requires John Deere to give farmers and independent repair shops access to the same diagnostic software and parts dealerships use, ending a years-long fight over locked-down equipment firmware. It sets a precedent other equipment manufacturers embedding proprietary firmware locks will now have to reckon with.</p>
+</div>
+
+
+<!-- BC -->
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Microsoft patches RoguePlanet Defender zero-day vulnerability</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-rogueplanet-defender-zero-day-vulnerability/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft shipped an out-of-band patch for a Windows Defender zero-day tracked as "RoguePlanet," disclosed after the June 2026 Patch Tuesday cycle had already closed. The flaw allowed attackers to bypass Defender's real-time scanning, and Microsoft confirmed limited exploitation in the wild before the fix shipped.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>AssuranceAmerica data breach exposes records of 6.9 million drivers</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/security/assuranceamerica-data-breach-exposes-records-of-69-million-drivers/">&rarr; Read more</a></div>
+  <p class="summary">AssuranceAmerica disclosed that attackers accessed its systems earlier this year and exfiltrated records &mdash; names, driver's license numbers, and policy data &mdash; for nearly 7 million drivers. The insurer has not yet said how the initial access occurred or whether ransomware was involved.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>CISA orders feds to prioritize patching Langflow auth bypass flaw</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-prioritize-patching-langflow-auth-bypass-flaw/">&rarr; Read more</a></div>
+  <p class="summary">CISA gave federal agencies until Friday to patch an actively exploited authentication-bypass vulnerability in Langflow, the visual framework used to build AI agent workflows. The same underlying flaw is now linked to the JadePuffer LLM-driven ransomware attack reported by Dark Reading this week &mdash; treat this as urgent even outside federal networks.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Ubiquiti warns of new max severity UniFi OS vulnerability</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.bleepingcomputer.com/news/security/ubiquiti-warns-of-new-max-severity-unifi-os-vulnerability/">&rarr; Read more</a></div>
+  <p class="summary">Ubiquiti patched seven vulnerabilities in UniFi OS, including a maximum-severity flaw that allows unauthenticated command injection on affected controllers. Admins running UniFi network gear should update immediately given how widely the platform is deployed in SMB environments.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Microsoft to retire the OWA Light client in Exchange Server</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-announces-owa-light-retirement-in-exchange-server/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft announced it will disable Outlook Web Access (OWA) Light, the lightweight low-bandwidth webmail client, in a future Exchange Server cumulative update. Organizations relying on OWA Light for low-connectivity users or legacy browsers will need to migrate to the full Outlook Web App before the update ships.</p>
+</div>
+
+
+<!-- DR -->
+
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>'GodDamn' Ransomware Uses BYOVD to Smite US Companies</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies">&rarr; Read more</a></div>
+  <p class="summary">Attackers behind the GodDamn ransomware strain are abusing a Microsoft-signed kernel driver to kill endpoint security software before deploying their payload &mdash; a classic bring-your-own-vulnerable-driver (BYOVD) technique. Multiple US companies have already been hit, and the driver's valid Microsoft signature is letting it slip past most EDR allowlists.</p>
+</div>
+
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Lone Attacker Uses AI to Breach AWS Cloud Environment in 72 Hours</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.darkreading.com/cloud-security/lone-attacker-ai-breach-aws-cloud-environment">&rarr; Read more</a></div>
+  <p class="summary">A single attacker chained AI-assisted reconnaissance, stolen credentials, and misconfigured cloud permissions to fully compromise a large AWS customer's environment in just three days, then used the access to extort the company. The case shows how AI tooling is compressing the time between initial access and full cloud takeover.</p>
+</div>
+
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>CitrixBleed-ing Again? NetScaler Vulnerability Under Attack</h2>
+  <div class="meta">Jul 6 &middot; <a href="https://www.darkreading.com/vulnerabilities-threats/citrixbleed-ing-again-netscaler-vulnerability-under-attack">&rarr; Read more</a></div>
+  <p class="summary">Attackers moved within days of a public proof-of-concept to exploit a new memory-disclosure vulnerability in Citrix NetScaler, echoing the CitrixBleed pattern from 2023. Organizations running NetScaler ADC or Gateway appliances should patch immediately and check for signs of session token theft.</p>
+</div>
+
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <h2>'GitLost' Flaw Leaks Private Data From GitHub's Agentic Workflows</h2>
+  <div class="meta">Jul 7 &middot; <a href="https://www.darkreading.com/cyber-risk/gitlost-leaks-private-data-github-agentic-workflows">&rarr; Read more</a></div>
+  <p class="summary">The GitLost flaw lets an unauthenticated attacker file a crafted GitHub Issue in an organization's public repo that silently pulls data out of that same org's private repositories via agentic automation workflows. It's a reminder that AI coding agents with broad repo permissions widen the blast radius of otherwise low-severity input.</p>
+</div>
+
+<div class="card src-dr">
+  <span class="chip chip-dr">Dark Reading</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>JadePuffer: The First Complete LLM-Driven Ransomware Attack</h2>
+  <div class="meta">Jul 6 &middot; <a href="https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack">&rarr; Read more</a></div>
+  <p class="summary">Researchers documented an "agentic threat actor" that exploited the same Langflow auth-bypass flaw CISA flagged this week to autonomously steal data from a production database and encrypt other systems &mdash; with an LLM planning and executing each stage. It's described as the first ransomware attack run end-to-end by an AI agent rather than a human operator.</p>
+</div>
+
+
+<!-- ENG -->
+
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>PC shipments just fell for the first time in two years, thanks to the memory shortage</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.engadget.com/2210856/pc-shipments-just-fell-for-the-first-time-in-two-years-thanks-to-the-memory-shortage/">&rarr; Read more</a></div>
+  <p class="summary">Global PC shipment volume declined year-over-year for the first time since 2024 as a DRAM and NAND shortage drives up build costs, even as manufacturer revenue keeps climbing on higher per-unit prices. IT teams planning hardware refreshes should expect longer lead times and higher quotes through the shortage.</p>
+</div>
+
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Amazon is reportedly working on a more powerful agentic Alexa assistant</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.engadget.com/2210614/amazon-is-reportedly-working-on-a-more-powerful-agentic-alexa-assistant/">&rarr; Read more</a></div>
+  <p class="summary">Amazon is reportedly developing a project codenamed "Moonraker" to let Alexa handle multi-step, agentic tasks rather than single-turn voice commands. Details are still thin, but it follows the broader industry push to turn consumer assistants into task-executing agents.</p>
+</div>
+
+
+<!-- CLOUD BLOCK -->
+
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Transform – continuous modernization enters preview to auto-reduce tech debt</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/proactively-reduce-tech-debt-autonomously-with-aws-transform-continuous-modernization-preview/">&rarr; Read more</a></div>
+  <p class="summary">AWS Transform's new continuous-modernization mode (preview) automatically scans code repositories to detect, prioritize, and remediate technical debt at scale, rather than requiring a one-time migration project. Teams sitting on aging codebases should evaluate it before manually scoping a modernization effort.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Azure Storage: plan and migrate large-scale data with confidence</h2>
+  <div class="meta">Jun 16 &middot; <a href="https://azure.microsoft.com/en-us/blog/modernize-your-data-with-azure-storage-plan-and-migrate-with-confidence/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft published guidance for enterprise storage migrations at petabyte scale, covering business-continuity planning, performance validation, and cost management during the cutover window. Useful reading before any large Azure Storage migration, not tied to a forced deprecation deadline.</p>
+</div>
+
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Security Agent adds threat modeling, Kiro power and a Claude Code plugin</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+  <p class="summary">AWS Security Agent now runs STRIDE-based threat modeling plus full repo and PR scanning with remediation across major Git platforms, with IDE integrations via Kiro and a Claude Code plugin. Lets security and dev teams run reviews and fix issues without leaving their editor.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Certificate Manager adds ACME support for automated public TLS issuance</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">&rarr; Read more</a></div>
+  <p class="summary">ACM now supports the ACME protocol, so any ACMEv2-compatible client can automate public TLS certificate issuance and renewal, with centralized governance and IAM-based access controls. Reduces operational risk as certificate lifetimes continue shrinking industry-wide.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Lambda introduces MicroVMs for isolated, full-lifecycle sandboxes</h2>
+  <div class="meta">Jun 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+  <p class="summary">Lambda MicroVMs give each execution a fully isolated, VM-level sandbox with no shared kernel between sessions, rapid launch/resume, and state preservation for up to 8 hours. Aimed at workloads that need stronger isolation guarantees than a standard Lambda execution environment.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS CloudFormation Express mode cuts deployment time by up to 4x</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">&rarr; Read more</a></div>
+  <p class="summary">CloudFormation Express mode returns deployment confirmation in seconds instead of minutes, aimed at both AI agents and developers iterating on infrastructure changes. Available in all commercial regions at no additional cost.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 now available</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">&rarr; Read more</a></div>
+  <p class="summary">The new Graviton5-based C9g and C9gd instances deliver up to 25% better compute performance than Graviton4, a 5x larger cache, and the fastest memory of any cloud processor instance, with local NVMe on the C9gd variant. Worth benchmarking for compute-bound workloads currently on Graviton4.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Meet Brain: the AI system modeling Azure's reliability as a digital twin</h2>
+  <div class="meta">Jul 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft detailed "Brain," an AI system that builds a live digital twin of Azure Service Health to predict and route around infrastructure failures before they cause customer-visible incidents. Part of a broader shift toward AI-managed hyperscale operations.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Proving application resilience on Azure with Chaos Studio</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">&rarr; Read more</a></div>
+  <p class="summary">Azure Chaos Studio lets teams simulate outages, failovers, network disruptions, and infrastructure failures against production-like environments to validate resilience before a real incident does it for them. A practical fit for any team maintaining an SLA-backed service on Azure.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Claude in Microsoft Foundry is now generally available</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">&rarr; Read more</a></div>
+  <p class="summary">Claude is now GA in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware, giving enterprise teams a direct path from agent prototyping to production on Azure infrastructure.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Optimizing PostgreSQL on Azure directly inside Visual Studio Code</h2>
+  <div class="meta">Jun 26 &middot; <a href="https://azure.microsoft.com/en-us/blog/the-performance-dividend-optimizing-postgresql-on-azure-directly-in-visual-studio-code/">&rarr; Read more</a></div>
+  <p class="summary">A new VS Code integration surfaces Azure Database for PostgreSQL performance diagnostics directly in the editor, aimed at catching query and index problems before they compound into missed SLAs and lost revenue. Cuts the loop between spotting a slow query and fixing it.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2211107/volkswagen-is-employing-100-sheep-at-a-solar-farm-in-poland/">Volkswagen is employing 100 sheep at a solar farm in Poland</a> &mdash; (quirky, no tech relevance)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2210832/valve-steam-machine-review/">Valve Steam Machine review: This would've been perfect five years ago</a> &mdash; (consumer gadget review)</li>
+  <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/software/duckduckgo-browser-now-blocks-youtube-video-ads/">DuckDuckGo browser now blocks YouTube video ads</a> &mdash; (consumer feature, no security angle)</li>
+  <li>&middot; [Hacker News] &mdash; <a href="https://www.abeyk.com/escape-the-rat-race/">FAANG Simulator</a> &mdash; (low technical depth)</li>
+  <li>&middot; [Dark Reading] &mdash; <a href="https://www.darkreading.com/threat-intelligence/safe-events-threat-intel-digital-security">Safe Events Start With Threat Intel &amp; Digital Security</a> &mdash; (generic opinion piece)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:10 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>
