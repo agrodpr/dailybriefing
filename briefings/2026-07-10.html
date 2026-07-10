@@ -1,1 +1,361 @@
-<FULL_HTML_PLACEHOLDER>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Briefing — July 10, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:56px 24px 0;
+}
+.masthead{text-align:center;}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; margin:0 0 16px;
+  color:var(--text);
+}
+.tagline{
+  font-size:15px; text-transform:uppercase; letter-spacing:3px;
+  color:var(--text-muted); margin-bottom:32px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:0 auto 32px;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  width:fit-content; margin:0 auto 48px;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);} .dot-reg{background:var(--red);}
+.dot-dr{background:var(--purple);} .dot-eng{background:var(--pink);} .dot-aws{background:var(--green);} .dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+}
+
+.cards-wrap{max-width:860px; margin:0 auto;}
+
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; color:#0B0B0F; margin-right:8px;
+}
+.chip-hn{background:var(--cyan);} .chip-bc{background:var(--orange);} .chip-reg{background:var(--red);}
+.chip-dr{background:var(--purple);} .chip-eng{background:var(--pink);} .chip-aws{background:var(--green);} .chip-azure{background:var(--blue);}
+.chip-health{background:var(--red); color:var(--text);}
+.flag-chip{
+  display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:20px; font-weight:600; background:var(--orange); color:#0B0B0F;
+}
+
+.card{
+  position:relative; background:var(--surface); padding:28px 32px 28px 40px;
+  border-radius:8px; margin-bottom:16px;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:8px 0 0 8px; background:var(--accent); transition:filter .2s;
+}
+.card:hover::before{filter:brightness(1.3);}
+.card.src-hn{--accent:var(--cyan);}
+.card.src-bc{--accent:var(--orange);}
+.card.src-reg{--accent:var(--red);}
+.card.src-dr{--accent:var(--purple);}
+.card.src-eng{--accent:var(--pink);}
+.card.src-aws{--accent:var(--green);}
+.card.src-azure{--accent:var(--blue);}
+
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:14px 0 8px; color:var(--text);
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted);}
+.summary{font-size:17px; line-height:1.7; color:var(--text); margin:0;}
+
+.cloud-subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin:40px 0 12px;
+}
+.status-ok{
+  font-size:15px; color:var(--text-muted); padding:16px 0 16px 29px;
+  border-left:3px solid var(--surface-2); margin-bottom:16px;
+}
+
+.skip-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+  margin:56px auto 12px; max-width:860px;
+}
+.skip-list{font-size:14px; color:var(--text-muted); list-style:none; padding:0; max-width:860px; margin:0 auto;}
+.skip-list li{margin-bottom:8px;}
+.skip-list a{color:var(--text-muted);}
+
+.footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding:48px 0 40px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Friday, July 10, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">The EU's Chat Control snooping rule survived a vote to kill it while Brussels debates mandatory CSAM scanning, and a Scottish NHS trust's email mistake exposed maternity patients' data &mdash; privacy is the throughline today. Cloud infrastructure stayed quiet, with every monitored AWS and Azure US region operating normally, though a Register analysis warns a single 24-hour AWS region outage could cost UK firms billions, and both providers pushed modernization tooling (EKS version rollbacks, Azure IaaS cost guidance) rather than new incidents. Watch the Roundcube webmail flaw being actively exploited against academic researchers, and the unnamed Ohio county that just set a troubling precedent by paying a $1M ransomware demand.</p>
+
+<div class="cards-wrap">
+
+<!-- HN -->
+
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>EU Parliament greenlights Chat Control 1.0</h2>
+  <div class="meta">1420 pts &middot; 672 comments &middot; <a href="https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48843923">Discuss on HN</a></div>
+  <p class="summary">MEPs failed to reach the 360-seat threshold needed to block an interim rule requiring platforms to scan private messages for CSAM, reviving the "Chat Control" proposal opponents thought they'd killed. Privacy advocates warn it sets up mandatory client-side scanning across messaging apps used by hundreds of millions of EU citizens.</p>
+</div>
+
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>John Deere owners will get the right to repair equipment under FTC settlement</h2>
+  <div class="meta">1327 pts &middot; 278 comments &middot; <a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48838876">Discuss on HN</a></div>
+  <p class="summary">The FTC settlement forces John Deere to give farmers and independent repair shops the same diagnostic software and parts access dealerships use, closing a years-long fight over locked-down firmware. It sets a precedent other manufacturers embedding proprietary firmware locks will now have to reckon with.</p>
+</div>
+
+<div class="card src-hn">
+  <span class="chip chip-hn">Hacker News</span>
+  <h2>GPT-5.6</h2>
+  <div class="meta">1312 pts &middot; 921 comments &middot; <a href="https://openai.com/index/gpt-5-6/">&rarr; Read more</a> &middot; <a href="https://news.ycombinator.com/item?id=48849066">Discuss on HN</a></div>
+  <p class="summary">OpenAI shipped GPT-5.6, its latest frontier model update, with commenters focused on benchmark gains and pricing changes versus the 5.5 line. The release lands in the middle of an increasingly crowded frontier-model release cycle across OpenAI, Anthropic, and Google.</p>
+</div>
+
+
+<!-- BC -->
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Former ransomware negotiator gets 4 years for BlackCat attacks</h2>
+  <div class="meta">Jul 10 &middot; <a href="https://www.bleepingcomputer.com/news/security/us-ransomware-negotiator-gets-4-years-in-prison-for-blackcat-attacks/">&rarr; Read more</a></div>
+  <p class="summary">A former DigitalMint incident-response employee was sentenced to 70 months in prison for secretly working with BlackCat (ALPHV) ransomware operators against the same US companies he was hired to help. The case highlights the insider-trust risk in the ransomware negotiation and incident-response industry itself.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Hackers exploit Roundcube flaw to spy on academic researchers</h2>
+  <div class="meta">Jul 8 &middot; <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-roundcube-flaw-to-spy-on-academic-researchers/">&rarr; Read more</a></div>
+  <p class="summary">China-linked attackers are actively exploiting a vulnerability in Roundcube webmail to compromise servers at North American universities and surveil researchers' inboxes. Institutions running self-hosted Roundcube instances should patch immediately and audit for signs of prior compromise.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>New Helix vishing group emerges in SharePoint data theft attacks</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/security/new-helix-vishing-group-emerges-in-sharepoint-data-theft-attacks/">&rarr; Read more</a></div>
+  <p class="summary">A newly identified extortion crew is combining voice phishing, device-code phishing, and MFA fatigue attacks to trick employees into handing over access to corporate SharePoint environments. Once inside, the group exfiltrates data directly rather than deploying ransomware, betting on straight extortion instead.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Injective SDK on npm infected with cryptocurrency wallet stealer</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/security/injective-sdk-on-npm-infected-with-cryptocurrency-wallet-stealer/">&rarr; Read more</a></div>
+  <p class="summary">Attackers compromised the GitHub repository behind a popular blockchain SDK and pushed a malicious npm update that steals wallet private keys and seed phrases from any project that pulled the poisoned version. It's another entry in the growing list of supply-chain compromises hitting widely-depended-on packages rather than end targets directly.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Microsoft expects more Windows security updates from AI-discovered flaws</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-expects-more-windows-security-updates-from-ai-discovered-flaws/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft says its internal use of AI-assisted code auditing is surfacing more vulnerabilities in Windows than manual review alone, and warns admins to expect a heavier patch cadence as a result. The tradeoff: more disclosed flaws now versus fewer unknown ones sitting latent in the codebase.</p>
+</div>
+
+<div class="card src-bc">
+  <span class="chip chip-bc">BleepingComputer</span>
+  <h2>Police arrests 5,800 suspects in global anti-fraud crackdown</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.bleepingcomputer.com/news/security/police-arrests-5-800-suspects-in-global-anti-fraud-crackdown/">&rarr; Read more</a></div>
+  <p class="summary">Law enforcement across 97 countries arrested 5,811 suspects and seized $293 million in illicit assets in a coordinated operation targeting online fraud rings. The scale reflects a shift toward multinational task forces as fraud operations increasingly span jurisdictions to evade single-country enforcement.</p>
+</div>
+
+
+<!-- REG -->
+
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <span class="flag-chip">&#9889; ON YOUR RADAR</span>
+  <h2>Scot NHS Trust probes email stuffup involving maternity patients' data</h2>
+  <div class="meta">Jul 10 &middot; <a href="https://www.theregister.com/security/2026/07/10/scot-nhs-trust-probes-email-stuffup-involving-maternity-patients-data/5269749">&rarr; Read more</a></div>
+  <p class="summary">NHS Forth Valley is investigating after maternity patients' personal data was sent to the wrong recipients in a basic email misconfiguration, the latest in a string of similar mistakes at UK health boards. No malicious actor is involved, but the exposure still triggers mandatory breach-notification obligations.</p>
+</div>
+
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>An unnamed US county — perhaps in Ohio — paid $1M extortion demand to cybercriminals</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/09/an-unnamed-us-county-perhaps-in-ohio-paid-1m-extortion-demand-to-cybercriminals/5269575">&rarr; Read more</a></div>
+  <p class="summary">Leaked negotiation logs show a US county government quietly paid ransomware operators $1 million to prevent stolen data from being published, despite public guidance discouraging payment. The county has not officially confirmed the incident, but the leak shows attackers increasingly targeting under-resourced local government IT.</p>
+</div>
+
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>Britain's cloud habit has become a billion-pound risk</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.theregister.com/off-prem/2026/07/09/britains-cloud-habit-has-become-a-billion-pound-risk/5269173">&rarr; Read more</a></div>
+  <p class="summary">Researchers estimate a 24-hour outage in a single major AWS region could cost UK firms over a billion pounds in lost revenue, given how concentrated British enterprise workloads are on one provider. The analysis renews calls for multi-region or multi-cloud resilience planning that many firms have deprioritized on cost grounds.</p>
+</div>
+
+<div class="card src-reg">
+  <span class="chip chip-reg">The Register</span>
+  <h2>OpenMandriva claims disgruntled admin trashed repos after community bust-up</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.theregister.com/software/2026/07/09/openmandriva-claims-disgruntled-admin-trashed-repos-after-community-bust-up/5269421">&rarr; Read more</a></div>
+  <p class="summary">The Linux distribution project says a former contributor deleted years of repository history and pushed a broken package following a dispute with maintainers. It's a reminder that open-source infrastructure often rests on a handful of individuals with standing admin access and no offboarding process.</p>
+</div>
+
+
+<!-- ENG -->
+
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>Microsoft's AI drive saw its carbon emissions grow by 25 percent in 2025</h2>
+  <div class="meta">Jul 10 &middot; <a href="https://www.engadget.com/2212136/microsoft-ai-drive-carbon-emissions-grow-25-percent-2025/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft's push to build out AI datacenter capacity pushed its carbon emissions up 25% year-over-year, further derailing its 2030 carbon-negative pledge. The company says it's still investing in offsets and efficiency, but the numbers show AI infrastructure buildout outpacing sustainability commitments industry-wide.</p>
+</div>
+
+<div class="card src-eng">
+  <span class="chip chip-eng">Engadget</span>
+  <h2>New York is the first US state to ban smart glasses in all its courthouses</h2>
+  <div class="meta">Jul 9 &middot; <a href="https://www.engadget.com/2211151/new-york-first-us-state-ban-smart-glasses-all-courthouses/">&rarr; Read more</a></div>
+  <p class="summary">New York barred smart glasses from all 1,240 state, county, city, town, and village courts, citing covert recording concerns for witnesses, jurors, and sensitive proceedings. It's the first statewide policy of its kind and likely a template for other jurisdictions as camera-equipped wearables become mainstream.</p>
+</div>
+
+
+<!-- CLOUD BLOCK -->
+
+<div class="cloud-subhead">Service Health &middot; US Regions</div>
+
+<div class="status-ok">&#10003; All monitored US regions operating normally</div>
+
+
+<div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks</h2>
+  <div class="meta">Jul 1 &middot; <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">&rarr; Read more</a></div>
+  <p class="summary">EKS now lets teams reverse a cluster version upgrade within seven days if something breaks, instead of forcing a forward-only migration with no safety net. Removes one of the biggest reasons teams delay mandatory Kubernetes version upgrades on aging clusters.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Azure IaaS: How to design, build, and optimize cloud infrastructure for long-term cost efficiency</h2>
+  <div class="meta">Jun 30 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-iaas-how-to-design-build-and-optimize-cloud-infrastructure-for-long-term-cost-optimization-efficiency/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft published guidance for right-sizing and re-architecting IaaS deployments during migration and modernization projects, aimed at avoiding the cost creep that follows a rushed lift-and-shift. Relevant reading for any team mid-migration onto Azure VMs rather than cloud-native services.</p>
+</div>
+
+
+<div class="cloud-subhead">New &amp; Noteworthy</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Weekly Roundup: Claude Sonnet 5 on AWS, Amazon WorkSpaces for AI agents, and more</h2>
+  <div class="meta">Jul 6 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">&rarr; Read more</a></div>
+  <p class="summary">This week's roundup covers Claude Sonnet 5's arrival on AWS, new Amazon WorkSpaces capabilities purpose-built for AI agent workloads, and a batch of service-availability updates across regions. A useful single-pass catch-up for teams not tracking every individual AWS announcement.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>AWS Weekly Roundup: Agentic CX designer for Amazon Connect, EC2 AMI Watermarks, and more</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-agentic-cx-designer-for-amazon-connect-customer-ec2-ami-watermarks-open-governance-for-mysql-and-more-june-29-2026/">&rarr; Read more</a></div>
+  <p class="summary">Amazon Connect's new agentic CX designer automates contact-flow building from natural-language descriptions, alongside EC2 AMI watermarking for provenance tracking and expanded open governance options for MySQL. Worth a look for contact-center teams evaluating AI-assisted flow design.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Announcing Amazon EC2 G7 instances accelerated by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs</h2>
+  <div class="meta">Jun 18 &middot; <a href="https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-g7-instances-accelerated-by-nvidia-rtx-pro-4500-blackwell-server-edition-gpus/">&rarr; Read more</a></div>
+  <p class="summary">The new G7 instances bring NVIDIA's Blackwell-generation RTX PRO 4500 GPUs to EC2, targeted at AI inference and graphics-heavy workloads that don't need full data-center-class accelerators. Positioned as a mid-tier option between existing G-series and the largest P-series instances.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Amazon ECS introduces new high-resolution metrics for faster service auto scaling</h2>
+  <div class="meta">Jun 18 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ecs-introduces-new-high-resolution-metrics-for-faster-service-auto-scaling/">&rarr; Read more</a></div>
+  <p class="summary">ECS now emits finer-grained metrics that let auto scaling policies react to load spikes in seconds rather than minutes, reducing over-provisioning needed to absorb scaling lag. Should meaningfully cut both cost and latency for bursty workloads on Fargate and EC2 launch types.</p>
+</div>
+
+<div class="card src-aws">
+  <span class="chip chip-aws">AWS</span>
+  <h2>Introducing Amazon Bedrock Managed Knowledge Base for faster, more accurate enterprise AI applications</h2>
+  <div class="meta">Jun 17 &middot; <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-managed-knowledge-base-for-faster-more-accurate-enterprise-ai-applications/">&rarr; Read more</a></div>
+  <p class="summary">Bedrock's new fully managed knowledge base handles data connectors and smart parsing for multi-format enterprise content automatically, cutting the custom pipeline work previously required to stand up a RAG system. Aimed at teams that want production-grade retrieval without owning the ingestion plumbing.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>The 2026 Agent Confidence Index: Where 300 builders see real momentum</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft's survey of 300 enterprise builders finds trust in autonomous AI agents still trails trust in their raw capability, with governance and observability cited as the top blockers to wider production deployment. A useful data point for teams building the business case for agent rollout internally.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>Accelerate modern Linux workloads with Azure Files</h2>
+  <div class="meta">Jun 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/accelerate-modern-linux-workloads-with-azure-files/">&rarr; Read more</a></div>
+  <p class="summary">Azure Files added performance and protocol improvements aimed squarely at Linux-based workloads, closing a gap with native NFS options for teams standardized on Azure's managed file service. Bundles in the platform's existing data-protection and Azure-service integration rather than requiring a separate storage tier.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>From insight to action: The next phase of agentic cloud operations</h2>
+  <div class="meta">Jun 23 &middot; <a href="https://azure.microsoft.com/en-us/blog/from-insight-to-action-the-next-phase-of-agentic-cloud-operations/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft outlines its roadmap for letting Azure's monitoring and observability tooling not just surface problems but autonomously act on them, moving cloud ops from dashboards toward closed-loop remediation. Early days, but signals where Azure's ops tooling investment is headed next.</p>
+</div>
+
+<div class="card src-azure">
+  <span class="chip chip-azure">Azure</span>
+  <h2>3 things leaders need to know from Microsoft Build 2026</h2>
+  <div class="meta">Jun 11 &middot; <a href="https://azure.microsoft.com/en-us/blog/3-things-leaders-need-to-know-from-microsoft-build-2026/">&rarr; Read more</a></div>
+  <p class="summary">Microsoft's recap distills Build 2026 down to three executive takeaways: AI shifting from isolated tools to connected systems, the push to ground agents in real business data, and Azure's expanding role as the deployment layer for both. Useful shorthand for leaders who skipped the keynote.</p>
+</div>
+
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+  <li>&middot; [Hacker News] &mdash; <a href="https://18words.com/">Show HN: 18 Words</a> &mdash; (low technical depth)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2212119/nvidia-geforce-trading-cards/">NVIDIA decided now is the time to announce 'GeForce Trading Cards'</a> &mdash; (marketing gimmick)</li>
+  <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2211983/days-after-laying-off-3-200-xbox-ceo-asha-sharma-tapped-to-advise-the-federal-reserve-on-jobs/">Xbox CEO tapped to advise the Federal Reserve on jobs</a> &mdash; (no tech relevance)</li>
+  <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/security/2026/07/09/meps-fail-to-prevent-chat-control-snoopfest-revival/5269379">EU 'Chat Control' snoopfest returns after vote to kill it falls short</a> &mdash; (duplicate of HN story)</li>
+  <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/security/the-hidden-security-risks-of-reduced-summer-it-coverage/">The Hidden Security Risks of Reduced Summer IT Coverage</a> &mdash; (sponsored, generic)</li>
+</ul>
+
+<div class="footer">
+  Morning Briefing &middot; Generated 07:07 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</div>
+
+</body>
+</html>
