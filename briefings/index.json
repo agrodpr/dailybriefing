@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-10T11:07:44Z",
+  "updated": "2026-07-11T11:12:28Z",
   "briefings": [
+    {
+      "date": "2026-07-11",
+      "file": "briefings/2026-07-11.html",
+      "weekday": "Saturday",
+      "label": "July 11, 2026",
+      "stories": 26,
+      "flagged": 6,
+      "note": "AI is cutting both ways today — attackers used it to breach an AWS environment in 72 hours while Microsoft leans on it to keep Azure reliable, and an actively-exploited Gitea flaw, a returning CitrixBleed-style NetScaler bug, and a freshly-patched Windows Defender zero-day keep patch queues full. Cloud infrastructure stayed quiet overnight — no active AWS or Azure incidents in U.S. regions — so today's cloud stories lean toward AWS Certificate Manager's new ACME automation and Azure's HSM key-management preview instead of firefighting. Watch identity and credentials: from CitrixBleed's return to Amazon Q's credential-theft bug, it's the connective thread across nearly every security story below."
+    },
     {
       "date": "2026-07-10",
       "file": "briefings/2026-07-10.html",

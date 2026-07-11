@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing — July 11, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171;
+  --purple:#A78BFA; --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:64px 24px 32px;
+}
+.masthead{text-align:center; margin-bottom:24px;}
+h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; letter-spacing:-2px; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:12px;
+}
+hr{border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:32px auto;}
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:900px; margin:0 auto 48px; width:fit-content;
+}
+.legend-item{display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px;}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+  font-size:24px; max-width:700px; text-align:center; color:var(--text);
+  margin:48px auto; line-height:1.5;
+}
+
+.cards{max-width:860px; margin:0 auto;}
+.subhead{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px;
+  color:var(--text-muted); margin:40px 0 12px;
+}
+.card{
+  background:var(--surface); border-left:3px solid var(--source-color, var(--cyan));
+  padding:28px 32px; border-radius:8px; margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+.card:hover{filter:brightness(1.3);}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+.chip{
+  font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; padding:5px 12px; border-radius:20px; font-weight:600;
+  color:#0B0B0F; display:inline-block;
+}
+.chip.flag{background:var(--orange); color:#0B0B0F;}
+.card h2{
+  font-family:'Fraunces',serif; font-weight:600; font-size:32px;
+  color:var(--text); line-height:1.2; margin-bottom:10px;
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:14px;}
+.meta a{color:var(--text-muted); text-decoration:underline;}
+.summary{font-size:17px; line-height:1.7; color:var(--text);}
+
+.status-line{
+  font-size:14px; color:var(--text-muted); padding:12px 0; margin-bottom:8px;
+}
+
+.skip-section{max-width:860px; margin:56px auto 0;}
+.skip-title{font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:14px;}
+.skip-list{list-style:none; font-size:14px; color:var(--text-muted); line-height:2;}
+.skip-list a{color:var(--text-muted); text-decoration:underline;}
+
+footer{
+  font-size:11px; text-align:center; color:var(--text-muted);
+  padding-top:48px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1>MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Saturday, July 11, 2026</div>
+</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<div class="editors-note">AI is cutting both ways today — attackers used it to breach an AWS environment in 72 hours while Microsoft leans on it to keep Azure reliable, and an actively-exploited Gitea flaw, a returning CitrixBleed-style NetScaler bug, and a freshly-patched Windows Defender zero-day keep patch queues full. Cloud infrastructure stayed quiet overnight — no active AWS or Azure incidents in U.S. regions — so today's cloud stories lean toward AWS Certificate Manager's new ACME automation and Azure's HSM key-management preview instead of firefighting. Watch identity and credentials: from CitrixBleed's return to Amazon Q's credential-theft bug, it's the connective thread across nearly every security story below.</div>
+
+<div class="cards">
+
+  <!-- HACKER NEWS -->
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+    <h2>Apple sues OpenAI, accuses ex-employees of stealing trade secrets</h2>
+    <div class="meta">1,115 pts · 578 comments · <a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/">→ Read more</a> · <a href="https://news.ycombinator.com/item?id=48865019">HN Discussion</a></div>
+    <div class="summary">Apple filed suit against OpenAI alleging that former Apple employees who joined OpenAI's hardware division stole trade secrets tied to unreleased products. The suit also names io Products, the hardware startup led by former Apple design chief Jony Ive, escalating tension between the two companies well beyond their existing AI partnership.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+    <h2>Show HN: Getting GLM 5.2 running on my slow computer</h2>
+    <div class="meta">859 pts · 214 comments · <a href="https://github.com/JustVugg/colibri">→ Read more</a> · <a href="https://news.ycombinator.com/item?id=48842459">HN Discussion</a></div>
+    <div class="summary">A developer detailed how they got Zhipu AI's GLM 5.2 running locally on modest, consumer-grade hardware, open-sourcing the optimization work as "Colibri" on GitHub. The project taps into growing interest in running frontier-scale open models without a cloud GPU budget, drawing hundreds of comments on quantization and memory tricks.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+    <h2>QuadRF can spot drones and see WiFi through my wall</h2>
+    <div class="meta">598 pts · 199 comments · <a href="https://www.jeffgeerling.com/blog/2026/quadrf-can-spot-drones-and-see-wifi-through-my-wall/">→ Read more</a> · <a href="https://news.ycombinator.com/item?id=48861717">HN Discussion</a></div>
+    <div class="summary">Hobbyist engineer Jeff Geerling built QuadRF, a software-defined-radio rig that detects nearby drones and visualizes WiFi signals passing through walls using a directional antenna array. It's a reminder that RF/SDR tooling once reserved for specialized hardware is now accessible enough for a home-lab build.</div>
+  </div>
+
+  <!-- BLEEPINGCOMPUTER -->
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+    <h2>Progress urges ShareFile admins to shut down servers over "credible" threat</h2>
+    <div class="meta">July 10 · <a href="https://www.bleepingcomputer.com/news/security/progress-urges-sharefile-customers-to-shut-down-servers-over-credible-threat/">→ Read more</a></div>
+    <div class="summary">Progress Software told ShareFile customers running on-premises Storage Zones Controller servers to take them offline immediately after receiving intelligence about a credible, unspecified external threat. No CVE or technical detail has been published yet, but the vendor is treating the risk as serious enough to recommend a full shutdown rather than wait for a patch.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip flag">⚡ On Your Radar</span></div>
+    <h2>Hackers exploit critical auth bypass in Gitea Docker image</h2>
+    <div class="meta">July 10 · <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-auth-bypass-in-gitea-docker-image/">→ Read more</a></div>
+    <div class="summary">Attackers are actively exploiting a critical authentication bypass in Gitea's official Docker image that lets them impersonate any user, including administrators, on self-hosted Git instances. Organizations running the containerized Gitea image should patch or restrict network access immediately — exploitation is already underway in the wild.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+    <h2>Zimbra urges customers to patch critical web client XSS flaw</h2>
+    <div class="meta">July 10 · <a href="https://www.bleepingcomputer.com/news/security/zimbra-urges-customers-to-patch-critical-web-client-xss-flaw/">→ Read more</a></div>
+    <div class="summary">Zimbra issued an urgent advisory for a critical cross-site scripting vulnerability in its Classic Web Client that could let attackers hijack webmail sessions. The company is urging all customers to patch immediately, given the severity rating and the client's constant exposure to untrusted email content.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+    <h2>New U-Boot flaws could enable stealthy firmware attacks</h2>
+    <div class="meta">July 10 · <a href="https://www.bleepingcomputer.com/news/security/new-u-boot-flaws-could-enable-stealthy-firmware-attacks/">→ Read more</a></div>
+    <div class="summary">Researchers disclosed six vulnerabilities in the widely used U-Boot bootloader that could let attackers run malicious code before the OS even loads, planting persistent, hard-to-detect firmware implants. The flaws affect embedded and IoT devices across vendors that rely on U-Boot for initial system startup.</div>
+  </div>
+
+  <!-- THE REGISTER -->
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="background:var(--red)">The Register</span><span class="chip flag">⚡ On Your Radar</span></div>
+    <h2>Destructive Windows backdoor stuffs multiple wipers and ransomware code into a single package</h2>
+    <div class="meta">July 10 · <a href="https://www.theregister.com/security/2026/07/10/destructive-windows-backdoor-stuffs-multiple-wipers-and-ransomware-code-into-a-single-package/5270053">→ Read more</a></div>
+    <div class="summary">Microsoft researchers identified "GigaWiper," a modular Windows backdoor that bundles at least three distinct wiper and ransomware malware families into one deployable package. The tool's flexibility lets operators choose destructive or extortion-based outcomes on the fly once they've gained a foothold, complicating detection and response.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="background:var(--red)">The Register</span><span class="chip flag">⚡ On Your Radar</span></div>
+    <h2>Microsoft closes book on Nightmare Eclipse's RoguePlanet zero-day</h2>
+    <div class="meta">July 9 · <a href="https://www.theregister.com/security/2026/07/09/microsoft-closes-book-on-nightmare-eclipses-rogueplanet-zero-day/5269280">→ Read more</a></div>
+    <div class="summary">Microsoft shipped a fix for "RoguePlanet," a Windows Defender zero-day, weeks after researcher Nightmare-Eclipse published working proof-of-concept exploit code. The gap between the PoC's release and the patch left Defender-protected endpoints exposed in the interim, another reminder of how slow zero-day response cycles can be.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+    <h2>An unnamed US county — perhaps in Ohio — paid $1M extortion demand to cybercriminals</h2>
+    <div class="meta">July 9 · <a href="https://www.theregister.com/security/2026/07/09/an-unnamed-us-county-perhaps-in-ohio-paid-1m-extortion-demand-to-cybercriminals/5269575">→ Read more</a></div>
+    <div class="summary">Leaked negotiation logs reveal a US county government, believed to be in Ohio, paid a $1 million ransom after a ransomware attack disrupted its systems. The disclosure adds to a growing list of US local governments quietly paying extortion demands rather than rebuilding from backups.</div>
+  </div>
+
+  <!-- DARK READING -->
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="background:var(--purple)">Dark Reading</span><span class="chip flag">⚡ On Your Radar</span></div>
+    <h2>Cybercriminals Flock to Healthcare Businesses as Attacks Surge</h2>
+    <div class="meta">July 10 · <a href="https://www.darkreading.com/threat-intelligence/cybercriminals-healthcare-businesses-attacks-surge">→ Read more</a></div>
+    <div class="summary">While direct attacks on hospitals grew only modestly in early 2026, ransomware and data-theft attacks against healthcare service providers and ancillary businesses more than doubled, per new threat intelligence. Attackers appear to be targeting the softer, less-defended edges of the healthcare supply chain rather than hospitals themselves.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="background:var(--purple)">Dark Reading</span><span class="chip flag">⚡ On Your Radar</span></div>
+    <h2>Lone Attacker Uses AI to Breach AWS Cloud Environment in 72 Hours</h2>
+    <div class="meta">July 8 · <a href="https://www.darkreading.com/cloud-security/lone-attacker-ai-breach-aws-cloud-environment">→ Read more</a></div>
+    <div class="summary">A single threat actor used AI-assisted workflows to chain together cloud misconfigurations and compromised credentials, fully breaching a major AWS customer's environment in just 72 hours and extorting the victim. The case shows how AI tooling is compressing the time between initial access and full cloud compromise, even for solo attackers.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="background:var(--purple)">Dark Reading</span><span class="chip flag">⚡ On Your Radar</span></div>
+    <h2>CitrixBleed-ing Again? NetScaler Vulnerability Under Attack</h2>
+    <div class="meta">July 6 · <a href="https://www.darkreading.com/vulnerabilities-threats/citrixbleed-ing-again-netscaler-vulnerability-under-attack">→ Read more</a></div>
+    <div class="summary">Attackers began actively exploiting a new memory-disclosure vulnerability in Citrix NetScaler appliances almost immediately after proof-of-concept exploit code went public, echoing the original CitrixBleed pattern. Organizations running NetScaler ADC or Gateway should prioritize patching — the flaw allows session-token theft that bypasses MFA.</div>
+  </div>
+
+  <!-- ENGADGET -->
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="background:var(--pink)">Engadget</span></div>
+    <h2>Meta deactivates feature that let you generate AI images of any public Instagram account</h2>
+    <div class="meta">July 11 · <a href="https://www.engadget.com/2212843/meta-deactivates-muse-image-public-instagram-post-ai-images/">→ Read more</a></div>
+    <div class="summary">Meta pulled its "Muse Image" tool after it became clear the feature let anyone generate AI deepfake images of any public Instagram account simply by @-mentioning it. The rollback follows mounting criticism over consent and likeness abuse in Meta's generative AI products.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="background:var(--pink)">Engadget</span></div>
+    <h2>Is Microsoft Teams really going to start tracking employee locations?</h2>
+    <div class="meta">July 10 · <a href="https://www.engadget.com/2209430/microsoft-teams-tracking-employee-location/">→ Read more</a></div>
+    <div class="summary">Microsoft's new "Workspace Check-in" feature for Teams, rolled out last month, prompts employees to confirm their physical work location, raising workplace-surveillance concerns among IT and HR teams. It's opt-in at the tenant level today, but the rollout is fueling debate over how much location data employers should collect through collaboration tools.</div>
+  </div>
+
+  <!-- CLOUD BLOCK -->
+  <div class="subhead">Service Health · US Regions</div>
+  <div class="status-line">✓ All monitored US regions operating normally</div>
+
+  <div class="subhead">New &amp; Noteworthy</div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+    <h2>Automate public TLS certificate issuance with ACME support in AWS Certificate Manager</h2>
+    <div class="meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">→ Read more</a></div>
+    <div class="summary">AWS Certificate Manager now supports the ACME protocol, letting any ACMEv2-compatible client automate issuance and renewal of public TLS certificates across any workload. Centralized governance stays with ACM even as certificate requests originate from third-party ACME clients.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+    <h2>Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+    <div class="meta">June 22 · <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">→ Read more</a></div>
+    <div class="summary">AWS Lambda introduced MicroVMs, a new serverless compute primitive that gives each execution a fully isolated VM-level sandbox with no shared kernel between sessions. The primitive supports rapid launch/resume and full lifecycle control for workloads that need stronger isolation than standard Lambda functions.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+    <h2>AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+    <div class="meta">June 17 · <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">→ Read more</a></div>
+    <div class="summary">AWS Security Agent now performs STRIDE-based threat modeling and full repo/PR code scanning with remediation across major Git platforms, plus IDE integration via a new Claude Code plugin and MCP support. The additions push the tool further into automated, agentic application security review.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+    <h2>Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks</h2>
+    <div class="meta">July 1 · <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">→ Read more</a></div>
+    <div class="summary">Amazon EKS now supports rolling back a cluster's Kubernetes version within seven days of an upgrade, giving teams a safety net if an upgrade breaks workloads. A failed upgrade used to mean rebuilding the cluster; now it's a controlled reversal.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+    <h2>Accelerate your infrastructure deployments by up to 4x with AWS CloudFormation Express mode</h2>
+    <div class="meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">→ Read more</a></div>
+    <div class="summary">AWS CloudFormation's new Express mode cuts infrastructure deployment time by up to 4x, returning deployment confirmation in seconds so AI agents and developers can iterate faster. It's available in all commercial Regions at no additional cost.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+    <h2>Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available</h2>
+    <div class="meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">→ Read more</a></div>
+    <div class="summary">Amazon EC2 C9g and C9gd instances, powered by AWS's new Graviton5 processors, are now generally available, delivering up to 25% better compute performance than Graviton4 with a larger cache and faster memory. They're aimed at compute-intensive workloads looking to cut cost-per-core further.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+    <h2>External key management for Azure Managed HSM is now in public preview</h2>
+    <div class="meta">July 7 · <a href="https://azure.microsoft.com/en-us/blog/external-key-management-for-azure-managed-hsm-is-now-in-public-preview/">→ Read more</a></div>
+    <div class="summary">Azure Key Vault Managed HSM now supports external key management in public preview, letting customers hold sovereignty over encryption keys generated and stored in a single-tenant, FIPS 140-3 Level 3 HSM that Microsoft cannot access. It's aimed at regulated customers with strict key-custody requirements.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+    <h2>Built to bounce back: How Azure resiliency evolved</h2>
+    <div class="meta">July 8 · <a href="https://azure.microsoft.com/en-us/blog/built-to-bounce-back-how-azure-resiliency-evolved/">→ Read more</a></div>
+    <div class="summary">Microsoft published a look at how Azure's approach to resiliency has evolved, focused on designing systems that adapt and keep functioning under real-world failure conditions rather than just avoiding failure. The piece frames resiliency as an ongoing architectural discipline rather than a one-time hardening project.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+    <h2>Meet Brain: The AI system behind Azure reliability</h2>
+    <div class="meta">July 2 · <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">→ Read more</a></div>
+    <div class="summary">Microsoft detailed "Brain," an AI system that builds a continuously updated digital twin of Azure Service Health to predict and respond to reliability issues before they cascade. It's part of a broader shift toward AI-driven operations for hyperscale infrastructure management.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+    <h2>Proving application resilience on Azure with Chaos Studio</h2>
+    <div class="meta">July 1 · <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">→ Read more</a></div>
+    <div class="summary">Azure Chaos Studio helps teams validate resilience by deliberately simulating outages, failovers, network disruptions, and infrastructure failures before they happen in production. Microsoft is positioning it as a standard pre-production step for mission-critical workloads on Azure.</div>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+    <h2>Claude in Microsoft Foundry is now generally available</h2>
+    <div class="meta">June 29 · <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">→ Read more</a></div>
+    <div class="summary">Claude models are now generally available in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware, giving enterprise teams a direct path from experimentation to production deployment. It broadens model choice for Foundry customers building agentic applications on Azure.</div>
+  </div>
+
+</div>
+
+<div class="skip-section">
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>· [Engadget] <a href="https://www.engadget.com/2212119/nvidia-geforce-trading-cards/">NVIDIA decided now is the time to announce 'GeForce Trading Cards'</a> — (novelty, no tech depth)</li>
+    <li>· [Engadget] <a href="https://www.engadget.com/2211901/hp-omnibook-ultra-14-review/">HP OmniBook Ultra 14 review</a> — (consumer gadget review)</li>
+    <li>· [The Register] <a href="https://www.theregister.com/personal-tech/2026/07/10/slothful-summer-app-lets-you-scroll-simply-by-tilting-your-head/5270096">Slothful summer app lets you scroll simply by tilting your head</a> — (gimmicky consumer app)</li>
+    <li>· [BleepingComputer] <a href="https://www.bleepingcomputer.com/news/security/money-launderer-accused-of-stealing-seized-crypto-while-in-prison/">Money launderer accused of stealing seized crypto while in prison</a> — (crypto story, low signal)</li>
+    <li>· [Engadget] <a href="https://www.engadget.com/2212625/stubhub-ceo-is-helping-fund-mass-scalpers-on-his-own-platform/">StubHub CEO is helping fund mass scalpers on his own platform</a> — (entertainment, no tech angle)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing · Generated 07:09 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure · AWS/Azure Status
+</footer>
+
+</body>
+</html>
