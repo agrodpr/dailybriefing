@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-11T11:12:28Z",
+  "updated": "2026-07-12T11:35:00Z",
   "briefings": [
+    {
+      "date": "2026-07-12",
+      "file": "briefings/2026-07-12.html",
+      "weekday": "Sunday",
+      "label": "July 12, 2026",
+      "stories": 26,
+      "flagged": 6,
+      "note": "Today's dominant thread is active exploitation — a Gitea Docker auth bypass, a “credible” threat forcing ShareFile shutdowns, a modular Windows wiper-ransomware hybrid, and a new vishing crew draining SharePoint data — while a Scottish NHS trust adds another healthcare data exposure to the pile. Cloud infrastructure stayed quiet with no active US-region incidents, but both hyperscalers leaned hard into agentic tooling, shipping Claude-powered security review in AWS and general availability for Claude in Microsoft Foundry. Watch for AI-agent-targeted attacks next — the “Ghostcommit” image-based prompt injection shows how easily a coding agent can be tricked into leaking secrets."
+    },
     {
       "date": "2026-07-11",
       "file": "briefings/2026-07-11.html",
