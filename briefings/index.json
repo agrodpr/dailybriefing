@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-11T11:12:28Z",
+  "updated": "2026-07-16T11:20:00Z",
   "briefings": [
+    {
+      "date": "2026-07-16",
+      "file": "briefings/2026-07-16.html",
+      "weekday": "Thursday",
+      "label": "July 16, 2026",
+      "stories": 26,
+      "flagged": 5,
+      "note": "Patch queues are overflowing after Microsoft's record 622-CVE Patch Tuesday, while CISA races the clock on three fronts at once — an actively exploited Oracle E-Business Suite flaw due Saturday, three exploited SharePoint bugs, and SonicWall's SMA1000 zero-days. A sprawling AWS CloudFront outage tied to VPC Origins routing knocked sites offline worldwide, from Hugging Face to the UK's National Lottery, even as every monitored US region held steady. Watch the weekend CISA deadline and Google Cloud's VMware resilience gap — both are live tests of how fast enterprises can actually patch."
+    },
     {
       "date": "2026-07-11",
       "file": "briefings/2026-07-11.html",

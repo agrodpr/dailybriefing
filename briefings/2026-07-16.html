@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; July 16, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 60px 24px 24px;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  text-align: center;
+  letter-spacing: -2px;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 0 auto 32px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: fit-content;
+  margin: 0 auto 48px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  line-height: 1.5;
+}
+
+.card {
+  max-width: 860px;
+  margin: 0 auto 16px;
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  border-left: 3px solid;
+}
+
+.card:hover {
+  filter: brightness(1.3);
+}
+
+.chip {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 8px;
+  margin-bottom: 12px;
+  color: #0B0B0F;
+  font-weight: 600;
+}
+
+.chip.hn { background: var(--cyan); }
+.chip.bc { background: var(--orange); }
+.chip.reg { background: var(--red); }
+.chip.dr { background: var(--purple); }
+.chip.eng { background: var(--pink); }
+.chip.aws { background: var(--green); }
+.chip.azure { background: var(--blue); }
+.chip.flag { background: var(--orange); color: #0B0B0F; }
+
+.card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.card .meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.card .meta a {
+  color: var(--text-muted);
+}
+
+.card p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+.subhead {
+  max-width: 860px;
+  margin: 40px auto 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.status-normal {
+  max-width: 860px;
+  margin: 0 auto 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+
+.skip-section {
+  max-width: 860px;
+  margin: 48px auto 0;
+}
+
+.skip-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.skip-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skip-section li {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.skip-section a {
+  color: var(--text-muted);
+}
+
+footer {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<h1>MORNING BRIEFING</h1>
+<div class="tagline">Your daily intelligence feed &middot; Thursday, July 16, 2026</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<div class="editors-note">Patch queues are overflowing after Microsoft&rsquo;s record 622-CVE Patch Tuesday, while CISA races the clock on three fronts at once &mdash; an actively exploited Oracle E-Business Suite flaw due Saturday, three exploited SharePoint bugs, and SonicWall&rsquo;s SMA1000 zero-days. A sprawling AWS CloudFront outage tied to VPC Origins routing knocked sites offline worldwide, from Hugging Face to the UK&rsquo;s National Lottery, even as every monitored US region held steady. Watch the weekend CISA deadline and Google Cloud&rsquo;s VMware resilience gap &mdash; both are live tests of how fast enterprises can actually patch.</div>
+
+  <div class="card" style="border-left-color: var(--cyan)">
+    <span class="chip hn">Hacker News</span>
+    <h2>Inkling: Our Open-Weights Model</h2>
+    <div class="meta">1,006 pts &middot; 253 comments &middot; <a href="https://news.ycombinator.com/item?id=48924912">discussion</a> &middot; <a href="https://thinkingmachines.ai/news/introducing-inkling/">&rarr; Read more</a></div>
+    <p>Thinking Machines Lab released Inkling, a new open-weights model, publishing weights and research details rather than keeping the architecture closed. The release drew immediate attention on Hacker News, with the community debating benchmarks and licensing terms within hours of launch. It adds to a growing list of labs shipping openly-licensed alternatives to closed frontier models.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--cyan)">
+    <span class="chip hn">Hacker News</span>
+    <h2>Grok Build is open source</h2>
+    <div class="meta">470 pts &middot; 510 comments &middot; <a href="https://news.ycombinator.com/item?id=48926590">discussion</a> &middot; <a href="https://github.com/xai-org/grok-build">&rarr; Read more</a></div>
+    <p>xAI open-sourced Grok Build, its coding-agent tooling, publishing the repository on GitHub for anyone to inspect, fork, or self-host. The move puts pressure on other AI coding assistants to justify closed-source pricing, and sparked one of the day's largest HN threads. Early commenters are picking apart the agent's tool-use scaffolding and comparing it to Claude Code and other agentic coding stacks.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--cyan)">
+    <span class="chip hn">Hacker News</span>
+    <h2>Stripe and Advent have made a joint offer to acquire PayPal</h2>
+    <div class="meta">449 pts &middot; 261 comments &middot; <a href="https://news.ycombinator.com/item?id=48915953">discussion</a> &middot; <a href="https://www.reuters.com/business/finance/stripe-advent-offer-buy-paypal-more-than-53-billion-sources-say-2026-07-15/">&rarr; Read more</a></div>
+    <p>Stripe and private equity firm Advent International have made a joint offer to acquire PayPal for more than $53 billion, according to Reuters sources. A deal would combine PayPal's massive existing merchant base with Stripe's infrastructure-first approach to payments, reshaping the competitive landscape for online checkout. No formal agreement has been confirmed by either company.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange)">
+    <span class="chip bc">BleepingComputer</span><span class="chip flag">&#9889; ON YOUR RADAR</span>
+    <h2>CISA orders feds to patch actively exploited Oracle flaw by Saturday</h2>
+    <div class="meta">July 16 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-oracle-flaw-by-saturday/">&rarr; Read more</a></div>
+    <p>CISA has given federal agencies until Saturday to patch a critical, actively-exploited vulnerability in Oracle E-Business Suite's financial application module. The directive follows confirmed in-the-wild attacks and lands on top of an already packed patch queue this week. Organizations running on-prem E-Business Suite instances should treat this as a top-priority, weekend-blocking fix.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange)">
+    <span class="chip bc">BleepingComputer</span><span class="chip flag">&#9889; ON YOUR RADAR</span>
+    <h2>CISA warns admins to patch actively exploited SharePoint flaws</h2>
+    <div class="meta">July 15 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-patch-actively-exploited-sharepoint-flaws/">&rarr; Read more</a></div>
+    <p>CISA warned that attackers are actively exploiting three vulnerabilities against internet-exposed, on-premises SharePoint Server instances. The bugs let unauthenticated attackers compromise exposed servers directly from the internet, and agencies have been ordered to remediate. Any organization running on-prem SharePoint without the latest patches should assume it is a live target.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange)">
+    <span class="chip bc">BleepingComputer</span><span class="chip flag">&#9889; ON YOUR RADAR</span>
+    <h2>SonicWall warns of SMA1000 flaws exploited in zero-day attacks, patch now</h2>
+    <div class="meta">July 14 &middot; <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/">&rarr; Read more</a></div>
+    <p>SonicWall confirmed threat actors are exploiting two SMA1000 vulnerabilities, CVE-2026-15409 and CVE-2026-15410, as zero-days before patches were available. The company has since released security updates and is urging customers to install them immediately. SMA1000 appliances sit at the network edge, making unpatched units an easy initial-access point for intruders.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange)">
+    <span class="chip bc">BleepingComputer</span>
+    <h2>New Spirals ransomware encrypts victim network in under 24 hours</h2>
+    <div class="meta">July 16 &middot; <a href="https://www.bleepingcomputer.com/news/security/new-spirals-ransomware-encrypts-victim-network-in-under-24-hours/">&rarr; Read more</a></div>
+    <p>A new ransomware operator dubbed Spirals completed an entire intrusion &mdash; initial access, data theft, and full network encryption &mdash; in under 24 hours. The compressed timeline leaves defenders far less room to detect and contain an attack before damage is done. It's the latest sign that ransomware crews are optimizing for speed as much as scale.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange)">
+    <span class="chip bc">BleepingComputer</span>
+    <h2>Zoom warns of critical account takeover vulnerability</h2>
+    <div class="meta">July 15 &middot; <a href="https://www.bleepingcomputer.com/news/security/zoom-warns-of-critical-account-takeover-vulnerability/">&rarr; Read more</a></div>
+    <p>Zoom disclosed a critical vulnerability in its Windows desktop client and SDK that could let an unauthenticated attacker hijack user accounts. No exploitation in the wild has been confirmed yet, but the flaw's low bar for attack makes it a priority patch. Enterprises running Zoom's Windows client or embedding its SDK should update immediately.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange)">
+    <span class="chip bc">BleepingComputer</span>
+    <h2>Google Gemini CLI abused as a hacking agent, malware botnet operator</h2>
+    <div class="meta">July 15 &middot; <a href="https://www.bleepingcomputer.com/news/security/google-gemini-cli-abused-as-a-hacking-agent-malware-botnet-operator/">&rarr; Read more</a></div>
+    <p>A Russian-speaking threat actor tracked as "bandcampro" repurposed Google's open-source Gemini CLI tool into an autonomous hacking agent and botnet operator. The case shows attackers adapting legitimate AI coding tools for offensive tradecraft rather than building custom malware from scratch. It's a preview of how agentic AI tooling is becoming dual-use infrastructure for both defenders and attackers.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--red)">
+    <span class="chip reg">The Register</span>
+    <h2>AWS CloudFront outage serves errors instead of websites</h2>
+    <div class="meta">July 16 &middot; <a href="https://www.theregister.com/off-prem/2026/07/16/aws-cloudfront-outage-serves-errors-instead-of-websites/5272421">&rarr; Read more</a></div>
+    <p>A widespread AWS CloudFront outage tied to a packet-processing issue in its VPC Origins connectivity knocked customer sites offline, including Hugging Face and the UK's National Lottery. AWS says only CloudFront traffic routed through VPC Origins was affected; other origin types remained unaffected, and a workaround is to temporarily switch origin type. AWS engineers were still working toward full mitigation as of this morning.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--red)">
+    <span class="chip reg">The Register</span><span class="chip flag">&#9889; ON YOUR RADAR</span>
+    <h2>LegacyHive: 'Bone-shattering' zero-day from Microsoft's serial tormentor not the haymaker that was promised</h2>
+    <div class="meta">July 15 &middot; <a href="https://www.theregister.com/security/2026/07/15/microsofts-serial-tormentor-drops-legacyhive-0-day/5271723">&rarr; Read more</a></div>
+    <p>A zero-day dubbed LegacyHive, attributed to a repeat Microsoft attacker, is circulating &mdash; though researchers say it's a useful post-compromise tool rather than the initial-access "haymaker" some feared. It still lowers the bar for attackers who've already gained a foothold to escalate further. Defenders should treat it as another reason to focus on detecting post-compromise activity, not just perimeter breaches.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--red)">
+    <span class="chip reg">The Register</span>
+    <h2>Patchpocalypse Now: Microsoft tops last month's record with 622 Patch Tuesday CVEs</h2>
+    <div class="meta">July 14 &middot; <a href="https://www.theregister.com/security/2026/07/14/patchpocalypse-now-microsoft-tops-last-months-record-with-622-patch-tuesday-cves/5271434">&rarr; Read more</a></div>
+    <p>Microsoft's latest Patch Tuesday shattered its own record with 622 CVEs fixed in a single release, dwarfing last month's already-large 206-CVE batch. The sheer volume strains patch-management teams already juggling SharePoint, Oracle, and SonicWall zero-days this week. Security teams should prioritize by exploitability and exposure rather than trying to patch everything at once.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--red)">
+    <span class="chip reg">The Register</span><span class="chip flag">&#9889; ON YOUR RADAR</span>
+    <h2>Google Cloud's VMware service loses resilience due to a dud update</h2>
+    <div class="meta">July 15 &middot; <a href="https://www.theregister.com/virtualization/2026/07/15/google-clouds-vmware-service-loses-resilience-due-to-a-dud-update/5271511">&rarr; Read more</a></div>
+    <p>Google Cloud's VMware service lost resilience after a faulty update, coinciding with VMware's own warning of a critical flaw in its load balancer. The overlap of an infrastructure bug and a security vulnerability in the same virtualization stack raises the stakes for anyone running VMware workloads on Google Cloud. Admins should check both the resilience advisory and the load-balancer CVE before assuming their environment is unaffected.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--pink)">
+    <span class="chip eng">Engadget</span>
+    <h2>xAI sues Grok user for generating nonconsensual sexualized deepfakes</h2>
+    <div class="meta">July 16 &middot; <a href="https://www.engadget.com/2216382/xai-sues-grok-user-generating-nonconsensual-sexualized-deepfakes/">&rarr; Read more</a></div>
+    <p>xAI has filed a lawsuit against a user who allegedly used Grok to generate nonconsensual sexualized deepfake images, including of minors. The suit signals AI vendors are increasingly willing to pursue legal action against abusive use of their own models rather than relying solely on content filters. It also raises the bar for how seriously platforms are expected to police image-generation misuse going forward.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--pink)">
+    <span class="chip eng">Engadget</span>
+    <h2>A hacker accessed Suno source code that reportedly details how the company scraped millions of songs</h2>
+    <div class="meta">July 15 &middot; <a href="https://www.engadget.com/2215772/a-hacker-accessed-suno-source-code-that-reportedly-details-how-the-company-scraped-millions-of-songs/">&rarr; Read more</a></div>
+    <p>A hacker breached AI music company Suno and accessed source code reportedly detailing how the company scraped millions of songs to train its models. Suno says the breach occurred in November and that no sensitive personal information was compromised. The incident adds to a growing pile of evidence in the copyright fight over how AI music generators sourced their training data.</p>
+  </div>
+
+<div class="subhead">Service Health &middot; US Regions</div>
+<div class="status-normal">&#10003; All monitored US regions operating normally</div>
+
+<div class="subhead">Deprecations &amp; Migrations</div>
+  <div class="card" style="border-left-color: var(--green)">
+    <span class="chip aws">AWS</span>
+    <h2>Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks</h2>
+    <div class="meta">July 1 &middot; <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">&rarr; Read more</a></div>
+    <p>Amazon EKS now supports Kubernetes version rollbacks, letting teams reverse a cluster upgrade within seven days without rebuilding the cluster. It turns what used to be a one-way, high-risk operation into a reversible one, reducing the blast radius of a bad version upgrade. Teams planning EKS version migrations should build this safety net into their upgrade runbooks.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--blue)">
+    <span class="chip azure">Azure</span>
+    <h2>Azure IaaS: How to design, build, and optimize cloud infrastructure for long-term cost efficiency</h2>
+    <div class="meta">June 30 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-iaas-how-to-design-build-and-optimize-cloud-infrastructure-for-long-term-cost-optimization-efficiency/">&rarr; Read more</a></div>
+    <p>Microsoft published guidance on designing, building, and optimizing Azure IaaS infrastructure for long-term cost efficiency as organizations migrate mission-critical workloads to the cloud. The post frames cost efficiency as a foundational architecture principle rather than an afterthought bolted on post-migration. It's aimed at teams mid-migration who need a cost model that survives scale-up rather than one that only works at pilot size.</p>
+  </div>
+
+<div class="subhead">New &amp; Noteworthy</div>
+  <div class="card" style="border-left-color: var(--green)">
+    <span class="chip aws">AWS</span>
+    <h2>Amazon SQS turns 20: Two decades of reliable messaging at scale</h2>
+    <div class="meta">July 13 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-sqs-turns-20-two-decades-of-reliable-messaging-at-scale/">&rarr; Read more</a></div>
+    <p>Amazon SQS turned 20 this month &mdash; it was one of the first three AWS services, launched alongside EC2 and S3 back in 2006 to let distributed systems pass messages without tight service-to-service dependencies. Two decades later it still underpins queueing patterns across much of the AWS ecosystem. The anniversary post traces how the decoupled-messaging pattern SQS pioneered became a default architecture choice.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--green)">
+    <span class="chip aws">AWS</span>
+    <h2>Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available</h2>
+    <div class="meta">June 30 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">&rarr; Read more</a></div>
+    <p>AWS launched EC2 C9g and C9gd instances powered by its new Graviton5 processors, claiming up to 25% better compute performance than Graviton4 and a 5x larger cache. The C9gd variant adds local NVMe storage for workloads that need fast local disk. It's the next step in AWS's push to move compute-heavy workloads off x86 onto its own silicon.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--green)">
+    <span class="chip aws">AWS</span>
+    <h2>Amazon S3 annotations: attach rich, queryable context directly to your objects</h2>
+    <div class="meta">June 16 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-s3-annotations-attach-rich-queryable-context-directly-to-your-objects/">&rarr; Read more</a></div>
+    <p>Amazon S3 now supports annotations &mdash; up to 1GB of rich, mutable, queryable metadata attached directly to objects &mdash; aimed at AI agents that need to discover and act on data without a separate metadata system. It effectively turns S3 objects into self-describing records agents can query directly. Teams building agentic data pipelines on S3 get one less system to maintain.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--green)">
+    <span class="chip aws">AWS</span>
+    <h2>AWS WAF adds AI traffic monetization capability to help content owners charge AI bots for content access</h2>
+    <div class="meta">June 15 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/">&rarr; Read more</a></div>
+    <p>AWS WAF added an AI traffic monetization capability that lets content owners set a price for AI bots and agents accessing their content, collecting payment through third-party providers before granting access at the edge. It's a direct response to publishers' complaints about AI crawlers scraping content for free. The feature effectively turns WAF into a paywall enforcement point for machine traffic, not just a security filter.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--green)">
+    <span class="chip aws">AWS</span>
+    <h2>AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h2>
+    <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+    <p>AWS Security Agent added STRIDE-based threat modeling, full repo and PR scanning with remediation across major Git platforms, and IDE integrations including a Claude Code plugin and MCP support. It brings automated security review directly into developer workflows instead of a separate post-hoc audit step. Teams already using Claude Code get threat modeling and vulnerability remediation without switching tools.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--blue)">
+    <span class="chip azure">Azure</span>
+    <h2>Claude in Microsoft Foundry is now generally available</h2>
+    <div class="meta">June 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">&rarr; Read more</a></div>
+    <p>Claude is now generally available in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware. It gives enterprise teams already standardized on Azure a direct path from Claude experimentation to production without leaving the Foundry ecosystem. The GA launch follows a preview period and puts Claude alongside OpenAI's models as a first-class Foundry option.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--blue)">
+    <span class="chip azure">Azure</span>
+    <h2>Meet Brain: The AI system behind Azure reliability</h2>
+    <div class="meta">July 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">&rarr; Read more</a></div>
+    <p>Microsoft detailed "Brain," an AI system built to maintain a digital twin of Azure Service Health, aimed at predicting and mitigating reliability issues before they become customer-facing incidents. It's part of a broader push to have AI systems monitor and self-heal hyperscale infrastructure rather than relying purely on human on-call response. The approach reflects how differently the reliability problem looks at Azure's scale versus a single data center.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--blue)">
+    <span class="chip azure">Azure</span>
+    <h2>External key management for Azure Managed HSM is now in public preview</h2>
+    <div class="meta">July 7 &middot; <a href="https://azure.microsoft.com/en-us/blog/external-key-management-for-azure-managed-hsm-is-now-in-public-preview/">&rarr; Read more</a></div>
+    <p>Azure Managed HSM now supports external key management in public preview, letting customers generate and hold encryption keys in a single-tenant, FIPS 140-3 Level 3 module that Microsoft cannot access. It's aimed at regulated customers who need provable sovereignty over their own key material, not just encryption-at-rest guarantees. Organizations in finance and government are the most likely early adopters given the compliance angle.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--blue)">
+    <span class="chip azure">Azure</span>
+    <h2>Frontier models and production agents: Advancing Microsoft Foundry for the agentic era</h2>
+    <div class="meta">July 9 &middot; <a href="https://azure.microsoft.com/en-us/blog/frontier-models-and-production-agents-advancing-microsoft-foundry-for-the-agentic-era/">&rarr; Read more</a></div>
+    <p>Microsoft expanded Microsoft Foundry with OpenAI's latest frontier model series, a new Asia Pacific Data Zone for data residency, and general availability of production-agent capabilities. The data zone addition matters for enterprises with regional compliance requirements who couldn't previously keep Foundry workloads in-region. It signals Microsoft doubling down on Foundry as the default enterprise on-ramp for both frontier models and deployed agents.</p>
+  </div>
+
+
+<div class="skip-section">
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2216396/netflix-stranger-things-vhs-quality/">Netflix releases a VHS-quality version of Stranger Things' first season</a> &mdash; (nostalgia gimmick, no tech depth)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2215794/skullcandy-crusher-1080-review/">Skullcandy Crusher 1080 review: Haptic bass meets whisper-quiet ANC</a> &mdash; (consumer gadget review)</li>
+    <li>&middot; [Hacker News] &mdash; <a href="https://news.ycombinator.com/item?id=48923380">Collection of Digital Clock Designs</a> &mdash; (novelty, no infra/security angle)</li>
+    <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/offbeat/2026/07/15/software-bloat-this-elevator-needs-an-8gb-core-i5/5270901">Software bloat? This elevator needs an 8GB Core i5</a> &mdash; (light opinion piece)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2215630/hinge-users-can-now-get-friends-to-hype-them-up-on-their-profiles/">Hinge users can now get friends to hype them up on their profiles</a> &mdash; (dating app feature, no relevance)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:15 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</footer>
+
+</body>
+</html>
