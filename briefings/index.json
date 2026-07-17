@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-12T11:35:00Z",
+  "updated": "2026-07-17T11:07:00Z",
   "briefings": [
+    {
+      "date": "2026-07-17",
+      "file": "briefings/2026-07-17.html",
+      "weekday": "Friday",
+      "label": "July 17, 2026",
+      "stories": 26,
+      "flagged": 4,
+      "note": "Ransomware took a physical toll today — Coca-Cola's Fairlife dairy plants went offline — while CISA issued back-to-back emergency patch orders for actively exploited Fortinet and Oracle flaws, both due by the weekend. AWS and Azure's US regions are quiet, but Airbus moving 70 critical apps off AWS to France's Scaleway is the loudest signal yet of Europe's sovereignty push against American hyperscalers. Elsewhere, Kimi K3's open-weight release is dominating Hacker News and a 2-click Cursor exploit is a reminder that AI coding tools are now part of the attack surface."
+    },
     {
       "date": "2026-07-12",
       "file": "briefings/2026-07-12.html",
