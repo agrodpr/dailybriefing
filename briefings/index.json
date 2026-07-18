@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-17T11:07:00Z",
+  "updated": "2026-07-18T11:08:00Z",
   "briefings": [
+    {
+      "date": "2026-07-18",
+      "file": "briefings/2026-07-18.html",
+      "weekday": "Saturday",
+      "label": "July 18, 2026",
+      "stories": 26,
+      "flagged": 4,
+      "note": "AWS spent the day fighting a billing-display bug so severe some customers watched estimated charges balloon to $1.7 billion overnight — no US-region outages today, but a new Windows LegacyHive zero-day and an actively exploited Fortinet flaw under CISA order mean patching should come before coffee. Healthcare took two hits, with Abbott investigating extortion claims and 23andMe settling for $18M over genetic data exposure. Watch AWS's new Security Agent and Azure's Managed HSM key-management preview — both quietly raise the bar on what \"secure by default\" should mean in 2026."
+    },
     {
       "date": "2026-07-17",
       "file": "briefings/2026-07-17.html",

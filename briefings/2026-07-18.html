@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · July 18, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171;
+  --purple:#A78BFA; --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:64px 24px 32px;
+}
+h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; text-align:center; letter-spacing:-2px;
+  color:var(--text);
+}
+.tagline{
+  text-align:center; font-family:'Inter',sans-serif; font-size:15px;
+  text-transform:uppercase; letter-spacing:3px; color:var(--text-muted);
+  margin-top:16px;
+}
+hr{
+  border:none; border-top:1px solid var(--surface-2);
+  max-width:860px; margin:32px auto;
+}
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  max-width:900px; margin:0 auto 48px; background:var(--surface);
+  padding:12px 32px; border-radius:40px;
+}
+.legend-item{
+  display:flex; align-items:center; gap:8px;
+  font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);}
+.dot-reg{background:var(--red);} .dot-dr{background:var(--purple);}
+.dot-eng{background:var(--pink);} .dot-aws{background:var(--green);}
+.dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.cards{max-width:860px; margin:0 auto;}
+.card{
+  background:var(--surface); padding:28px 32px; border-radius:8px;
+  margin-bottom:16px; border-left:3px solid var(--c, var(--cyan));
+  transition:filter .15s ease;
+}
+.card:hover{filter:brightness(1.3);}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase;
+  letter-spacing:1px; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; font-weight:700;
+}
+.chip-radar{background:var(--orange); color:#0B0B0F;}
+.headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  color:var(--text); margin-bottom:10px; line-height:1.2;
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:16px;}
+.meta a{color:var(--text-muted); text-decoration:underline;}
+.summary{font-size:17px; line-height:1.7; color:var(--text);}
+
+.sub-header{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px;
+  color:var(--text-muted); margin:40px 0 12px; max-width:860px; margin-left:auto; margin-right:auto;
+}
+.status-line{
+  max-width:860px; margin:0 auto 16px; color:var(--text-muted);
+  font-size:15px; padding:16px 32px; background:var(--surface); border-radius:8px;
+}
+
+.skipping{max-width:860px; margin:56px auto 0;}
+.skipping-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin-bottom:14px;
+}
+.skipping ul{list-style:none;}
+.skipping li{font-size:14px; color:var(--text-muted); margin-bottom:8px; line-height:1.6;}
+.skipping a{color:var(--text-muted);}
+
+footer{
+  max-width:860px; margin:0 auto; text-align:center; font-size:11px;
+  color:var(--text-muted); padding-top:48px;
+}
+
+@media (max-width:600px){
+  .headline{font-size:26px;}
+  .card{padding:22px 20px;}
+  .editors-note{font-size:20px;}
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<h1>MORNING BRIEFING</h1>
+<div class="tagline">Your daily intelligence feed &middot; Saturday, July 18, 2026</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">AWS spent the day fighting a billing-display bug so severe some customers watched estimated charges balloon to $1.7 billion overnight &mdash; no US-region outages today, but a new Windows LegacyHive zero-day and an actively exploited Fortinet flaw under CISA order mean patching should come before coffee. Healthcare took two hits, with Abbott investigating extortion claims and 23andMe settling for $18M over genetic data exposure. Watch AWS's new Security Agent and Azure's Managed HSM key-management preview &mdash; both quietly raise the bar on what "secure by default" should mean in 2026.</p>
+
+<div class="cards">
+
+<!-- ===== HACKER NEWS ===== -->
+<div class="card" style="--c:var(--cyan)">
+  <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+  <div class="headline">AWS's Billing Console Told Customers They Owed $1.7 Billion</div>
+  <div class="meta">1,205 pts &middot; 711 comments &middot; <a href="https://news.ycombinator.com/item?id=48945241">&rarr; Read more</a></div>
+  <div class="summary">A bug in AWS's Billing and Cost Management Console began displaying wildly inaccurate estimated charges late on July 16, with some accounts seeing normal sub-$5 usage reported as $1.7 billion. AWS says the estimates never reflected actual usage or charges and has been backfilling corrected data since, with full recovery expected by July 19. The incident became the top Ask HN thread of the year within hours as panicked account owners compared notes.</div>
+</div>
+
+<div class="card" style="--c:var(--cyan)">
+  <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+  <div class="headline">TP-Link Kasa Cameras Leaked Home GPS Coordinates for 6 Years</div>
+  <div class="meta">141 pts &middot; 42 comments &middot; <a href="https://news.ycombinator.com/item?id=48952565">&rarr; Read more</a></div>
+  <div class="summary">Independent research found that TP-Link's Kasa EC71 camera line broadcast owners' precise home GPS coordinates over unauthenticated UDP packets on the local network, a design flaw present since the device's launch. Anyone on the same network segment, including malware or a compromised IoT neighbor, could silently harvest exact home addresses. No CVE or patch timeline has been published by TP-Link yet.</div>
+</div>
+
+<div class="card" style="--c:var(--cyan)">
+  <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+  <div class="headline">The State of Open Source AI, 2026 Edition</div>
+  <div class="meta">452 pts &middot; 324 comments &middot; <a href="https://stateofopensource.ai/">&rarr; Read more</a></div>
+  <div class="summary">A community-maintained survey tracking open-weight model releases, licensing terms, and infrastructure costs across the open source AI ecosystem. This year's edition highlights a widening gap between models that are genuinely reproducible and those that are "open-weight" in name only, with implications for anyone building agent infrastructure on top of them.</div>
+</div>
+
+<!-- ===== BLEEPINGCOMPUTER ===== -->
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">New Windows LegacyHive Zero-Day Gives Hackers Admin Privileges</div>
+  <div class="meta">July 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/">&rarr; Read more</a></div>
+  <div class="summary">A researcher going by "Nightmare Eclipse" publicly released a Windows zero-day dubbed LegacyHive that escalates a standard user to full administrator on fully patched systems. No official CVE or Microsoft patch has shipped yet, and proof-of-concept code is already circulating, so exposure is active. Expect this to land in CISA's Known Exploited Vulnerabilities catalog within days.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">CISA Orders Feds to Patch Actively Exploited Fortinet FortiSandbox Flaws</div>
+  <div class="meta">July 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-feds-to-patch-exploited-fortinet-fortisandbox-flaws-by-sunday/">&rarr; Read more</a></div>
+  <div class="summary">CISA added two actively exploited vulnerabilities in Fortinet's FortiSandbox threat-detection platform to its Known Exploited Vulnerabilities catalog, giving federal agencies until Sunday to patch. Attackers are already using the flaws in the wild to gain unauthorized access to appliances that sit at the perimeter of enterprise networks, making this a priority patch for anyone running FortiSandbox regardless of sector.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">Abbott Investigates Two Cyber Incidents Amid Extortion Claims</div>
+  <div class="meta">July 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/">&rarr; Read more</a></div>
+  <div class="summary">Abbott Laboratories confirmed unauthorized access to legacy Exact Sciences systems in its Cancer Diagnostics business, and is separately investigating a claim that attackers breached its LabCentral portal and stole company data. Both incidents involve extortion demands, and neither has been publicly attributed to a specific threat actor yet.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">23andMe to Pay $18 Million in New Genetics Data Breach Settlement</div>
+  <div class="meta">July 16 &middot; <a href="https://www.bleepingcomputer.com/news/security/23andme-to-pay-18-million-in-new-genetics-data-breach-settlement/">&rarr; Read more</a></div>
+  <div class="summary">23andMe agreed to pay $18 million to settle claims from a coalition of 43 state attorneys general that it failed to protect customers' genetic data, following the 2023 credential-stuffing breach that exposed ancestry and health data for millions of users. The settlement adds to the company's mounting post-breach liabilities as it works through bankruptcy proceedings.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+  <div class="headline">Coca-Cola Says Fairlife Ransomware Attack Halts US Dairy Production</div>
+  <div class="meta">July 16 &middot; <a href="https://www.bleepingcomputer.com/news/security/coca-cola-says-fairlife-ransomware-attack-halts-us-dairy-production/">&rarr; Read more</a></div>
+  <div class="summary">A ransomware attack against Coca-Cola's Fairlife dairy subsidiary has disrupted operations badly enough to temporarily suspend production of Fairlife products across the United States. Coca-Cola has not disclosed the ransomware group behind the attack or whether a ransom demand was paid, and it's unclear how long the production halt will last.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+  <div class="headline">Ernst &amp; Young Discloses Data Breach After Support System Hack</div>
+  <div class="meta">July 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/">&rarr; Read more</a></div>
+  <div class="summary">EY is notifying customers of a data breach traced back to a compromised third-party support-ticket system used by its internal IT staff. The scope of exposed customer data hasn't been fully detailed, but the incident underscores how vendor support tooling remains a soft underbelly for large professional-services firms.</div>
+</div>
+
+<!-- ===== THE REGISTER ===== -->
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">Google Fixing Android Lock Screen Bug That Lets Gemini Send SMS Without a PIN</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/security/2026/07/17/google-fixing-android-lock-screen-bug-that-lets-gemini-send-sms-without-a-pin/5273027">&rarr; Read more</a></div>
+  <div class="summary">A specific multi-touch gesture lets anyone with physical access to a locked Android device bypass the authentication prompt and use Gemini to send SMS messages, no PIN required. Google says a fix is in progress but hasn't given a rollout date, leaving the bypass live on affected devices in the meantime.</div>
+</div>
+
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">NTP Server That Traveled Back in Time Caused Massive Aussie Mobile Outage</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/networks/2026/07/17/ntp-server-that-traveled-back-in-time-caused-massive-aussie-mobile-outage/5274059">&rarr; Read more</a></div>
+  <div class="summary">Telstra traced a nationwide mobile outage to an NTP time server that reverted to a stale timestamp after a skipped patch left undocumented changes in place. The resulting clock skew cascaded through authentication and session systems that assumed monotonic time, knocking out service for a large share of subscribers.</div>
+</div>
+
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">AI Spam Filters Are Getting Suckered by Old-School Text Salting</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/security/2026/07/17/ai-spam-filters-are-getting-suckered-by-old-school-text-salting/5274434">&rarr; Read more</a></div>
+  <div class="summary">Decades-old spam tricks like invisible character insertion and homoglyph substitution are proving surprisingly effective against LLM-powered email filters, according to new testing. The filters' semantic reasoning turns out to be easier to fool with junk tokens than the pattern-matching filters they replaced, a reminder that "AI-powered" doesn't automatically mean more robust.</div>
+</div>
+
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">Microsoft Gives Admins Exchange Online Breathing Room</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/saas/2026/07/17/microsoft-gives-admins-exchange-online-breathing-room/5274346">&rarr; Read more</a></div>
+  <div class="summary">Microsoft pushed back the retirement of the PowerShell -Credential parameter for Exchange Online to the end of 2026, giving admins who still rely on basic-auth-style scripting more time to migrate to modern authentication. Scripts and automation that haven't moved to certificate-based or app-only auth should treat this as a deadline, not a reprieve.</div>
+</div>
+
+<!-- ===== ENGADGET ===== -->
+<div class="card" style="--c:var(--pink)">
+  <div class="chips"><span class="chip" style="background:var(--pink)">Engadget</span></div>
+  <div class="headline">Meta Reportedly Considering Multibillion-Dollar Data Center Deal With Anthropic</div>
+  <div class="meta">July 17 &middot; <a href="https://www.engadget.com/2217904/meta-is-reportedly-considering-a-multibillion-dollar-data-center-deal-with-anthropic/">&rarr; Read more</a></div>
+  <div class="summary">Meta is reportedly in talks to bankroll a multibillion-dollar data center buildout tied to Anthropic, a deal that would open an entirely new infrastructure-leasing business line for the Facebook and Instagram parent. Terms and capacity commitments haven't been disclosed, but the scale signals how much compute frontier AI labs now need locked in years ahead.</div>
+</div>
+
+<div class="card" style="--c:var(--pink)">
+  <div class="chips"><span class="chip" style="background:var(--pink)">Engadget</span></div>
+  <div class="headline">TikTok Is No Longer Banned on US Government Devices</div>
+  <div class="meta">July 18 &middot; <a href="https://www.engadget.com/2218069/us-government-lifts-tiktok-ban-federal-devices/">&rarr; Read more</a></div>
+  <div class="summary">The federal government has officially lifted its ban on TikTok for devices issued to government employees, reversing a policy put in place over data-security concerns tied to the app's Chinese ownership. The reversal follows changes to TikTok's US ownership structure and comes with no publicly detailed new safeguards for device-level data access.</div>
+</div>
+
+<!-- ===== CLOUD BLOCK ===== -->
+<div class="sub-header">Service Health &middot; US Regions</div>
+<div class="status-line">&#10003; All monitored US regions operating normally</div>
+
+<div class="sub-header">Deprecations &amp; Migrations</div>
+<div class="status-line">No AWS or Azure blog posts on deprecations, retirements, or forced migrations today &mdash; slots reallocated to New &amp; Noteworthy below.</div>
+
+<div class="sub-header">New &amp; Noteworthy</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">AWS Security Agent Adds Threat Modeling and a Claude Code Plugin</div>
+  <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">&rarr; Read more</a></div>
+  <div class="summary">AWS Security Agent now performs STRIDE-based threat modeling and full repo/PR code scanning with remediation across major Git platforms, plus IDE integrations via Kiro, a Claude Code plugin, and MCP. The goal is letting developers run security reviews and fix findings without leaving their editor, shrinking the gap between finding and fixing.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">AWS Certificate Manager Adds ACME Support for Automated TLS Issuance</div>
+  <div class="meta">June 30 &middot; <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">&rarr; Read more</a></div>
+  <div class="summary">ACM now supports the ACME protocol for public TLS certificates, letting any ACMEv2-compatible client automate issuance and renewal for workloads outside AWS-managed services. Centralized governance, IAM-based access controls, and domain scoping come bundled in, cutting the operational risk of expired-cert outages.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">AWS Lambda Introduces MicroVMs for Isolated Sandboxes</div>
+  <div class="meta">June 22 &middot; <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">&rarr; Read more</a></div>
+  <div class="summary">Lambda's new MicroVMs give VM-level isolation with no shared kernel or resources between sessions, rapid launch and resume, and state preservation for up to 8 hours &mdash; all without infrastructure to manage. It's aimed squarely at running untrusted or multi-tenant code, like AI agent sandboxes, without the blast radius of a shared container runtime.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">Amazon EKS Adds Kubernetes Version Rollbacks</div>
+  <div class="meta">July 1 &middot; <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">&rarr; Read more</a></div>
+  <div class="summary">EKS clusters can now roll back a Kubernetes version upgrade within seven days without a full cluster rebuild, turning what used to be a one-way door into a reversible operation. That safety net should meaningfully lower the risk teams have historically priced into upgrade windows.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">CloudFormation Express Mode Speeds Deployments Up to 4x</div>
+  <div class="meta">June 30 &middot; <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">&rarr; Read more</a></div>
+  <div class="summary">CloudFormation Express mode cuts deployment confirmation times to seconds, aimed at both AI agents and developers who need faster iteration loops. It's available in all commercial regions at no additional cost, so the tradeoff is purely operational, not budgetary.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">AWS DevOps Agent Adds Pre-Production Release Management</div>
+  <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-devops-agent-adds-release-management-capabilities-to-assess-code-changes-before-production-preview/">&rarr; Read more</a></div>
+  <div class="summary">In preview, AWS DevOps Agent now reviews code changes for release readiness and runs autonomous release testing before code ships to production. It's positioned as a gate rather than a replacement for existing CI/CD pipelines, catching regressions before they reach customers.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">External Key Management for Azure Managed HSM Reaches Public Preview</div>
+  <div class="meta">July 7 &middot; <a href="https://azure.microsoft.com/en-us/blog/external-key-management-for-azure-managed-hsm-is-now-in-public-preview/">&rarr; Read more</a></div>
+  <div class="summary">Azure Key Vault Managed HSM now supports external key management, generating and storing keys in a single-tenant, FIPS 140-3 Level 3 HSM that only the customer controls &mdash; Microsoft has no access to the key material. It's a direct answer to sovereignty and zero-trust requirements from regulated customers who've been asking for provable key isolation.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Built to Bounce Back: How Azure Resiliency Evolved</div>
+  <div class="meta">July 8 &middot; <a href="https://azure.microsoft.com/en-us/blog/built-to-bounce-back-how-azure-resiliency-evolved/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft details the architectural changes behind Azure's resiliency posture, focused on systems that adapt and recover within real-world constraints rather than assuming failure-free operation. It's a useful read for anyone designing multi-region failover on top of Azure right now.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Proving Application Resilience on Azure With Chaos Studio</div>
+  <div class="meta">July 1 &middot; <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">&rarr; Read more</a></div>
+  <div class="summary">Azure Chaos Studio now covers simulated outages, failovers, network disruptions, and infrastructure failures so teams can validate resilience claims before production incidents force the issue. It folds chaos engineering directly into Azure tooling instead of requiring a third-party framework bolted on top.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Claude in Microsoft Foundry Is Now Generally Available</div>
+  <div class="meta">June 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">&rarr; Read more</a></div>
+  <div class="summary">Claude is now GA in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware, giving teams a production-ready path from agent experimentation to deployment without leaving the Azure ecosystem. It closes a gap for enterprises that wanted Claude's capabilities but needed everything to stay inside Azure's compliance boundary.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Meet Brain: The AI System Behind Azure Reliability</div>
+  <div class="meta">July 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft is building a live digital twin of Azure Service Health, using it to model cascading failures and reliability risk across the hyperscale fleet before they materialize as customer-facing incidents. It's part of a broader shift toward AI-driven operations for infrastructure too large for humans to reason about directly.</div>
+</div>
+
+</div>
+
+<div class="skipping">
+  <div class="skipping-title">Worth Skipping Today</div>
+  <ul>
+    <li>&middot; [Hacker News] &mdash; <a href="https://news.ycombinator.com/item?id=48949551">Thanks HN for 15 years of support</a> &mdash; (community post, no news)</li>
+    <li>&middot; [Hacker News] &mdash; <a href="https://www.bbc.com/news/articles/cy4kdd1e0ejo">First atmosphere found on Earth-like planet</a> &mdash; (off-topic, astronomy)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2217648/a-bug-in-aws-has-caused-some-customer-bills-to-spike-from-a-few-cents-to-billions-of-dollars/">A bug in AWS has caused billing spikes</a> &mdash; (duplicate, covered via HN)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2217484/caviar-lionel-messi-samsung-galaxy-z-fold-8-ultra/">Caviar's $13,130 Messi-themed Galaxy Z Fold</a> &mdash; (consumer gadget fluff)</li>
+    <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/personal-tech/2026/07/17/tech-support-chap-told-angry-customer-to-think-inside-the-box-and-solved-the-problem/5272293">Tech support chap solves battery mystery</a> &mdash; (human interest, no news value)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:08 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</footer>
+
+</body>
+</html>
