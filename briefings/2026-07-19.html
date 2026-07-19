@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing · July 19, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171;
+  --purple:#A78BFA; --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',sans-serif;
+  padding:64px 24px 32px;
+}
+h1{
+  font-family:'Fraunces',serif; font-weight:600;
+  font-size:80px; text-align:center; letter-spacing:-2px;
+  color:var(--text);
+}
+.tagline{
+  text-align:center; font-family:'Inter',sans-serif; font-size:15px;
+  text-transform:uppercase; letter-spacing:3px; color:var(--text-muted);
+  margin-top:16px;
+}
+hr{
+  border:none; border-top:1px solid var(--surface-2);
+  max-width:860px; margin:32px auto;
+}
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  max-width:900px; margin:0 auto 48px; background:var(--surface);
+  padding:12px 32px; border-radius:40px;
+}
+.legend-item{
+  display:flex; align-items:center; gap:8px;
+  font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);
+}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+.dot-hn{background:var(--cyan);} .dot-bc{background:var(--orange);}
+.dot-reg{background:var(--red);} .dot-dr{background:var(--purple);}
+.dot-eng{background:var(--pink);} .dot-aws{background:var(--green);}
+.dot-azure{background:var(--blue);}
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.cards{max-width:860px; margin:0 auto;}
+.card{
+  background:var(--surface); padding:28px 32px; border-radius:8px;
+  margin-bottom:16px; border-left:3px solid var(--c, var(--cyan));
+  transition:filter .15s ease;
+}
+.card:hover{filter:brightness(1.3);}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+.chip{
+  display:inline-block; font-size:10px; text-transform:uppercase;
+  letter-spacing:1px; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; font-weight:700;
+}
+.chip-radar{background:var(--orange); color:#0B0B0F;}
+.headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  color:var(--text); margin-bottom:10px; line-height:1.2;
+}
+.meta{font-size:12px; color:var(--text-muted); margin-bottom:16px;}
+.meta a{color:var(--text-muted); text-decoration:underline;}
+.summary{font-size:17px; line-height:1.7; color:var(--text);}
+
+.sub-header{
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px;
+  color:var(--text-muted); margin:40px 0 12px; max-width:860px; margin-left:auto; margin-right:auto;
+}
+.status-line{
+  max-width:860px; margin:0 auto 16px; color:var(--text-muted);
+  font-size:15px; padding:16px 32px; background:var(--surface); border-radius:8px;
+}
+
+.skipping{max-width:860px; margin:56px auto 0;}
+.skipping-title{
+  font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted);
+  margin-bottom:14px;
+}
+.skipping ul{list-style:none;}
+.skipping li{font-size:14px; color:var(--text-muted); margin-bottom:8px; line-height:1.6;}
+.skipping a{color:var(--text-muted);}
+
+footer{
+  max-width:860px; margin:0 auto; text-align:center; font-size:11px;
+  color:var(--text-muted); padding-top:48px;
+}
+
+@media (max-width:600px){
+  .headline{font-size:26px;}
+  .card{padding:22px 20px;}
+  .editors-note{font-size:20px;}
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<h1>MORNING BRIEFING</h1>
+<div class="tagline">Your daily intelligence feed &middot; Sunday, July 19, 2026</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-hn"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot dot-bc"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot dot-reg"></span>The Register</div>
+  <div class="legend-item"><span class="dot dot-dr"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot dot-eng"></span>Engadget</div>
+  <div class="legend-item"><span class="dot dot-aws"></span>AWS</div>
+  <div class="legend-item"><span class="dot dot-azure"></span>Azure</div>
+</div>
+
+<p class="editors-note">Fortinet's FortiSandbox flaws join a growing CISA patch queue as attackers actively exploit them in the wild, while ransomware knocked Coca-Cola's Fairlife dairy plants offline and Abbott investigates fresh extortion claims &mdash; healthcare and industrial production are both under real pressure today. Cloud infrastructure is quiet on the incident front: AWS's billion-dollar billing-display glitch has fully resolved and every monitored US region is operating normally, so today's cloud stories lean toward modernization tooling (AWS Transform, Azure IaaS cost efficiency) and new agent capabilities (Bedrock Knowledge Base, Foundry's frontier models) instead. Watch the reported multibillion-dollar Meta&ndash;Anthropic data center deal &mdash; it's the clearest signal yet of how much capital is chasing AI infrastructure.</p>
+
+<div class="cards">
+
+<!-- ===== HACKER NEWS ===== -->
+<div class="card" style="--c:var(--cyan)">
+  <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+  <div class="headline">Transcribe.cpp</div>
+  <div class="meta">550 pts &middot; 113 comments &middot; <a href="https://news.ycombinator.com/item?id=48963879">&rarr; Read more</a></div>
+  <div class="summary">A from-scratch C++ implementation of real-time offline speech transcription, built to run entirely on-device without cloud APIs or Python dependencies. The project pairs a lightweight Whisper-style model with a hand-rolled audio pipeline, prioritizing low latency and a minimal binary footprint over marginal accuracy gains. It drew heavy HN engagement for proving a full transcription stack can ship as a single dependency-free binary.</div>
+</div>
+
+<div class="card" style="--c:var(--cyan)">
+  <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+  <div class="headline">NYC May Require Landlords and Realtors to Disclose Use of AI in Listings</div>
+  <div class="meta">481 pts &middot; 211 comments &middot; <a href="https://news.ycombinator.com/item?id=48962983">&rarr; Read more</a></div>
+  <div class="summary">New York City is moving toward a rule requiring landlords and real estate agents to disclose when listing photos use AI-generated or AI-altered imagery, following the mayor's push against deceptive property marketing. The proposal targets tools that digitally stage empty rooms or alter structural features in ways prospective tenants can't detect from photos alone. It would make NYC one of the first major US cities to regulate AI disclosure specifically in real estate advertising.</div>
+</div>
+
+<div class="card" style="--c:var(--cyan)">
+  <div class="chips"><span class="chip" style="background:var(--cyan)">Hacker News</span></div>
+  <div class="headline">Speech Recognition and TTS in Less Than 500kb</div>
+  <div class="meta">467 pts &middot; 62 comments &middot; <a href="https://news.ycombinator.com/item?id=48911793">&rarr; Read more</a></div>
+  <div class="summary">Moonshine's "micro" models compress speech recognition and text-to-speech into under 500KB, small enough to run on microcontrollers with no cloud connection or GPU. The release targets embedded and IoT use cases where existing speech models are orders of magnitude too large to deploy on-device. Benchmarks in the repo show usable accuracy trade-offs against far larger models, aimed at developers building offline voice interfaces.</div>
+</div>
+
+<!-- ===== BLEEPINGCOMPUTER ===== -->
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+  <div class="headline">Update Now: 7-Zip Fixes RCE Flaw Exploitable With Malicious Archives</div>
+  <div class="meta">July 18 &middot; <a href="https://www.bleepingcomputer.com/news/security/update-now-7-zip-fixes-rce-flaw-exploitable-with-malicious-archives/">&rarr; Read more</a></div>
+  <div class="summary">7-Zip 26.02 patches a remote code execution flaw triggered simply by opening a specially crafted archive, no interaction beyond extraction required. No CVE score has been published yet, but the vendor treated it as urgent enough to warrant an out-of-cycle release. Anyone accepting compressed files from untrusted sources should update immediately.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+  <div class="headline">WordPress Core "wp2shell" RCE Flaws Get Public Exploits, Patch Now</div>
+  <div class="meta">July 18 &middot; <a href="https://www.bleepingcomputer.com/news/security/wordpress-core-wp2shell-rce-flaws-get-public-exploits-patch-now/">&rarr; Read more</a></div>
+  <div class="summary">Public proof-of-concept exploits are now circulating for critical "wp2shell" remote code execution flaws in WordPress Core, meaning attacks against unpatched sites can start immediately rather than waiting on reverse-engineering. The flaws affect core WordPress rather than a specific plugin, widening the exposed footprint across the platform's install base. Site administrators should patch ahead of the mass-scanning wave that typically follows a public PoC release.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">Microsoft Warns of Surge in ACR Stealer Attacks on Customers</div>
+  <div class="meta">July 18 &middot; <a href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-surge-in-acr-stealer-attacks-on-customers/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft is tracking a surge in ACR Stealer malware attacks against its enterprise customers, with the malware harvesting browser-stored passwords, authentication tokens, and sensitive documents. The campaign's growth suggests attackers are finding delivery vectors that slip past existing email and endpoint defenses. Credential-focused malware like this typically feeds directly into follow-on ransomware and business email compromise.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">Abbott Probes Two Cyber Incidents Amid Extortion Claims</div>
+  <div class="meta">July 17 &middot; <a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/">&rarr; Read more</a></div>
+  <div class="summary">Abbott Laboratories is investigating two separate incidents: confirmed unauthorized access to legacy Exact Sciences systems in its Cancer Diagnostics business, and a separate unverified claim that attackers breached its LabCentral portal and stole company data. Both incidents carry extortion demands, and neither has been attributed to a named threat actor yet. The dual-incident timing raises questions about whether the same access vector was used against both systems.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+  <div class="headline">Coca-Cola Says Fairlife Ransomware Attack Halts US Dairy Production</div>
+  <div class="meta">July 16 &middot; <a href="https://www.bleepingcomputer.com/news/security/coca-cola-says-fairlife-ransomware-attack-halts-us-dairy-production/">&rarr; Read more</a></div>
+  <div class="summary">A ransomware attack against Coca-Cola's Fairlife dairy subsidiary has disrupted operations enough to temporarily halt Fairlife product production across the United States. Coca-Cola hasn't named the ransomware group or confirmed whether a ransom was paid, and no timeline for resuming production has been given. It's a reminder that ransomware's physical-world blast radius now regularly reaches into food and beverage manufacturing.</div>
+</div>
+
+<div class="card" style="--c:var(--orange)">
+  <div class="chips"><span class="chip" style="background:var(--orange)">BleepingComputer</span></div>
+  <div class="headline">Claude Chrome Extension Flaw Lets Malicious Extensions Trigger AI Actions</div>
+  <div class="meta">July 16 &middot; <a href="https://www.bleepingcomputer.com/news/security/claude-chrome-extension-flaw-lets-malicious-extensions-trigger-ai-actions/">&rarr; Read more</a></div>
+  <div class="summary">A flaw in Anthropic's Claude for Chrome extension lets a malicious browser extension simulate user clicks to trigger Claude's predefined AI actions without genuine user intent. Because the extension can hold authenticated access to services like Gmail, Google Docs, Calendar, and Salesforce, a successful trigger could let an attacker's extension act through those connections. It's an early example of the browser extension ecosystem becoming an attack surface for AI agents with standing service access.</div>
+</div>
+
+<!-- ===== THE REGISTER ===== -->
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span><span class="chip chip-radar">&#9889; ON YOUR RADAR</span></div>
+  <div class="headline">Attackers Target Critical FortiSandbox Flaws as CISA Issues Patch Order</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/security/2026/07/17/attackers-target-critical-fortisandbox-flaws-as-cisa-issues-patch-order/5274287">&rarr; Read more</a></div>
+  <div class="summary">CISA added two actively exploited command-injection vulnerabilities in Fortinet's FortiSandbox threat-detection platform to its Known Exploited Vulnerabilities catalog after researchers spotted abuse attempts in the wild. Federal agencies face a patch deadline, but the flaws affect any organization running FortiSandbox at the network perimeter, not just government networks. Attackers targeting security appliances themselves continues a trend of turning defensive tooling into an entry point.</div>
+</div>
+
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">Billing Software Error Sends Billion-Dollar AWS Estimates</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/off-prem/2026/07/17/billing-software-error-sends-billion-dollar-aws-estimates/5274521">&rarr; Read more</a></div>
+  <div class="summary">A billing-software bug caused some AWS customers' estimated charges to display as billions of dollars overnight, though Amazon says actual invoiced usage was never affected and asked customers not to panic while it corrected the display. AWS's status feed shows the issue was resolved as of Saturday, with estimates back to normal. It's the second time in recent months a display-layer bug in AWS's billing console has caused a scare disproportionate to any real financial impact.</div>
+</div>
+
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">Microsoft Cuts OneDrive Support for Older Windows 10 Versions Next Month</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/os-platforms/2026/07/17/microsoft-cuts-onedrive-support-for-older-windows-10-versions-next-month/5274489">&rarr; Read more</a></div>
+  <div class="summary">Microsoft is cutting OneDrive support for older Windows 10 feature updates next month, forcing organizations still on those builds to upgrade to Windows 10 22H2 (supported through 2028) or move to Windows 11 to keep sync working. It's a narrower, faster-moving deprecation than the general Windows 10 end-of-life clock, catching IT teams who assumed 22H2 support meant OneDrive support too.</div>
+</div>
+
+<div class="card" style="--c:var(--red)">
+  <div class="chips"><span class="chip" style="background:var(--red)">The Register</span></div>
+  <div class="headline">Google Fixing Android Lock Screen Bug That Lets Gemini Send SMS Without a PIN</div>
+  <div class="meta">July 17 &middot; <a href="https://www.theregister.com/security/2026/07/17/google-fixing-android-lock-screen-bug-that-lets-gemini-send-sms-without-a-pin/5273027">&rarr; Read more</a></div>
+  <div class="summary">A specific multi-touch gesture on Android lets anyone with physical access to a locked device bypass the lock screen's authentication prompt and use Gemini to send SMS messages without a PIN. Google says a fix is in progress but hasn't given a rollout date, leaving the bypass exploitable on affected devices in the meantime. The flaw sits at the intersection of AI assistant integration and basic device security, a combination likely to recur as assistants get deeper OS-level access.</div>
+</div>
+
+<!-- ===== ENGADGET ===== -->
+<div class="card" style="--c:var(--pink)">
+  <div class="chips"><span class="chip" style="background:var(--pink)">Engadget</span></div>
+  <div class="headline">Meta Reportedly Considering Multibillion-Dollar Data Center Deal With Anthropic</div>
+  <div class="meta">July 17 &middot; <a href="https://www.engadget.com/2217904/meta-is-reportedly-considering-a-multibillion-dollar-data-center-deal-with-anthropic/">&rarr; Read more</a></div>
+  <div class="summary">Meta is reportedly in talks to bankroll a multibillion-dollar data center buildout tied to Anthropic, which would open an entirely new infrastructure-leasing business line for the Facebook and Instagram parent. Neither company has disclosed deal terms or capacity commitments. The scale of the reported talks underscores how much compute frontier AI labs are now locking in years ahead of need.</div>
+</div>
+
+<div class="card" style="--c:var(--pink)">
+  <div class="chips"><span class="chip" style="background:var(--pink)">Engadget</span></div>
+  <div class="headline">TikTok Is No Longer Banned on US Government Devices</div>
+  <div class="meta">July 18 &middot; <a href="https://www.engadget.com/2218069/us-government-lifts-tiktok-ban-federal-devices/">&rarr; Read more</a></div>
+  <div class="summary">The US government has officially lifted its ban on TikTok for federal employee devices, reversing a policy enacted over data-security concerns tied to the app's Chinese ownership. The reversal follows changes to TikTok's US ownership structure, though no new device-level safeguards have been publicly detailed. Agencies that spent years blocking the app at the network level will need updated guidance on what's now permitted.</div>
+</div>
+
+<!-- ===== CLOUD BLOCK ===== -->
+<div class="sub-header">Service Health &middot; US Regions</div>
+<div class="status-line">&#10003; All monitored US regions operating normally</div>
+
+<div class="sub-header">Deprecations &amp; Migrations</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">AWS Transform Adds Continuous Modernization to Autonomously Reduce Tech Debt</div>
+  <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/proactively-reduce-tech-debt-autonomously-with-aws-transform-continuous-modernization-preview/">&rarr; Read more</a></div>
+  <div class="summary">AWS Transform's continuous modernization preview automatically scans code repositories to detect, prioritize, and remediate technical debt at scale, running as an ongoing process rather than a one-time migration project. It's aimed at organizations sitting on legacy codebases who've historically deferred modernization because scoping the work manually was too expensive. Continuous scanning means debt gets flagged as it accumulates instead of surfacing years later as a blocking issue.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Azure IaaS: Designing Cloud Infrastructure for Long-Term Cost Efficiency</div>
+  <div class="meta">June 30 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-iaas-how-to-design-build-and-optimize-cloud-infrastructure-for-long-term-cost-optimization-efficiency/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft's guidance for designing and optimizing Azure IaaS covers cost efficiency for organizations migrating mission-critical workloads and building cloud-native applications at scale. It frames cost control as an architectural decision made at migration time, not a cleanup pass applied after workloads are already running. Teams currently planning a lift-and-shift to Azure should treat this as a checklist to work through before, not after, migration.</div>
+</div>
+
+<div class="sub-header">New &amp; Noteworthy</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">EC2 C9g and C9gd Instances Powered by AWS Graviton5 Now Available</div>
+  <div class="meta">June 30 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">&rarr; Read more</a></div>
+  <div class="summary">Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 are now generally available, delivering up to 25% better compute performance than Graviton4, a 5x larger cache, and the fastest memory of any processor instance in the cloud. The C9gd variant adds local NVMe storage for workloads that need fast local scratch space. It's AWS's latest push to make Arm-based compute the default choice on price-performance grounds rather than a niche option.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">Amazon Bedrock Managed Knowledge Base Simplifies Enterprise RAG</div>
+  <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-managed-knowledge-base-for-faster-more-accurate-enterprise-ai-applications/">&rarr; Read more</a></div>
+  <div class="summary">Amazon Bedrock's new fully managed Knowledge Base simplifies building enterprise RAG pipelines with native data connectors, automatic multi-format data preparation, and an Agentic Retriever for complex multi-step queries. Everything integrates with AgentCore Gateway, so teams building retrieval-augmented agents no longer need to stitch together separate ingestion and indexing infrastructure. It shifts RAG from a bespoke engineering project toward a managed service.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">Web Search on Amazon Bedrock AgentCore Grounds Agents in Live Knowledge</div>
+  <div class="meta">June 17 &middot; <a href="https://aws.amazon.com/blogs/aws/announcing-web-search-on-amazon-bedrock-agentcore-ground-your-ai-agents-in-current-accurate-web-knowledge/">&rarr; Read more</a></div>
+  <div class="summary">AWS added a fully managed web search tool to Bedrock AgentCore that grounds agent responses in current, cited web knowledge with zero data egress from the customer's secured AWS environment. Developers no longer need to build and operate their own web search integration for agents that need up-to-date information. The zero-egress design targets regulated customers who need grounding without data leaving their security boundary.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">Amazon S3 Annotations Attach Queryable Context Directly to Objects</div>
+  <div class="meta">June 16 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-s3-annotations-attach-rich-queryable-context-directly-to-your-objects/">&rarr; Read more</a></div>
+  <div class="summary">Amazon S3 now lets customers attach up to 1GB of rich, mutable, queryable context directly to objects via annotations, purpose-built for AI agents and autonomous workflows that need to discover and act on data without maintaining a separate metadata system. It effectively turns S3 objects into self-describing records that agents can query directly. That removes a common source of drift between object storage and the metadata catalogs built on top of it.</div>
+</div>
+
+<div class="card" style="--c:var(--green)">
+  <div class="chips"><span class="chip" style="background:var(--green)">AWS</span></div>
+  <div class="headline">AWS WAF Adds AI Traffic Monetization for Publishers</div>
+  <div class="meta">June 15 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-waf-adds-ai-traffic-monetization-capability-to-help-content-owners-charge-ai-bots-for-content-access/">&rarr; Read more</a></div>
+  <div class="summary">AWS WAF's new AI traffic monetization capability lets content owners and publishers price, meter, and collect payment from AI bots and agents accessing their content and APIs, enforced directly at the edge. It gives publishers a technical mechanism to charge AI crawlers instead of relying on robots.txt requests that scrapers can simply ignore. Payment runs through third-party providers, with access scoped and granted only after payment clears.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Azure Databricks Delivers Proven Business Value</div>
+  <div class="meta">July 15 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-databricks-delivers-proven-business-value/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft is positioning Azure Databricks as the same platform customers already use, now co-engineered with Microsoft and delivered as a native Azure service that inherits existing Microsoft identity and governance controls. The pitch is reduced integration overhead for organizations already standardized on Databricks and Azure separately. It's aimed at customers weighing whether to consolidate analytics workloads under a single vendor relationship.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Frontier Models and Production Agents: Advancing Microsoft Foundry</div>
+  <div class="meta">July 9 &middot; <a href="https://azure.microsoft.com/en-us/blog/frontier-models-and-production-agents-advancing-microsoft-foundry-for-the-agentic-era/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft Foundry is now generally available with OpenAI's latest frontier model series, a new Asia Pacific Data Zone for regional data residency, and expanded production agent capabilities. The Data Zone addition specifically targets customers with regulatory requirements to keep AI workload data within Asia Pacific. It's part of Microsoft's broader push to make Foundry the default runtime for production, not just experimental, AI agents.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">The 2026 Agent Confidence Index: Where 300 Builders See Real Momentum</div>
+  <div class="meta">June 29 &middot; <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/">&rarr; Read more</a></div>
+  <div class="summary">Microsoft's 2026 Agent Confidence Index, surveying 300 builders, finds growing trust in AI agents for defined tasks but continued reliance on human judgment for ambiguous or high-stakes decisions. The research frames human oversight as a durable skill requirement rather than a temporary gap that better models will close. It's worth weighing against vendor messaging that often implies full autonomy is closer than builders themselves report experiencing.</div>
+</div>
+
+<div class="card" style="--c:var(--blue)">
+  <div class="chips"><span class="chip" style="background:var(--blue)">Azure</span></div>
+  <div class="headline">Accelerate Modern Linux Workloads With Azure Files</div>
+  <div class="meta">June 29 &middot; <a href="https://azure.microsoft.com/en-us/blog/accelerate-modern-linux-workloads-with-azure-files/">&rarr; Read more</a></div>
+  <div class="summary">Azure Files now offers better performance for modern Linux workloads, combining familiar file access semantics with built-in data protection and native Azure service integration. It targets teams running Linux-based applications that need managed file storage without standing up and maintaining their own file servers. The update closes a gap where Linux workloads previously got a weaker performance profile than Windows-native file access patterns.</div>
+</div>
+
+</div>
+
+<div class="skipping">
+  <div class="skipping-title">Worth Skipping Today</div>
+  <ul>
+    <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/ai-and-ml/2026/07/19/using-ai-makes-people-less-likely-to-admit-they-dont-know-something/5274567">Using AI makes people less likely to admit they don't know something</a> &mdash; (opinion/research, no action)</li>
+    <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/science/2026/07/17/spacex-starship-flight-test-13-takes-issue-with-the-flight-bit/5274228">SpaceX Starship Flight Test 13 takes issue with the 'flight' bit</a> &mdash; (spaceflight, off-topic)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2218116/disco-elysium-studio-za-um-layoffs-after-launch-zero-parades/">ZA/UM announces layoffs after Zero Parades launch</a> &mdash; (gaming industry, off-topic)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2218081/chinese-solar-cell-efficiency-35-5-percent/">Chinese solar company says its new cell hits 35.5% efficiency</a> &mdash; (hardware, no security angle)</li>
+    <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/security/us-charges-two-over-laundering-43-million-from-investment-fraud/">US charges two over laundering $43 million from investment fraud</a> &mdash; (financial crime, not infra)</li>
+  </ul>
+</div>
+
+<footer>
+  Morning Briefing &middot; Generated 07:10 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</footer>
+
+</body>
+</html>

@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-18T11:08:00Z",
+  "updated": "2026-07-19T11:10:00Z",
   "briefings": [
+    {
+      "date": "2026-07-19",
+      "file": "briefings/2026-07-19.html",
+      "weekday": "Sunday",
+      "label": "July 19, 2026",
+      "stories": 26,
+      "flagged": 3,
+      "note": "Fortinet's FortiSandbox flaws join a growing CISA patch queue as attackers actively exploit them in the wild, while ransomware knocked Coca-Cola's Fairlife dairy plants offline and Abbott investigates fresh extortion claims — healthcare and industrial production are both under real pressure today. Cloud infrastructure is quiet on the incident front: AWS's billion-dollar billing-display glitch has fully resolved and every monitored US region is operating normally, so today's cloud stories lean toward modernization tooling (AWS Transform, Azure IaaS cost efficiency) and new agent capabilities (Bedrock Knowledge Base, Foundry's frontier models) instead. Watch the reported multibillion-dollar Meta-Anthropic data center deal — it's the clearest signal yet of how much capital is chasing AI infrastructure."
+    },
     {
       "date": "2026-07-18",
       "file": "briefings/2026-07-18.html",
