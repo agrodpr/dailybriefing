@@ -235,15 +235,6 @@
       "stories": 20,
       "flagged": 5,
       "note": "The day's biggest story is geopolitical, not technical: a US government directive forced Anthropic to pull Claude Fable 5 and Mythos 5 worldwide, rippling through the AWS and Azure listings that went live for both models just days earlier. On the infrastructure side, AWS and Azure are racing to rebuild the network and compute layer for agentic workloads, with new datacenter topologies, Graviton5 silicon, and Cobalt 200 VMs. Meanwhile attackers aren't waiting on the news cycle — an actively exploited Oracle PeopleSoft zero-day, a CISA emergency patch order for Ivanti, and a healthcare breach at Novo Nordisk all demand attention today."
-    },
-    {
-      "date": "2026-06-13",
-      "file": "briefings/2026-06-13.html",
-      "weekday": "Saturday",
-      "label": "June 13, 2026",
-      "stories": 20,
-      "flagged": 5,
-      "note": "The day's biggest story is geopolitical, not technical: a US government directive forced Anthropic to pull Claude Fable 5 and Mythos 5 worldwide, rippling through the AWS and Azure listings that went live for both models just days earlier. On the infrastructure side, AWS and Azure are racing to rebuild the network and compute layer for agentic workloads, with new datacenter topologies, Graviton5 silicon, and Cobalt 200 VMs. Meanwhile attackers aren't waiting on the news cycle — an actively exploited Oracle PeopleSoft zero-day, a CISA emergency patch order for Ivanti, and a healthcare breach at Novo Nordisk all demand attention today."
     }
   ]
 }
