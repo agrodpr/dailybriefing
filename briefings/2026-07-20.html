@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; July 20, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  padding: 60px 24px 40px;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 80px;
+  text-align: center;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin: 16px 0 32px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--surface-2);
+  max-width: 860px;
+  margin: 0 auto 32px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: var(--surface);
+  padding: 12px 32px;
+  border-radius: 40px;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.editors-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 700px;
+  text-align: center;
+  margin: 48px auto;
+  color: var(--text);
+}
+
+.stories {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.subhead {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin: 40px 0 12px;
+}
+
+.status-line {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  padding: 4px 0;
+}
+
+.card {
+  background: var(--surface);
+  padding: 28px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 3px solid;
+  transition: filter 0.15s ease;
+}
+
+.card:hover {
+  filter: brightness(1.3);
+}
+
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: #0B0B0F;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.pill.flag {
+  background: var(--orange);
+  color: #0B0B0F;
+}
+
+.card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  margin: 4px 0 10px;
+  line-height: 1.2;
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.meta a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.card p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--text);
+}
+
+.skip-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin: 56px 0 16px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 860px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+.skip-list a {
+  color: var(--text-muted);
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 48px;
+}
+
+a { color: inherit; }
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<h1>MORNING BRIEFING</h1>
+<div class="tagline">Your daily intelligence feed &middot; Monday, July 20, 2026</div>
+<hr>
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:#00B4D8"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:#E8823A"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:#F87171"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:#A78BFA"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:#F472B6"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:#4ADE80"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:#60A5FA"></span>Azure</div>
+</div>
+
+<p class="editors-note">Three unrelated remote-code-execution flaws — in ServiceNow, WordPress core, and a new Windows LegacyHive zero-day — are all being actively exploited today, so patching should come before coffee. AWS and Azure’s US regions are quiet with zero active incidents, but Lambda’s new MicroVM isolation and Azure’s Managed HSM preview both raise the bar on tenant isolation and key security. Elsewhere, Meta is reportedly eyeing a multibillion-dollar data center deal with Anthropic — a sign raw hyperscaler capacity, not model quality, is still the binding constraint on the AI race.</p>
+
+<div class="stories">
+      <div class="card" style="border-left-color:#00B4D8">
+        <span class="pill" style="background:#00B4D8">Hacker News</span>
+        
+        <h3>Show HN: I replaced a $120k bowling center system with $1,600 in ESP32s</h3>
+        <div class="meta">2,380 pts · 261 comments · <a href="https://news.ycombinator.com/item?id=48968606" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>A developer gutted his local bowling alley's $120,000 proprietary pinsetter and scoring system and replaced it with roughly $1,600 in ESP32 microcontrollers wired directly into the existing electromechanical hardware. The project reverse-engineers decades-old wiring harnesses to swap a black-box vendor system for one the owner can actually maintain — a case study in how far commodity hardware has closed the gap on industrial control systems.</p>
+      </div>
+      <div class="card" style="border-left-color:#00B4D8">
+        <span class="pill" style="background:#00B4D8">Hacker News</span>
+        
+        <h3>Qwen 3.8</h3>
+        <div class="meta">889 pts · 619 comments · <a href="https://news.ycombinator.com/item?id=48966120" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Alibaba's Qwen team announced Qwen 3.8, the latest release in its open-weight model line, in a terse tweet that quickly became the top thread on Hacker News. Early discussion is split between excitement over another strong open-weight release and skepticism about how thin the announcement is on benchmark and licensing detail.</p>
+      </div>
+      <div class="card" style="border-left-color:#00B4D8">
+        <span class="pill" style="background:#00B4D8">Hacker News</span>
+        
+        <h3>Claude Code uses Bun written in Rust now</h3>
+        <div class="meta">534 pts · 708 comments · <a href="https://news.ycombinator.com/item?id=48966569" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Simon Willison dug into a recent Claude Code build and found it now ships on a Rust reimplementation of the Bun JavaScript runtime rather than stock Bun or Node, aimed at cutting CLI startup latency and package size. The HN thread is deep in the weeds on what building a custom JS runtime buys an agentic coding tool over just using one off the shelf.</p>
+      </div>
+      <div class="card" style="border-left-color:#00B4D8">
+        <span class="pill" style="background:#00B4D8">Hacker News</span>
+        
+        <h3>HomeLab #1: MikroTik as a Home Router</h3>
+        <div class="meta">129 pts · 103 comments · <a href="https://news.ycombinator.com/item?id=48970772" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>A sysadmin walks through replacing a consumer router with a MikroTik RouterOS box for a home lab, covering VLAN segmentation, firewall rules, and routing setup from scratch. It's a practical, config-heavy first entry in a series aimed at IT professionals who want enterprise-grade network control at home.</p>
+      </div>
+      <div class="card" style="border-left-color:#00B4D8">
+        <span class="pill" style="background:#00B4D8">Hacker News</span>
+        <span class="pill flag">⚡ ON YOUR RADAR</span>
+        <h3>Exploit brokers pay $500k for WordPress RCEs. I found one with GPT5.6 and $25</h3>
+        <div class="meta">125 pts · 65 comments · <a href="https://news.ycombinator.com/item?id=48975665" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>A researcher used GPT-5.6 to find a remote-code-execution bug in WordPress core for roughly $25 in API spend — the same class of vulnerability exploit brokers reportedly pay up to $500,000 for. It's a pointed illustration of how cheap AI-assisted vulnerability research has gotten relative to the payouts on offer in the exploit market.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        <span class="pill flag">⚡ ON YOUR RADAR</span>
+        <h3>Critical ServiceNow code execution flaw now exploited in attacks</h3>
+        <div class="meta">July 20 · <a href="https://www.bleepingcomputer.com/news/security/critical-servicenow-code-execution-flaw-now-exploited-in-attacks/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Attackers are actively exploiting CVE-2026-6875, a critical remote-code-execution vulnerability in the ServiceNow AI Platform, according to threat intel firm Defused. ServiceNow customers on the affected platform should treat this as an emergency patch, not a routine update cycle.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        <span class="pill flag">⚡ ON YOUR RADAR</span>
+        <h3>New Windows LegacyHive zero-day gives hackers admin privileges</h3>
+        <div class="meta">July 17 · <a href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>A researcher going by "Nightmare Eclipse" publicly released a Windows zero-day dubbed LegacyHive that lets a local attacker escalate to admin privileges on fully patched systems. With no official fix yet available, defenders are left relying on detection and privilege-restriction workarounds until Microsoft ships a patch.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        <span class="pill flag">⚡ ON YOUR RADAR</span>
+        <h3>WordPress Core "wp2shell" RCE flaws get public exploits, patch now</h3>
+        <div class="meta">July 18 · <a href="https://www.bleepingcomputer.com/news/security/wordpress-core-wp2shell-rce-flaws-get-public-exploits-patch-now/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Public proof-of-concept exploits are now circulating for the critical "wp2shell" remote-code-execution flaws in WordPress core, sharply lowering the bar for mass exploitation. Site administrators who haven't already patched should treat this as immediately actionable, given how quickly WordPress RCEs tend to get automated into botnets.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        <span class="pill flag">⚡ ON YOUR RADAR</span>
+        <h3>Abbott probes two cyber incidents amid extortion claims</h3>
+        <div class="meta">July 17 · <a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Abbott Laboratories is investigating two separate breaches: unauthorized access to legacy Exact Sciences systems in its Cancer Diagnostics business, and a second, unconfirmed claim that attackers stole data from its LabCentral portal. Both incidents involve extortion demands, and neither has been fully scoped publicly yet.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        
+        <h3>Ernst &amp; Young discloses data breach after support system hack</h3>
+        <div class="meta">July 17 · <a href="https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Ernst &amp; Young is notifying customers of a data breach traced back to a compromised third-party support-ticket system used by its IT staff. The disclosure is thin on scope so far, but the entry point — an outsourced support tool rather than EY's core systems — is a familiar pattern in recent enterprise breaches.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        
+        <h3>HollowByte DDoS flaw bloats OpenSSL server memory with 11-byte payload</h3>
+        <div class="meta">July 17 · <a href="https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>A flaw dubbed HollowByte lets an unauthenticated attacker exhaust an OpenSSL server's memory with a malicious payload just 11 bytes long, triggering a denial-of-service condition. Given how widely OpenSSL underpins TLS termination across the internet, expect a patch and a scramble to apply it.</p>
+      </div>
+      <div class="card" style="border-left-color:#E8823A">
+        <span class="pill" style="background:#E8823A">BleepingComputer</span>
+        
+        <h3>Hackers abuse ViPNet software to target Russian govt agencies</h3>
+        <div class="meta">July 19 · <a href="https://www.bleepingcomputer.com/news/security/hackers-abuse-vipnet-software-to-target-russian-govt-agencies/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>An advanced threat actor is hijacking the software-update mechanism of ViPNet, a private-networking suite widely used by Russian government agencies, to distribute malware. It's a supply-chain-style attack on a trusted update channel rather than a direct exploit of ViPNet itself.</p>
+      </div>
+      <div class="card" style="border-left-color:#F472B6">
+        <span class="pill" style="background:#F472B6">Engadget</span>
+        
+        <h3>Meta is reportedly considering a multibillion-dollar data center deal with Anthropic</h3>
+        <div class="meta">July 17 · <a href="https://www.engadget.com/2217904/meta-is-reportedly-considering-a-multibillion-dollar-data-center-deal-with-anthropic/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Meta is reportedly in talks for a multibillion-dollar data center arrangement with Anthropic, a deal that would put the Facebook and Instagram parent in the business of hosting capacity for a rival AI lab. It's another sign that raw data center capacity, not model quality, is the binding constraint on the current AI buildout.</p>
+      </div>
+      <div class="card" style="border-left-color:#F472B6">
+        <span class="pill" style="background:#F472B6">Engadget</span>
+        
+        <h3>OpenAI will start notifying parents if their teen has been kicked off of ChatGPT</h3>
+        <div class="meta">July 18 · <a href="https://www.engadget.com/2218076/openai-notify-parents-teen-banned-chatgpt-violence/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>OpenAI will begin alerting parents with linked teen accounts when their child's ChatGPT account is suspended for violating policies around violent content. It's a modest but concrete step in the company's ongoing effort to add guardrails around teen usage after several high-profile safety incidents.</p>
+      </div>
+      <div class="card" style="border-left-color:#F472B6">
+        <span class="pill" style="background:#F472B6">Engadget</span>
+        
+        <h3>TikTok is no longer banned on US government devices</h3>
+        <div class="meta">July 18 · <a href="https://www.engadget.com/2218069/us-government-lifts-tiktok-ban-federal-devices/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>The US government has officially lifted its ban on TikTok for federal devices, reversing a policy that had been in place since 2023 over national-security concerns. The reversal doesn't undo the broader legal fight over TikTok's US ownership structure, which remains separately unresolved.</p>
+      </div>
+
+  <div class="subhead">Service Health &middot; US Regions</div>
+  <div class="status-line">&#10003; All monitored US regions operating normally</div>
+
+  <div class="subhead">New &amp; Noteworthy</div>
+      <div class="card" style="border-left-color:#4ADE80">
+        <span class="pill" style="background:#4ADE80">AWS</span>
+        
+        <h3>AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin, and more</h3>
+        <div class="meta">June 17 · <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>AWS Security Agent now runs STRIDE-based threat modeling and full repo/PR scanning with remediation across major Git platforms, plus IDE integrations through Kiro, a Claude Code plugin, and MCP. The pitch is running security review inline with development instead of as a separate gate before merge.</p>
+      </div>
+      <div class="card" style="border-left-color:#4ADE80">
+        <span class="pill" style="background:#4ADE80">AWS</span>
+        
+        <h3>Automate public TLS certificate issuance with ACME support in AWS Certificate Manager</h3>
+        <div class="meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>AWS Certificate Manager now speaks the ACME protocol, letting any ACMEv2-compatible client automate issuance and renewal of public TLS certificates across any workload, not just AWS-native ones. Centralized IAM-based governance and domain scoping come along for the ride, which matters as certificate lifetimes keep shrinking.</p>
+      </div>
+      <div class="card" style="border-left-color:#4ADE80">
+        <span class="pill" style="background:#4ADE80">AWS</span>
+        <span class="pill flag">⚡ ON YOUR RADAR</span>
+        <h3>Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h3>
+        <div class="meta">June 22 · <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>AWS Lambda now offers MicroVMs — VM-level isolated sandboxes with no shared kernel or resources between sessions, rapid launch and resume, and state preservation for up to 8 hours. It's a new serverless compute primitive aimed at workloads that need stronger isolation guarantees than a standard Lambda execution environment provides.</p>
+      </div>
+      <div class="card" style="border-left-color:#4ADE80">
+        <span class="pill" style="background:#4ADE80">AWS</span>
+        
+        <h3>Amazon SQS turns 20: Two decades of reliable messaging at scale</h3>
+        <div class="meta">July 13 · <a href="https://aws.amazon.com/blogs/aws/amazon-sqs-turns-20-two-decades-of-reliable-messaging-at-scale/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Amazon SQS just turned 20 — it launched alongside EC2 and S3 as one of AWS's first three services, built to let distributed systems pass messages without tight point-to-point dependencies. The retrospective is a reminder of how much of the modern cloud's plumbing traces back to that original decoupling problem.</p>
+      </div>
+      <div class="card" style="border-left-color:#4ADE80">
+        <span class="pill" style="background:#4ADE80">AWS</span>
+        
+        <h3>Accelerate your infrastructure deployments by up to 4x with AWS CloudFormation Express mode</h3>
+        <div class="meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>CloudFormation's new Express mode cuts deployment confirmation time down to seconds, aimed at both human developers and AI agents that need to iterate on infrastructure quickly. It's available in all commercial regions at no additional cost.</p>
+      </div>
+      <div class="card" style="border-left-color:#4ADE80">
+        <span class="pill" style="background:#4ADE80">AWS</span>
+        
+        <h3>Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available</h3>
+        <div class="meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>The new Graviton5-powered C9g and C9gd instances deliver up to 25% better compute performance than Graviton4, a 5x larger cache, and the fastest memory of any cloud processor instance to date; C9gd adds local NVMe storage. It's the compute-cost lever every Graviton generation has been.</p>
+      </div>
+      <div class="card" style="border-left-color:#60A5FA">
+        <span class="pill" style="background:#60A5FA">Azure</span>
+        
+        <h3>External key management for Azure Managed HSM is now in public preview</h3>
+        <div class="meta">July 07 · <a href="https://azure.microsoft.com/en-us/blog/external-key-management-for-azure-managed-hsm-is-now-in-public-preview/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Azure Key Vault Managed HSM now supports external key management, storing keys in a single-tenant, FIPS 140-3 Level 3 HSM that Microsoft itself has no access to. Customers govern who can use each key directly, which is the sovereignty story enterprise and government customers keep asking for.</p>
+      </div>
+      <div class="card" style="border-left-color:#60A5FA">
+        <span class="pill" style="background:#60A5FA">Azure</span>
+        
+        <h3>Claude in Microsoft Foundry is now generally available</h3>
+        <div class="meta">June 29 · <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Claude is now generally available in Microsoft Foundry, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra hardware. It gives Azure-committed teams a direct path from experimenting with Claude to running it in production without leaving the Foundry tooling.</p>
+      </div>
+      <div class="card" style="border-left-color:#60A5FA">
+        <span class="pill" style="background:#60A5FA">Azure</span>
+        
+        <h3>Built to bounce back: How Azure resiliency evolved</h3>
+        <div class="meta">July 08 · <a href="https://azure.microsoft.com/en-us/blog/built-to-bounce-back-how-azure-resiliency-evolved/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Microsoft walks through how Azure's approach to resiliency has shifted from preventing failure to designing systems that adapt and recover within real-world constraints. It's a useful primer for architects thinking about failure-domain design on Azure specifically.</p>
+      </div>
+      <div class="card" style="border-left-color:#60A5FA">
+        <span class="pill" style="background:#60A5FA">Azure</span>
+        
+        <h3>Azure IaaS: How to design, build, and optimize cloud infrastructure for long-term cost efficiency</h3>
+        <div class="meta">June 30 · <a href="https://azure.microsoft.com/en-us/blog/azure-iaas-how-to-design-build-and-optimize-cloud-infrastructure-for-long-term-cost-optimization-efficiency/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>A practical framework for keeping Azure IaaS costs in check as organizations migrate mission-critical workloads and scale AI usage, treating cost efficiency as a design principle rather than an after-the-fact cleanup. Useful reading for any team whose Azure bill has started outpacing its workload growth.</p>
+      </div>
+      <div class="card" style="border-left-color:#60A5FA">
+        <span class="pill" style="background:#60A5FA">Azure</span>
+        
+        <h3>Meet Brain: The AI system behind Azure reliability</h3>
+        <div class="meta">July 02 · <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/" target="_blank" rel="noopener">→ Read more</a></div>
+        <p>Microsoft is building "Brain," a digital twin of Azure Service Health, to model and predict reliability issues across the platform before they become customer-facing incidents. It's a look at how Microsoft is trying to operate a hyperscale cloud with AI in the reliability loop rather than bolted on after the fact.</p>
+      </div>
+</div>
+
+<div class="skip-title">Worth Skipping Today</div>
+<ul class="skip-list">
+        <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/security/the-future-of-age-verification-your-face-never-leaves-your-device/" target="_blank" rel="noopener">The Future of Age Verification: Your Face Never Leaves Your Device</a> &mdash; (vendor promo, low news value)</li>
+        <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2218130/france-doubles-down-on-restricting-access-to-polymarket/" target="_blank" rel="noopener">France doubles down on restricting access to Polymarket</a> &mdash; (crypto/betting adjacent)</li>
+        <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2217775/the-odyssey-in-imax-is-worth-a-long-journey-of-your-own/" target="_blank" rel="noopener">The Odyssey in IMAX is worth a long journey of your own</a> &mdash; (movie review, no tech depth)</li>
+        <li>&middot; [Hacker News] &mdash; <a href="https://chipweinberger.com/articles/20260719-hardware-is-not-so-hard" target="_blank" rel="noopener">What I learned selling 2,500 MIDI recorders: Hardware is not so hard</a> &mdash; (consumer hardware, off-topic)</li>
+        <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2213634/are-oled-tvs-still-worth-price-2026/" target="_blank" rel="noopener">Are OLED TVs still worth the premium in 2026?</a> &mdash; (consumer gadget review)</li>
+</ul>
+
+<footer>
+  Morning Briefing &middot; Generated 07:10 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+</footer>
+
+</body>
+</html>
