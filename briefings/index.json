@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-20T11:10:00Z",
+  "updated": "2026-07-21T11:09:00Z",
   "briefings": [
+    {
+      "date": "2026-07-21",
+      "file": "briefings/2026-07-21.html",
+      "weekday": "Tuesday",
+      "label": "July 21, 2026",
+      "stories": 26,
+      "flagged": 8,
+      "note": "Ransomware and zero-days dominate the security desk today — Qilin is chaining a critical Palo Alto GlobalProtect flaw into ransomware runs, SonicWall's SMA1000 zero-days pushed custom malware for weeks before disclosure, and a fresh Windows LegacyHive zero-day is circulating with unofficial patches only. AWS and Azure's US regions are quiet with zero active incidents, but AWS's new Lambda MicroVMs tighten sandbox isolation and Azure just took Claude in Microsoft Foundry to general availability — both hyperscalers racing to harden and re-platform around agentic AI. Elsewhere, a hacker wiping Romania's entire land-registry database is a stark reminder that destructive attacks on government infrastructure remain very much alive."
+    },
     {
       "date": "2026-07-20",
       "file": "briefings/2026-07-20.html",
