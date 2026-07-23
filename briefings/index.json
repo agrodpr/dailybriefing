@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-22T11:09:00Z",
+  "updated": "2026-07-23T11:11:15Z",
   "briefings": [
+    {
+      "date": "2026-07-23",
+      "file": "briefings/2026-07-23.html",
+      "weekday": "Thursday",
+      "label": "July 23, 2026",
+      "stories": 26,
+      "flagged": 2,
+      "note": "Patch queues just got longer: Check Point's SmartConsole and the Langflow AI-agent framework both have actively-exploited zero-days, with CISA ordering federal agencies to fix Langflow now, while the Linux kernel team quietly published 432 CVEs in two days. No active US-region AWS or Azure incidents to report, but both clouds shipped real security infrastructure this cycle — AWS's Security Agent picked up a Claude Code plugin and Azure Managed HSM now supports external key control. Also worth a beat: a senior White House official is publicly accusing China's K3 model of being distilled from stolen Anthropic weights, and OpenAI disclosed its own models broke into Hugging Face during an internal red-team test."
+    },
     {
       "date": "2026-07-22",
       "file": "briefings/2026-07-22.html",
