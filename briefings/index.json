@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-22T11:09:00Z",
+  "updated": "2026-07-25T11:52:00Z",
   "briefings": [
+    {
+      "date": "2026-07-25",
+      "file": "briefings/2026-07-25.html",
+      "weekday": "Saturday",
+      "label": "July 25, 2026",
+      "stories": 22,
+      "flagged": 9,
+      "note": "Claude Opus 5's launch is the story of the day — topping Hacker News, arriving on AWS Bedrock as Claude Sonnet 5, and pushing Microsoft Foundry to add its own new frontier-model lineup, while a default-public Azure Automation setting and an unpatched Zimbra zero-day are the security stories actually demanding attention. On the cloud side, US-WEST-2 saw a brief early-morning connectivity blip that's already resolved, but the bigger item is AWS quietly moving a dozen-plus services — from Kendra to several SageMaker tools — into maintenance mode starting July 30. Watch AI agents show up on both sides of the security ledger today: automating a finance-ministry breach on one hand, getting their own managed virtual desktops on the other."
+    },
     {
       "date": "2026-07-22",
       "file": "briefings/2026-07-22.html",

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; July 25, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--text); margin:0; padding:0 20px 40px;
+  font-family:'Inter',sans-serif;
+}
+.masthead{ text-align:center; padding-top:56px; }
+h1.title{
+  font-family:'Fraunces',serif; font-size:80px; font-weight:600;
+  letter-spacing:-2px; margin:0; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:14px;
+}
+hr.rule{ border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:32px auto; }
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:920px; margin:0 auto 0; width:fit-content;
+}
+.legend-item{ display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); }
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.container{ max-width:860px; margin:0 auto; }
+
+.card{
+  background:var(--surface); border-left:3px solid var(--source-color, var(--cyan));
+  padding:28px 32px; border-radius:8px; margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+.card:hover{ filter:brightness(1.08); }
+.card:hover .card-headline{ filter:none; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.chip{
+  font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; font-weight:700; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; background:var(--source-color, var(--cyan)); display:inline-block;
+}
+.chip.radar{ background:var(--orange); color:#0B0B0F; }
+.chip.health{ background:#F87171; color:#0B0B0F; }
+
+.card-headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  margin:0 0 10px; color:var(--text); line-height:1.15;
+}
+.card-meta{ font-size:12px; color:var(--text-muted); margin-bottom:14px; }
+.card-meta a{ color:var(--text-muted); }
+.card-summary{ font-size:17px; line-height:1.7; color:var(--text); margin:0; }
+
+.cloud-subhead{
+  font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase;
+  letter-spacing:1.5px; color:var(--text-muted); margin:40px 0 12px;
+}
+.status-ok{
+  font-size:14px; color:var(--text-muted); padding:18px 32px;
+  background:var(--surface); border-radius:8px; margin-bottom:16px;
+}
+
+.skip-title{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:48px 0 12px; }
+.skip-list{ list-style:none; padding:0; margin:0; }
+.skip-list li{ font-size:14px; color:var(--text-muted); margin-bottom:8px; }
+.skip-list a{ color:var(--text-muted); text-decoration:underline; }
+
+.footer{
+  text-align:center; font-size:11px; color:var(--text-muted);
+  padding-top:48px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="title">MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Saturday, July 25, 2026</div>
+</div>
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">Claude Opus 5's launch is the story of the day — topping Hacker News, arriving on AWS Bedrock as Claude Sonnet 5, and pushing Microsoft Foundry to add its own new frontier-model lineup, while a default-public Azure Automation setting and an unpatched Zimbra zero-day are the security stories actually demanding attention. On the cloud side, US-WEST-2 saw a brief early-morning connectivity blip that's already resolved, but the bigger item is AWS quietly moving a dozen-plus services — from Kendra to several SageMaker tools — into maintenance mode starting July 30. Watch AI agents show up on both sides of the security ledger today: automating a finance-ministry breach on one hand, getting their own managed virtual desktops on the other.</p>
+
+<div class="container">
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">Claude Opus 5</h2>
+    <div class="card-meta">1578 pts · 920 comments · <a href="https://news.ycombinator.com/item?id=49038433">HN discussion</a> · <a href="https://www.anthropic.com/news/claude-opus-5">→ Read more</a></div>
+    <p class="card-summary">Anthropic released Claude Opus 5, its new flagship model, which quickly took the #1 spot on the Artificial Analysis Intelligence Leaderboard. The launch dominated HN's front page by a wide margin, pulling in nearly a thousand comments and setting off a wave of same-day integrations across AWS and Azure.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">India's first privately-developed rocket reaches orbit on debut launch</h2>
+    <div class="card-meta">618 pts · 176 comments · <a href="https://news.ycombinator.com/item?id=48973835">HN discussion</a> · <a href="https://arstechnica.com/space/2026/07/indias-first-privately-developed-rocket-reaches-orbit-on-dramatic-debut-launch/">→ Read more</a></div>
+    <p class="card-summary">India's first privately built orbital rocket reached orbit on its debut flight, a milestone for the country's commercial space sector. The successful launch puts India alongside a small group of nations with viable private launch capability, challenging the long-standing dominance of state programs and a handful of Western and Chinese commercial players.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">Nvidia, Microsoft, Meta warn against overregulating open-weight models</h2>
+    <div class="card-meta">615 pts · 271 comments · <a href="https://news.ycombinator.com/item?id=49035303">HN discussion</a> · <a href="https://www.cnbc.com/2026/07/24/nvidia-microsoft-meta-open-weight-ai-models.html">→ Read more</a></div>
+    <p class="card-summary">Nvidia, Microsoft, and Meta issued a joint warning that heavy-handed regulation of open-weight AI models could cede ground to foreign competitors and stifle research, a rare show of unity among rivals. The pushback comes as lawmakers weigh new restrictions, and lines up with a broader tech-industry letter making the same case to Washington this week.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">Microsoft blames massive Microsoft 365 outage on maintenance bug</h2>
+    <div class="card-meta">July 24 · <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-blames-massive-microsoft-365-outage-on-maintenance-bug/">→ Read more</a></div>
+    <p class="card-summary">Microsoft says Thursday's massive Microsoft 365 and Azure outage was caused by a bug in its automated network-maintenance system, which mistakenly stripped IP routes from far more devices than intended. Engineers manually restored routing to end the disruption, underscoring how a single automation bug can cascade into a hyperscale outage.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">OnTrac notifies customers of data breach after network hack</h2>
+    <div class="card-meta">July 24 · <a href="https://www.bleepingcomputer.com/news/security/ontrac-notifies-customers-of-data-breach-after-network-hack/">→ Read more</a></div>
+    <p class="card-summary">Parcel delivery company OnTrac is notifying customers that attackers breached its corporate network and may have accessed personal information. The company hasn't disclosed the intrusion vector or exact record count, but is offering standard breach-notification remediation to those affected.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Hermes AI agent used to automate attack on Thai Finance Ministry</h2>
+    <div class="card-meta">July 24 · <a href="https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/">→ Read more</a></div>
+    <p class="card-summary">A threat actor reportedly used the open-source Hermes AI agent, running in unattended "YOLO" mode, to automate post-exploitation activity in an alleged breach of Thailand's Ministry of Finance. It's another data point in a fast-growing trend of attackers letting autonomous agents drive intrusions with minimal human oversight.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Clop ransomware targets Windchill, FlexPLM in data theft attacks</h2>
+    <div class="card-meta">July 24 · <a href="https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/">→ Read more</a></div>
+    <p class="card-summary">The Clop ransomware gang is actively targeting internet-exposed PTC Windchill and FlexPLM product-lifecycle-management servers in a new data-theft extortion campaign. Organizations running either platform should check external exposure immediately — Clop's campaigns typically move from initial access to exfiltration within days.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">ChatGPT wants access to your health records so it can be a better not-doctor</h2>
+    <div class="card-meta">July 24 · <a href="https://www.theregister.com/ai-and-ml/2026/07/24/chatgpt-wants-access-to-your-health-records-so-it-can-be-a-better-not-doctor/5278430">→ Read more</a></div>
+    <p class="card-summary">OpenAI is rolling out a ChatGPT feature that requests access to users' health records to give more personalized, if unlicensed, medical-sounding advice. The launch lands a day after a lawsuit alleged that chatbot guidance contributed to a user's near-fatal embolism, intensifying scrutiny of AI systems handling health data without clinical oversight.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Dev accidentally commits Copilot binary to FreeBSD ports repo</h2>
+    <div class="card-meta">July 24 · <a href="https://www.theregister.com/os-platforms/2026/07/24/dev-accidentally-commits-copilot-binary-to-freebsd-ports-repo/5278458">→ Read more</a></div>
+    <p class="card-summary">A developer accidentally committed a full GitHub Copilot binary into the FreeBSD ports repository, bloating the repo and triggering a scramble to purge it from history. The slip is a reminder that even mature, review-heavy open source projects aren't immune to basic git hygiene failures.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">AMD vibe codes its way past the CUDA moat with ROCm.AI</h2>
+    <div class="card-meta">July 24 · <a href="https://www.theregister.com/ai-and-ml/2026/07/24/amd-vibe-codes-its-way-past-the-cuda-moat-with-rocmai/5278580">→ Read more</a></div>
+    <p class="card-summary">AMD is leaning on AI coding agents to accelerate development of ROCm.AI, its answer to Nvidia's CUDA software moat, effectively using AI to help write the tooling meant to compete with Nvidia. It's a notable sign of how central AI-assisted development has become even to infrastructure-software strategy at chipmaker scale.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="--source-color:var(--purple)">Dark Reading</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Default Azure Automation Setting Enables Cross-Tenant Identity Takeover</h2>
+    <div class="card-meta">July 24 · <a href="https://www.darkreading.com/cloud-security/default-azure-automation-setting-cross-tenant-identity-takeover">→ Read more</a></div>
+    <p class="card-summary">Microsoft patched a public-by-default Azure Automation configuration that, chained with a series of code flaws, could let an attacker seize another tenant's identity and cloud workloads entirely. Azure admins should verify the fix actually applied to their tenant rather than assuming it rolled out automatically everywhere.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="--source-color:var(--purple)">Dark Reading</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Russian Hackers Exploit Zimbra Zero-Day Against US, Ukraine Targets</h2>
+    <div class="card-meta">July 23 · <a href="https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets">→ Read more</a></div>
+    <p class="card-summary">State-sponsored group "Laundry Bear" is exploiting an unpatched Zimbra zero-day against US and Ukrainian targets using "half-click" phishing emails that trigger just by previewing the message. No patch is available yet, so Zimbra admins should consider mitigations like disabling preview panes until a fix ships.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--purple)">
+    <div class="chips"><span class="chip" style="--source-color:var(--purple)">Dark Reading</span></div>
+    <h2 class="card-headline">Vatican's Official Prayer App Leaks 700K+ Global Users' PII</h2>
+    <div class="card-meta">July 24 · <a href="https://www.darkreading.com/vulnerabilities-threats/vatican-official-prayer-app-leaks-700k-pii">→ Read more</a></div>
+    <p class="card-summary">A porous API endpoint in the Vatican's official prayer app exposed names, email addresses, country, and site status for more than 700,000 users to anyone with a browser, no authentication required. It's a textbook case of an unsecured API being the weak link in an otherwise ordinary consumer app.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="card-headline">Meta has pulled out of a renewable energy initiative as it relies more on natural gas for data centers</h2>
+    <div class="card-meta">July 24 · <a href="https://www.engadget.com/2222988/meta-has-pulled-out-of-a-renewable-energy-initiative-as-it-relies-more-on-natural-gas-for-data-centers/">→ Read more</a></div>
+    <p class="card-summary">Meta has exited a renewable-energy initiative and committed to ten new natural-gas plants since last year to power its data centers. The shift reflects how AI-driven compute demand is pushing hyperscalers back toward fossil generation faster than clean-power buildout can keep pace.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="card-headline">Trump threatens EU with new tariffs in response to Google fine</h2>
+    <div class="card-meta">July 24 · <a href="https://www.engadget.com/2222963/trump-threatens-eu-with-new-tariffs-in-response-to-google-fine/">→ Read more</a></div>
+    <p class="card-summary">The European Commission fined Google over search-ranking and anti-steering practices it found violate the Digital Markets Act, prompting a tariff threat from the Trump administration in response. It's the latest flashpoint in the ongoing clash between EU digital-competition enforcement and US trade policy.</p>
+  </div>
+
+  <div class="cloud-subhead">Service Health · US Regions</div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip health">🔴 Service Health — US-WEST-2</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">US-WEST-2 connectivity issues briefly disrupted multiple AWS services</h2>
+    <div class="card-meta">July 24 · <a href="https://status.aws.amazon.com/">→ AWS Service Health</a></div>
+    <p class="card-summary">Between 3:55 and 5:12 AM PDT, a networking device responsible for routing between US-WEST-2 and the Seattle metro area caused connectivity issues across multiple AWS services, with a brief reconvergence event recurring shortly after the initial fix. Direct Connect customers routed through the Westin Building Exchange saw extended impact before service fully normalized.</p>
+  </div>
+
+  <div class="cloud-subhead">Deprecations &amp; Migrations</div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">AWS moves a wide batch of services to maintenance mode starting July 30</h2>
+    <div class="card-meta">July 6 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">→ Read more</a></div>
+    <p class="card-summary">Starting July 30, 2026, AWS closes several services to new customers, including Bedrock Agents Classic, Cognito Sync, Kendra, Q Business, Directory Service Simple AD, and multiple SageMaker AI tools (A2I, Clarify, Debugger, GeoSpatial, Ground Truth, Mechanical Turk, Model Monitor, Role Manager, Studio Lab). WorkSpaces PCoIP/Pool, AWS Managed Services Advanced, and re:Post Private move to sunset phase, while Chime SDK Carrier Voice Focus and SageMaker Ground Truth Plus already ended support on June 30 — teams on any of these should start migration planning now.</p>
+  </div>
+
+  <div class="cloud-subhead">New &amp; Noteworthy</div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">OpenAI's GPT-5.6 models arrive on Amazon Bedrock</h2>
+    <div class="card-meta">July 20 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/">→ Read more</a></div>
+    <p class="card-summary">Amazon Bedrock now offers OpenAI's GPT-5.6 model family — Sol, Terra, and Luna — spanning full reasoning down to cost-efficient inference, all running through Bedrock's next-generation inference engine. It puts a third major frontier-model family, alongside Anthropic's and Amazon's own Nova line, directly inside AWS's managed inference service.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">Claude Sonnet 5 is now available on AWS</h2>
+    <div class="card-meta">July 6 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">→ Read more</a></div>
+    <p class="card-summary">Anthropic's Claude Sonnet 5 is now available on AWS, pitched as bringing top-tier intelligence at Sonnet-tier pricing for coding, agentic, and professional workloads. AWS says it can navigate large codebases and maintain state across extended multi-step agent tasks without losing context.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Amazon WorkSpaces for AI agents reaches general availability</h2>
+    <div class="card-meta">July 6 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">→ Read more</a></div>
+    <p class="card-summary">Amazon WorkSpaces for AI agents is now generally available, letting AI agents securely operate desktop applications inside managed WorkSpaces virtual desktops without requiring application modernization or custom integrations. It's a direct answer to demand for agents that need to drive legacy desktop software rather than API-native tools.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Cognito adds password hash import for smoother user migrations</h2>
+    <div class="card-meta">July 20 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/">→ Read more</a></div>
+    <p class="card-summary">Amazon Cognito now supports importing users along with their existing password hashes via CSV, letting migrated users sign in immediately with their old credentials instead of being forced through a reset. It closes a long-standing friction point for teams migrating identity systems into Cognito.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Microsoft Foundry adds new frontier models and production agent tooling</h2>
+    <div class="card-meta">July 9 · <a href="https://azure.microsoft.com/en-us/blog/frontier-models-and-production-agents-advancing-microsoft-foundry-for-the-agentic-era/">→ Read more</a></div>
+    <p class="card-summary">Microsoft Foundry is now generally offering OpenAI's newest frontier model series (GPT-5.6 Sol, Terra, and Luna), a new Asia Pacific Data Zone, and production-agent capabilities including hosted agents, toolboxes, and direct publishing into Teams and Microsoft 365 Copilot. It's Microsoft's biggest single Foundry update since Claude's GA launch there last month.</p>
+  </div>
+
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>· [Hacker News] — <a href="https://hhh.hn/hanwha-github-token/">My security camera shipped a GitHub admin token</a> — (ranked #4 by HN points)</li>
+    <li>· [The Register] — <a href="https://www.theregister.com/ai-and-ml/2026/07/24/tech-leaders-issue-letter-to-train-uncle-sam-about-value-of-open-weight-ai/5278533">Tech leaders issue letter to train Uncle Sam about open-weight AI</a> — (duplicate of HN open-weight story)</li>
+    <li>· [Dark Reading] — <a href="https://www.darkreading.com/identity-access-management-security/flaws-passkeys-implementation-old-attacks-work">Flaws in Passkey Implementation Show Old Attacks Still Work</a> — (bumped, only 3 DR slots)</li>
+    <li>· [BleepingComputer] — <a href="https://www.bleepingcomputer.com/news/security/chick-fil-a-data-breach-affects-more-than-13-000-customers/">Chick-fil-A data breach affects more than 13,000 customers</a> — (lower-severity breach)</li>
+    <li>· [Engadget] — <a href="https://www.engadget.com/2222797/midjourney-buying-astrology-horoscope-app-co-star/">Midjourney is buying horoscope app Co-Star</a> — (low technical relevance)</li>
+  </ul>
+
+  <div class="footer">
+    Morning Briefing · Generated 07:52 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure · AWS/Azure Status
+  </div>
+
+</div>
+</body>
+</html>
