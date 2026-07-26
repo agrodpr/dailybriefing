@@ -305,10 +305,28 @@ function taglineOf(html) {
 // blank `weekday`/`label`. We only append entries for .html files that have
 // no manifest entry at all, which is the self-healing behaviour PIPELINE.md
 // specifies without rewriting history.
-async function resyncManifest() {
+async function resyncManifest(current) {
   const manifestPath = join(BRIEFINGS, "index.json");
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   const existing = new Map((manifest.briefings || []).map((b) => [b.date, b]));
+
+  // The entry for the date we just generated is always refreshed from this
+  // run's real values. Without this, regenerating an existing date (a backfill,
+  // or re-running today) would leave a stale note and story count pointing at
+  // freshly rewritten HTML.
+  let refreshed = false;
+  if (current) {
+    refreshed = existing.has(current.date);
+    existing.set(current.date, {
+      date: current.date,
+      file: `briefings/${current.date}.html`,
+      weekday: current.weekday,
+      label: current.label,
+      stories: current.stories,
+      flagged: current.flagged,
+      note: current.note,
+    });
+  }
 
   const files = (await readdir(BRIEFINGS)).filter((f) => /^\d{4}-\d{2}-\d{2}\.html$/.test(f));
   let added = 0;
@@ -335,7 +353,7 @@ async function resyncManifest() {
   manifest.briefings = entries;
   manifest.updated = new Date().toISOString().replace(/\.\d+Z$/, "Z");
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
-  return { total: entries.length, added };
+  return { total: entries.length, added, refreshed };
 }
 
 // ---------------------------------------------------------------------------
@@ -364,8 +382,18 @@ async function main() {
   await writeFile(outPath, html);
   console.log(`Wrote ${outPath} (${storyCount} stories, ${flaggedCount} flagged)`);
 
-  const { total, added } = await resyncManifest();
-  console.log(`Resynced manifest: ${total} briefings (${added} newly added).`);
+  const { total, added, refreshed } = await resyncManifest({
+    date: date.iso,
+    weekday: date.weekday,
+    label: date.label,
+    stories: storyCount,
+    flagged: flaggedCount,
+    note,
+  });
+  console.log(
+    `Resynced manifest: ${total} briefings ` +
+    `(${refreshed ? "refreshed" : "added"} ${date.iso}${added ? `, ${added} backfilled` : ""}).`
+  );
 
   // Hand a summary to the workflow (Slack step + logs).
   const gho = process.env.GITHUB_OUTPUT;
