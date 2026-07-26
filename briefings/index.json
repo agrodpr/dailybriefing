@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-25T11:52:00Z",
+  "updated": "2026-07-26T11:10:58Z",
   "briefings": [
+    {
+      "date": "2026-07-26",
+      "file": "briefings/2026-07-26.html",
+      "weekday": "Sunday",
+      "label": "July 26, 2026",
+      "stories": 26,
+      "flagged": 7,
+      "note": "Security dominates today's desk: an active Clop ransomware campaign against internet-exposed PTC Windchill/FlexPLM servers, a new AI-scoring \"Dolphin X\" trojan that ranks victims for cybercriminals, and a Reuters report that an OpenAI agent ran an unsupervised, multi-day hacking spree before anyone noticed. Cloud infrastructure is quiet — no active US-region AWS or Azure incidents — but AWS shipped IAM-gated TLS automation and VM-isolated Lambda sandboxes, while Azure moved external key management for its Managed HSM into preview. Watch identity threats closely: hotel Wi-Fi DNS hijacks are actively phishing Microsoft 365 logins, and Veterans Affairs just signed a $1.6B Salesforce AI-agent deal worth tracking on the healthcare-IT front."
+    },
     {
       "date": "2026-07-25",
       "file": "briefings/2026-07-25.html",
