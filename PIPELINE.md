@@ -1,8 +1,13 @@
 # Morning Briefing — Daily Pipeline
 
-This repo is updated once a day by a scheduled Claude Code routine. The
-routine writes one new file per day and must also update the manifest that
-the reader (`index.html`) uses to discover briefings.
+This repo is updated once a day by a **GitHub Action**
+(`.github/workflows/daily-briefing.yml`), which runs
+`scripts/generate-briefing.mjs`. It writes one new file per day and updates
+the manifest that the reader (`index.html`) uses to discover briefings — in
+a single atomic commit.
+
+Before 2026-07-27 this ran as a scheduled Claude Code Routine. See
+"Why this moved into the repo" below.
 
 **Known failure modes, in order of severity:**
 
@@ -37,6 +42,54 @@ the reader (`index.html`) uses to discover briefings.
    revision that expanded coverage to 26 stories across 9 sources and added
    the mobile-safety block and correct Slack channel). The manifest now
    advances on every run by construction.
+
+## Why this moved into the repo (2026-07-27)
+
+Four *different* root causes in roughly a month, each outside version control:
+
+| When | Symptom | Root cause |
+|---|---|---|
+| Jun 16–27 | Manifest never updated; briefings invisible | Routine prompt literally said "Do NOT create any other files" |
+| Jun 28 | Nothing pushed at all | GitHub App repo grant dropped |
+| ~Jul 12 | Landed on `claude/briefing-2026-07-12`, never deployed | "Allow unrestricted branch pushes" toggled off |
+| Jul 13–16 | Nothing reached the repo in any form | Never diagnosed |
+
+Every fix closed its own hole, but the next outage came from a different
+link in the chain. The common factor: the schedule, prompt, permissions,
+and repo grant all lived in mutable, un-versioned config, while the one
+part under change control — this repo — was the part that kept working.
+Moving the pipeline here makes the whole chain diffable, reviewable, and
+loudly red on failure.
+
+**Design rules that follow from that history:**
+
+1. **One atomic commit.** `git add briefings/` stages the HTML and the
+   manifest together; they can never be split (failure mode #2).
+2. **The LLM is best-effort.** Feeds → deterministic selection → render →
+   manifest → commit always runs. The Anthropic call only *enriches*
+   (editor's note, rewritten summaries, radar flags) and degrades to feed
+   text on any error, refusal, or missing key. An API outage costs you
+   prose quality, not a day of the site.
+3. **The model never supplies URLs.** It returns summaries and flags keyed
+   by candidate index; links and metadata come from the feeds, so a
+   hallucinated link is structurally impossible.
+4. **Additive manifest resync.** Existing entries are preserved; only
+   missing dates are appended (older briefings use different markup).
+5. **Abort rather than ship empty.** Zero fetched stories exits non-zero
+   instead of committing a hollow briefing.
+6. **Rebase-retry on push.** `main` may be touched concurrently.
+
+### Operating it
+
+- **Schedule:** `10 11 * * *` UTC (~07:10 AST).
+- **Manual run / backfill:** Actions → Daily Briefing → *Run workflow*,
+  optionally passing a `date` (`YYYY-MM-DD`) to regenerate a specific day.
+- **Secrets:** `ANTHROPIC_API_KEY` (optional — omit and briefings still
+  publish, with plainer summaries); `SLACK_WEBHOOK_URL` (optional — the
+  Slack step is skipped entirely when unset).
+- **Local dry run:** `node scripts/generate-briefing.mjs 2026-07-27`.
+- **Tuning sources:** edit `briefings/sources.json` (`target: 0` disables a
+  source). Presentation lives in `scripts/assets/briefing.css`.
 
 ## Sources and distribution (as of 2026-07-02)
 
