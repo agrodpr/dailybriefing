@@ -31,9 +31,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      # Hoisted to job level so the Slack step's `if:` can test it (the
-      # `secrets` context is not available in a step-level `if`).
+      # Hoisted to job level so the Slack step's `if:` can test them (the
+      # `secrets` context is not available in a step-level `if`). Configure
+      # either the bot token or the webhook — see PIPELINE.md.
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_CHANNEL: ${{ vars.SLACK_CHANNEL }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,7 +47,6 @@ jobs:
       - name: Generate briefing + resync manifest
         id: gen
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BRIEFING_DATE: ${{ inputs.date }}
         run: node scripts/generate-briefing.mjs
 
@@ -79,8 +81,8 @@ jobs:
           exit 1
 
       - name: Post to Slack
-        # Optional: skipped entirely when the secret isn't configured.
-        if: success() && env.SLACK_WEBHOOK_URL != ''
+        # Optional: skipped entirely when no Slack credential is configured.
+        if: success() && (env.SLACK_BOT_TOKEN != '' || env.SLACK_WEBHOOK_URL != '')
         env:
           DATE: ${{ steps.gen.outputs.date }}
           STORIES: ${{ steps.gen.outputs.stories }}

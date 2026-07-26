@@ -65,14 +65,17 @@ loudly red on failure.
 
 1. **One atomic commit.** `git add briefings/` stages the HTML and the
    manifest together; they can never be split (failure mode #2).
-2. **The LLM is best-effort.** Feeds → deterministic selection → render →
-   manifest → commit always runs. The Anthropic call only *enriches*
-   (editor's note, rewritten summaries, radar flags) and degrades to feed
-   text on any error, refusal, or missing key. An API outage costs you
-   prose quality, not a day of the site.
-3. **The model never supplies URLs.** It returns summaries and flags keyed
-   by candidate index; links and metadata come from the feeds, so a
-   hallucinated link is structurally impossible.
+2. **No LLM, no API key.** Feeds → selection → render → manifest → commit
+   is entirely deterministic. Summaries are the publishers' own feed text;
+   "on your radar" is a keyword match; the editor's note is generated from
+   the day's counts and which radar categories fired. Nothing here can
+   rate-limit, refuse, hallucinate, or bill. The tradeoff, accepted
+   deliberately: summaries read like feed blurbs rather than curated prose,
+   and there is no "Worth Skipping Today" section.
+3. **Radar keywords are config, not code.** Tune `radar_keywords` in
+   `briefings/sources.json`. Matching is case-insensitive with word
+   boundaries and an optional plural, so `kev` won't fire on "Kevin" and
+   `bank` won't fire on "Bankruptcy".
 4. **Additive manifest resync.** Existing entries are preserved; only
    missing dates are appended (older briefings use different markup).
 5. **Abort rather than ship empty.** Zero fetched stories exits non-zero
@@ -84,9 +87,18 @@ loudly red on failure.
 - **Schedule:** `10 11 * * *` UTC (~07:10 AST).
 - **Manual run / backfill:** Actions → Daily Briefing → *Run workflow*,
   optionally passing a `date` (`YYYY-MM-DD`) to regenerate a specific day.
-- **Secrets:** `ANTHROPIC_API_KEY` (optional — omit and briefings still
-  publish, with plainer summaries); `SLACK_WEBHOOK_URL` (optional — the
-  Slack step is skipped entirely when unset).
+- **Secrets:** none required. Slack is optional — set **either**
+  `SLACK_BOT_TOKEN` (an `xoxb-…` Bot User OAuth Token with `chat:write`,
+  from the Slack app's *OAuth & Permissions* page; the bot must be invited
+  to the channel) **or** `SLACK_WEBHOOK_URL` (from *Incoming Webhooks*).
+  The bot token wins if both are set, and the step is skipped entirely when
+  neither is. Channel defaults to `C0BACLM772M` (#dailybriefing); override
+  with a `SLACK_CHANNEL` repository *variable*.
+
+  Note the app's *Basic Information* credentials (Client ID/Secret, Signing
+  Secret, Verification Token) and app-level `xapp-` tokens are **not**
+  usable here — those are for OAuth flows, request verification, and Socket
+  Mode, not for posting messages.
 - **Local dry run:** `node scripts/generate-briefing.mjs 2026-07-27`.
 - **Tuning sources:** edit `briefings/sources.json` (`target: 0` disables a
   source). Presentation lives in `scripts/assets/briefing.css`.

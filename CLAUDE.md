@@ -34,11 +34,13 @@ it, or the two will race to write the same file.
   logic are in `.github/workflows/daily-briefing.yml` +
   `scripts/generate-briefing.mjs`, so they are diffable and reviewable.
   A failed run shows up red in the Actions tab instead of vanishing.
-- **The LLM call must never be able to block the deploy.** The generator
-  always fetches feeds, renders, resyncs the manifest, and commits; the
-  Anthropic call is best-effort enrichment (editor's note, summaries,
-  radar flags) that degrades to feed text on any error, refusal, or
-  missing `ANTHROPIC_API_KEY`. Don't make it fatal.
+- **The generator is fully deterministic — there is no LLM call and no
+  API key.** Summaries are the publishers' own feed text, and "on your
+  radar" is a keyword match configured in `briefings/sources.json`
+  (`radar_keywords`). This was a deliberate choice: no key to rotate, no
+  spend, nothing that can rate-limit or refuse. If you ever reintroduce
+  an LLM step, it must be optional enrichment that degrades to feed text
+  — never something that can block the deploy.
 - **Manifest resync is additive on purpose.** Existing `index.json`
   entries are preserved as-is and only missing dates are appended.
   Briefings from before 2026-07 use different markup, so re-deriving

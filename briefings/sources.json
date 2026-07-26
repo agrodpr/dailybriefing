@@ -26,6 +26,14 @@
     "Puerto Rico infrastructure or government tech",
     "Banking/financial-sector regulation or compliance"
   ],
+  "radar_keywords": {
+    "AWS IAM, Identity Center, CloudWatch, SCPs, or CLI": ["iam","identity center","cloudwatch","scp","service control policy","aws cli","sts","assume role","access key","permission boundary"],
+    "Hyper-V, virtualization, or VM security": ["hyper-v","hypervisor","virtual machine","vmware","esxi","kvm","qemu","virtualization","vm escape","microvm","sandbox escape"],
+    "Healthcare IT, HIPAA, or medical data breaches": ["hipaa","healthcare","hospital","patient","medical","health system","ehr","electronic health","phi","medtronic"],
+    "Active exploits, zero-days, or CISA KEV additions": ["zero-day","zero day","0-day","actively exploited","exploited in the wild","cisa kev","known exploited","in the wild","kev","ransomware","emergency directive"],
+    "Puerto Rico infrastructure or government tech": ["puerto rico","luma","prepa","san juan"],
+    "Banking/financial-sector regulation or compliance": ["bank","banking","financial regulator","occ","fdic","finra","pci dss","fintech","federal reserve"]
+  },
   "sources": [
     { "key": "cisa", "name": "CISA KEV", "color": "#FBBF24", "type": "json-kev", "target": 3,
       "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
