@@ -1,0 +1,89 @@
+name: Daily Briefing
+
+# Generates briefings/YYYY-MM-DD.html and resyncs briefings/index.json in a
+# single atomic commit, then lets GitHub Pages deploy from main.
+#
+# This replaces the Claude Code Routine that previously did this out-of-band.
+# Everything that can drift — schedule, prompt, permissions — now lives here,
+# in version control, and a failed run shows up red in the Actions tab instead
+# of silently doing nothing.
+
+on:
+  schedule:
+    # 11:10 UTC daily (~07:10 AST), matching the previous routine's slot.
+    - cron: "10 11 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Override date (YYYY-MM-DD). Defaults to today (UTC)."
+        required: false
+        type: string
+
+concurrency:
+  group: daily-briefing
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # Hoisted to job level so the Slack step's `if:` can test it (the
+      # `secrets` context is not available in a step-level `if`).
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate briefing + resync manifest
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BRIEFING_DATE: ${{ inputs.date }}
+        run: node scripts/generate-briefing.mjs
+
+      - name: Commit and push
+        env:
+          BRIEFING_DATE: ${{ steps.gen.outputs.date }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # HTML and manifest always move together — never split them.
+          git add briefings/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Morning Briefing ${BRIEFING_DATE}"
+
+          # main is also touched by other automation; rebase-retry on races.
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "Pushed."
+              exit 0
+            fi
+            echo "Push failed (attempt $i) — rebasing onto latest main."
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; exit 1; }
+            sleep $((i * 3))
+          done
+          echo "Could not push after 5 attempts." >&2
+          exit 1
+
+      - name: Post to Slack
+        # Optional: skipped entirely when the secret isn't configured.
+        if: success() && env.SLACK_WEBHOOK_URL != ''
+        env:
+          DATE: ${{ steps.gen.outputs.date }}
+          STORIES: ${{ steps.gen.outputs.stories }}
+          FLAGGED: ${{ steps.gen.outputs.flagged }}
+          NOTE: ${{ steps.gen.outputs.note }}
+        run: node scripts/post-slack.mjs
