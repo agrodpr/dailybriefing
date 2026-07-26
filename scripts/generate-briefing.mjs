@@ -3,11 +3,11 @@
 // .github/workflows/daily-briefing.yml). Zero npm dependencies: uses Node's
 // built-in fetch. Pipeline contract lives in PIPELINE.md / CLAUDE.md.
 //
-// Design principle: the deploy must never depend on the LLM. We always fetch
-// feeds, render a valid briefing, resync the manifest, and let the workflow
-// commit. The Anthropic call is best-effort enrichment (editor's note,
-// rewritten summaries, "on your radar" flags). If it errors, is rate-limited,
-// or refuses, we fall back to feed-description summaries and still ship.
+// Design principle: this pipeline is fully deterministic. It fetches feeds,
+// renders the briefing from the feed text, flags "on your radar" items by
+// keyword match, resyncs the manifest, and lets the workflow commit. There is
+// no LLM call and no API key, so there is nothing that can rate-limit, refuse,
+// or bill. Summaries are the publishers' own words rather than rewritten prose.
 
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -175,78 +175,27 @@ async function collectCandidates(sources) {
 }
 
 // ---------------------------------------------------------------------------
-// Best-effort enrichment via the Anthropic API (never fatal)
+// "On your radar" flagging — deterministic keyword match
+//
+// Replaces what an LLM used to judge. Keywords are configured per category in
+// briefings/sources.json (`radar_keywords`) so they can be tuned without
+// touching this script. Matching is case-insensitive over title + summary,
+// with word boundaries so "kev" doesn't fire on "Kevin".
 // ---------------------------------------------------------------------------
-export async function enrich(candidates, radarFlags) {
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) {
-    console.log("  (no ANTHROPIC_API_KEY — skipping enrichment, using feed text)");
+function buildRadarMatcher(radarKeywords) {
+  const entries = Object.entries(radarKeywords || {}).flatMap(([category, words]) =>
+    (words || []).map((w) => {
+      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      // Trailing `s?` so "hypervisors" / "banks" / "exploits" still match.
+      return { category, word: w, re: new RegExp(`(^|[^a-z0-9])${esc}s?([^a-z0-9]|$)`, "i") };
+    })
+  );
+  return (candidate) => {
+    const hay = `${candidate.title} ${stripTags(candidate.summary)}`;
+    for (const e of entries) if (e.re.test(hay)) return e.category;
     return null;
-  }
-  const model = process.env.ANTHROPIC_MODEL || "claude-opus-5";
-  const list = candidates.map((c, i) => ({
-    i,
-    source: c.sourceName,
-    title: c.title,
-    blurb: truncate(stripTags(c.summary), 400),
-  }));
-  const prompt =
-`You are the editor of a daily cybersecurity + cloud "Morning Briefing". Below is today's candidate story list as JSON (each has an index i, source, title, and a raw blurb from the feed).
-
-Return ONLY a JSON object, no prose, with this exact shape:
-{
-  "editors_note": "2-3 sentence editor's note summarizing the day's dominant themes",
-  "items": [ { "i": <index>, "summary": "1-2 sentence factual summary", "flagged": <true|false> } ],
-  "skip": [ { "i": <index>, "reason": "short reason" } ]
+  };
 }
-
-Rules:
-- Write one entry in "items" for every story you keep, and put clearly off-topic / low-signal ones in "skip" instead.
-- "summary" must be grounded only in the title/blurb provided; do not invent facts, numbers, or URLs.
-- Set "flagged": true when a story hits the reader's radar: ${radarFlags.join("; ")}.
-- Keep the editor's note concrete and specific to today's stories.
-
-Candidates:
-${JSON.stringify(list)}`;
-
-  try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 120000);
-    const base = process.env.ANTHROPIC_BASE_URL || "https://api.anthropic.com";
-    const res = await fetch(`${base}/v1/messages`, {
-      method: "POST",
-      signal: ctrl.signal,
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": key,
-        "anthropic-version": "2023-06-01",
-        // Refusal fallback: this is a benign security-news digest, but Opus 5's
-        // safeguards can occasionally false-positive; route cyber refusals to a
-        // fallback model server-side instead of failing.
-        "anthropic-beta": "server-side-fallback-2026-07-01",
-      },
-      body: JSON.stringify({
-        model,
-        max_tokens: 8000,
-        fallbacks: "default",
-        messages: [{ role: "user", content: prompt }],
-      }),
-    }).finally(() => clearTimeout(t));
-
-    if (!res.ok) throw new Error(`API HTTP ${res.status}: ${truncate(await res.text(), 200)}`);
-    const data = await res.json();
-    if (data.stop_reason === "refusal") throw new Error("model refused");
-    const text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("");
-    const json = text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1);
-    const parsed = JSON.parse(json);
-    console.log(`  ✓ enriched via ${data.model || model} (${(parsed.items || []).length} items, ${(parsed.skip || []).length} skipped)`);
-    return parsed;
-  } catch (e) {
-    console.warn(`  ! enrichment failed (${e.message}) — falling back to feed text`);
-    return null;
-  }
-}
-
 // ---------------------------------------------------------------------------
 // Rendering
 // ---------------------------------------------------------------------------
@@ -263,42 +212,32 @@ function renderCard(c, flagged) {
   </div>`;
 }
 
-async function render({ date, css, sources, candidates, enriched }) {
-  const byIndex = new Map();
-  const skip = [];
-  if (enriched) {
-    for (const it of enriched.items || []) {
-      if (candidates[it.i]) byIndex.set(it.i, { summary: it.summary, flagged: !!it.flagged });
-    }
-    for (const s of enriched.skip || []) {
-      if (candidates[s.i]) skip.push({ ...candidates[s.i], reason: s.reason || "" });
-    }
-  }
-
+async function render({ date, css, sources, candidates, isRadar }) {
   const cards = [];
-  candidates.forEach((c, i) => {
-    if (skip.some((s) => s.url === c.url)) return;
-    const e = byIndex.get(i);
-    const summary = (e && e.summary) || truncate(stripTags(c.summary), 320) || "—";
-    cards.push(renderCard({ ...c, summary }, e ? e.flagged : false));
-  });
+  const flaggedCategories = new Set();
+  for (const c of candidates) {
+    const category = isRadar(c);
+    if (category) flaggedCategories.add(category);
+    const summary = truncate(stripTags(c.summary), 320) || "—";
+    cards.push(renderCard({ ...c, summary }, Boolean(category)));
+  }
 
   const legend = sources
     .filter((s) => (s.target ?? 0) > 0)
     .map((s) => `  <div class="legend-item"><span class="dot" style="background:${s.color}"></span>${escapeHtml(s.name)}</div>`)
     .join("\n");
 
-  const note = (enriched && enriched.editors_note) ||
-    `Today's briefing collects ${cards.length} stories across ${sources.filter((s) => (s.target ?? 0) > 0).length} sources.`;
-
-  const skipHtml = skip.length
-    ? `\n  <div class="skip-title">Worth Skipping Today</div>
-  <ul class="skip-list">
-${skip.map((s) => `    <li>· [${escapeHtml(s.sourceName)}] — <a href="${escapeHtml(s.url)}">${escapeHtml(truncate(s.title, 90))}</a>${s.reason ? ` — (${escapeHtml(s.reason)})` : ""}</li>`).join("\n")}
-  </ul>\n`
-    : "";
-
   const flaggedCount = cards.filter((c) => c.includes("On Your Radar")).length;
+  const activeSources = sources.filter((s) => (s.target ?? 0) > 0).length;
+
+  // Deterministic stand-in for the old LLM editor's note: says what was
+  // collected and, more usefully, which radar categories actually fired today.
+  const cats = [...flaggedCategories].map((c) => c.replace(/,.*$/, "").trim());
+  const note = flaggedCount
+    ? `${cards.length} stories across ${activeSources} sources. ${flaggedCount} flagged on your radar, touching ${cats.join("; ")}.`
+    : `${cards.length} stories across ${activeSources} sources. Nothing matched your radar categories today.`;
+
+  const skipHtml = "";
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -411,7 +350,6 @@ async function main() {
   const sourcesFile = process.env.SOURCES_FILE || join(BRIEFINGS, "sources.json");
   const cfg = JSON.parse(await readFile(sourcesFile, "utf8"));
   const sources = cfg.sources || [];
-  const radarFlags = cfg.radar_flags || [];
 
   console.log("Fetching feeds...");
   const candidates = await collectCandidates(sources);
@@ -420,10 +358,8 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("Enriching...");
-  const enriched = await enrich(candidates, radarFlags);
-
-  const { html, storyCount, flaggedCount, note } = await render({ date, css, sources, candidates, enriched });
+  const isRadar = buildRadarMatcher(cfg.radar_keywords);
+  const { html, storyCount, flaggedCount, note } = await render({ date, css, sources, candidates, isRadar });
   const outPath = join(BRIEFINGS, `${date.iso}.html`);
   await writeFile(outPath, html);
   console.log(`Wrote ${outPath} (${storyCount} stories, ${flaggedCount} flagged)`);
