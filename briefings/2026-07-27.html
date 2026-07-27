@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; July 27, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--text); margin:0; padding:0 20px 40px;
+  font-family:'Inter',sans-serif;
+}
+.masthead{ text-align:center; padding-top:56px; }
+h1.title{
+  font-family:'Fraunces',serif; font-size:80px; font-weight:600;
+  letter-spacing:-2px; margin:0; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:14px;
+}
+hr.rule{ border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:32px auto; }
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:920px; margin:0 auto 0; width:fit-content;
+}
+.legend-item{ display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); }
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.container{ max-width:860px; margin:0 auto; }
+
+.card{
+  background:var(--surface); border-left:3px solid var(--source-color, var(--cyan));
+  padding:28px 32px; border-radius:8px; margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+.card:hover{ filter:brightness(1.08); }
+.card:hover .card-headline{ filter:none; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.chip{
+  font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; font-weight:700; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; background:var(--source-color, var(--cyan)); display:inline-block;
+}
+.chip.radar{ background:var(--orange); color:#0B0B0F; }
+.chip.health{ background:#F87171; color:#0B0B0F; }
+
+.card-headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  margin:0 0 10px; color:var(--text); line-height:1.15;
+}
+.card-meta{ font-size:12px; color:var(--text-muted); margin-bottom:14px; }
+.card-meta a{ color:var(--text-muted); }
+.card-summary{ font-size:17px; line-height:1.7; color:var(--text); margin:0; }
+
+.cloud-subhead{
+  font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase;
+  letter-spacing:1.5px; color:var(--text-muted); margin:40px 0 12px;
+}
+.status-ok{
+  font-size:14px; color:var(--text-muted); padding:18px 32px;
+  background:var(--surface); border-radius:8px; margin-bottom:16px;
+}
+
+.skip-title{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:48px 0 12px; }
+.skip-list{ list-style:none; padding:0; margin:0; }
+.skip-list li{ font-size:14px; color:var(--text-muted); margin-bottom:8px; }
+.skip-list a{ color:var(--text-muted); text-decoration:underline; }
+
+.footer{
+  text-align:center; font-size:11px; color:var(--text-muted);
+  padding-top:48px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="title">MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed &middot; Monday, July 27, 2026</div>
+</div>
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">AI agents crossed further into offense today &mdash; Hermes automated a live attack on Thailand's Finance Ministry while Google broke from Microsoft and CrowdStrike to publish its own cybercrime-crew taxonomy. Cloud infrastructure stayed quiet with no active US-region AWS or Azure incidents, though Azure's new &ldquo;Brain&rdquo; system leans on AI to predict its own reliability issues and Claude Sonnet 5 landed on AWS for coding and agentic tasks. Watch healthcare privacy closely &mdash; OpenAI wants ChatGPT reading your medical records a day after a lawsuit blamed its advice for a near-fatal embolism &mdash; and note Foxconn's exit from VMware as the latest sign of the post-Broadcom virtualization shakeup.</p>
+
+<div class="container">
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">Kill The Cookie Banner</h2>
+    <div class="card-meta">1055 pts &middot; 501 comments &middot; <a href="https://news.ycombinator.com/item?id=49057175">HN discussion</a> &middot; <a href="https://killthecookiebanner.eu/">&rarr; Read more</a></div>
+    <p class="card-summary">A new EU civil-society campaign backs a European Commission proposal letting browsers automatically transmit users' privacy preferences to websites, eliminating manual cookie-consent clicking entirely. Organizers cite research showing up to 90% of users click "accept" despite minimal real interest in tracking, arguing today's banners manipulate consent rather than protect it. The push faces direct opposition from ad-tech and browser lobbying groups working to preserve the status quo.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">US citizen charged after GrapheneOS phone wipes during airport search</h2>
+    <div class="card-meta">823 pts &middot; 616 comments &middot; <a href="https://news.ycombinator.com/item?id=49063022">HN discussion</a> &middot; <a href="https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html">&rarr; Read more</a></div>
+    <p class="card-summary">US prosecutors charged Atlanta resident Sam Tunick with destroying evidence after his GrapheneOS-equipped phone wiped itself during a 2025 airport search, in what experts call one of the first US cases targeting a privacy-focused operating system rather than a specific act. Security researchers warn the prosecution risks criminalizing legitimate hardening features, like remote wipe and duress PINs, that any privacy-conscious traveler might rely on.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">PGSimCity &mdash; How PostgreSQL Works</h2>
+    <div class="card-meta">653 pts &middot; 63 comments &middot; <a href="https://news.ycombinator.com/item?id=49063754">HN discussion</a> &middot; <a href="https://nikolays.github.io/PGSimCity/">&rarr; Read more</a></div>
+    <p class="card-summary">PGSimCity is an interactive 3D visualization that models PostgreSQL's internal engine, from the buffer pool to WAL writes, to make the database's architecture easier to reason about for engineers who operate it daily. It's still early and the author flags possible inaccuracies, but it's already resonating with DBAs and backend engineers looking for a visual mental model of how transactions actually move through Postgres.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">&#9889; On Your Radar</span></div>
+    <h2 class="card-headline">Hermes AI agent used to automate attack on Thai Finance Ministry</h2>
+    <div class="card-meta">July 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/">&rarr; Read more</a></div>
+    <p class="card-summary">A threat actor used the open-source Hermes AI agent in unattended "YOLO" mode to automate post-exploitation activity during an alleged breach of Thailand's Ministry of Finance, letting the agent chain reconnaissance and lateral movement with minimal human oversight. It's another data point in a fast-growing trend of attackers wiring AI agents directly into their intrusion toolchains rather than just using them for phishing content.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">Microsoft blames massive Microsoft 365 outage on maintenance bug</h2>
+    <div class="card-meta">July 24 &middot; <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-blames-massive-microsoft-365-outage-on-maintenance-bug/">&rarr; Read more</a></div>
+    <p class="card-summary">Microsoft says a bug in its automated network maintenance system caused Thursday's outage by mistakenly stripping IP routes from far more devices than the change targeted, disrupting Azure and Microsoft 365 access broadly. The root cause &mdash; an automation tool acting outside its intended blast radius &mdash; is a familiar failure mode for hyperscale infrastructure changes.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">Slopsquatting, Phantom Domains, and HalluSquatting Are the Same AI Attack</h2>
+    <div class="card-meta">July 24 &middot; <a href="https://www.bleepingcomputer.com/news/security/slopsquatting-phantom-domains-and-hallusquatting-are-the-same-ai-attack/">&rarr; Read more</a></div>
+    <p class="card-summary">Researchers argue that slopsquatting, phantom-domain squatting, and HalluSquatting all exploit the identical weakness: AI coding agents trusting hallucinated package, repository, or domain names without verification. The fix is the same across all three &mdash; pre-fetch verification and managed, allow-listed dependency sources &mdash; rather than treating each variant as a distinct threat.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">GitHub, PyPI add time-based defenses against supply chain attacks</h2>
+    <div class="card-meta">July 26 &middot; <a href="https://www.bleepingcomputer.com/news/security/github-pypi-add-time-absed-defenses-against-supply-chain-attacks/">&rarr; Read more</a></div>
+    <p class="card-summary">GitHub and PyPI have added a time-based defense to Dependabot that delays newly published package versions before they're eligible for automatic dependency updates, cutting the window attackers have to slip a malicious release into the update pipeline. It's a structural mitigation aimed squarely at the kind of fast-publish supply-chain attacks that have repeatedly hit npm and PyPI this year.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">Steam forum ClickFix attacks infect gamers with XMRig cryptominers</h2>
+    <div class="card-meta">July 25 &middot; <a href="https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/">&rarr; Read more</a></div>
+    <p class="card-summary">Attackers are posting fake troubleshooting replies on Steam discussion forums that trick gamers into pasting and running commands that silently install XMRig cryptomining malware. The campaign relies entirely on social engineering, no exploit required, making community-forum vigilance the main defense.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">OpenAI confirms ChatGPT is down worldwide</h2>
+    <div class="card-meta">July 25 &middot; <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-worldwide/">&rarr; Read more</a></div>
+    <p class="card-summary">ChatGPT experienced a worldwide outage Saturday, with OpenAI confirming connectivity issues affecting users globally before service was restored. As more workflows depend on ChatGPT for daily tasks, the outage is a reminder that AI assistants now carry the same availability expectations as core cloud infrastructure, without the same maturity in incident response.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span><span class="chip radar">&#9889; On Your Radar</span></div>
+    <h2 class="card-headline">ChatGPT wants access to your health records so it can be a better not-doctor</h2>
+    <div class="card-meta">July 24 &middot; <a href="https://www.theregister.com/ai-and-ml/2026/07/24/chatgpt-wants-access-to-your-health-records-so-it-can-be-a-better-not-doctor/5278430">&rarr; Read more</a></div>
+    <p class="card-summary">OpenAI is rolling out a feature letting ChatGPT ingest users' health records to give more personalized medical guidance, launched a day after a lawsuit alleged the chatbot's advice contributed to a near-fatal embolism. Handing an AI chatbot direct access to medical history raises the same access-control and liability questions hospitals have spent decades building compliance programs around.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span><span class="chip radar">&#9889; On Your Radar</span></div>
+    <h2 class="card-headline">Foxconn drops VMware, adopts hyperconverged upstart Arcrfra for workloads including AI</h2>
+    <div class="card-meta">July 27 &middot; <a href="https://www.theregister.com/virtualization/2026/07/27/foxconn-drops-vmware-adopts-hyperconverged-upstart-arcrfra-for-workloads-including-ai/5278684">&rarr; Read more</a></div>
+    <p class="card-summary">Foxconn is migrating off VMware entirely in favor of hyperconverged infrastructure startup Arcrfra, running production and AI workloads on the new platform. It's another high-profile departure in the wave of enterprises fleeing VMware since Broadcom's licensing changes, and a sign upstart hyperconverged vendors are winning real workloads, not just pilots.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Google goes it alone with a new cybercrime crew taxonomy</h2>
+    <div class="card-meta">July 27 &middot; <a href="https://www.theregister.com/security/2026/07/27/google-goes-it-alone-with-a-new-cybercrime-crew-taxonomy/5278749">&rarr; Read more</a></div>
+    <p class="card-summary">Google published its own naming taxonomy for cybercrime groups, breaking from the joint effort Microsoft and CrowdStrike had been pushing for a single industry-wide naming convention. The split means defenders now have to track yet another set of names for the same threat actors, undermining the very goal the unified taxonomy was meant to solve.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Europol flags 4,340 'horrific' URLs linked to The Com</h2>
+    <div class="card-meta">July 24 &middot; <a href="https://www.theregister.com/cyber-crime/2026/07/24/europol-flags-4340-horrific-urls-linked-to-the-com/5278556">&rarr; Read more</a></div>
+    <p class="card-summary">Europol flagged 4,340 URLs during a multi-week operation targeting content linked to "The Com," a loosely organized network of nihilistic violent extremist groups that recruits and radicalizes online. The takedown effort focused on disrupting the recruitment and propaganda pipeline rather than individual prosecutions.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="card-headline">NVIDIA launches 'Open Secure AI Alliance' initiative to improve cyber defense</h2>
+    <div class="card-meta">July 27 &middot; <a href="https://www.engadget.com/2223796/nvidia-launches-open-securte-ai-alliance-initiative-to-improve-cyber-defense/">&rarr; Read more</a></div>
+    <p class="card-summary">NVIDIA has assembled a coalition of major tech companies to form the Open Secure AI Alliance, aimed at hardening AI systems against emerging cyber threats through shared standards and tooling. The initiative signals growing industry consensus that AI infrastructure needs its own dedicated security posture, not bolted-on protections from traditional IT security.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="card-headline">Apple's smart glasses delay reportedly stems in part from major privacy concerns</h2>
+    <div class="card-meta">July 26 &middot; <a href="https://www.engadget.com/2223527/apple-smart-glasses-delay-major-privacy-concerns/">&rarr; Read more</a></div>
+    <p class="card-summary">Apple's smart glasses launch is reportedly being pushed back in part because the company is still working through privacy safeguards for always-on cameras and microphones worn on the face. The delay underscores how differently wearable AI devices are being scrutinized compared to phones, where similar sensors have shipped for years.</p>
+  </div>
+
+  <div class="cloud-subhead">Service Health &middot; US Regions</div>
+
+  <div class="status-ok">&check; All monitored US regions operating normally</div>
+
+  <div class="cloud-subhead">New &amp; Noteworthy</div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">OpenAI's GPT-5.6 models arrive on Amazon Bedrock, plus one-click Lambda setup for coding agents</h2>
+    <div class="card-meta">July 20 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/">&rarr; Read more</a></div>
+    <p class="card-summary">This week's AWS roundup highlights OpenAI's GPT-5.6 model family going live on Amazon Bedrock alongside a new one-click setup prompt that gets Lambda functions running for coding agents in a single step. Both moves lean into the same trend: shrinking the distance between picking a model and having it running production infrastructure.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">Amazon SQS turns 20: two decades of reliable messaging at scale</h2>
+    <div class="card-meta">July 13 &middot; <a href="https://aws.amazon.com/blogs/aws/amazon-sqs-turns-20-two-decades-of-reliable-messaging-at-scale/">&rarr; Read more</a></div>
+    <p class="card-summary">Amazon SQS turned 20 this month, having launched July 13, 2006 as one of AWS's first three services alongside EC2 and S3. Since 2021 alone it's added higher throughput, expanded encryption, and support for message payloads up to 1 MiB, evidence of how much a foundational primitive keeps evolving decades after launch.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">AWS Security Hub adds network scanning to catch misconfigurations</h2>
+    <div class="card-meta">July 13 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-at-one-year-network-scanning-in-security-hub-loom-for-aws-and-more-july-13-2026/">&rarr; Read more</a></div>
+    <p class="card-summary">AWS Security Hub now includes network scanning as part of its broader security posture checks, part of a roundup that also marked the AWS Builder Center's first anniversary with over 6,400 published articles. The addition gives teams one more automated way to catch exposed or misconfigured network paths before an attacker finds them.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">Claude Sonnet 5 lands on AWS for coding and agentic tasks</h2>
+    <div class="card-meta">July 6 &middot; <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/">&rarr; Read more</a></div>
+    <p class="card-summary">Claude Sonnet 5 is now available on AWS for coding and agentic workloads, alongside Amazon WorkSpaces for AI agents, which lets agents securely operate desktop applications. Together they extend AWS's push to give AI agents first-class, governed access to the same tooling human developers use.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Azure Databricks delivers proven business value</h2>
+    <div class="card-meta">July 15 &middot; <a href="https://azure.microsoft.com/en-us/blog/azure-databricks-delivers-proven-business-value/">&rarr; Read more</a></div>
+    <p class="card-summary">A Forrester Total Economic Impact study commissioned around Azure Databricks found composite organizations achieved a 331% return on investment from the co-engineered integration between the two platforms. Microsoft is leaning on the independent study to make the ROI case for consolidating analytics workloads onto Azure rather than running Databricks as a bolt-on.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Built to bounce back: How Azure resiliency evolved</h2>
+    <div class="card-meta">July 8 &middot; <a href="https://azure.microsoft.com/en-us/blog/built-to-bounce-back-how-azure-resiliency-evolved/">&rarr; Read more</a></div>
+    <p class="card-summary">Microsoft detailed how Azure's approach to resiliency has evolved across infrastructure, data, and cyber recovery, and introduced Infrastructure Resiliency Manager in public preview. The new tool centralizes resilience planning in one place instead of leaving teams to stitch together backup, failover, and recovery tooling on their own.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Meet Brain: The AI system behind Azure reliability</h2>
+    <div class="card-meta">July 2 &middot; <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">&rarr; Read more</a></div>
+    <p class="card-summary">Microsoft is building an AI-driven digital twin of Azure Service Health called Brain, designed to model and predict reliability issues across the platform before they become customer-facing incidents. It's a notable bet that AI monitoring systems, not just AI applications, are where hyperscalers need to invest next.</p>
+  </div>
+
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>&middot; [Hacker News] &mdash; <a href="https://swag.htmx.org/en-cad/products/htmx-4-the-game">Htmx 4.0, the first JS library to release exclusively on the Game Boy</a> &mdash; (fun stunt, off-topic)</li>
+    <li>&middot; [The Register] &mdash; <a href="https://www.theregister.com/security/2026/07/24/popes-official-prayer-app-commits-cardinal-sin-leaks-700k-users-info/5278603">Pope's official prayer app leaks 700K+ users' info</a> &mdash; (covered in yesterday's briefing)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2223260/god-of-war-laufey-release-date-ps5-february-2027/">God of War Laufey will hit PS5 on February 16</a> &mdash; (gaming, no tech depth)</li>
+    <li>&middot; [Engadget] &mdash; <a href="https://www.engadget.com/2223761/applecare-one-insurance-for-multiple-devices-finally-expands-outside-the-us/">AppleCare One insurance finally expands outside the US</a> &mdash; (consumer, no depth)</li>
+    <li>&middot; [BleepingComputer] &mdash; <a href="https://www.bleepingcomputer.com/news/security/man-gets-six-years-for-hacking-750-womens-snapchat-accounts/">Man gets six years for hacking 750 women's Snapchat accounts</a> &mdash; (court case, no new info)</li>
+  </ul>
+
+  <div class="footer">
+    Morning Briefing &middot; Generated 07:07 AST &middot; Sources: HN &middot; BleepingComputer &middot; The Register &middot; Dark Reading &middot; Engadget &middot; AWS &middot; Azure &middot; AWS/Azure Status
+  </div>
+
+</div>
+</body>
+</html>

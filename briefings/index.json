@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-26T11:10:58Z",
+  "updated": "2026-07-27T11:10:42Z",
   "briefings": [
+    {
+      "date": "2026-07-27",
+      "file": "briefings/2026-07-27.html",
+      "weekday": "Monday",
+      "label": "July 27, 2026",
+      "stories": 22,
+      "flagged": 3,
+      "note": "AI agents crossed further into offense today — Hermes automated a live attack on Thailand's Finance Ministry while Google broke from Microsoft and CrowdStrike to publish its own cybercrime-crew taxonomy. Cloud infrastructure stayed quiet with no active US-region AWS or Azure incidents, though Azure's new \"Brain\" system leans on AI to predict its own reliability issues and Claude Sonnet 5 landed on AWS for coding and agentic tasks. Watch healthcare privacy closely — OpenAI wants ChatGPT reading your medical records a day after a lawsuit blamed its advice for a near-fatal embolism — and note Foxconn's exit from VMware as the latest sign of the post-Broadcom virtualization shakeup."
+    },
     {
       "date": "2026-07-26",
       "file": "briefings/2026-07-26.html",
