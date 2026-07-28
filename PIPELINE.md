@@ -82,6 +82,34 @@ loudly red on failure.
    instead of committing a hollow briefing.
 6. **Rebase-retry on push.** `main` may be touched concurrently.
 
+### Ported vs. not ported
+
+The Routine's prompt is archived verbatim at `docs/legacy-routine-prompt.md`.
+Nothing executes it — it is the original spec. Where the Action deliberately
+differs:
+
+| Prompt step | Status in the Action |
+|---|---|
+| 9 sources, resilient to dead feeds | ✅ 15 sources (adds CISA KEV, Fortinet, SANS, MSRC, HIPAA, Banking, Puerto Rico) |
+| AWS/Azure US-region service health, auto-flagged | ✅ `status-rss` type; filters by region token, drops resolved and >24h items; failed fetch = "no incidents" |
+| "✓ All monitored US regions operating normally" when quiet | ✅ |
+| Mobile-safety `<style>` block ending `<head>` | ✅ enforced every run |
+| Atomic HTML + manifest commit | ✅ native git, not 8 API calls |
+| Manifest self-heal | ✅ unbounded (prompt capped it at 7 days) |
+| Never push to a `claude/` branch | ✅ pushes to `main` with rebase-retry |
+| Slack notification | ✅ optional; bot token or webhook |
+| "⚡ On Your Radar" flags | ⚠️ keyword match (`radar_keywords`) rather than model judgement |
+| Editor's note | ⚠️ generated from counts + which radar categories fired |
+| Story summaries | ⚠️ publisher's feed text, not rewritten prose |
+| Cloud sub-sections B) Deprecations and C) New & Noteworthy | ❌ not implemented — cloud blog posts render as ordinary cards |
+| "Worth Skipping Today" (5 items + reasons) | ❌ not implemented — needs editorial judgement |
+| Fixed 26-story distribution | ❌ counts come from per-source `target` in `sources.json` |
+| Engadget | ❌ `target: 0` (deprioritised in sources.json, predates this change) |
+
+The ⚠️/❌ rows are all consequences of removing the LLM. Re-enabling an
+optional enrichment step would close them, but it must stay best-effort so it
+can never block the deploy.
+
 ### Operating it
 
 - **Schedule:** `10 11 * * *` UTC (~07:10 AST).

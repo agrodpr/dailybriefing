@@ -32,9 +32,20 @@
     "Healthcare IT, HIPAA, or medical data breaches": ["hipaa","healthcare","hospital","patient","medical","health system","ehr","electronic health","phi","medtronic"],
     "Active exploits, zero-days, or CISA KEV additions": ["zero-day","zero day","0-day","actively exploited","exploited in the wild","cisa kev","known exploited","in the wild","kev","ransomware","emergency directive"],
     "Puerto Rico infrastructure or government tech": ["puerto rico","luma","prepa","san juan"],
-    "Banking/financial-sector regulation or compliance": ["bank","banking","financial regulator","occ","fdic","finra","pci dss","fintech","federal reserve"]
+    "Banking/financial-sector regulation or compliance": ["bank","banking","financial regulator","occ","fdic","finra","pci dss","fintech","federal reserve"],
+    "AWS/Azure deprecations or end-of-support that force action": ["deprecat*","end of support","end-of-support","retirement","retir*","sunset","breaking change","forced migration","no longer supported","eol"]
   },
   "sources": [
+    { "key": "aws-status", "name": "AWS Status", "color": "#4ADE80", "type": "status-rss", "target": 6,
+      "url": "https://status.aws.amazon.com/rss/all.rss",
+      "aliases": ["aws status","aws service health"],
+      "regions": ["us-east-1","us-east-2","us-west-1","us-west-2","N. Virginia","Ohio","N. California","Oregon","GovCloud (US"],
+      "note": "US-region service health. Incidents auto-flag as On Your Radar." },
+    { "key": "azure-status", "name": "Azure Status", "color": "#60A5FA", "type": "status-rss", "target": 5,
+      "url": "https://azurestatuscdn.azureedge.net/en-us/status/feed/",
+      "aliases": ["azure status","azure service health"],
+      "regions": ["East US","East US 2","Central US","North Central US","South Central US","West Central US","West US","West US 2","West US 3","US Gov"],
+      "note": "US-region service health. Incidents auto-flag as On Your Radar." },
     { "key": "cisa", "name": "CISA KEV", "color": "#FBBF24", "type": "json-kev", "target": 3,
       "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "aliases": ["cisa", "kev", "cisa kev"],
