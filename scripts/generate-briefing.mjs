@@ -135,6 +135,22 @@ function parseKev(text) {
     }));
 }
 
+// AWS/Azure service-health feeds. Keeps only items that name a US region AND
+// still read as active. A failed fetch means "no incidents", never a failure —
+// same rule the original routine used.
+function parseStatusFeed(xml, regions = []) {
+  const RESOLVED = /(operating normally|resolved|service is operating|no longer|has been mitigated|post-?mortem)/i;
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  return parseXmlFeed(xml).filter((it) => {
+    const hay = `${it.title} ${it.summary}`;
+    if (!regions.some((r) => hay.toLowerCase().includes(r.toLowerCase()))) return false;
+    if (RESOLVED.test(hay)) return false;
+    const ts = Date.parse(it.published || "");
+    if (!Number.isNaN(ts) && Date.now() - ts > DAY_MS) return false; // last 24h only
+    return true;
+  });
+}
+
 async function collectCandidates(sources) {
   const candidates = [];
   await Promise.all(
@@ -148,6 +164,7 @@ async function collectCandidates(sources) {
             const text = await fetchText(u);
             if (s.type === "hn-api") items = items.concat(parseHn(text));
             else if (s.type === "json-kev") items = items.concat(parseKev(text));
+            else if (s.type === "status-rss") items = items.concat(parseStatusFeed(text, s.regions));
             else items = items.concat(parseXmlFeed(text));
           } catch (e) {
             console.warn(`  ! ${s.name} (${u}): ${e.message}`);
@@ -161,6 +178,7 @@ async function collectCandidates(sources) {
             sourceKey: s.key,
             sourceName: s.name,
             color: s.color,
+            isStatus: s.type === "status-rss",
             title: it.title,
             url: it.url,
             summary: it.summary || "",
@@ -185,9 +203,14 @@ async function collectCandidates(sources) {
 function buildRadarMatcher(radarKeywords) {
   const entries = Object.entries(radarKeywords || {}).flatMap(([category, words]) =>
     (words || []).map((w) => {
-      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      // Trailing `s?` so "hypervisors" / "banks" / "exploits" still match.
-      return { category, word: w, re: new RegExp(`(^|[^a-z0-9])${esc}s?([^a-z0-9]|$)`, "i") };
+      // A trailing `*` makes it a prefix match: "deprecat*" catches
+      // deprecated / deprecating / deprecation. Otherwise the word must end
+      // there (plus an optional plural, so "banks" and "exploits" match).
+      const prefix = w.endsWith("*");
+      const bare = prefix ? w.slice(0, -1) : w;
+      const esc = bare.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const tail = prefix ? "" : "s?([^a-z0-9]|$)";
+      return { category, word: w, re: new RegExp(`(^|[^a-z0-9])${esc}${tail}`, "i") };
     })
   );
   return (candidate) => {
@@ -202,6 +225,7 @@ function buildRadarMatcher(radarKeywords) {
 function renderCard(c, flagged) {
   const chips =
     `<span class="chip" style="--source-color:${c.color}">${escapeHtml(c.sourceName)}</span>` +
+    (c.isStatus ? `<span class="chip health">🔴 Service Health</span>` : "") +
     (flagged ? `<span class="chip radar">⚡ On Your Radar</span>` : "");
   const meta = `${c.meta ? c.meta + " · " : ""}<a href="${escapeHtml(c.url)}">→ Read more</a>`;
   return `  <div class="card" style="--source-color:${c.color}">
@@ -215,29 +239,47 @@ function renderCard(c, flagged) {
 async function render({ date, css, sources, candidates, isRadar }) {
   const cards = [];
   const flaggedCategories = new Set();
-  for (const c of candidates) {
+  // Service-health incidents render in their own section and are always
+  // flagged, regardless of keyword match.
+  const statusItems = candidates.filter((c) => c.isStatus);
+  const newsItems = candidates.filter((c) => !c.isStatus);
+
+  for (const c of newsItems) {
     const category = isRadar(c);
     if (category) flaggedCategories.add(category);
     const summary = truncate(stripTags(c.summary), 320) || "—";
     cards.push(renderCard({ ...c, summary }, Boolean(category)));
   }
 
+  const statusCards = statusItems.map((c) =>
+    renderCard({ ...c, summary: truncate(stripTags(c.summary), 320) || "—" }, true)
+  );
+  if (statusItems.length) flaggedCategories.add("Active US-region cloud incidents");
+
+  const statusBlock =
+    `  <div class="cloud-subhead">Service Health · US Regions</div>\n` +
+    (statusCards.length
+      ? statusCards.join("\n\n")
+      : `  <div class="status-ok">✓ All monitored US regions operating normally</div>`);
+
   const legend = sources
     .filter((s) => (s.target ?? 0) > 0)
     .map((s) => `  <div class="legend-item"><span class="dot" style="background:${s.color}"></span>${escapeHtml(s.name)}</div>`)
     .join("\n");
 
-  const flaggedCount = cards.filter((c) => c.includes("On Your Radar")).length;
+  const allCards = [...cards, ...statusCards];
+  const flaggedCount = allCards.filter((c) => c.includes("On Your Radar")).length;
   const activeSources = sources.filter((s) => (s.target ?? 0) > 0).length;
 
   // Deterministic stand-in for the old LLM editor's note: says what was
   // collected and, more usefully, which radar categories actually fired today.
   const cats = [...flaggedCategories].map((c) => c.replace(/,.*$/, "").trim());
+  const incidentLine = statusItems.length
+    ? `${statusItems.length} active US-region cloud incident${statusItems.length > 1 ? "s" : ""}.`
+    : "No active US-region cloud incidents.";
   const note = flaggedCount
-    ? `${cards.length} stories across ${activeSources} sources. ${flaggedCount} flagged on your radar, touching ${cats.join("; ")}.`
-    : `${cards.length} stories across ${activeSources} sources. Nothing matched your radar categories today.`;
-
-  const skipHtml = "";
+    ? `${allCards.length} stories across ${activeSources} sources. ${incidentLine} ${flaggedCount} flagged on your radar, touching ${cats.join("; ")}.`
+    : `${allCards.length} stories across ${activeSources} sources. ${incidentLine} Nothing matched your radar categories today.`;
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -271,7 +313,9 @@ ${legend}
 <div class="container">
 
 ${cards.join("\n\n")}
-${skipHtml}
+
+${statusBlock}
+
   <div class="footer">
     Morning Briefing · Generated by GitHub Actions · Sources: ${sources.filter((s) => (s.target ?? 0) > 0).map((s) => escapeHtml(s.name)).join(" · ")}
   </div>
@@ -280,7 +324,7 @@ ${skipHtml}
 </body>
 </html>
 `;
-  return { html, storyCount: cards.length, flaggedCount, note };
+  return { html, storyCount: allCards.length, flaggedCount, incidents: statusItems.length, note };
 }
 
 // ---------------------------------------------------------------------------
@@ -377,10 +421,10 @@ async function main() {
   }
 
   const isRadar = buildRadarMatcher(cfg.radar_keywords);
-  const { html, storyCount, flaggedCount, note } = await render({ date, css, sources, candidates, isRadar });
+  const { html, storyCount, flaggedCount, incidents, note } = await render({ date, css, sources, candidates, isRadar });
   const outPath = join(BRIEFINGS, `${date.iso}.html`);
   await writeFile(outPath, html);
-  console.log(`Wrote ${outPath} (${storyCount} stories, ${flaggedCount} flagged)`);
+  console.log(`Wrote ${outPath} (${storyCount} stories, ${flaggedCount} flagged, ${incidents} US-region incidents)`);
 
   const { total, added, refreshed } = await resyncManifest({
     date: date.iso,
