@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; July 28, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--text); margin:0; padding:0 20px 40px;
+  font-family:'Inter',sans-serif;
+}
+.masthead{ text-align:center; padding-top:56px; }
+h1.title{
+  font-family:'Fraunces',serif; font-size:80px; font-weight:600;
+  letter-spacing:-2px; margin:0; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:14px;
+}
+hr.rule{ border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:32px auto; }
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:920px; margin:0 auto 0; width:fit-content;
+}
+.legend-item{ display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); }
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.container{ max-width:860px; margin:0 auto; }
+
+.card{
+  background:var(--surface); border-left:3px solid var(--source-color, var(--cyan));
+  padding:28px 32px; border-radius:8px; margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+.card:hover{ filter:brightness(1.08); }
+.card:hover .card-headline{ filter:none; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.chip{
+  font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; font-weight:700; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; background:var(--source-color, var(--cyan)); display:inline-block;
+}
+.chip.radar{ background:var(--orange); color:#0B0B0F; }
+.chip.health{ background:#F87171; color:#0B0B0F; }
+
+.card-headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  margin:0 0 10px; color:var(--text); line-height:1.15;
+}
+.card-meta{ font-size:12px; color:var(--text-muted); margin-bottom:14px; }
+.card-meta a{ color:var(--text-muted); }
+.card-summary{ font-size:17px; line-height:1.7; color:var(--text); margin:0; }
+
+.cloud-subhead{
+  font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase;
+  letter-spacing:1.5px; color:var(--text-muted); margin:40px 0 12px;
+}
+.status-ok{
+  font-size:14px; color:var(--text-muted); padding:18px 32px;
+  background:var(--surface); border-radius:8px; margin-bottom:16px;
+}
+
+.skip-title{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:48px 0 12px; }
+.skip-list{ list-style:none; padding:0; margin:0; }
+.skip-list li{ font-size:14px; color:var(--text-muted); margin-bottom:8px; }
+.skip-list a{ color:var(--text-muted); text-decoration:underline; }
+
+.footer{
+  text-align:center; font-size:11px; color:var(--text-muted);
+  padding-top:48px; max-width:860px; margin:0 auto;
+}
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="title">MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Tuesday, July 28, 2026</div>
+</div>
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:var(--cyan)"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:var(--red)"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:var(--purple)"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:var(--pink)"></span>Engadget</div>
+  <div class="legend-item"><span class="dot" style="background:var(--green)"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:var(--blue)"></span>Azure</div>
+</div>
+
+<p class="editors-note">Security dominates today's desk: an actively-exploited FastJson RCE zero-day is hitting US firms, Arista rushed a patch for an exploited VeloCloud Orchestrator flaw, and a breach at medical billing firm MCBS exposed 1.26 million patient records alongside fresh Coca-Cola and Ernst &amp; Young data-theft disclosures. Cloud infrastructure stayed quiet — no active US-region AWS or Azure incidents — while AWS shipped IAM-gated TLS automation and VM-isolated Lambda sandboxes and Azure moved external key management for its Managed HSM into public preview. Watch the AI-policy fight too: Anthropic's stance on open-weights models is dominating Hacker News as The Register reports rival labs sparring over whether Chinese models are quietly distilling Claude.</p>
+
+<div class="container">
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">Our position on open-weights models</h2>
+    <div class="card-meta">944 pts · 1363 comments · <a href="https://news.ycombinator.com/item?id=49076057">HN discussion</a> · <a href="https://www.anthropic.com/news/position-open-weights-models">→ Read more</a></div>
+    <p class="card-summary">Anthropic says it isn't advocating for banning open-weight models, calling them a public good when they lack dangerous capabilities. Instead the company backs three narrower measures: blocking chip sales to China, cracking down on industrial-scale distillation operations, and mandatory safety testing for any sufficiently capable model, open or closed.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">Benchmarking Opus 5 on SlopCodeBench</h2>
+    <div class="card-meta">308 pts · 70 comments · <a href="https://news.ycombinator.com/item?id=49076391">HN discussion</a> · <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">→ Read more</a></div>
+    <p class="card-summary">SlopCodeBench tests a model's ability to maintain a codebase across multiple iterative requirements with no human guidance, and Claude Opus 5 hit a 24% strict pass rate. That's only a modest gain over Opus 4.6's 17% baseline, underscoring how far frontier models still are from unsupervised "lights-off" software maintenance.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--cyan)">
+    <div class="chips"><span class="chip" style="--source-color:var(--cyan)">Hacker News</span></div>
+    <h2 class="card-headline">Using an open model feels surprisingly good</h2>
+    <div class="card-meta">289 pts · 112 comments · <a href="https://news.ycombinator.com/item?id=49078583">HN discussion</a> · <a href="https://matthewsaltz.com/blog/using-an-open-model-feels-surprisingly-good/">→ Read more</a></div>
+    <p class="card-summary">A developer at Modal set up Moonshot AI's open-weight Kimi K3 on a personal inference endpoint and found the experience unexpectedly satisfying. With data traveling only between his own laptop and endpoint, he says the model "feels like it's mine" — an ownership benefit third-party AI services don't offer.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Hackers target US firms in FastJson RCE zero-day attacks</h2>
+    <div class="card-meta">July 27 · <a href="https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/">→ Read more</a></div>
+    <p class="card-summary">Attackers are actively exploiting a remote-code-execution vulnerability in the FastJson open-source Java library against US organizations, requiring no user interaction or elevated privileges to trigger. Security teams running FastJson in production Java services should treat this as an active-exploitation event and patch now.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Arista patches VeloCloud Orchestrator zero-day exploited in attacks</h2>
+    <div class="card-meta">July 27 · <a href="https://www.bleepingcomputer.com/news/security/arista-patches-velocloud-orchestrator-zero-day-exploited-in-attacks/">→ Read more</a></div>
+    <p class="card-summary">Arista has shipped a fix for a maximum-severity command-injection zero-day in on-premises VeloCloud Orchestrator deployments that is already being exploited in the wild. Organizations running VeloCloud Orchestrator on-prem should apply the patch immediately given confirmed active exploitation.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Data breach at medical billing firm MCBS affects 1.26 million people</h2>
+    <div class="card-meta">July 28 · <a href="https://www.bleepingcomputer.com/news/security/data-breach-at-medical-billing-firm-mcbs-affects-126-million-people/">→ Read more</a></div>
+    <p class="card-summary">Medical Computer Business Services disclosed that a 2025 network breach exposed sensitive information belonging to more than 1.26 million people. As a healthcare billing processor, the breach likely includes protected health information, raising HIPAA notification obligations for its provider clients.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">New Dysphoria DDoS botnet spreads to 200k devices worldwide</h2>
+    <div class="card-meta">July 27 · <a href="https://www.bleepingcomputer.com/news/security/new-dysphoria-ddos-botnet-spreads-to-200k-devices-worldwide/">→ Read more</a></div>
+    <p class="card-summary">A newly identified botnet called Dysphoria has compromised roughly 200,000 devices globally and is being used for both distributed denial-of-service attacks and traffic-relay operations. Its scale puts it among the larger active botnets tracked this year, and the traffic-relay use suggests it's also being rented out for proxying malicious traffic.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">Coca-Cola confirms data theft in Fairlife ransomware attack</h2>
+    <div class="card-meta">July 27 · <a href="https://www.bleepingcomputer.com/news/security/coca-cola-confirms-data-theft-in-fairlife-ransomware-attack/">→ Read more</a></div>
+    <p class="card-summary">Coca-Cola has confirmed that attackers stole data from its Fairlife dairy subsidiary during a ransomware attack earlier this month. The company hasn't disclosed the group behind the intrusion or the scope of stolen data, but confirmed the theft after initial reports surfaced.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--orange)">
+    <div class="chips"><span class="chip" style="--source-color:var(--orange)">BleepingComputer</span></div>
+    <h2 class="card-headline">Ernst &amp; Young data breach claimed by ShinyHunters extortion gang</h2>
+    <div class="card-meta">July 27 · <a href="https://www.bleepingcomputer.com/news/security/ernst-and-young-data-breach-claimed-by-shinyhunters-extortion-gang/">→ Read more</a></div>
+    <p class="card-summary">The ShinyHunters extortion gang claims it breached Ernst &amp; Young and obtained credentials for some of the firm's systems via a supply-chain attack rather than a direct intrusion. If confirmed, it extends ShinyHunters' pattern of using compromised third-party vendors as an entry point into large enterprises.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Microsoft Defender for Endpoint leaves some Linux boxes defenseless after update</h2>
+    <div class="card-meta">July 27 · <a href="https://www.theregister.com/patches/2026/07/27/microsoft-defender-for-endpoint-leaves-some-linux-boxes-defenseless-after-update/5278914">→ Read more</a></div>
+    <p class="card-summary">A Microsoft Defender for Endpoint update introduced two bugs on Linux: one disables the security service entirely after a restart, and another blocks installation on hardened RHEL systems. Linux fleets running Defender for Endpoint should verify protection is still active post-update rather than assume the agent recovered silently.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Google goes it alone with a new cybercrime crew taxonomy</h2>
+    <div class="card-meta">July 27 · <a href="https://www.theregister.com/security/2026/07/27/google-goes-it-alone-with-a-new-cybercrime-crew-taxonomy/5278749">→ Read more</a></div>
+    <p class="card-summary">Google has published its own naming taxonomy for cybercrime groups, breaking from a joint effort with Microsoft and CrowdStrike to standardize threat-actor names across the industry. The move risks re-fragmenting threat intelligence just as vendors were converging on consistent group naming.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Microsoft's solution to AI security: more AI and more acronyms</h2>
+    <div class="card-meta">July 27 · <a href="https://www.theregister.com/security/2026/07/27/microsofts-solution-to-ai-security-more-ai-and-more-acronyms/5279140">→ Read more</a></div>
+    <p class="card-summary">Microsoft is expanding its AI-security stack with new tools including MAI-Cyber-1-Flash alongside GPT-5.4 integration, folding more AI-driven detection into an already dense security acronym list. The piece questions whether layering additional AI models onto security tooling actually reduces risk or just adds operational complexity.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--red)">
+    <div class="chips"><span class="chip" style="--source-color:var(--red)">The Register</span></div>
+    <h2 class="card-headline">Tech giants link hands to praise open AI models after OpenAI - Hugging Face attack</h2>
+    <div class="card-meta">July 27 · <a href="https://www.theregister.com/ai-and-ml/2026/07/27/tech-giants-link-hands-to-praise-open-ai-models-after-openai-hugging-face-attack/5279061">→ Read more</a></div>
+    <p class="card-summary">A coalition calling itself the Open Security AI Alliance is using the recent OpenAI agent breach of Hugging Face to argue frontier labs can't be trusted to secure their own systems. It's an industry rebuttal aimed squarely at closed-model vendors after the incident undercut their security-by-obscurity argument.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="card-headline">iOS 26.6, macOS 26.6 and the rest are out, addressing security fixes</h2>
+    <div class="card-meta">July 27 · <a href="https://www.engadget.com/2224488/ios26-6-macos26-6-and-the-rest-are-out-addressing-security-fixes/">→ Read more</a></div>
+    <p class="card-summary">Apple shipped iOS 26.6, macOS 26.6, and companion updates across its platforms, with release notes focused primarily on security fixes rather than new features. Users on Apple hardware should update promptly given the security-first framing of this release.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--pink)">
+    <div class="chips"><span class="chip" style="--source-color:var(--pink)">Engadget</span></div>
+    <h2 class="card-headline">Spotify experienced another major outage</h2>
+    <div class="card-meta">July 27 · <a href="https://www.engadget.com/2224515/spotify-is-experiencing-another-major-outage/">→ Read more</a></div>
+    <p class="card-summary">Spotify suffered its second major outage in recent memory, with the company acknowledging two separate incidents disrupting service. No root cause has been disclosed yet, but the repeat pattern raises questions about the reliability of Spotify's underlying infrastructure.</p>
+  </div>
+
+  <div class="cloud-subhead">Service Health · US Regions</div>
+
+  <div class="status-ok">✓ All monitored US regions operating normally</div>
+
+  <div class="cloud-subhead">New &amp; Noteworthy</div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Automate public TLS certificate issuance with ACME support in AWS Certificate Manager</h2>
+    <div class="card-meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/automate-public-tls-certificate-issuance-with-acme-support-in-aws-certificate-manager/">→ Read more</a></div>
+    <p class="card-summary">AWS Certificate Manager now supports the ACME protocol, letting any ACMEv2-compatible client automate public TLS certificate issuance and renewal for any workload. Administrators get centralized governance through IAM-based access controls and domain scoping, reducing operational risk as certificate lifetimes keep shrinking industry-wide.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroVMs</h2>
+    <div class="card-meta">June 22 · <a href="https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/">→ Read more</a></div>
+    <p class="card-summary">AWS Lambda now offers MicroVMs, a serverless compute primitive that provides VM-level isolated sandboxes with no shared kernel or resources between sessions. They support rapid launch and resume with state preserved for up to 8 hours, requiring no infrastructure management from the customer.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">AWS Security Agent adds threat modeling, Kiro power and Claude Code plugin</h2>
+    <div class="card-meta">June 17 · <a href="https://aws.amazon.com/blogs/aws/aws-security-agent-adds-threat-modeling-kiro-power-and-claude-code-plugin-and-more/">→ Read more</a></div>
+    <p class="card-summary">AWS Security Agent now performs STRIDE-based threat modeling plus full repo and PR code scanning with remediation across major Git platforms. New IDE integrations via Kiro power, a Claude Code plugin, and MCP let developers run security reviews without leaving their editor.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">Upgrade Amazon EKS clusters with confidence using Kubernetes version rollbacks</h2>
+    <div class="card-meta">July 1 · <a href="https://aws.amazon.com/blogs/aws/upgrade-amazon-eks-clusters-with-confidence-using-kubernetes-version-rollbacks/">→ Read more</a></div>
+    <p class="card-summary">Amazon EKS now supports Kubernetes version rollbacks, letting teams reverse a cluster upgrade within seven days if something breaks, with no cluster rebuild required. It turns Kubernetes version upgrades into a reversible, lower-risk operation for teams that previously dreaded them.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">Accelerate your infrastructure deployments by up to 4x with AWS CloudFormation Express mode</h2>
+    <div class="card-meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/accelerate-your-infrastructure-deployments-by-up-to-4x-with-aws-cloudformation-express-mode/">→ Read more</a></div>
+    <p class="card-summary">AWS CloudFormation Express mode speeds up infrastructure deployment, giving AI agents and developers deployment confirmation in seconds instead of minutes. It's available in all commercial regions at no additional cost, aimed at tightening iteration loops for infrastructure-as-code.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--green)">
+    <div class="chips"><span class="chip" style="--source-color:var(--green)">AWS</span></div>
+    <h2 class="card-headline">Amazon EC2 C9g and C9gd instances powered by AWS Graviton5 processors are now available</h2>
+    <div class="card-meta">June 30 · <a href="https://aws.amazon.com/blogs/aws/amazon-ec2-c9g-and-c9gd-instances-powered-by-aws-graviton5-processors-are-now-available/">→ Read more</a></div>
+    <p class="card-summary">EC2 C9g and C9gd instances powered by AWS Graviton5 are now generally available, delivering up to 25% better compute performance than Graviton4 with 5x larger cache and the fastest memory of any cloud processor instance. The C9gd variant adds local NVMe storage for workloads that need fast local disk.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">External key management for Azure Managed HSM is now in public preview</h2>
+    <div class="card-meta">July 7 · <a href="https://azure.microsoft.com/en-us/blog/external-key-management-for-azure-managed-hsm-is-now-in-public-preview/">→ Read more</a></div>
+    <p class="card-summary">Azure Key Vault Managed HSM now supports external key management in public preview, keeping keys in a single-tenant, FIPS 140-3 Level 3 hardware module that only the customer controls. Microsoft says it has no access to the underlying key material, giving customers full governance over who can use each key.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Meet Brain: The AI system behind Azure reliability</h2>
+    <div class="card-meta">July 2 · <a href="https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/">→ Read more</a></div>
+    <p class="card-summary">Microsoft detailed Brain, an AI system that builds a digital twin of Azure Service Health to model how the platform behaves under stress. The company says it's shifting reliability engineering from reactive incident response toward predictive modeling at hyperscale.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Proving application resilience on Azure with Chaos Studio</h2>
+    <div class="card-meta">July 1 · <a href="https://azure.microsoft.com/en-us/blog/proving-application-resilience-on-azure-with-chaos-studio/">→ Read more</a></div>
+    <p class="card-summary">Azure Chaos Studio lets organizations validate application resilience by simulating outages, failovers, network disruptions, and infrastructure failures before they hit production. It's positioned as a way to catch cascading failures before they turn into customer-facing outages.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Claude in Microsoft Foundry is now generally available</h2>
+    <div class="card-meta">June 29 · <a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/">→ Read more</a></div>
+    <p class="card-summary">Claude in Microsoft Foundry is now generally available on Azure, running on NVIDIA GB300 Blackwell Ultra hardware. Microsoft is positioning it as a faster path from agent experimentation to production for teams building on Foundry.</p>
+  </div>
+
+  <div class="card" style="--source-color:var(--blue)">
+    <div class="chips"><span class="chip" style="--source-color:var(--blue)">Azure</span></div>
+    <h2 class="card-headline">Frontier models and production agents: Advancing Microsoft Foundry for the agentic era</h2>
+    <div class="card-meta">July 9 · <a href="https://azure.microsoft.com/en-us/blog/frontier-models-and-production-agents-advancing-microsoft-foundry-for-the-agentic-era/">→ Read more</a></div>
+    <p class="card-summary">Microsoft Foundry now generally offers OpenAI's latest GPT-5.6 frontier model series, a new Asia Pacific Data Zone, and production-agent capabilities for deploying agents at scale. It's Microsoft's latest push to make Foundry the default home for running frontier models and agentic workloads in production.</p>
+  </div>
+
+  <div class="skip-title">Worth Skipping Today</div>
+  <ul class="skip-list">
+    <li>· [Engadget] — <a href="https://www.engadget.com/2220206/2027-mercedes-benz-c-class-electric-first-drive/">2027 Mercedes-Benz C-Class Electric first drive</a> — (car review, no tech depth)</li>
+    <li>· [Engadget] — <a href="https://www.engadget.com/2224141/best-headphones-wireless-bluetooth-120543205/">Best wireless headphones for 2026</a> — (gadget roundup, no news value)</li>
+    <li>· [Engadget] — <a href="https://www.engadget.com/2222968/google-pixel-11-launch-event-price-increase-rumors/">Google Pixel 11 launch event: Everything we expect</a> — (speculation, not news)</li>
+    <li>· [The Register] — <a href="https://www.theregister.com/offbeat/2026/07/27/cassette-simulator-rewinds-digital-audio-to-a-more-analog-time-in-hiss-tory/5279018">Cassette simulator rewinds digital audio</a> — (offbeat, no news value)</li>
+    <li>· [The Register] — <a href="https://www.theregister.com/offbeat/2026/07/27/the-roller-coaster-works-but-the-six-flags-kiosk-has-gone-off-the-rails/5276467">The roller coaster works, but the Six Flags kiosk has gone off the rails</a> — (offbeat, no depth)</li>
+  </ul>
+
+  <div class="footer">
+    Morning Briefing · Generated 07:07 AST · Sources: HN · BleepingComputer · The Register · Dark Reading · Engadget · AWS · Azure · AWS/Azure Status
+  </div>
+
+</div>
+</body>
+</html>

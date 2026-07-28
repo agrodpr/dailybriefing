@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-07-26T11:10:58Z",
+  "updated": "2026-07-28T11:10:44Z",
   "briefings": [
+    {
+      "date": "2026-07-28",
+      "file": "briefings/2026-07-28.html",
+      "weekday": "Tuesday",
+      "label": "July 28, 2026",
+      "stories": 26,
+      "flagged": 5,
+      "note": "Security dominates today's desk: an actively-exploited FastJson RCE zero-day is hitting US firms, Arista rushed a patch for an exploited VeloCloud Orchestrator flaw, and a breach at medical billing firm MCBS exposed 1.26 million patient records alongside fresh Coca-Cola and Ernst & Young data-theft disclosures. Cloud infrastructure stayed quiet — no active US-region AWS or Azure incidents — while AWS shipped IAM-gated TLS automation and VM-isolated Lambda sandboxes and Azure moved external key management for its Managed HSM into public preview. Watch the AI-policy fight too: Anthropic's stance on open-weights models is dominating Hacker News as The Register reports rival labs sparring over whether Chinese models are quietly distilling Claude."
+    },
     {
       "date": "2026-07-26",
       "file": "briefings/2026-07-26.html",
