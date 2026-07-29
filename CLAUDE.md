@@ -1,10 +1,17 @@
 # dailybriefing — standing context
 
 Static GitHub Pages site (no backend, no server-side code). A daily
-Claude Code **Routine** (separate from this repo, editable only at
-claude.ai/code/routines) generates `briefings/YYYY-MM-DD.html` and is
-supposed to update `briefings/index.json` in the same commit. See
-`PIPELINE.md` for the exact process and known failure history.
+**GitHub Action** (`.github/workflows/daily-briefing.yml`, running
+`scripts/generate-briefing.mjs`) generates `briefings/YYYY-MM-DD.html`
+and updates `briefings/index.json` in the same commit. See `PIPELINE.md`
+for the exact process and known failure history.
+
+This replaced a Claude Code **Routine** (editable only at
+claude.ai/code/routines) that did the same job out-of-band. The Routine
+was the source of ~a month of silent outages because everything that
+could drift — schedule, prompt, branch-push permission, repo grant —
+lived outside version control. If the Routine is still enabled, disable
+it, or the two will race to write the same file.
 
 ## Hard constraints
 
@@ -23,10 +30,24 @@ supposed to update `briefings/index.json` in the same commit. See
   was approved earlier in the conversation. Approval is scoped to the
   specific change discussed, not blanket. Work on a `claude/`-prefixed
   feature branch, push there, then ask before merging.
+- **The pipeline now lives in this repo.** Schedule, prompt, and commit
+  logic are in `.github/workflows/daily-briefing.yml` +
+  `scripts/generate-briefing.mjs`, so they are diffable and reviewable.
+  A failed run shows up red in the Actions tab instead of vanishing.
+- **The generator is fully deterministic — there is no LLM call and no
+  API key.** Summaries are the publishers' own feed text, and "on your
+  radar" is a keyword match configured in `briefings/sources.json`
+  (`radar_keywords`). This was a deliberate choice: no key to rotate, no
+  spend, nothing that can rate-limit or refuse. If you ever reintroduce
+  an LLM step, it must be optional enrichment that degrades to feed text
+  — never something that can block the deploy.
+- **Manifest resync is additive on purpose.** Existing `index.json`
+  entries are preserved as-is and only missing dates are appended.
+  Briefings from before 2026-07 use different markup, so re-deriving
+  every entry zeroes out `stories` and blanks `weekday`/`label`.
 - **Routines, by default, can only push `claude/`-prefixed branches** to
   this repo unless "Allow unrestricted branch pushes" is enabled. This
-  repo has no `.github/workflows` or trigger config — the schedule and
-  prompt live entirely in the Routine, not in this repo.
+  is why the 2026-07-12 briefing landed on a branch and never deployed.
 
 ## If briefings stop appearing on the site
 

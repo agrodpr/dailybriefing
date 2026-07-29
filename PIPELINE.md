@@ -1,8 +1,13 @@
 # Morning Briefing — Daily Pipeline
 
-This repo is updated once a day by a scheduled Claude Code routine. The
-routine writes one new file per day and must also update the manifest that
-the reader (`index.html`) uses to discover briefings.
+This repo is updated once a day by a **GitHub Action**
+(`.github/workflows/daily-briefing.yml`), which runs
+`scripts/generate-briefing.mjs`. It writes one new file per day and updates
+the manifest that the reader (`index.html`) uses to discover briefings — in
+a single atomic commit.
+
+Before 2026-07-27 this ran as a scheduled Claude Code Routine. See
+"Why this moved into the repo" below.
 
 **Known failure modes, in order of severity:**
 
@@ -37,6 +42,94 @@ the reader (`index.html`) uses to discover briefings.
    revision that expanded coverage to 26 stories across 9 sources and added
    the mobile-safety block and correct Slack channel). The manifest now
    advances on every run by construction.
+
+## Why this moved into the repo (2026-07-27)
+
+Four *different* root causes in roughly a month, each outside version control:
+
+| When | Symptom | Root cause |
+|---|---|---|
+| Jun 16–27 | Manifest never updated; briefings invisible | Routine prompt literally said "Do NOT create any other files" |
+| Jun 28 | Nothing pushed at all | GitHub App repo grant dropped |
+| ~Jul 12 | Landed on `claude/briefing-2026-07-12`, never deployed | "Allow unrestricted branch pushes" toggled off |
+| Jul 13–16 | Nothing reached the repo in any form | Never diagnosed |
+
+Every fix closed its own hole, but the next outage came from a different
+link in the chain. The common factor: the schedule, prompt, permissions,
+and repo grant all lived in mutable, un-versioned config, while the one
+part under change control — this repo — was the part that kept working.
+Moving the pipeline here makes the whole chain diffable, reviewable, and
+loudly red on failure.
+
+**Design rules that follow from that history:**
+
+1. **One atomic commit.** `git add briefings/` stages the HTML and the
+   manifest together; they can never be split (failure mode #2).
+2. **No LLM, no API key.** Feeds → selection → render → manifest → commit
+   is entirely deterministic. Summaries are the publishers' own feed text;
+   "on your radar" is a keyword match; the editor's note is generated from
+   the day's counts and which radar categories fired. Nothing here can
+   rate-limit, refuse, hallucinate, or bill. The tradeoff, accepted
+   deliberately: summaries read like feed blurbs rather than curated prose,
+   and there is no "Worth Skipping Today" section.
+3. **Radar keywords are config, not code.** Tune `radar_keywords` in
+   `briefings/sources.json`. Matching is case-insensitive with word
+   boundaries and an optional plural, so `kev` won't fire on "Kevin" and
+   `bank` won't fire on "Bankruptcy".
+4. **Additive manifest resync.** Existing entries are preserved; only
+   missing dates are appended (older briefings use different markup).
+5. **Abort rather than ship empty.** Zero fetched stories exits non-zero
+   instead of committing a hollow briefing.
+6. **Rebase-retry on push.** `main` may be touched concurrently.
+
+### Ported vs. not ported
+
+The Routine's prompt is archived verbatim at `docs/legacy-routine-prompt.md`.
+Nothing executes it — it is the original spec. Where the Action deliberately
+differs:
+
+| Prompt step | Status in the Action |
+|---|---|
+| 9 sources, resilient to dead feeds | ✅ 15 sources (adds CISA KEV, Fortinet, SANS, MSRC, HIPAA, Banking, Puerto Rico) |
+| AWS/Azure US-region service health, auto-flagged | ✅ `status-rss` type; filters by region token, drops resolved and >24h items; failed fetch = "no incidents" |
+| "✓ All monitored US regions operating normally" when quiet | ✅ |
+| Mobile-safety `<style>` block ending `<head>` | ✅ enforced every run |
+| Atomic HTML + manifest commit | ✅ native git, not 8 API calls |
+| Manifest self-heal | ✅ unbounded (prompt capped it at 7 days) |
+| Never push to a `claude/` branch | ✅ pushes to `main` with rebase-retry |
+| Slack notification | ✅ optional; bot token or webhook |
+| "⚡ On Your Radar" flags | ⚠️ keyword match (`radar_keywords`) rather than model judgement |
+| Editor's note | ⚠️ generated from counts + which radar categories fired |
+| Story summaries | ⚠️ publisher's feed text, not rewritten prose |
+| Cloud sub-sections B) Deprecations and C) New & Noteworthy | ❌ not implemented — cloud blog posts render as ordinary cards |
+| "Worth Skipping Today" (5 items + reasons) | ❌ not implemented — needs editorial judgement |
+| Fixed 26-story distribution | ❌ counts come from per-source `target` in `sources.json` |
+| Engadget | ❌ `target: 0` (deprioritised in sources.json, predates this change) |
+
+The ⚠️/❌ rows are all consequences of removing the LLM. Re-enabling an
+optional enrichment step would close them, but it must stay best-effort so it
+can never block the deploy.
+
+### Operating it
+
+- **Schedule:** `10 11 * * *` UTC (~07:10 AST).
+- **Manual run / backfill:** Actions → Daily Briefing → *Run workflow*,
+  optionally passing a `date` (`YYYY-MM-DD`) to regenerate a specific day.
+- **Secrets:** none required. Slack is optional — set **either**
+  `SLACK_BOT_TOKEN` (an `xoxb-…` Bot User OAuth Token with `chat:write`,
+  from the Slack app's *OAuth & Permissions* page; the bot must be invited
+  to the channel) **or** `SLACK_WEBHOOK_URL` (from *Incoming Webhooks*).
+  The bot token wins if both are set, and the step is skipped entirely when
+  neither is. Channel defaults to `C0BACLM772M` (#dailybriefing); override
+  with a `SLACK_CHANNEL` repository *variable*.
+
+  Note the app's *Basic Information* credentials (Client ID/Secret, Signing
+  Secret, Verification Token) and app-level `xapp-` tokens are **not**
+  usable here — those are for OAuth flows, request verification, and Socket
+  Mode, not for posting messages.
+- **Local dry run:** `node scripts/generate-briefing.mjs 2026-07-27`.
+- **Tuning sources:** edit `briefings/sources.json` (`target: 0` disables a
+  source). Presentation lives in `scripts/assets/briefing.css`.
 
 ## Sources and distribution (as of 2026-07-02)
 
