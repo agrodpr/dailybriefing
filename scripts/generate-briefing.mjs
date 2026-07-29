@@ -200,7 +200,7 @@ async function collectCandidates(sources) {
 // touching this script. Matching is case-insensitive over title + summary,
 // with word boundaries so "kev" doesn't fire on "Kevin".
 // ---------------------------------------------------------------------------
-function buildRadarMatcher(radarKeywords) {
+export function buildRadarMatcher(radarKeywords) {
   const entries = Object.entries(radarKeywords || {}).flatMap(([category, words]) =>
     (words || []).map((w) => {
       // A trailing `*` makes it a prefix match: "deprecat*" catches
@@ -236,7 +236,7 @@ function renderCard(c, flagged) {
   </div>`;
 }
 
-async function render({ date, css, sources, candidates, isRadar }) {
+export async function render({ date, css, sources, candidates, isRadar }) {
   const cards = [];
   const flaggedCategories = new Set();
   // Service-health incidents render in their own section and are always
@@ -386,7 +386,10 @@ async function resyncManifest(current) {
       file: `briefings/${f}`,
       weekday,
       label: label || date,
-      stories: (html.match(/class="card"/g) || []).length,
+      // Older briefings use compound classes (`class="card aws"`), so match
+      // `card` as a whitespace-delimited token. Must NOT match `card-headline`
+      // / `card-summary`, which would multiply the count several times over.
+      stories: (html.match(/class="(?:[^"]*\s)?card(?:\s[^"]*)?"/g) || []).length,
       flagged: (html.match(/on your radar/gi) || []).length,
       note: noteM ? stripTags(noteM[1]) : "",
     });
