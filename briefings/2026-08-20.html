@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; August 20, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--text); margin:0; padding:0 20px 40px;
+  font-family:'Inter',sans-serif;
+}
+.masthead{ text-align:center; padding-top:56px; }
+h1.title{
+  font-family:'Fraunces',serif; font-size:80px; font-weight:600;
+  letter-spacing:-2px; margin:0; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:14px;
+}
+hr.rule{ border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:32px auto; }
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:920px; margin:0 auto 0; width:fit-content;
+}
+.legend-item{ display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); }
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.container{ max-width:860px; margin:0 auto; }
+
+.card{
+  background:var(--surface); border-left:3px solid var(--source-color, var(--cyan));
+  padding:28px 32px; border-radius:8px; margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+.card:hover{ filter:brightness(1.08); }
+.card:hover .card-headline{ filter:none; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.chip{
+  font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; font-weight:700; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; background:var(--source-color, var(--cyan)); display:inline-block;
+}
+.chip.radar{ background:var(--orange); color:#0B0B0F; }
+.chip.health{ background:#F87171; color:#0B0B0F; }
+
+.card-headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  margin:0 0 10px; color:var(--text); line-height:1.15;
+}
+.card-meta{ font-size:12px; color:var(--text-muted); margin-bottom:14px; }
+.card-meta a{ color:var(--text-muted); }
+.card-summary{ font-size:17px; line-height:1.7; color:var(--text); margin:0; }
+
+.cloud-subhead{
+  font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase;
+  letter-spacing:1.5px; color:var(--text-muted); margin:40px 0 12px;
+}
+.status-ok{
+  font-size:14px; color:var(--text-muted); padding:18px 32px;
+  background:var(--surface); border-radius:8px; margin-bottom:16px;
+}
+
+.skip-title{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:48px 0 12px; }
+.skip-list{ list-style:none; padding:0; margin:0; }
+.skip-list li{ font-size:14px; color:var(--text-muted); margin-bottom:8px; }
+.skip-list a{ color:var(--text-muted); text-decoration:underline; }
+
+.footer{
+  text-align:center; font-size:11px; color:var(--text-muted);
+  padding-top:48px; max-width:860px; margin:0 auto;
+}
+
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="title">MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Thursday, August 20, 2026</div>
+</div>
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:#4ADE80"></span>AWS Status</div>
+  <div class="legend-item"><span class="dot" style="background:#60A5FA"></span>Azure Status</div>
+  <div class="legend-item"><span class="dot" style="background:#FBBF24"></span>CISA KEV</div>
+  <div class="legend-item"><span class="dot" style="background:#2DD4BF"></span>Fortinet</div>
+  <div class="legend-item"><span class="dot" style="background:#E8823A"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:#A78BFA"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:#A3E635"></span>SANS ISC</div>
+  <div class="legend-item"><span class="dot" style="background:#F87171"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:#00B4D8"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:#4ADE80"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:#60A5FA"></span>Azure</div>
+  <div class="legend-item"><span class="dot" style="background:#818CF8"></span>MSRC</div>
+  <div class="legend-item"><span class="dot" style="background:#F472B6"></span>HIPAA Journal</div>
+  <div class="legend-item"><span class="dot" style="background:#CA8A04"></span>Banking IT</div>
+  <div class="legend-item"><span class="dot" style="background:#38BDF8"></span>Puerto Rico</div>
+</div>
+
+<p class="editors-note">30 stories across 15 sources. No active US-region cloud incidents. 9 flagged on your radar, touching Active exploits; Hyper-V; AWS IAM; Puerto Rico infrastructure or government tech; Banking/financial-sector regulation or compliance; Healthcare IT.</p>
+
+<div class="container">
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span></div>
+    <h2 class="card-headline">CISA warns of hackers exploiting critical MLflow vulnerability</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 07:06:14 -0400 · <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-mlflow-vulnerability/">→ Read more</a></div>
+    <p class="card-summary">The Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that threat actors are now exploiting a critical vulnerability in the MLflow open-source AI engineering platform. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span></div>
+    <h2 class="card-headline">New Manic Android malware can exfiltrate data through nearby devices</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 06:02:02 -0400 · <a href="https://www.bleepingcomputer.com/news/security/new-manic-android-malware-can-exfiltrate-data-through-nearby-devices/">→ Read more</a></div>
+    <p class="card-summary">A new Android malware named Manic targeting users in multiple European countries has a fallback data exfiltration mechanism that uses nearby infected devices. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Critical Zimbra RCE flaw now actively exploited in attacks</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 05:46:54 -0400 · <a href="https://www.bleepingcomputer.com/news/security/critical-zimbra-rce-flaw-now-actively-exploited-in-attacks/">→ Read more</a></div>
+    <p class="card-summary">CERT Polska, the Polish Computer Emergency Response Team (CERT), warned that attackers have begun exploiting a critical vulnerability in Zimbra Collaboration Suite (ZCS). [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span></div>
+    <h2 class="card-headline">Microsoft says August Windows updates may cause gaming issues</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 02:51:03 -0400 · <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-august-windows-updates-may-cause-gaming-issues-reboots/">→ Read more</a></div>
+    <p class="card-summary">Microsoft is investigating a potential issue with the August 2026 updates that may prevent some games from launching or cause them to crash on affected Windows 11 systems. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#FBBF24">
+    <div class="chips"><span class="chip" style="--source-color:#FBBF24">CISA KEV</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">CVE-2026-64849: MLflow Server-Side Request Forgery Vulnerability</h2>
+    <div class="card-meta">2026-08-19 · <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64849">→ Read more</a></div>
+    <p class="card-summary">MLflow contains a server-side request forgery vulnerability that can allow attackers to reach internal or cloud metadata services and receive response_status and response_body. (Vendor: MLflow; added to CISA KEV 2026-08-19).</p>
+  </div>
+
+  <div class="card" style="--source-color:#FBBF24">
+    <div class="chips"><span class="chip" style="--source-color:#FBBF24">CISA KEV</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">CVE-2026-33824: Microsoft Internet Key Exchange (IKE) Service Extensions Double Free Vulnerability</h2>
+    <div class="card-meta">2026-08-18 · <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-33824">→ Read more</a></div>
+    <p class="card-summary">Microsoft Internet Key Exchange (IKE) Service Extensions contains a double free vulnerability that could enable remote code execution. (Vendor: Microsoft; added to CISA KEV 2026-08-18).</p>
+  </div>
+
+  <div class="card" style="--source-color:#FBBF24">
+    <div class="chips"><span class="chip" style="--source-color:#FBBF24">CISA KEV</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">CVE-2026-59310: Broadcom VMware vCenter Path Traversal Vulnerability</h2>
+    <div class="card-meta">2026-08-18 · <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59310">→ Read more</a></div>
+    <p class="card-summary">Broadcom VMware vCenter contains a path traversal vulnerability which could allow a threat actor with network access to vCenter to execute arbitrary code. (Vendor: Broadcom; added to CISA KEV 2026-08-18).</p>
+  </div>
+
+  <div class="card" style="--source-color:#2DD4BF">
+    <div class="chips"><span class="chip" style="--source-color:#2DD4BF">Fortinet</span></div>
+    <h2 class="card-headline">HTTP/2 Bomb CVE-2026-49975</h2>
+    <div class="card-meta">Wed, 12 Aug 2026 00:00:00 -0700 · <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-163">→ Read more</a></div>
+    <p class="card-summary">CVSSv3 Score: 5.8 CVE-2026-49975Memory Allocation with Excessive Size Value vulnerability in Apache HTTP Server's mod_http leads to denial of service via malicious HTTP requests. This issue affects Apache HTTP Server: from 2.4.17 through 2.4.67. Revised on 2026-08-19 00:00:00</p>
+  </div>
+
+  <div class="card" style="--source-color:#2DD4BF">
+    <div class="chips"><span class="chip" style="--source-color:#2DD4BF">Fortinet</span></div>
+    <h2 class="card-headline">Broken access control in the RADIUS type admin group</h2>
+    <div class="card-meta">Wed, 12 Aug 2026 00:00:00 -0700 · <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-158">→ Read more</a></div>
+    <p class="card-summary">CVSSv3 Score: 8.8 An Improper Authentication vulnerability [CWE-287] in the FortiWeb Remote Radius Type Admin Authentication configured with specific, non-default settings may allow a remote unauthenticated attacker to login into the Fortiweb GUI/CLI with a random username and password Revised on 2026-08-12 00:00:00</p>
+  </div>
+
+  <div class="card" style="--source-color:#60A5FA">
+    <div class="chips"><span class="chip" style="--source-color:#60A5FA">Azure</span></div>
+    <h2 class="card-headline">Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for Cloud-Native Application Platforms</h2>
+    <div class="card-meta">Mon, 17 Aug 2026 15:00:00 +0000 · <a href="https://azure.microsoft.com/en-us/blog/microsoft-named-a-leader-in-the-2026-gartner-magic-quadrant-for-cloud-native-application-platforms/">→ Read more</a></div>
+    <p class="card-summary">Cloud-native platforms are becoming the foundation for AI transformation. Discover how Microsoft's Azure application platform helps organizations modernize, innovate, and operate AI-powered applications at scale. The post Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for Cloud-Native Application Platfo…</p>
+  </div>
+
+  <div class="card" style="--source-color:#60A5FA">
+    <div class="chips"><span class="chip" style="--source-color:#60A5FA">Azure</span></div>
+    <h2 class="card-headline">The Economics of Agent Optimization: From pilots to measurable returns</h2>
+    <div class="card-meta">Wed, 12 Aug 2026 16:00:00 +0000 · <a href="https://azure.microsoft.com/en-us/blog/the-economics-of-agent-optimization-from-pilots-to-measurable-returns/">→ Read more</a></div>
+    <p class="card-summary">Learn how AI cost management helps organizations move from AI pilots to measurable ROI through greater visibility, governance, and optimization. The post The Economics of Agent Optimization: From pilots to measurable returns appeared first on Microsoft Azure Blog .</p>
+  </div>
+
+  <div class="card" style="--source-color:#4ADE80">
+    <div class="chips"><span class="chip" style="--source-color:#4ADE80">AWS</span></div>
+    <h2 class="card-headline">In the works: AWS Builder Lofts in Berlin, Hyderabad, and São Paulo</h2>
+    <div class="card-meta">Tue, 18 Aug 2026 13:58:41 +0000 · <a href="https://aws.amazon.com/blogs/aws/in-the-works-aws-builder-lofts-in-berlin-hyderabad-and-sao-paulo/">→ Read more</a></div>
+    <p class="card-summary">Each location will be a permanent community space to offer free workshops, networking events, pitch nights, content creation spaces, collaboration/co-working areas, and event hosting for developers, students, or tech professionals who want to walk through the doors.</p>
+  </div>
+
+  <div class="card" style="--source-color:#4ADE80">
+    <div class="chips"><span class="chip" style="--source-color:#4ADE80">AWS</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Daybreak on Bedrock, and more (August 17, 2026)</h2>
+    <div class="card-meta">Mon, 17 Aug 2026 16:02:36 +0000 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/">→ Read more</a></div>
+    <p class="card-summary">Last week, AWS contributors joined the OpenSearch and Valkey communities at Open Source Summit Korea 2026 and MCP DevSummit Seoul 2026 to meet open source developers and contributors. At the four-day event, community leaders and users of these Linux Foundation open source projects gathered to share knowledge, collabor…</p>
+  </div>
+
+  <div class="card" style="--source-color:#4ADE80">
+    <div class="chips"><span class="chip" style="--source-color:#4ADE80">AWS</span></div>
+    <h2 class="card-headline">AWS Weekly Roundup: AWS Heroes Summit, Web Search on Amazon Bedrock, Dogwood, Kiro Crew, and more (August 10, 2026)</h2>
+    <div class="card-meta">Mon, 10 Aug 2026 15:45:03 +0000 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-heroes-summit-web-search-on-amazon-bedrock-dogwood-kiro-crew-and-more-august-10-2026/">→ Read more</a></div>
+    <p class="card-summary">Last week, we brought together AWS Heroes from around the world to connect, collaborate, and celebrate the builders who go above and beyond for the AWS community. The AWS Heroes Summit, an invite-only annual gathering, brings global experts specializing in fields like AI, serverless, and containers together for direct…</p>
+  </div>
+
+  <div class="card" style="--source-color:#A3E635">
+    <div class="chips"><span class="chip" style="--source-color:#A3E635">SANS ISC</span></div>
+    <h2 class="card-headline">ISC Stormcast For Thursday, August 20th, 2026 https://isc.sans.edu/podcastdetail/10060, (Thu, Aug 20th)</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 02:00:03 GMT · <a href="https://isc.sans.edu/diary/rss/33262">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#00B4D8">
+    <div class="chips"><span class="chip" style="--source-color:#00B4D8">Hacker News</span></div>
+    <h2 class="card-headline">A joke domain purchase turned in geopolitical warfare</h2>
+    <div class="card-meta">924 pts · 147 comments · <a href="https://news.ycombinator.com/item?id=49360015">HN discussion</a> · <a href="https://sprocketfox.io/xssfox/2026/08/19/sondehub-and-war/">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#00B4D8">
+    <div class="chips"><span class="chip" style="--source-color:#00B4D8">Hacker News</span></div>
+    <h2 class="card-headline">OpenRouter is joining Stripe</h2>
+    <div class="card-meta">866 pts · 447 comments · <a href="https://news.ycombinator.com/item?id=49364559">HN discussion</a> · <a href="https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#00B4D8">
+    <div class="chips"><span class="chip" style="--source-color:#00B4D8">Hacker News</span></div>
+    <h2 class="card-headline">Go 1.27</h2>
+    <div class="card-meta">669 pts · 198 comments · <a href="https://news.ycombinator.com/item?id=49365405">HN discussion</a> · <a href="https://go.dev/blog/go1.27">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#818CF8">
+    <div class="chips"><span class="chip" style="--source-color:#818CF8">MSRC</span></div>
+    <h2 class="card-headline">CVE-2026-70338 Microsoft PowerShell Security Feature Bypass Vulnerability</h2>
+    <div class="card-meta">Wed, 19 Aug 2026 07:00:00 -0700 · <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70338">→ Read more</a></div>
+    <p class="card-summary">Acknowledgement Updated</p>
+  </div>
+
+  <div class="card" style="--source-color:#818CF8">
+    <div class="chips"><span class="chip" style="--source-color:#818CF8">MSRC</span></div>
+    <h2 class="card-headline">CVE-2026-62705 Microsoft Brokering File System Elevation of Privilege Vulnerability</h2>
+    <div class="card-meta">Wed, 19 Aug 2026 07:00:00 -0700 · <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62705">→ Read more</a></div>
+    <p class="card-summary">Corrected the CVE title from **Windows Bind Filter Driver Elevation of Privilege Vulnerability** to **Microsoft Brokering File System Elevation of Privilege Vulnerability** and updated the acknowledgement. These are informational changes only.</p>
+  </div>
+
+  <div class="card" style="--source-color:#A78BFA">
+    <div class="chips"><span class="chip" style="--source-color:#A78BFA">Dark Reading</span></div>
+    <h2 class="card-headline">No-Filter 'Kriminal' AI Platform Raises Cybercrime Concerns</h2>
+    <div class="card-meta">Wed, 19 Aug 2026 20:32:09 GMT · <a href="https://www.darkreading.com/application-security/no-filter-kriminal-ai-platform-cybercrime-concerns">→ Read more</a></div>
+    <p class="card-summary">The AI company officially forbids illicit use, while offering guardrail-free social engineering, offensive cybercrime, and OSINT scanning to anyone with a bit of cryptocurrency.</p>
+  </div>
+
+  <div class="card" style="--source-color:#A78BFA">
+    <div class="chips"><span class="chip" style="--source-color:#A78BFA">Dark Reading</span></div>
+    <h2 class="card-headline">Agentic AI Presents New Insider Threat Model for Orgs</h2>
+    <div class="card-meta">Wed, 19 Aug 2026 19:54:43 GMT · <a href="https://www.darkreading.com/cyberattacks-data-breaches/agentic-ai-new-insider-threat-model">→ Read more</a></div>
+    <p class="card-summary">Katie Moussouris of Luta Security talks with the Dark Reading News Desk about how enterprises will now need to monitor risks posed by their own agents in the wake of the recent Hugging Face attack.</p>
+  </div>
+
+  <div class="card" style="--source-color:#A78BFA">
+    <div class="chips"><span class="chip" style="--source-color:#A78BFA">Dark Reading</span></div>
+    <h2 class="card-headline">SilkParasite Threatens Central Asian Orgs With Flurry of RATs</h2>
+    <div class="card-meta">Wed, 19 Aug 2026 16:58:23 GMT · <a href="https://www.darkreading.com/threat-intelligence/silkparasite-central-asian-orgs-flurry-rats">→ Read more</a></div>
+    <p class="card-summary">A spear-phishing campaign by a China-nexus group linked to FamousSparrow provides insight into geopolitical, technical, and strategic global moves by the country's APTs.</p>
+  </div>
+
+  <div class="card" style="--source-color:#38BDF8">
+    <div class="chips"><span class="chip" style="--source-color:#38BDF8">Puerto Rico</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Puerto Rico - Department of Energy (.gov)</h2>
+    <div class="card-meta">Fri, 14 Aug 2026 10:00:00 GMT · <a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE84ZHp2cjN4eFVCLTlOWHFMMmZIa2xYSzZTTmItMGN3QVZTWmJCRUQ2WTdlSXhtTFJuaVA1R1RUV1NDVThxanRmMkdyUmM3UQ?oc=5">→ Read more</a></div>
+    <p class="card-summary">Puerto Rico Department of Energy (.gov)</p>
+  </div>
+
+  <div class="card" style="--source-color:#CA8A04">
+    <div class="chips"><span class="chip" style="--source-color:#CA8A04">Banking IT</span></div>
+    <h2 class="card-headline">Starling launches AI tools for customised services</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 12:07:00 GMT · <a href="https://www.finextra.com/newsarticle/48276/starling-launches-ai-tools-for-customised-services?utm_medium=rssfinextra&amp;utm_source=finextrafeed">→ Read more</a></div>
+    <p class="card-summary">UK-based neobank Starling has released a suite of AI tools for clients to design their own custom-made tools and services.</p>
+  </div>
+
+  <div class="card" style="--source-color:#CA8A04">
+    <div class="chips"><span class="chip" style="--source-color:#CA8A04">Banking IT</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Prosus invests $100m in Indian fintech Navi</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 11:33:00 GMT · <a href="https://www.finextra.com/newsarticle/48275/prosus-invests-100m-in-indian-fintech-navi?utm_medium=rssfinextra&amp;utm_source=finextrafeed">→ Read more</a></div>
+    <p class="card-summary">Indian digital financial services firm Navi is set to receive $100m funding boost from Dutch asset manager Prosus</p>
+  </div>
+
+  <div class="card" style="--source-color:#F472B6">
+    <div class="chips"><span class="chip" style="--source-color:#F472B6">HIPAA Journal</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Free Webinar Recording: Inside 250 HIPAA Investigations – What You Need to Know</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 06:33:31 +0000 · <a href="https://www.hipaajournal.com/inside-250-hipaa-investigations/">→ Read more</a></div>
+    <p class="card-summary">See what an investigation actually looks like and learn where organizations fail so you can avoid government fines and drawn out investigations. Based on real experience in over 250 OCR investigations. The post Free Webinar Recording: Inside 250 HIPAA Investigations – What You Need to Know appeared first on The HIPAA…</p>
+  </div>
+
+  <div class="card" style="--source-color:#F472B6">
+    <div class="chips"><span class="chip" style="--source-color:#F472B6">HIPAA Journal</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Patient &amp; Employee Data Exposed in Baylor Genetics Cybersecurity Incident</h2>
+    <div class="card-meta">Wed, 19 Aug 2026 16:10:48 +0000 · <a href="https://www.hipaajournal.com/baylor-genetics-data-breach/">→ Read more</a></div>
+    <p class="card-summary">Baylor Genetics, a clinical diagnostic genomics company, has recently disclosed a cybersecurity incident that has exposed patient and employee data. […] The post Patient &amp; Employee Data Exposed in Baylor Genetics Cybersecurity Incident appeared first on The HIPAA Journal .</p>
+  </div>
+
+  <div class="card" style="--source-color:#F87171">
+    <div class="chips"><span class="chip" style="--source-color:#F87171">The Register</span></div>
+    <h2 class="card-headline">Microsoft probes reports of games taking exception to Windows 11's August update</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 13:03:00 +0200 · <a href="https://www.theregister.com/os-platforms/2026/08/20/microsoft-probes-reports-of-games-taking-exception-to-windows-11s-august-update/5290214">→ Read more</a></div>
+    <p class="card-summary">Affected titles crash, freeze, or restart PCs while Redmond works out whether it is to blame</p>
+  </div>
+
+  <div class="card" style="--source-color:#F87171">
+    <div class="chips"><span class="chip" style="--source-color:#F87171">The Register</span></div>
+    <h2 class="card-headline">Software development and tech services in the cross-hairs as AI marches on</h2>
+    <div class="card-meta">Thu, 20 Aug 2026 12:15:00 +0200 · <a href="https://www.theregister.com/ai-and-ml/2026/08/20/software-development-and-tech-services-in-the-cross-hairs-as-ai-marches-on/5289668">→ Read more</a></div>
+    <p class="card-summary">Forrester warns of disruption to long-established tech activity</p>
+  </div>
+
+  <div class="cloud-subhead">Service Health · US Regions</div>
+  <div class="status-ok">✓ All monitored US regions operating normally</div>
+
+  <div class="footer">
+    Morning Briefing · Generated by GitHub Actions · Sources: AWS Status · Azure Status · CISA KEV · Fortinet · BleepingComputer · Dark Reading · SANS ISC · The Register · Hacker News · AWS · Azure · MSRC · HIPAA Journal · Banking IT · Puerto Rico
+  </div>
+
+</div>
+</body>
+</html>
