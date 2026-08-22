@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-08-21T11:35:12Z",
+  "updated": "2026-08-22T11:30:22Z",
   "briefings": [
+    {
+      "date": "2026-08-22",
+      "file": "briefings/2026-08-22.html",
+      "weekday": "Saturday",
+      "label": "August 22, 2026",
+      "stories": 30,
+      "flagged": 7,
+      "note": "30 stories across 15 sources. No active US-region cloud incidents. 7 flagged on your radar, touching AWS IAM; Active exploits; Healthcare IT."
+    },
     {
       "date": "2026-08-21",
       "file": "briefings/2026-08-21.html",
