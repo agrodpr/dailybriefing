@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-10-15T15:33:35Z",
+  "updated": "2026-10-16T15:20:27Z",
   "briefings": [
+    {
+      "date": "2026-10-16",
+      "file": "briefings/2026-10-16.html",
+      "weekday": "Friday",
+      "label": "October 16, 2026",
+      "stories": 30,
+      "flagged": 8,
+      "note": "30 stories across 15 sources. No active US-region cloud incidents. 8 flagged on your radar, touching Active exploits; Hyper-V; Banking/financial-sector regulation or compliance; Healthcare IT."
+    },
     {
       "date": "2026-10-15",
       "file": "briefings/2026-10-15.html",
