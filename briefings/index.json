@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-10-27T16:26:57Z",
+  "updated": "2026-10-28T17:07:32Z",
   "briefings": [
+    {
+      "date": "2026-10-28",
+      "file": "briefings/2026-10-28.html",
+      "weekday": "Wednesday",
+      "label": "October 28, 2026",
+      "stories": 30,
+      "flagged": 8,
+      "note": "30 stories across 15 sources. No active US-region cloud incidents. 8 flagged on your radar, touching Active exploits; AWS/Azure deprecations or end-of-support that force action; Puerto Rico infrastructure or government tech; Healthcare IT."
+    },
     {
       "date": "2026-10-27",
       "file": "briefings/2026-10-27.html",
