@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Briefing &middot; November 3, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0B0F; --surface:#13131A; --surface-2:#1C1C26;
+  --text:#EDEAE2; --text-muted:#8B8A84;
+  --cyan:#00B4D8; --orange:#E8823A; --red:#F87171; --purple:#A78BFA;
+  --pink:#F472B6; --green:#4ADE80; --blue:#60A5FA;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--text); margin:0; padding:0 20px 40px;
+  font-family:'Inter',sans-serif;
+}
+.masthead{ text-align:center; padding-top:56px; }
+h1.title{
+  font-family:'Fraunces',serif; font-size:80px; font-weight:600;
+  letter-spacing:-2px; margin:0; color:var(--text);
+}
+.tagline{
+  font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase;
+  letter-spacing:3px; color:var(--text-muted); margin-top:14px;
+}
+hr.rule{ border:none; border-top:1px solid var(--surface-2); max-width:860px; margin:32px auto; }
+
+.legend{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:24px;
+  background:var(--surface); padding:12px 32px; border-radius:40px;
+  max-width:920px; margin:0 auto 0; width:fit-content;
+}
+.legend-item{ display:flex; align-items:center; gap:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); }
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.editors-note{
+  font-family:'Fraunces',serif; font-style:italic; font-size:24px;
+  max-width:700px; margin:48px auto; text-align:center; color:var(--text);
+  line-height:1.5;
+}
+
+.container{ max-width:860px; margin:0 auto; }
+
+.card{
+  background:var(--surface); border-left:3px solid var(--source-color, var(--cyan));
+  padding:28px 32px; border-radius:8px; margin-bottom:16px;
+  transition:filter 0.15s ease;
+}
+.card:hover{ filter:brightness(1.08); }
+.card:hover .card-headline{ filter:none; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.chip{
+  font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; font-weight:700; padding:5px 12px; border-radius:20px;
+  color:#0B0B0F; background:var(--source-color, var(--cyan)); display:inline-block;
+}
+.chip.radar{ background:var(--orange); color:#0B0B0F; }
+.chip.health{ background:#F87171; color:#0B0B0F; }
+
+.card-headline{
+  font-family:'Fraunces',serif; font-size:32px; font-weight:500;
+  margin:0 0 10px; color:var(--text); line-height:1.15;
+}
+.card-meta{ font-size:12px; color:var(--text-muted); margin-bottom:14px; }
+.card-meta a{ color:var(--text-muted); }
+.card-summary{ font-size:17px; line-height:1.7; color:var(--text); margin:0; }
+
+.cloud-subhead{
+  font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase;
+  letter-spacing:1.5px; color:var(--text-muted); margin:40px 0 12px;
+}
+.status-ok{
+  font-size:14px; color:var(--text-muted); padding:18px 32px;
+  background:var(--surface); border-radius:8px; margin-bottom:16px;
+}
+
+.skip-title{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin:48px 0 12px; }
+.skip-list{ list-style:none; padding:0; margin:0; }
+.skip-list li{ font-size:14px; color:var(--text-muted); margin-bottom:8px; }
+.skip-list a{ color:var(--text-muted); text-decoration:underline; }
+
+.footer{
+  text-align:center; font-size:11px; color:var(--text-muted);
+  padding-top:48px; max-width:860px; margin:0 auto;
+}
+
+</style>
+<style>
+html,body{overflow-x:hidden;overscroll-behavior-x:none;touch-action:pan-y;}
+h1{font-size:clamp(32px,11vw,80px)!important;word-break:break-word;}
+*{max-width:100vw;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="title">MORNING BRIEFING</h1>
+  <div class="tagline">Your daily intelligence feed · Tuesday, November 3, 2026</div>
+</div>
+<hr class="rule">
+
+<div class="legend">
+  <div class="legend-item"><span class="dot" style="background:#4ADE80"></span>AWS Status</div>
+  <div class="legend-item"><span class="dot" style="background:#60A5FA"></span>Azure Status</div>
+  <div class="legend-item"><span class="dot" style="background:#FBBF24"></span>CISA KEV</div>
+  <div class="legend-item"><span class="dot" style="background:#2DD4BF"></span>Fortinet</div>
+  <div class="legend-item"><span class="dot" style="background:#E8823A"></span>BleepingComputer</div>
+  <div class="legend-item"><span class="dot" style="background:#A78BFA"></span>Dark Reading</div>
+  <div class="legend-item"><span class="dot" style="background:#A3E635"></span>SANS ISC</div>
+  <div class="legend-item"><span class="dot" style="background:#F87171"></span>The Register</div>
+  <div class="legend-item"><span class="dot" style="background:#00B4D8"></span>Hacker News</div>
+  <div class="legend-item"><span class="dot" style="background:#4ADE80"></span>AWS</div>
+  <div class="legend-item"><span class="dot" style="background:#60A5FA"></span>Azure</div>
+  <div class="legend-item"><span class="dot" style="background:#818CF8"></span>MSRC</div>
+  <div class="legend-item"><span class="dot" style="background:#F472B6"></span>HIPAA Journal</div>
+  <div class="legend-item"><span class="dot" style="background:#CA8A04"></span>Banking IT</div>
+  <div class="legend-item"><span class="dot" style="background:#38BDF8"></span>Puerto Rico</div>
+</div>
+
+<p class="editors-note">30 stories across 15 sources. No active US-region cloud incidents. 8 flagged on your radar, touching Active exploits; Banking/financial-sector regulation or compliance; Puerto Rico infrastructure or government tech; Healthcare IT.</p>
+
+<div class="container">
+
+  <div class="card" style="--source-color:#FBBF24">
+    <div class="chips"><span class="chip" style="--source-color:#FBBF24">CISA KEV</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">CVE-2026-118527: Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability</h2>
+    <div class="card-meta">2026-10-30 · <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-118527">→ Read more</a></div>
+    <p class="card-summary">Ivanti Connect Secure contains a generation of predictable numbers or identifiers vulnerability that allows a remote authenticated attacker to upload files with attacker-controlled content to a known location on disk. This vulnerability can be chained with CVE-2026-104935 and CVE-2026-111357. (Vendor: Ivanti; added to…</p>
+  </div>
+
+  <div class="card" style="--source-color:#FBBF24">
+    <div class="chips"><span class="chip" style="--source-color:#FBBF24">CISA KEV</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">CVE-2026-111357: Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability</h2>
+    <div class="card-meta">2026-10-30 · <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-111357">→ Read more</a></div>
+    <p class="card-summary">Ivanti Connect Secure contains a missing authentication for critical function vulnerability that could allow a local authenticated attacker to escalate their privileges. This vulnerability can be chained with CVE-2026-104935 and CVE-2026-118527. (Vendor: Ivanti; added to CISA KEV 2026-10-30).</p>
+  </div>
+
+  <div class="card" style="--source-color:#FBBF24">
+    <div class="chips"><span class="chip" style="--source-color:#FBBF24">CISA KEV</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">CVE-2026-97229: GitLab Community Edition and Enterprise Edition Integer Overflow or Wraparound Vulnerability</h2>
+    <div class="card-meta">2026-10-29 · <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-97229">→ Read more</a></div>
+    <p class="card-summary">GitLab Community Edition and Enterprise Edition contain a integer overflow or wraparound vulnerability that could allow an unauthenticated user to execute arbitrary code on the GitLab server via a specially crafted regular expression in a CI/CD configuration, due to insufficient regular expression validation. (Vendor:…</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span></div>
+    <h2 class="card-headline">Barracuda warns of critical flaws allowing root access to devices</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 10:06:16 -0500 · <a href="https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/">→ Read more</a></div>
+    <p class="card-summary">Cybersecurity company Barracuda Networks warned customers to patch two vulnerabilities that can let attackers run commands with root privileges. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span></div>
+    <h2 class="card-headline">Gartner Predicts SOCs Will Have 50% More Engineers Than Analysts by 2028</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 10:00:10 -0500 · <a href="https://www.bleepingcomputer.com/news/security/gartner-predicts-socs-will-have-50-percent-more-engineers-than-analysts-by-2028/">→ Read more</a></div>
+    <p class="card-summary">Gartner predicts that security operations centers will have 50% more engineers than analysts by 2028 as AI agents take over routine alert handling. Prophet Security examines how AI is reshaping SOC roles, from analyst responsibilities and detection engineering to threat hunting and exposure management. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">UK school estate hit by 3AM ransomware in suspected AI-assisted attack</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 09:00:00 -0500 · <a href="https://www.bleepingcomputer.com/news/security/uk-school-estate-hit-by-3am-ransomware-in-suspected-ai-assisted-attack/">→ Read more</a></div>
+    <p class="card-summary">A 3AM ransomware affiliate targeted a school estate in the UK and successfully encrypted around 37 of nearly 50 machines reached from an unmanaged host. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#E8823A">
+    <div class="chips"><span class="chip" style="--source-color:#E8823A">BleepingComputer</span></div>
+    <h2 class="card-headline">Police seizes over 100 servers in investment scam crackdown</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 08:33:49 -0500 · <a href="https://www.bleepingcomputer.com/news/security/police-seizes-over-100-servers-in-investment-scam-crackdown/">→ Read more</a></div>
+    <p class="card-summary">European law enforcement authorities arrested seven suspects and seized more than 100 servers in a joint action targeting an unnamed company suspected of providing fraudulent trading websites to criminal gangs. [...]</p>
+  </div>
+
+  <div class="card" style="--source-color:#2DD4BF">
+    <div class="chips"><span class="chip" style="--source-color:#2DD4BF">Fortinet</span></div>
+    <h2 class="card-headline">Node2Shell CVEs</h2>
+    <div class="card-meta">Mon, 26 Oct 2026 00:00:00 -0700 · <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-187">→ Read more</a></div>
+    <p class="card-summary">CVSSv3 Score: 9.8 CVE-2026-105482 - (high)This vulnerability affects Node.js 26.x, 24.x, and 22.x.CVE-2026-105483 - (high)This vulnerability affects Node.js 26.x and 24.x.CVE-2026-106069 - (high)This vulnerability affects Node.js 26.x, 24.x, and 22.x.CVE-2026-111497 - (high)A flaw in Node.js can cause Node.js Brotli d…</p>
+  </div>
+
+  <div class="card" style="--source-color:#2DD4BF">
+    <div class="chips"><span class="chip" style="--source-color:#2DD4BF">Fortinet</span></div>
+    <h2 class="card-headline">Linux kernel RCE CVE-2026-98432</h2>
+    <div class="card-meta">Mon, 02 Nov 2026 00:00:00 -0800 · <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-188">→ Read more</a></div>
+    <p class="card-summary">CVSSv3 Score: 9.8 CVE-2026-98432:ipv4: free inet_opt and ireq_opt after an RCU grace period tcp_v4_syn_recv_sock() transfers ownership of ireq-&gt;ireq_opt to the child socket (newinet-&gt;inet_opt) without copying it. Another cpu can concurrently process a retransmitted SYN for the same request socket, and send a SYNACK fr…</p>
+  </div>
+
+  <div class="card" style="--source-color:#A3E635">
+    <div class="chips"><span class="chip" style="--source-color:#A3E635">SANS ISC</span></div>
+    <h2 class="card-headline">ISC Stormcast For Tuesday, November 3rd, 2026 https://isc.sans.edu/podcastdetail/10162, (Tue, Nov 3rd)</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 02:00:02 GMT · <a href="https://isc.sans.edu/diary/rss/33484">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#60A5FA">
+    <div class="chips"><span class="chip" style="--source-color:#60A5FA">Azure</span></div>
+    <h2 class="card-headline">Azure Cloud HSM Hardware Audit Logging: Verifiable audit trails for security and compliance</h2>
+    <div class="card-meta">Thu, 29 Oct 2026 16:00:00 +0000 · <a href="https://azure.microsoft.com/en-us/blog/azure-cloud-hsm-hardware-audit-logging-verifiable-audit-trails-for-security-and-compliance/">→ Read more</a></div>
+    <p class="card-summary">Security, compliance, and operations teams can use this hardware-originated evidence for monitoring, compliance reporting, and forensic investigations. The post Azure Cloud HSM Hardware Audit Logging: Verifiable audit trails for security and compliance appeared first on Microsoft Azure Blog .</p>
+  </div>
+
+  <div class="card" style="--source-color:#60A5FA">
+    <div class="chips"><span class="chip" style="--source-color:#60A5FA">Azure</span></div>
+    <h2 class="card-headline">Introducing the Microsoft Copilot harness in Foundry Agent Service</h2>
+    <div class="card-meta">Wed, 28 Oct 2026 17:40:56 +0000 · <a href="https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/">→ Read more</a></div>
+    <p class="card-summary">Today, we’re introducing the Microsoft Copilot harness in Foundry Agent Service in public preview. The post Introducing the Microsoft Copilot harness in Foundry Agent Service appeared first on Microsoft Azure Blog .</p>
+  </div>
+
+  <div class="card" style="--source-color:#CA8A04">
+    <div class="chips"><span class="chip" style="--source-color:#CA8A04">Banking IT</span></div>
+    <h2 class="card-headline">TD launches challenge to help Gen Z build financial confidence</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 15:48:00 GMT · <a href="https://www.finextra.com/newsarticle/48693/td-launches-challenge-to-help-gen-z-build-financial-confidence?utm_medium=rssfinextra&amp;utm_source=finextrafeed">→ Read more</a></div>
+    <p class="card-summary">Canada's TD is launching a challenge across its social and digital channels designed to help Gen Z build their financial confidence through daily activities and gamified experiences.</p>
+  </div>
+
+  <div class="card" style="--source-color:#CA8A04">
+    <div class="chips"><span class="chip" style="--source-color:#CA8A04">Banking IT</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">EU and Canada plan to link real-time payment systems</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 15:20:00 GMT · <a href="https://www.finextra.com/newsarticle/48692/eu-and-canada-plan-to-link-real-time-payment-systems?utm_medium=rssfinextra&amp;utm_source=finextrafeed">→ Read more</a></div>
+    <p class="card-summary">The European Union and Canada have committed to connect their real-time payment systems and to explore ways to open up their markets to each other's banks and fintechs.</p>
+  </div>
+
+  <div class="card" style="--source-color:#4ADE80">
+    <div class="chips"><span class="chip" style="--source-color:#4ADE80">AWS</span></div>
+    <h2 class="card-headline">AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and more (November 2, 2026)</h2>
+    <div class="card-meta">Mon, 02 Nov 2026 16:45:48 +0000 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/">→ Read more</a></div>
+    <p class="card-summary">The agentic launches that stayed with me last week had nothing to do with how capable a model is. They were about reach. AWS Step Functions, which already orchestrates over 220 AWS services, can now be handed to an agent as a tool, so workflows teams already trust became callable without a rewrite. In the […]</p>
+  </div>
+
+  <div class="card" style="--source-color:#4ADE80">
+    <div class="chips"><span class="chip" style="--source-color:#4ADE80">AWS</span></div>
+    <h2 class="card-headline">AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more (October 26, 2026)</h2>
+    <div class="card-meta">Mon, 26 Oct 2026 15:02:24 +0000 · <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/">→ Read more</a></div>
+    <p class="card-summary">A few weeks ago I presented to a small group of commercial and technology leaders from Brazilian agribusiness at the AWS office in São Paulo. My talk ran through where generative AI fits across the different stages of an agribusiness operation, and the point I kept returning to is that the markets we call traditional…</p>
+  </div>
+
+  <div class="card" style="--source-color:#4ADE80">
+    <div class="chips"><span class="chip" style="--source-color:#4ADE80">AWS</span></div>
+    <h2 class="card-headline">AWS Continuum for code vulnerabilities is now generally available</h2>
+    <div class="card-meta">Thu, 22 Oct 2026 20:33:10 +0000 · <a href="https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/">→ Read more</a></div>
+    <p class="card-summary">AWS Continuum for code vulnerabilities is a new security service that uses AI to automatically find, validate, and prioritize code vulnerabilities in your environment, then delivers ready-to-review fixes as pull requests replacing what previously took hours of manual investigation and days of cross-team coordination.</p>
+  </div>
+
+  <div class="card" style="--source-color:#00B4D8">
+    <div class="chips"><span class="chip" style="--source-color:#00B4D8">Hacker News</span></div>
+    <h2 class="card-headline">The 'Astra can read and write weights to improve Qwen' post is misleading</h2>
+    <div class="card-meta">720 pts · 167 comments · <a href="https://news.ycombinator.com/item?id=50351111">HN discussion</a> · <a href="https://honnibal.dev/blog/astra-read-write-misleading">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#00B4D8">
+    <div class="chips"><span class="chip" style="--source-color:#00B4D8">Hacker News</span></div>
+    <h2 class="card-headline">Could a modern chess engine on a Pentium have defeated Kasparov in 1996?</h2>
+    <div class="card-meta">319 pts · 141 comments · <a href="https://news.ycombinator.com/item?id=50349276">HN discussion</a> · <a href="https://nicholas.carlini.com/writing/2026/algorithmic-improvements-chess.html">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#00B4D8">
+    <div class="chips"><span class="chip" style="--source-color:#00B4D8">Hacker News</span></div>
+    <h2 class="card-headline">Jailbreaking my car's navigation system just so I can change the time</h2>
+    <div class="card-meta">295 pts · 98 comments · <a href="https://news.ycombinator.com/item?id=50339288">HN discussion</a> · <a href="https://blog.nns.ee/2026/11/02/renault-hack/">→ Read more</a></div>
+    <p class="card-summary">—</p>
+  </div>
+
+  <div class="card" style="--source-color:#818CF8">
+    <div class="chips"><span class="chip" style="--source-color:#818CF8">MSRC</span></div>
+    <h2 class="card-headline">CVE-2026-111497 Google: CVE-2026-111497 Buffer overflow vulnerability in the Brotli decoder</h2>
+    <div class="card-meta">Sat, 31 Oct 2026 01:13:53 -0700 · <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-111497">→ Read more</a></div>
+    <p class="card-summary">Information published.</p>
+  </div>
+
+  <div class="card" style="--source-color:#818CF8">
+    <div class="chips"><span class="chip" style="--source-color:#818CF8">MSRC</span></div>
+    <h2 class="card-headline">Chromium: CVE-2026-118304 Improper input validation in SVG</h2>
+    <div class="card-meta">Sat, 31 Oct 2026 07:00:00 -0700 · <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-118304">→ Read more</a></div>
+    <p class="card-summary">This CVE was assigned by Chrome. Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.</p>
+  </div>
+
+  <div class="card" style="--source-color:#A78BFA">
+    <div class="chips"><span class="chip" style="--source-color:#A78BFA">Dark Reading</span></div>
+    <h2 class="card-headline">9 Cyber Awareness Tips That Actually Match Today's Maze of Threats</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 15:38:20 GMT · <a href="https://www.darkreading.com/cyber-risk/9-cyber-awareness-tips-todays-maze-threats">→ Read more</a></div>
+    <p class="card-summary">Practical guidance on safer search, stronger login security, better executive protection, and other habits that help reduce enterprise risk.</p>
+  </div>
+
+  <div class="card" style="--source-color:#A78BFA">
+    <div class="chips"><span class="chip" style="--source-color:#A78BFA">Dark Reading</span></div>
+    <h2 class="card-headline">LLMJacking Emerges as Thriving Cybercriminal Enterprise</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 15:35:50 GMT · <a href="https://www.darkreading.com/cloud-security/llmjacking-thriving-cybercriminal-enterprise">→ Read more</a></div>
+    <p class="card-summary">Cybercriminals have turned reselling cloud access to LLMs into a lucrative business model, with some victims paying as much as $1 million in resource consumption before access was revoked.</p>
+  </div>
+
+  <div class="card" style="--source-color:#A78BFA">
+    <div class="chips"><span class="chip" style="--source-color:#A78BFA">Dark Reading</span></div>
+    <h2 class="card-headline">3AM Affiliate Embraces AI-Like Loops in European School Attack</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 14:00:00 GMT · <a href="https://www.darkreading.com/data-privacy/3am-affiliate-ai-loops-european-school-attack">→ Read more</a></div>
+    <p class="card-summary">Evidence suggests a model may have generated and revised commands during the ransom gang's breach, though researchers stopped short of claiming full automation.</p>
+  </div>
+
+  <div class="card" style="--source-color:#38BDF8">
+    <div class="chips"><span class="chip" style="--source-color:#38BDF8">Puerto Rico</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">NEW of PRFAA - Puerto Rico Federal Affairs Administration (.gov)</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 16:13:00 GMT · <a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxPU1NLckhDaUxhZER5ZllkbFhGUW81eVhYSEFCT0Q4QkM5S0JISmlJMkJiUU5SbmtPS0RrRHFxQnBkTVFlN0NDcjNIY0ZlUnduQTRCWGpkM2w1ZXNob05FRUIxRV95VWw2aGRpOUVSckwtb2JTaVhicWIybUlXR2xzTHoyc0NneFF2dVNwQXJqX2hqTEQ3YW9WNVY0QzllNzFGQWhzMlZWbkYzOWVIdk9UZUhsYmdUa3VZWDFTdDRDeVFYZlNHQi1TMG9tYThIbEUxenVDSkVrZGFlTXI4OXpoTg?oc=5">→ Read more</a></div>
+    <p class="card-summary">NEW of PRFAA Puerto Rico Federal Affairs Administration (.gov)</p>
+  </div>
+
+  <div class="card" style="--source-color:#F87171">
+    <div class="chips"><span class="chip" style="--source-color:#F87171">The Register</span></div>
+    <h2 class="card-headline">GSMA warns of growing risks to mobile networks from extreme weather</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 17:54:41 +0000 · <a href="https://www.theregister.com/networks/2026/11/03/gsma-warns-of-growing-risks-to-mobile-networks-from-extreme-weather/5307308">→ Read more</a></div>
+    <p class="card-summary">Mobile comms body wants a joined-up approach from governments and regulators to mitigate downtime</p>
+  </div>
+
+  <div class="card" style="--source-color:#F87171">
+    <div class="chips"><span class="chip" style="--source-color:#F87171">The Register</span></div>
+    <h2 class="card-headline">Improved asteroid deflection model runs faster, reveals more doomsday worries</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 17:36:36 +0000 · <a href="https://www.theregister.com/science/2026/11/03/improved-asteroid-deflection-model-runs-faster-reveals-more-doomsday-worries/5307317">→ Read more</a></div>
+    <p class="card-summary">“We expected aim to matter ... What surprised us was how much,' says Sandia physicist Nathan Moore</p>
+  </div>
+
+  <div class="card" style="--source-color:#F472B6">
+    <div class="chips"><span class="chip" style="--source-color:#F472B6">HIPAA Journal</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Hospital Español Auxilio Mutuo de Puerto Rico Settles Data Breach Lawsuit</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 12:41:37 +0000 · <a href="https://www.hipaajournal.com/hospital-espanol-auxilio-mutuo-de-puerto-rico-data-breach-settlement/">→ Read more</a></div>
+    <p class="card-summary">A settlement has been agreed to resolve class action litigation against Hospital Español Auxilio Mutuo de Puerto Rico to resolve […] The post Hospital Español Auxilio Mutuo de Puerto Rico Settles Data Breach Lawsuit appeared first on The HIPAA Journal .</p>
+  </div>
+
+  <div class="card" style="--source-color:#F472B6">
+    <div class="chips"><span class="chip" style="--source-color:#F472B6">HIPAA Journal</span><span class="chip radar">⚡ On Your Radar</span></div>
+    <h2 class="card-headline">Marathon Health Data Breach Reportedly Affects 5.7 Million Individuals</h2>
+    <div class="card-meta">Tue, 03 Nov 2026 11:26:17 +0000 · <a href="https://www.hipaajournal.com/marathon-health-data-breach/">→ Read more</a></div>
+    <p class="card-summary">State attorneys general have been informed about a substantial Marathon Health data breach that reportedly involved the personal and protected […] The post Marathon Health Data Breach Reportedly Affects 5.7 Million Individuals appeared first on The HIPAA Journal .</p>
+  </div>
+
+  <div class="cloud-subhead">Service Health · US Regions</div>
+  <div class="status-ok">✓ All monitored US regions operating normally</div>
+
+  <div class="footer">
+    Morning Briefing · Generated by GitHub Actions · Sources: AWS Status · Azure Status · CISA KEV · Fortinet · BleepingComputer · Dark Reading · SANS ISC · The Register · Hacker News · AWS · Azure · MSRC · HIPAA Journal · Banking IT · Puerto Rico
+  </div>
+
+</div>
+</body>
+</html>
