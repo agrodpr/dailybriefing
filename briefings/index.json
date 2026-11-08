@@ -1,7 +1,16 @@
 {
   "title": "Morning Briefing",
-  "updated": "2026-11-07T16:48:23Z",
+  "updated": "2026-11-08T16:59:50Z",
   "briefings": [
+    {
+      "date": "2026-11-08",
+      "file": "briefings/2026-11-08.html",
+      "weekday": "Sunday",
+      "label": "November 8, 2026",
+      "stories": 30,
+      "flagged": 8,
+      "note": "30 stories across 15 sources. No active US-region cloud incidents. 8 flagged on your radar, touching Active exploits; Banking/financial-sector regulation or compliance; Puerto Rico infrastructure or government tech; Healthcare IT."
+    },
     {
       "date": "2026-11-07",
       "file": "briefings/2026-11-07.html",
